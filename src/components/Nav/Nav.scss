@@ -1,1 +1,35 @@
 @import '../../styles/variables.scss';
+
+.Nav {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background-color: $color-dark-gray;
+  color: $color-beige;
+  font-size: $font-small;
+
+  .navCategory {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+
+    .navCategoryElement {
+      margin: 0px 15px;
+    }
+
+    .fa-magnifying-glass {
+      margin-left: 13px;
+      font-size: 17px;
+    }
+  }
+  .userCategory {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+
+    .userCategoryElement {
+      margin: 0px 15px;
+    }
+  }
+}
