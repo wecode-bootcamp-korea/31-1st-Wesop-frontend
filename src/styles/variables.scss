@@ -1,0 +1,18 @@
+$color-beige: #fffef2;
+
+$color-light-gray: #ebeade;
+$color-dark-gray: #333333;
+
+$font-gray: #252525;
+$font-light-gray: #666666;
+
+$font-large: 30px;
+$font-medium: 24px;
+$font-regular: 16px;
+$font-small: 14px;
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
