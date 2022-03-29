@@ -8,9 +8,9 @@ const Main = () => {
       <div className="MainFirstSlide">a</div>
       <div className="MainVitamin">a</div>
       <div className="MainShampooIntro">a</div>
-      <div>a</div>
-      <div>a</div>
-      <div>a</div>
+      <div className="MainShampooModal">a</div>
+      <div className="MainSecondSlide">a</div>
+      <div className="MainQuote">a</div>
     </div>
   );
 };
