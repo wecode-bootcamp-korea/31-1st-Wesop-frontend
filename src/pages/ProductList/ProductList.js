@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ProductList.scss';
 import Category from './Category/Category';
+import { useEffect } from 'react';
 
 const ProductList = () => {
+  const [productList, setProductList] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/category_products.json')
+      .then(res => res.json())
+      .then(data => setProductList(data));
+  }, []);
+
   return (
     <div className="ProductList">
       <nav style={{ height: 80, backgroundColor: 'black' }}>wesop</nav>
@@ -35,7 +44,9 @@ const ProductList = () => {
         </div>
       </div>
       <main className="mainContent">
-        <Category />
+        {productList.map(category => {
+          return <Category key={category.categoryId} {...category} />;
+        })}
       </main>
     </div>
   );

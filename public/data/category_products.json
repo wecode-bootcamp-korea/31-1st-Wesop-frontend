@@ -1,0 +1,244 @@
+[
+  {
+    "categoryId": 1,
+    "categoryName": "클렌저",
+    "categoryDescription": "피부의 남은 각질, 불필요한 유분 그리고 기타 잔여물을 말끔히 씻어내어 피부를 깨끗하게 하는 것은 인텔리전트 스킨케어의 기초입니다.",
+    "products": [
+      {
+        "productId": 1,
+        "badge": "",
+        "productName": "리무브",
+        "size": "60 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      },
+      {
+        "productId": 2,
+        "badge": "사랑받는기프트",
+        "productName": "퓨리파잉 페이셜 크림 클렌저",
+        "size": "100 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Purifying-Facial-Cream-Cleanser-100mL-large.png?context=bWFzdGVyfGltYWdlc3w0OTY2Mzd8aW1hZ2UvcG5nfGltYWdlcy9oOTkvaGRiLzg3OTc0MzkwOTg5MTAucG5nfDY0NDQ3OGJlMzczMTAwMWY5ZDQzMzJmODg5NDQwMDkyOTkwMmI1YzBmYTFlN2MzNjViYmFhOWM3ZTg2OGU3Y2Q"
+      },
+      {
+        "productId": 3,
+        "badge": "",
+        "productName": "페뷸러스 페이스 클렌저",
+        "size": "2 사이즈",
+        "price": "40000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Parsley-Seed-Facial-Cleansing-Oil-200mL-large.png?context=bWFzdGVyfGltYWdlc3w0NjU2MDh8aW1hZ2UvcG5nfGltYWdlcy9oMzIvaDVlLzg3OTc0Mzg4MzY3NjYucG5nfDhkZDUxNWE3YWI1YjgwMjdjNGQ3YTcxMjU4MzNhYWM0ZTM5YzViODRmZmMwOTQ1ODRmMGMzNzI1NGZjMzk1ODc"
+      },
+      {
+        "productId": 4,
+        "badge": "사랑받는기프트",
+        "productName": "파슬리 씨드 페이셜 클렌저",
+        "size": "2 사이즈",
+        "price": "45000 원부터",
+        "url": "https://www.aesop.com/medias/Aesop-SkinParsley-Seed-Facial-Cleanser-100mL-large.png?context=bWFzdGVyfGltYWdlc3wzNDYwMTh8aW1hZ2UvcG5nfGltYWdlcy9oYWMvaDIxLzg4MTUwMjM1ODczNTgucG5nfGFlYmNhMjRiM2Q2NWMzZTA1ZjljOTEyZmMxYmUyMTMyZDgyYjY4MGJlODU2OWEyNjkzYWQ0ZTBmMDY0NmQ1NjQ"
+      },
+      {
+        "productId": 5,
+        "badge": "",
+        "productName": "건성 피부용 메이크업 리무버 듀오",
+        "size": "2 사이즈",
+        "price": "40000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      }
+    ]
+  },
+  {
+    "categoryId": 2,
+    "categoryName": "각질제거",
+    "categoryDescription": "효과적인 각질 관리는 피부의 잔여물과 불필요한 유분을 깨끗하게 세정해주는 동시에 피부를 부드럽고 생기 있게 가꿔줍니다.",
+    "products": [
+      {
+        "productId": 1,
+        "badge": "",
+        "productName": "리무브",
+        "size": "60 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      },
+      {
+        "productId": 2,
+        "badge": "사랑받는기프트",
+        "productName": "퓨리파잉 페이셜 크림 클렌저",
+        "size": "100 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Purifying-Facial-Cream-Cleanser-100mL-large.png?context=bWFzdGVyfGltYWdlc3w0OTY2Mzd8aW1hZ2UvcG5nfGltYWdlcy9oOTkvaGRiLzg3OTc0MzkwOTg5MTAucG5nfDY0NDQ3OGJlMzczMTAwMWY5ZDQzMzJmODg5NDQwMDkyOTkwMmI1YzBmYTFlN2MzNjViYmFhOWM3ZTg2OGU3Y2Q"
+      },
+      {
+        "productId": 3,
+        "badge": "사랑받는기프트",
+        "productName": "페뷸러스 페이스 클렌저",
+        "size": "2 사이즈",
+        "price": "40000",
+        "url": "https://www.aesop.com/medias/Aesop-Bundle-Gentle-Deep-Cleansing-Duo-Hybris-Large-960x1090px.png?context=bWFzdGVyfGltYWdlc3wyNDM3NTB8aW1hZ2UvcG5nfGltYWdlcy9oNGYvaDU4Lzk1ODQ4NzU3MzMwMjIucG5nfDczNWEzMmRhMWE4NjBkMzA1ODQ5N2VhZDIyZDJkNTY0MGIyNjJhYzE0OTFiOTMxNDFjZjIzZjY2NWIyY2UyODM"
+      }
+    ]
+  },
+  {
+    "categoryId": 3,
+    "categoryName": "트리트먼트 & 마스크",
+    "categoryDescription": "딥 클렌징 마스크에서 너리싱 페이셜 오일에 이르기까지 모든 스킨 케어 루틴을 보완하는 제품",
+    "products": [
+      {
+        "productId": 1,
+        "badge": "",
+        "productName": "리무브",
+        "size": "60 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      },
+      {
+        "productId": 2,
+        "badge": "사랑받는기프트",
+        "productName": "퓨리파잉 페이셜 크림 클렌저",
+        "size": "100 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Purifying-Facial-Cream-Cleanser-100mL-large.png?context=bWFzdGVyfGltYWdlc3w0OTY2Mzd8aW1hZ2UvcG5nfGltYWdlcy9oOTkvaGRiLzg3OTc0MzkwOTg5MTAucG5nfDY0NDQ3OGJlMzczMTAwMWY5ZDQzMzJmODg5NDQwMDkyOTkwMmI1YzBmYTFlN2MzNjViYmFhOWM3ZTg2OGU3Y2Q"
+      },
+      {
+        "productId": 3,
+        "badge": "사랑받는기프트",
+        "productName": "페뷸러스 페이스 클렌저",
+        "size": "2 사이즈",
+        "price": "40000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      },
+      {
+        "productId": 4,
+        "badge": "사랑받는기프트",
+        "productName": "파슬리 씨드 페이셜 클렌저",
+        "size": "2 사이즈",
+        "price": "45000 원부터",
+        "url": "https://www.aesop.com/medias/Aesop-SkinParsley-Seed-Facial-Cleanser-100mL-large.png?context=bWFzdGVyfGltYWdlc3wzNDYwMTh8aW1hZ2UvcG5nfGltYWdlcy9oYWMvaDIxLzg4MTUwMjM1ODczNTgucG5nfGFlYmNhMjRiM2Q2NWMzZTA1ZjljOTEyZmMxYmUyMTMyZDgyYjY4MGJlODU2OWEyNjkzYWQ0ZTBmMDY0NmQ1NjQ"
+      },
+      {
+        "productId": 5,
+        "badge": "",
+        "productName": "건성 피부용 메이크업 리무버 듀오",
+        "size": "2 사이즈",
+        "price": "40000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      }
+    ]
+  },
+  {
+    "categoryId": 4,
+    "categoryName": "토너",
+    "categoryDescription": "토너는 클렌징과 수분 공급 사이에서 중요한 과정입니다. 피부의 밸런스를 잡아 주어 수분 공급 시 우수한 효과를 볼 수 있게 합니다.",
+    "products": [
+      {
+        "productId": 1,
+        "badge": "",
+        "productName": "리무브",
+        "size": "60 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      },
+      {
+        "productId": 2,
+        "badge": "사랑받는기프트",
+        "productName": "퓨리파잉 페이셜 크림 클렌저",
+        "size": "100 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Purifying-Facial-Cream-Cleanser-100mL-large.png?context=bWFzdGVyfGltYWdlc3w0OTY2Mzd8aW1hZ2UvcG5nfGltYWdlcy9oOTkvaGRiLzg3OTc0MzkwOTg5MTAucG5nfDY0NDQ3OGJlMzczMTAwMWY5ZDQzMzJmODg5NDQwMDkyOTkwMmI1YzBmYTFlN2MzNjViYmFhOWM3ZTg2OGU3Y2Q"
+      },
+      {
+        "productId": 3,
+        "badge": "사랑받는기프트",
+        "productName": "페뷸러스 페이스 클렌저",
+        "size": "2 사이즈",
+        "price": "40000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      },
+      {
+        "productId": 4,
+        "badge": "사랑받는기프트",
+        "productName": "파슬리 씨드 페이셜 클렌저",
+        "size": "2 사이즈",
+        "price": "45000 원부터",
+        "url": "https://www.aesop.com/medias/Aesop-SkinParsley-Seed-Facial-Cleanser-100mL-large.png?context=bWFzdGVyfGltYWdlc3wzNDYwMTh8aW1hZ2UvcG5nfGltYWdlcy9oYWMvaDIxLzg4MTUwMjM1ODczNTgucG5nfGFlYmNhMjRiM2Q2NWMzZTA1ZjljOTEyZmMxYmUyMTMyZDgyYjY4MGJlODU2OWEyNjkzYWQ0ZTBmMDY0NmQ1NjQ"
+      },
+      {
+        "productId": 5,
+        "badge": "",
+        "productName": "건성 피부용 메이크업 리무버 듀오",
+        "size": "2 사이즈",
+        "price": "40000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      }
+    ]
+  },
+  {
+    "categoryId": 5,
+    "categoryName": "하이드레이터",
+    "categoryDescription": "피부에 보습, 영양을 주고 진정을 돕는 하이드레이터는 피부를 건강하게 가꿔주고 우수한 상태로 유지 시켜줍니다.",
+    "products": [
+      {
+        "productId": 1,
+        "badge": "",
+        "productName": "리무브",
+        "size": "60 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      },
+      {
+        "productId": 2,
+        "badge": "사랑받는기프트",
+        "productName": "퓨리파잉 페이셜 크림 클렌저",
+        "size": "100 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Purifying-Facial-Cream-Cleanser-100mL-large.png?context=bWFzdGVyfGltYWdlc3w0OTY2Mzd8aW1hZ2UvcG5nfGltYWdlcy9oOTkvaGRiLzg3OTc0MzkwOTg5MTAucG5nfDY0NDQ3OGJlMzczMTAwMWY5ZDQzMzJmODg5NDQwMDkyOTkwMmI1YzBmYTFlN2MzNjViYmFhOWM3ZTg2OGU3Y2Q"
+      }
+    ]
+  },
+  {
+    "categoryId": 6,
+    "categoryName": "립&아이",
+    "categoryDescription": "다른 피부보다도 얇고 연약한 입술과 눈가 주변은 섬세하고 민감하여 주기적인 수분 공급과 보호가 필요합니다.",
+    "products": [
+      {
+        "productId": 1,
+        "badge": "",
+        "productName": "리무브",
+        "size": "60 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      },
+      {
+        "productId": 2,
+        "badge": "사랑받는기프트",
+        "productName": "퓨리파잉 페이셜 크림 클렌저",
+        "size": "100 mL",
+        "price": "27000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Purifying-Facial-Cream-Cleanser-100mL-large.png?context=bWFzdGVyfGltYWdlc3w0OTY2Mzd8aW1hZ2UvcG5nfGltYWdlcy9oOTkvaGRiLzg3OTc0MzkwOTg5MTAucG5nfDY0NDQ3OGJlMzczMTAwMWY5ZDQzMzJmODg5NDQwMDkyOTkwMmI1YzBmYTFlN2MzNjViYmFhOWM3ZTg2OGU3Y2Q"
+      },
+      {
+        "productId": 3,
+        "badge": "",
+        "productName": "페뷸러스 페이스 클렌저",
+        "size": "2 사이즈",
+        "price": "40000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      },
+      {
+        "productId": 4,
+        "badge": "사랑받는기프트",
+        "productName": "파슬리 씨드 페이셜 클렌저",
+        "size": "2 사이즈",
+        "price": "45000 원부터",
+        "url": "https://www.aesop.com/medias/Aesop-SkinParsley-Seed-Facial-Cleanser-100mL-large.png?context=bWFzdGVyfGltYWdlc3wzNDYwMTh8aW1hZ2UvcG5nfGltYWdlcy9oYWMvaDIxLzg4MTUwMjM1ODczNTgucG5nfGFlYmNhMjRiM2Q2NWMzZTA1ZjljOTEyZmMxYmUyMTMyZDgyYjY4MGJlODU2OWEyNjkzYWQ0ZTBmMDY0NmQ1NjQ"
+      },
+      {
+        "productId": 5,
+        "badge": "",
+        "productName": "건성 피부용 메이크업 리무버 듀오",
+        "size": "2 사이즈",
+        "price": "40000",
+        "url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"
+      }
+    ]
+  }
+]
