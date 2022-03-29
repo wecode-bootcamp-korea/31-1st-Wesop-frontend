@@ -11,8 +11,8 @@ $font-medium: 24px;
 $font-regular: 16px;
 $font-small: 14px;
 
-@mixin center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@mixin center($display: flex, $justify-content: center, $align-items: center) {
+  display: $display;
+  justify-content: justify-content;
+  align-items: $align-items;
 }
