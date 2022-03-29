@@ -20,7 +20,7 @@ const FooterGrid = () => {
             type="text"
             placeholder="이메일 주소"
           />
-          <i class="fa-solid fa-arrow-right" />
+          <i className="fa-solid fa-arrow-right" />
         </div>
         <div className="footerEmailPhrase">
           이솝 제품, 서비스, 스토어, 행사, 문화적 관심사 등 다양한 소식을 받아볼
@@ -32,7 +32,7 @@ const FooterGrid = () => {
             id="footerCheckbox"
             type="checkbox"
           />
-          <label for="footerCheckbox" />
+          <label htmlFor="footerCheckbox" />
           <span className="footerCheckboxPhrase">
             본인의 만 14세 이상 여부를 확인해주세요.
           </span>
