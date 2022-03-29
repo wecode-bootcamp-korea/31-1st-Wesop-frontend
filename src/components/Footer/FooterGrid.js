@@ -38,11 +38,11 @@ const FooterGrid = () => {
           </span>
         </div>
       </div>
-      {blockData.map(list => (
+      {blockData.map(({ id, blockTitle, elementList }) => (
         <FooterBlock
-          key={list.id}
-          blockTitle={list.blockTitle}
-          elementList={list.elementList}
+          key={id}
+          blockTitle={blockTitle}
+          elementList={elementList}
         />
       ))}
     </div>

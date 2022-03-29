@@ -7,8 +7,8 @@ const FooterBlock = ({ blockTitle, elementList }) => {
     <div className="FooterBlock">
       <div className="footerBlockTitle">{blockTitle}</div>
       <ul className="footerBlockListWrapper">
-        {elementList.map(list => (
-          <FooterBlockList key={list.id} element={list.element} />
+        {elementList.map(({ id, element }) => (
+          <FooterBlockList key={id} element={element} />
         ))}
       </ul>
     </div>
