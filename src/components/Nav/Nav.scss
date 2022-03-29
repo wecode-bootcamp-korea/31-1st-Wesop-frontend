@@ -9,9 +9,7 @@
   font-size: $font-small;
 
   .navMainCategory {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include center($justify-content: space-between);
     margin-left: 20px;
 
     .fa-magnifying-glass {
@@ -20,8 +18,7 @@
     }
   }
   .navUserCategory {
-    display: flex;
-    align-items: center;
+    @include center;
     margin-right: 20px;
   }
 }
