@@ -1,8 +1,12 @@
 import React from 'react';
-import FooterBanner from '../../components/Footer/FooterBanner';
+import Footer from '../../components/Footer/Footer';
 
 const Main = () => {
-  return <FooterBanner />;
+  return (
+    <div className="Main">
+      <Footer />
+    </div>
+  );
 };
 
 export default Main;

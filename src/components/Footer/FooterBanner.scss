@@ -1,15 +1,12 @@
 @import '../../styles/variables.scss';
 
 .FooterBanner {
-  position: absolute;
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: 72px;
-  bottom: 0;
   padding: 0px 34px;
-  border-top: 2px solid $color-beige;
-  background-color: $color-dark-gray;
+  border-top: 3px solid $color-beige;
   color: $color-beige;
 
   .FooterBannerLogoWrapper {
