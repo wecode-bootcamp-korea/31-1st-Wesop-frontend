@@ -1,12 +1,13 @@
 import React from 'react';
 import MainVideo from './MainVideo';
+import MainSlide from './MainSlide';
 import './Main.scss';
 
 const Main = () => {
   return (
     <div className="Main">
       <MainVideo />
-      <div className="MainFirstSlide">a</div>
+      <MainSlide />
       <div className="MainVitamin">a</div>
       <div className="MainShampooIntro">a</div>
       <div className="MainShampooModal">a</div>
