@@ -16,7 +16,7 @@ const Product = ({ badge, productName, size, price, url }) => {
         <div className="productSizePriceInfo">
           <span>{size}</span>
           <span>/</span>
-          <span>₩ {price}</span>
+          <span>₩ {Number(price).toLocaleString()}</span>
         </div>
       </div>
     </div>

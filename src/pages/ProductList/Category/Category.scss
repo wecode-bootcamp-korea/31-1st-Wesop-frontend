@@ -37,7 +37,15 @@
   }
 
   .productBodyScrollable {
-    width: 78.7%;
+    width: 75%;
     white-space: nowrap;
   }
+}
+
+.lightBeige {
+  background-color: $color-beige;
+}
+
+.darkBeige {
+  background-color: #ebeade;
 }

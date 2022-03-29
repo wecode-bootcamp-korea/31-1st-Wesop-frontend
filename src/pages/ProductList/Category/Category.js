@@ -3,13 +3,17 @@ import Product from './Product/Product';
 import './Category.scss';
 
 const Category = ({
+  categoryId,
   categoryName,
   categoryDescription,
   products,
   evenCategory,
 }) => {
   return (
-    <div className="category">
+    <div
+      className="category"
+      style={{ backgroundColor: categoryId % 2 === 0 ? '#ebeade' : '' }}
+    >
       <div className="productTitleWrapper">
         <div className="descriptionBox">
           <div className="descriptionTitle">
