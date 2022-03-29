@@ -1,7 +1,8 @@
 import React from 'react';
+import FooterBanner from '../../components/Footer/FooterBanner';
 
 const Main = () => {
-  return <div>wesop</div>;
+  return <FooterBanner />;
 };
 
 export default Main;
