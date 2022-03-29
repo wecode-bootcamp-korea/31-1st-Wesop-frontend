@@ -1,0 +1,43 @@
+@import './../../../styles/variables.scss';
+
+.category {
+  display: flex;
+  height: 530px;
+
+  .productTitleWrapper {
+    width: 22.2%;
+    padding: 40px 20px 71px 40px;
+    word-wrap: break-word;
+    color: $font-gray;
+
+    .descriptionBox {
+      margin-top: 200px;
+      padding-bottom: 50px;
+      color: $font-gray;
+
+      .descriptionTitleBtn {
+        font-size: $font-medium;
+        margin-bottom: 20px;
+      }
+
+      .descriptionText {
+        font-size: $font-regular;
+        line-height: 1.6;
+      }
+    }
+
+    .subCategoryIntro {
+      @include center($center: space-between);
+      font-size: $font-small;
+
+      span {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .productBodyScrollable {
+    width: 78.7%;
+    white-space: nowrap;
+  }
+}
