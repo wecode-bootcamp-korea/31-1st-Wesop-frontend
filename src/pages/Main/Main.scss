@@ -1,0 +1,24 @@
+@import '../../styles/variables.scss';
+
+.Main {
+  .MainVideo {
+    width: 100%;
+    height: 700px;
+    background-color: black;
+  }
+
+  .MainFirstSlide {
+    width: 100%;
+    height: 600px;
+  }
+
+  .MainVitamin {
+    width: 100%;
+    height: 800px;
+  }
+
+  .MainShampooIntro {
+    width: 100%;
+    height: 425px;
+  }
+}
