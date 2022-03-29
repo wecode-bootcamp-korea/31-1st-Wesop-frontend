@@ -1,0 +1,61 @@
+@import '../../styles/variables.scss';
+
+.MainVideo {
+  height: 700px;
+
+  .MainVideoWrapper {
+    position: relative;
+
+    .backgroundVideo {
+      width: 100%;
+    }
+
+    .wesopLogo {
+      position: absolute;
+      top: 20%;
+      left: 3%;
+      width: 150px;
+    }
+
+    .MainVideoParagraphWrapper {
+      position: absolute;
+      top: 20%;
+      left: 19%;
+      display: flex;
+      flex-direction: column;
+      color: $font-gray;
+
+      .MainVideoParagraphIntro {
+        margin-bottom: 15px;
+        font-size: $font-small;
+        font-weight: bold;
+      }
+
+      .MainVideoParagraphHeader {
+        margin-bottom: 15px;
+        font-size: 26px;
+      }
+
+      .MainVideoParagraphContent {
+        width: 310px;
+        margin-bottom: 15px;
+        line-height: 1.6;
+        font-size: $font-regular;
+      }
+
+      .MainVideoParagraphLink {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px;
+        height: 60px;
+        padding: 0px 15px;
+        border: 1px solid $font-gray;
+        color: $font-gray;
+        font-size: $font-small;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+  }
+}
