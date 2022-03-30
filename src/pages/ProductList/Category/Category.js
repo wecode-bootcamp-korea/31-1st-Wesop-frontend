@@ -25,7 +25,9 @@ const Category = ({
         </div>
         <div className="subCategoryIntro">
           <button className="subCategoryIntroBtn">
-            <span>{categoryName} 모두 보기(9)</span>
+            <span>
+              {categoryName} 모두 보기({products.length})
+            </span>
             <i className="fas fa-thin fa-arrow-right" />
           </button>
         </div>

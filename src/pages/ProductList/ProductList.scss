@@ -71,5 +71,73 @@
         margin: 0px 14px;
       }
     }
+    .filterXBtn {
+      padding: 20px 10px;
+      .fa-xmark {
+        font-size: 20px;
+      }
+    }
+  }
+  .baseInfo {
+    padding: 150px 0px;
+    overflow-x: hidden;
+
+    .twoColumnModule {
+      @include center($center: space-between);
+
+      .copy {
+        padding-left: 80px;
+        width: 475px;
+        height: 472px;
+
+        .title {
+          margin-bottom: 30px;
+          font-size: $font-large;
+        }
+
+        .description {
+          margin-bottom: 30px;
+          line-height: 1.6;
+          font-size: $font-regular;
+        }
+
+        .btnHover {
+          padding: 21px 10px;
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          transition: 0.2s ease-in;
+
+          &:hover {
+            background-color: $color-dark-gray;
+
+            .btnText,
+            .btnIcon {
+              color: $color-beige;
+            }
+          }
+
+          .btnText,
+          .btnIcon {
+            color: $font-light-gray;
+            font-size: $font-small;
+            margin: 0px 14px;
+          }
+
+          .btnText {
+            margin-right: 135px;
+          }
+        }
+      }
+
+      .imgWrapper {
+        width: 830px;
+        height: 470px;
+        overflow: hidden;
+        background-color: red;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
   }
 }

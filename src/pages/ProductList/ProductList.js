@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import './ProductList.scss';
 import Category from './Category/Category';
+import FilterOpen from './FilterOpen/FilterOpen';
 import { useEffect } from 'react';
 
 const ProductList = () => {
   const [productList, setProductList] = useState([]);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3000/data/category_products.json')
       .then(res => res.json())
       .then(data => setProductList(data));
   }, []);
+
+  const filterClickHandler = () => {
+    setIsFilterOpen(!isFilterOpen);
+  };
 
   return (
     <div className="ProductList">
@@ -35,19 +41,53 @@ const ProductList = () => {
           })}
         </ul>
         <div className="filterBtnContainer">
-          <button className="filterBtn">
-            <span className="filterBtnText">필터</span>
-            <span>
-              <i className="fa-solid fa-angle-down filterBtnIcon" />
-            </span>
-          </button>
+          {isFilterOpen ? (
+            <button onClick={filterClickHandler} className="filterXBtn">
+              <span>
+                <i className="fa-solid fa-xmark" />
+              </span>
+            </button>
+          ) : (
+            <button onClick={filterClickHandler} className="filterBtn">
+              <span className="filterBtnText">필터</span>
+              <span>
+                <i className="fa-solid fa-angle-down filterBtnIcon" />
+              </span>
+            </button>
+          )}
         </div>
       </div>
+      {isFilterOpen && <FilterOpen />}
       <main className="mainContent">
         {productList.map(category => {
           return <Category key={category.categoryId} {...category} />;
         })}
       </main>
+      <div className="baseInfo">
+        <div className="twoColumnModule">
+          <aside className="copy">
+            <h2 className="title">내 피부 이해하기</h2>
+            <p className="description">
+              피부의 특성과 필요를 더 깊이 이해하여 피부를 정화하고 영양을
+              공급하며 보호하는 데 가장 적합한 제품을 선택하려면 본 가이드를
+              자세히 살펴보시기 바랍니다.
+            </p>
+            <button className="btnHover">
+              <span className="btnText">자세히 살펴보기</span>
+              <span>
+                <i className="btnIcon fa-solid fa-arrow-right-long" />
+              </span>
+            </button>
+          </aside>
+          <div className="imgWrapper">
+            <img
+              className
+              alt="cover"
+              src="https://images.unsplash.com/photo-1581182800629-7d90925ad072?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
