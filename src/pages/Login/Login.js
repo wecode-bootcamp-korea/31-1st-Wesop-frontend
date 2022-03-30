@@ -1,92 +1,50 @@
 import React, { useState } from 'react';
-import LoginErrorMsg from './LoginErrorMsg/LoginErrorMsg';
 import { useNavigate } from 'react-router-dom';
 import LoginMsg from './LoginMsg/LoginMsg';
+import LoginTopBtn from './LoginTopBtn/LoginTopBtn';
+import LoginMain from './LoginMain/LoginMain';
+import LoginSignIn from './LoginSignIn/LoginSignIn';
+import LoginSignUp from './LoginSignUp/LoginSignUp';
+import LoginResetPw from './LoginResetPw/LoginResetPw';
+import LoginSendedPw from './LoginSendedPw/LoginSendedPw';
+
 import './Login.scss';
 
 const Login = () => {
-  // Main : 1 , Sign In : 2 , Sign up : 3 , Reset PW : 4
-  const [loginMode, setLoginMode] = useState(2);
-
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [enteredPw, setsEnteredPw] = useState('');
-
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [isAtContain, setIsAtContain] = useState(true);
+  // Main : 1 , Sign In : 2 , Sign up : 3
+  // Reset PW : 4 , Sended Pw: 5
+  const [loginMode, setLoginMode] = useState(1);
 
   const navigate = useNavigate();
 
-  const goToMain = () => {
-    setLoginMode(1);
+  const changeLoginModeHandler = number => {
+    setLoginMode(number);
   };
 
-  const checkEmailInput = event => {
-    enteredEmail.length === 0 || enteredEmail.includes('@')
-      ? setIsAtContain(true)
-      : setIsAtContain(false);
-  };
-
-  const userIdChangeHandler = event => {
-    setEnteredEmail(event.target.value);
-  };
-
-  const userPwChangeHandler = event => {
-    setsEnteredPw(event.target.value);
-  };
-
-  const submitHandler = event => {
-    event.preventDefault();
-    console.log('submit!');
-  };
-
-  const closeLoginModal = () => {
+  const closeLoginModalHandler = () => {
     navigate('/');
   };
 
-  const backArrowBtn = (
-    <button className="retrunLoginBtn" type="button" onClick={goToMain}>
-      <i className="fa-solid fa-arrow-left-long" />
-    </button>
-  );
-
-  const escapeBtn = (
-    <button
-      className="closeLoginModalBtn"
-      type="button"
-      onClick={closeLoginModal}
-    >
-      <i className="fa-solid fa-xmark" />
-    </button>
-  );
-
-  const emailErrMsg = (
-    <p className="idErrorMsg">유효한 이메일 주소를 입력해주세요.</p>
-  );
-
   return (
     <div className="login">
-      <div className="backdrop" onClick={closeLoginModal} />
-      <form className="loginInner" onSubmit={submitHandler}>
-        <section className="loginWindowBtnArea">
-          {loginMode === 1 ? '' : backArrowBtn}
-          {escapeBtn}
-        </section>
-
-        <section className="loginMsgArea">
-          <LoginMsg />
-          <LoginErrorMsg />
-        </section>
-
-        <section className="loginInsertArea">
-          <input
-            type="email"
-            onChange={userIdChangeHandler}
-            onBlur={checkEmailInput}
-          />
-          {isAtContain ? '' : emailErrMsg}
-          <button type="submit">계속</button>
-        </section>
-      </form>
+      <div className="backdrop" onClick={closeLoginModalHandler} />
+      <div className="loginBody">
+        <LoginTopBtn
+          loginMode={loginMode}
+          onChangeMode={changeLoginModeHandler}
+          onCloseModal={closeLoginModalHandler}
+        />
+        <LoginMsg loginMode={loginMode} />
+        {loginMode === 1 && <LoginMain onChangeMode={changeLoginModeHandler} />}
+        {loginMode === 2 && <LoginSignIn />}
+        {loginMode === 3 && <LoginSignUp />}
+        {loginMode === 4 && (
+          <LoginResetPw onChangeMode={changeLoginModeHandler} />
+        )}
+        {loginMode === 5 && (
+          <LoginSendedPw onCloseModal={closeLoginModalHandler} />
+        )}
+      </div>
     </div>
   );
 };

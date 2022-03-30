@@ -14,7 +14,7 @@
     background: rgba(0, 0, 0, 0.4);
   }
 
-  .loginInner {
+  .loginBody {
     @include center;
 
     padding: 50px;
@@ -32,18 +32,6 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
     z-index: 100;
-
-    .loginWindowBtnArea {
-      button {
-        border: 0;
-        background-color: transparent;
-        font-size: 14px;
-      }
-    }
-
-    .loginMsgArea {
-      width: 100%;
-    }
 
     .loginInsertArea {
       display: flex;
