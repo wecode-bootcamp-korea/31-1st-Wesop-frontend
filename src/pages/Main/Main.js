@@ -2,6 +2,7 @@ import React from 'react';
 import MainVideo from './MainVideo';
 import MainCarousel from './MainCarousel';
 import './Main.scss';
+import Footer from '../../components/Footer/Footer';
 
 const Main = () => {
   return (
@@ -13,6 +14,7 @@ const Main = () => {
       <div className="MainShampooModal">a</div>
       <div className="MainSecondSlide">a</div>
       <div className="MainQuote">a</div>
+      <Footer />
     </div>
   );
 };

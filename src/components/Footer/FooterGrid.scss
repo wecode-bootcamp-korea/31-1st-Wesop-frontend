@@ -1,0 +1,80 @@
+@import '../../styles/variables.scss';
+
+.FooterGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 35px;
+  grid-row-gap: 35px;
+  width: 100%;
+  height: 700px;
+  padding: 40px 34px;
+  color: $color-beige;
+
+  .footerEmail {
+    position: relative;
+
+    .footerEmailInputWrapper {
+      .footerEmailInput {
+        width: 100%;
+        margin-bottom: 15px;
+        padding-left: 10px;
+        border: 1px solid $color-beige;
+        border-radius: 2px;
+        background-color: $font-gray;
+        caret-color: $color-beige;
+        color: $color-beige;
+        font-size: 28px;
+      }
+
+      .fa-arrow-right {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      ::-webkit-input-placeholder {
+        color: $color-beige;
+        font-size: 20px;
+      }
+    }
+
+    .footerEmailPhrase {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-size: $font-small;
+    }
+
+    .footerCheckboxWrapper {
+      display: flex;
+      align-items: center;
+
+      input[type='checkbox'] {
+        display: none;
+      }
+
+      input[type='checkbox'] + label:before {
+        content: '';
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 1px solid $color-beige;
+        cursor: pointer;
+      }
+
+      input[type='checkbox']:checked + label:before {
+        content: '✓';
+        width: 14px;
+        height: 14px;
+        border: 1px solid $color-beige;
+        cursor: pointer;
+      }
+
+      .footerCheckboxPhrase {
+        margin-left: 10px;
+        line-height: 1.6;
+        font-size: $font-small;
+      }
+    }
+  }
+}

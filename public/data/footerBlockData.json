@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "blockTitle": "주문 및 지원",
+    "elementList": [
+      {
+        "id": 1,
+        "element": "문의하기"
+      },
+      {
+        "id": 2,
+        "element": "자주 묻는 질문 ↗"
+      },
+      {
+        "id": 3,
+        "element": "배송 ↗"
+      },
+      {
+        "id": 4,
+        "element": "반품 ↗"
+      },
+      {
+        "id": 5,
+        "element": "배송 조회하기 ↗"
+      },
+      {
+        "id": 6,
+        "element": "주문 내역"
+      },
+      {
+        "id": 7,
+        "element": "이용 약관"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "blockTitle": "서비스",
+    "elementList": [
+      {
+        "id": 1,
+        "element": "기업체 구매"
+      },
+      {
+        "id": 2,
+        "element": "페이셜 어포인트먼트"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "blockTitle": "위치 기본 설정",
+    "elementList": [
+      {
+        "id": 1,
+        "element": "배송: 대한민국"
+      },
+      {
+        "id": 2,
+        "element": "언어: 한국어"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "blockTitle": "지속가능성",
+    "elementList": [
+      {
+        "id": 1,
+        "element": "이솝은 비콥 인증을 획득한 브랜드이며, PETA로부터 비건 인증을 받은 브랜드입니다. 더 알아보기"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "blockTitle": "소개",
+    "elementList": [
+      {
+        "id": 1,
+        "element": "브랜드 스토리"
+      },
+      {
+        "id": 2,
+        "element": "위솝 재단"
+      },
+      {
+        "id": 3,
+        "element": "채용"
+      },
+      {
+        "id": 4,
+        "element": "위솝 코리아 개인정보 처리방침"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "blockTitle": "소셜",
+    "elementList": [
+      {
+        "id": 1,
+        "element": "Instagram ↗"
+      },
+      {
+        "id": 2,
+        "element": "Twitter ↗"
+      },
+      {
+        "id": 3,
+        "element": "LinkedIn ↗"
+      },
+      {
+        "id": 4,
+        "element": "Kakao Plus Friend ↗"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "blockTitle": "주의",
+    "elementList": [
+      {
+        "id": 1,
+        "element": "상호: 위솝코리아 유한회사 | 주소: 서울특별시 강남구 테헤란로 427 | 대표자: 위코드 31기 위솝 | 대표 이메일: wesop@wesop.com"
+      }
+    ]
+  }
+]
