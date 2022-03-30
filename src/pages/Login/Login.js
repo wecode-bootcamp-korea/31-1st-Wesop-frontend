@@ -1,50 +1,75 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginMsg from './LoginMsg/LoginMsg';
-import LoginTopBtn from './LoginTopBtn/LoginTopBtn';
-import LoginMain from './LoginMain/LoginMain';
-import LoginSignIn from './LoginSignIn/LoginSignIn';
-import LoginSignUp from './LoginSignUp/LoginSignUp';
-import LoginResetPw from './LoginResetPw/LoginResetPw';
-import LoginSendedPw from './LoginSendedPw/LoginSendedPw';
+import LoginCard from '../../components/Login/LoginCard';
+import LoginForm from './LoginForm';
 
 import './Login.scss';
 
 const Login = () => {
-  // Main : 1 , Sign In : 2 , Sign up : 3
-  // Reset PW : 4 , Sended Pw: 5
-  const [loginMode, setLoginMode] = useState(1);
+  // main , signUp , signIn, resetPw
+  const [loginMode, setLoginMode] = useState('main');
 
   const navigate = useNavigate();
 
-  const changeLoginModeHandler = number => {
-    setLoginMode(number);
+  const changeLoginModeHandler = type => {
+    setLoginMode(type);
   };
 
-  const closeLoginModalHandler = () => {
+  const closeModalHandler = () => {
     navigate('/');
+    // TODO: 나갈시에 유저정보 state다 리셋해주는거 넣어야됨.
   };
+
+  const FIRSTWINDOW_DATA = [{ type: 'email', text: '"이메일 주소' }];
+
+  const SIGNIN_DATA = [
+    { type: 'email', text: '"이메일 주소' },
+    { type: 'password', text: '패스워드' },
+  ];
+
+  const SIGNUP_DATA = [
+    { type: 'email', text: '"이메일 주소' },
+    { type: 'password', text: '패스워드' },
+    { type: 'confirmPassword', text: '패스워드 확인' },
+    { type: 'lastName', text: '성' },
+    { type: 'firstName', text: '이름' },
+  ];
+
+  const RESETPW_DATA = [{ type: 'email', text: '"이메일 주소' }];
 
   return (
     <div className="login">
-      <div className="backdrop" onClick={closeLoginModalHandler} />
-      <div className="loginBody">
-        <LoginTopBtn
-          loginMode={loginMode}
-          onChangeMode={changeLoginModeHandler}
-          onCloseModal={closeLoginModalHandler}
-        />
-        <LoginMsg loginMode={loginMode} />
-        {loginMode === 1 && <LoginMain onChangeMode={changeLoginModeHandler} />}
-        {loginMode === 2 && <LoginSignIn />}
-        {loginMode === 3 && <LoginSignUp />}
-        {loginMode === 4 && (
-          <LoginResetPw onChangeMode={changeLoginModeHandler} />
+      <div className="backdrop" onClick={closeModalHandler} />
+      <LoginCard className="loginInner">
+        {loginMode === 'main' && (
+          <LoginForm
+            type="main"
+            formData={FIRSTWINDOW_DATA}
+            onChangeMode={changeLoginModeHandler}
+          />
         )}
-        {loginMode === 5 && (
-          <LoginSendedPw onCloseModal={closeLoginModalHandler} />
+        {loginMode === 'signIn' && (
+          <LoginForm
+            type="signIn"
+            formData={SIGNIN_DATA}
+            onChangeMode={changeLoginModeHandler}
+          />
         )}
-      </div>
+        {loginMode === 'signUp' && (
+          <LoginForm
+            type="signUp"
+            formData={SIGNUP_DATA}
+            onChangeMode={changeLoginModeHandler}
+          />
+        )}
+        {loginMode === 'resetPw' && (
+          <LoginForm
+            type="resetPw"
+            formData={RESETPW_DATA}
+            onChangeMode={changeLoginModeHandler}
+          />
+        )}
+      </LoginCard>
     </div>
   );
 };
