@@ -14,7 +14,7 @@
 
   .productBadgeWrapper {
     height: 60px;
-    padding: 30px 0px;
+    padding: 40px 0px;
     font-size: $font-small;
     color: $font-light-gray;
   }
@@ -26,9 +26,11 @@
 
     .productImage {
       position: absolute;
-      width: 94%;
+      width: 55%;
+      height: 100%;
       bottom: 0px;
-      left: 0px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 
