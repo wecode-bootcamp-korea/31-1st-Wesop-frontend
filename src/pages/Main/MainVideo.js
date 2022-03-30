@@ -21,7 +21,7 @@ const MainVideo = () => {
           </div>
           <a className="MainVideoParagraphLink" href="/product-list">
             <span>이그절티드 아이 세럼 보기</span>
-            <i class="fa-solid fa-arrow-right" />
+            <i className="fa-solid fa-arrow-right" />
           </a>
         </div>
       </div>
