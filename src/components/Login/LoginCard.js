@@ -1,8 +1,8 @@
 import React from 'react';
 import './LoginCard.scss';
 
-const LoginCard = props => {
-  return <div className={`loginCard ${props.className}`}>{props.children}</div>;
+const LoginCard = ({ className, children }) => {
+  return <div className={`loginCard ${className}`}>{children}</div>;
 };
 
 export default LoginCard;
