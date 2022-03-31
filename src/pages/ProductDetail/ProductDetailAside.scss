@@ -1,0 +1,35 @@
+.productDetailAside {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  height: 852px;
+
+  .subProductDetailAside {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 48px;
+    height: 462px;
+
+    .goodProductUseTogether {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      width: 2989px;
+      height: 462px;
+
+      .greatUseTogether {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+.AsideListImg {
+  width: 400px;
+  height: 400px;
+}
+
+.introductionItem {
+  text-align: center;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #333333;
+}

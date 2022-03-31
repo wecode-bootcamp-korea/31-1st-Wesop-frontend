@@ -1,0 +1,112 @@
+.nav {
+  margin-top: 80px;
+  background-color: white;
+}
+
+.productDetailBackground {
+  background-color: #fffef2;
+  height: 350vh;
+
+  .productDetailLogo {
+    width: 120px;
+    height: 40px;
+    position: relative;
+    top: 105px;
+    left: 30px;
+  }
+}
+
+.productDetailSection {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  height: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
+  bottom: 40px;
+
+  .productDetailCategory {
+    padding-bottom: 20px;
+  }
+}
+
+.productDetailSectionContainer {
+  margin-right: 120px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333333;
+}
+
+.productDetailSectionList {
+  width: 360px;
+}
+
+.productDetailUnderline {
+  padding-bottom: 24px;
+  border-bottom: 2px solid black;
+}
+
+.productDetailUnderlined {
+  border-bottom: 1px solid #d4d4c9;
+  padding-top: 15px;
+  padding-bottom: 13px;
+}
+
+.productDetailUndrl {
+  padding-top: 15px;
+  padding-bottom: 13px;
+}
+
+.productDetailSpaces {
+  padding-bottom: 10px;
+}
+
+.productDetailExplanation {
+  color: #666666;
+}
+
+.productDetailName {
+  font-size: 2em;
+  font-weight: 350;
+}
+
+.productDetailImg {
+  width: 440px;
+  height: 430px;
+  position: relative;
+  right: 470px;
+  bottom: 490px;
+}
+
+.shoppingCartButton {
+  padding-top: 20px;
+  padding: 20px 15px 20px 15px;
+  width: 360px;
+  height: 58px;
+  border: none;
+  background-color: #333333;
+  color: #fffef2;
+}
+
+.productDetailService {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 100px;
+
+  .productDetailServiceMessage {
+    border-right: 1px solid #d4d4c9;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 67px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666666;
+
+    .serviceGift {
+      color: #333333;
+    }
+  }
+}
