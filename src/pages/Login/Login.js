@@ -6,13 +6,9 @@ import LoginForm from './LoginForm';
 import './Login.scss';
 
 const Login = () => {
-  // main , signUp , signIn, resetPw
-
-  // const [loginMode, setLoginMode] = useState('main');
-  // const [loginMode, setLoginMode] = useState('signUp');
+  // 로그인모드 종류 = [main , signUp , signIn, resetPw, receivedPw]
   const [loginMode, setLoginMode] = useState('signIn');
-  // const [loginMode, setLoginMode] = useState('resetPw');
-  // const [loginMode, setLoginMode] = useState('receivedPw');
+
   const navigate = useNavigate();
 
   const changeLoginModeHandler = type => {
@@ -21,7 +17,6 @@ const Login = () => {
 
   const closeModalHandler = () => {
     navigate('/');
-    // TODO: 나갈시에 유저정보 state다 리셋해주는거 넣어야됨.
   };
 
   const insertLoginForm = dataName => {

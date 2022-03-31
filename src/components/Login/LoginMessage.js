@@ -26,7 +26,6 @@ const LoginMessage = ({ loginMode }) => {
     <div className="loginMessage">
       <p className="titleMessae">{titleMsg}</p>
       <p className="contentMessage">{contentMsg}</p>
-      {/* {error && <p className='errorMessage'>에러가 있을때 이거 뜨게</p>} */}
     </div>
   );
 };

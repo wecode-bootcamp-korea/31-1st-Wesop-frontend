@@ -6,12 +6,9 @@ const LoginInput = ({
   inputText,
   inputType,
   userInfo,
-  inputValidity,
   onSetUserInfo,
   onSetInputValidity,
 }) => {
-  // const [errorMsg, setErrorMsg] = useState('초기값');
-
   const changeUserInfo = event => {
     const { name, value } = event.target;
     onSetUserInfo(prevUserInfo => {

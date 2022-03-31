@@ -21,8 +21,6 @@ const LoginForm = ({
     repassword: '',
   });
 
-  console.log(userInfo);
-
   const [inputValidity, setInputValidity] = useState({
     email: false,
     firstName: false,
@@ -33,8 +31,6 @@ const LoginForm = ({
     samePassword: false,
   });
 
-  console.log(inputValidity);
-
   const isInputAllValid =
     inputValidity.email &&
     inputValidity.firstName &&
@@ -43,8 +39,6 @@ const LoginForm = ({
     inputValidity.rePassword &&
     inputValidity.emailContainAt &&
     inputValidity.samePassword;
-
-  console.log(`isInputAllValid : ${isInputAllValid}`);
 
   const sumbmitHandler = event => {
     event.preventDefault();
@@ -76,10 +70,6 @@ const LoginForm = ({
 
   const goToResetPw = () => {
     onChangeLoginMode('resetPw');
-  };
-
-  const goToReceivedPw = () => {
-    onChangeLoginMode('receivedPw');
   };
 
   return (
