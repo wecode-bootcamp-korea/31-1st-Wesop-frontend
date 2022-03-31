@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Product from './Product/Product';
 import './Category.scss';
 
@@ -9,6 +9,19 @@ const Category = ({
   products,
   evenCategory,
 }) => {
+  const [counter, setCounter] = useState(0);
+
+  const leftBtnClickHandler = () => {
+    setCounter(counter - 1);
+  };
+
+  const rightBtnClickHandler = () => {
+    setCounter(counter + 1);
+  };
+
+  let showLeftBtn = counter > 0;
+  let showRightBtn = counter !== products.length - 3 && counter * 22.2 < 1920;
+
   return (
     <div
       className="category"
@@ -33,9 +46,38 @@ const Category = ({
         </div>
       </div>
       <div className="productBodyScrollable">
-        {products.map(product => {
-          return <Product key={product.productId} {...product} />;
-        })}
+        <div
+          className="products"
+          style={{ transform: `translateX(-${22.2 * counter}%)` }}
+        >
+          {products.map(product => {
+            return <Product key={product.productId} {...product} />;
+          })}
+        </div>
+        {showLeftBtn && (
+          <div className="carouselLeft">
+            <button
+              name="left"
+              className="carouselLeftBtn"
+              onClick={leftBtnClickHandler}
+              disabled={showLeftBtn ? false : true}
+            >
+              <i className="fa-solid fa-chevron-left" />
+            </button>
+          </div>
+        )}
+        {showRightBtn && (
+          <div className="carouselRight">
+            <button
+              name="right"
+              className="carouselRightBtn"
+              onClick={rightBtnClickHandler}
+              disabled={showRightBtn ? false : true}
+            >
+              <i className="fa-solid fa-chevron-right" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

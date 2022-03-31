@@ -37,8 +37,48 @@
   }
 
   .productBodyScrollable {
-    width: 75%;
+    width: 78.8%;
     white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s ease-in-out;
+
+    .products {
+      transition: 0.4s ease-in-out;
+    }
+
+    .carouselLeft,
+    .carouselRight {
+      position: absolute;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      background-color: transparent;
+    }
+
+    .carouselLeftBtn,
+    .carouselRightBtn {
+      width: 80px;
+      height: 80px;
+      background-color: $color-dark-gray;
+      color: $color-beige;
+      transform: translateY(230px);
+      display: none;
+    }
+
+    .carouselRight {
+      right: 0;
+
+      &:hover .carouselRightBtn {
+        display: block;
+      }
+    }
+
+    .carouselLeft {
+      &:hover .carouselLeftBtn {
+        display: block;
+      }
+    }
   }
 }
 
