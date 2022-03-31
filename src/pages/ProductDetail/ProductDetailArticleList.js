@@ -10,19 +10,19 @@ function ProductDetailArticleList({ product }) {
       />
       <div className="ProductDetailArticleContainer">
         <div className="howUseUnderline">
-          <p className="subDetailFontColor">{product.howUse}</p>
-          <p className="howUseFontColor">{product.howToUse}</p>
+          <p className="subDetailFontColor">사용법</p>
+          <p className="howUseFontColor">{product.howUse}</p>
         </div>
         <div className="subDetailUnderline">
-          <p className="subDetailFontColor">{product.usage}</p>
-          <p>{product.usg}</p>
+          <p className="subDetailFontColor">사용량</p>
+          <p>{product.usage}</p>
         </div>
         <div className="subDetailUnderline">
-          <p className="subDetailFontColor">{product.texture}</p>
-          <p>{product.trtr}</p>
+          <p className="subDetailFontColor">텍스처</p>
+          <p>{product.texture}</p>
         </div>
         <div className="subDetailUnderlined">
-          <p className="subDetailFontColor">{product.arm}</p>
+          <p className="subDetailFontColor">향</p>
           <p>{product.aroma}</p>
         </div>
       </div>

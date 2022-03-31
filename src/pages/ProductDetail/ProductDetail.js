@@ -94,6 +94,8 @@ const ProductDetail = () => {
               })}
             </div>
           </div>
+          <button className="slide-1" onClick />
+          <button className="slide-2" />
         </aside>
       </div>
     </>

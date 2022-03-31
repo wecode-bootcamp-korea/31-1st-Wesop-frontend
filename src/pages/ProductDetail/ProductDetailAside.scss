@@ -8,6 +8,7 @@
     margin-right: 80px;
     margin-bottom: 48px;
     height: 462px;
+    overflow: hidden;
 
     .goodProductUseTogether {
       display: grid;
@@ -22,8 +23,13 @@
   }
 }
 
+.AsideListImgContainer {
+  text-align: center;
+}
+
 .AsideListImg {
-  width: 400px;
+  margin-left: 10px;
+  width: 220px;
   height: 400px;
 }
 

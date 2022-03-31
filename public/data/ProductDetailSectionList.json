@@ -3,14 +3,10 @@
     "id": 1,
     "productName": "리무브",
     "productDescription": "눈 주위의 민감한 피부를 달래고 진정시켜주는 마트리카리아가 포함된 부드러운 오일 제형의 아이 메이크업 리무브",
-    "skinType": "피부 타입",
-    "sknTyp": "모든 피부, 메이크업을 한 피부",
-    "feelingUse": "사용감",
-    "flngUse": "진정된, 생기있는",
-    "mainIngredient": "주요 성분",
-    "mainIngrd": "그레이프 씨드, 토코페롤, 마트리카리아꽃오일(블루 카모마일)",
-    "size": "사이즈",
-    "siz": "60 mL",
+    "skinType": "모든 피부, 메이크업을 한 피부",
+    "feelingUse": "진정된, 생기있는",
+    "mainIngredient": "그레이프 씨드, 토코페롤, 마트리카리아꽃오일(블루 카모마일)",
+    "size": "60 mL",
     "productImg": "/images/productDetail/ample.png"
   }
 ]
