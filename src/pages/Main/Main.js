@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from '../../components/Nav/Nav';
 import MainVideo from './MainVideo';
 import MainCarousel from './MainCarousel';
 import './Main.scss';
@@ -7,6 +8,7 @@ import Footer from '../../components/Footer/Footer';
 const Main = () => {
   return (
     <div className="Main">
+      <Nav />
       <MainVideo />
       <MainCarousel />
       <div className="MainVitamin">a</div>

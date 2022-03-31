@@ -6,7 +6,7 @@ const MainVideo = () => {
     <div className="MainVideo">
       <div className="MainVideoWrapper">
         <video className="backgroundVideo" muted autoPlay loop>
-          <source src="\images\main\backgroundVideo.mp4" type="video/mp4" />
+          <source src="images/main/backgroundVideo.mp4" type="video/mp4" />
         </video>
         <img className="wesopLogo" src="/images/common/Wesop.png" alt="Wesop" />
         <div className="MainVideoParagraphWrapper">

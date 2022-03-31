@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import SlideData from './SlideData';
 import './MainCarousel.scss';
 
-let widthSpan = 100;
-
 const MainCarousel = () => {
   const [slidePosition, setSlidePosition] = useState(0);
+
+  const slideRef = useRef();
 
   const prevSlideHandler = () => {
     let newPosition = slidePosition;
     if (newPosition > 0) {
       newPosition = newPosition - 1;
     }
-    translateFullSlides(newPosition);
+    let translation = newPosition * -33;
+    slideRef.current.style.transform = `translate(${translation}%)`;
     setSlidePosition(newPosition);
+    console.log('position', translation);
+    console.log('slideposition', slidePosition);
   };
 
   const nextSlideHandler = () => {
@@ -21,39 +24,41 @@ const MainCarousel = () => {
     if (newPosition < SlideData.length - 1) {
       newPosition = newPosition + 1;
     }
-    translateFullSlides(newPosition);
+    let translation = newPosition * -33;
+    slideRef.current.style.transform = `translate(${translation}%)`;
     setSlidePosition(newPosition);
-  };
 
-  const translateFullSlides = newPosition => {
-    let toTranslate = -widthSpan * newPosition;
+    console.log('position', translation);
+    console.log('slideposition', slidePosition);
   };
 
   return (
     <div className="MainCarousel">
-      <div className="carouselContainer">
-        {SlideData.map(data => (
-          <div key={data.id} className="mainCarouselContainer">
-            <img
-              className="mainCarouselImage"
-              src={data.image}
-              alt={data.name}
-            />
-            <div className="mainCarouselProductName">{data.name}</div>
-            <div className="mainCarouselProductDescription">
-              {data.description}
+      <div className="fixedScreen">
+        <div ref={slideRef} className="carouselContainer">
+          {SlideData.map(data => (
+            <div key={data.id} className="mainCarouselContainer">
+              <img
+                className="mainCarouselImage"
+                src={data.image}
+                alt={data.name}
+              />
+              <div className="mainCarouselProductName">{data.name}</div>
+              <div className="mainCarouselProductDescription">
+                {data.description}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      <div className="leftArrowContainer">
+      <div className="leftArrowContainer" onClick={prevSlideHandler}>
         <img
           className="leftArrow"
           src="/images/main/leftarrow.png"
           alt="leftarrow"
         />
       </div>
-      <div className="rightArrowContainer">
+      <div className="rightArrowContainer" onClick={nextSlideHandler}>
         <img
           className="rightArrow"
           src="images/main/rightarrow.png"
