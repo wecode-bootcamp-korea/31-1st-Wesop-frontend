@@ -5,17 +5,46 @@ const LoginInput = ({
   infoType,
   inputText,
   inputType,
-  // onInsertUserInfo,
-  onChangeValidity,
+  userInfo,
   inputValidity,
   onSetUserInfo,
+  onSetInputValidity,
 }) => {
-  const [inputData, setInputData] = useState('');
-  const [error, setError] = useState(true);
+  // const [errorMsg, setErrorMsg] = useState('초기값');
 
-  const getUserInfo = e => {
-    const { name, value } = e.target;
-    onSetUserInfo({ [name]: value });
+  const changeUserInfo = event => {
+    const { name, value } = event.target;
+    onSetUserInfo(prevUserInfo => {
+      return { ...prevUserInfo, [name]: value };
+    });
+  };
+
+  const changeValidityHandler = event => {
+    const { name } = event.target;
+
+    event.target.value.trim().length > 0
+      ? onSetInputValidity(prevInfo => {
+          return { ...prevInfo, [name]: true };
+        })
+      : onSetInputValidity(prevInfo => {
+          return { ...prevInfo, [name]: false };
+        });
+
+    userInfo.email.includes('@')
+      ? onSetInputValidity(prevInfo => {
+          return { ...prevInfo, emailContainAt: true };
+        })
+      : onSetInputValidity(prevInfo => {
+          return { ...prevInfo, emailContainAt: false };
+        });
+
+    userInfo.password === userInfo.rePassword
+      ? onSetInputValidity(prevInfo => {
+          return { ...prevInfo, samePassword: true };
+        })
+      : onSetInputValidity(prevInfo => {
+          return { ...prevInfo, samePassword: false };
+        });
   };
 
   return (
@@ -23,11 +52,10 @@ const LoginInput = ({
       <input
         type={inputType}
         placeholder={inputText}
-        onChange={getUserInfo}
-        onBlur={onChangeValidity}
+        onChange={changeUserInfo}
+        onBlur={changeValidityHandler}
         name={infoType}
       />
-      {/* TODO: <p>에러시 보이는 메세지 넣으면 될 듯</p> */}
     </div>
   );
 };

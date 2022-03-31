@@ -7,10 +7,10 @@ import './Login.scss';
 
 const Login = () => {
   // main , signUp , signIn, resetPw
-  // TODO: 테스트 끝나면 한줄만 남기고 제거
+
   // const [loginMode, setLoginMode] = useState('main');
-  const [loginMode, setLoginMode] = useState('signUp');
-  // const [loginMode, setLoginMode] = useState('signIn');
+  // const [loginMode, setLoginMode] = useState('signUp');
+  const [loginMode, setLoginMode] = useState('signIn');
   // const [loginMode, setLoginMode] = useState('resetPw');
   // const [loginMode, setLoginMode] = useState('receivedPw');
   const navigate = useNavigate();
@@ -51,7 +51,9 @@ const Login = () => {
     { infoType: 'firstName', inputType: 'text', string: '이름' },
   ];
 
-  const RESETPW_DATA = [{ id: 1, type: 'email', text: '이메일 주소' }];
+  const RESETPW_DATA = [
+    { infoType: 'email', type: 'email', text: '이메일 주소' },
+  ];
 
   return (
     <div className="login">

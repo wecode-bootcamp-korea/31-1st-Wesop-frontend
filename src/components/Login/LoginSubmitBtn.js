@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoginSubmitBtn.scss';
 
-const LoginSubmitBtn = ({ loginMode }) => {
+const LoginSubmitBtn = ({ loginMode, onChangeLoginMode }) => {
   let buttonText = '';
 
   if (loginMode === 'main') {
@@ -18,9 +18,18 @@ const LoginSubmitBtn = ({ loginMode }) => {
     buttonText = '제출';
   }
 
+  const goToReceivedPw = () => {
+    onChangeLoginMode('receivedPw');
+  };
+
   return (
     <div className="loginSubmitBtn">
-      <button type="submit">{buttonText}</button>
+      {loginMode === 'resetPw' || <button type="submit">{buttonText}</button>}
+      {loginMode === 'resetPw' && (
+        <button type="button" onClick={goToReceivedPw}>
+          {buttonText}
+        </button>
+      )}
     </div>
   );
 };

@@ -18,47 +18,57 @@ const LoginForm = ({
     firstName: '',
     lastName: '',
     password: '',
-    rePasswrod: '',
+    repassword: '',
   });
+
+  console.log(userInfo);
 
   const [inputValidity, setInputValidity] = useState({
     email: false,
     firstName: false,
     lastName: false,
     password: false,
-    rePasswrod: false,
+    rePassword: false,
     emailContainAt: false,
     samePassword: false,
   });
+
+  console.log(inputValidity);
 
   const isInputAllValid =
     inputValidity.email &&
     inputValidity.firstName &&
     inputValidity.lastName &&
     inputValidity.password &&
-    inputValidity.rePasswrod &&
+    inputValidity.rePassword &&
     inputValidity.emailContainAt &&
     inputValidity.samePassword;
 
-  // const insertUserInfoHandler = key => {
-  //   console.log(key);
-  //   // setUserInfo({ [key]: value });
-  // };
+  console.log(`isInputAllValid : ${isInputAllValid}`);
 
-  // handleInput = (e) => {
-  // const { name, value } = e.target;
-  // setInputVal({ [name]: value })
-  // }
+  const sumbmitHandler = event => {
+    event.preventDefault();
 
-  // TODO: 수정
-  // const validityChangeHandler = event => {
-  //   setInputValidity()
-  // };
+    if (
+      inputValidity.emailContainAt &&
+      inputValidity.email &&
+      loginMode === 'main'
+    ) {
+      console.log(`email submit : ${userInfo.email}`);
+    }
 
-  // const sumbmitHandler = () => {
-  //   // TODO: 유효한지에 대한 1차검사
-  //   // 유효했으면 userInfo에 대한 백앤드 통신코드 구성
-  // };
+    if (
+      inputValidity.emailContainAt &&
+      inputValidity.email &&
+      inputValidity.password &&
+      loginMode === 'signIn'
+    ) {
+      console.log(userInfo.email, userInfo.password);
+    }
+
+    if (isInputAllValid && loginMode === 'signUp') {
+    }
+  };
 
   const goToSignIn = () => {
     onChangeLoginMode('signIn');
@@ -68,8 +78,12 @@ const LoginForm = ({
     onChangeLoginMode('resetPw');
   };
 
+  const goToReceivedPw = () => {
+    onChangeLoginMode('receivedPw');
+  };
+
   return (
-    <form className="loginForm">
+    <form className="loginForm" onSubmit={sumbmitHandler}>
       <section className="loginTopBtnArea">
         <LoginCloseMiniBtn onCloseModal={onCloseModal} />
         {loginMode === 'main' || (
@@ -88,9 +102,9 @@ const LoginForm = ({
             infoType={data.infoType}
             inputType={data.inputType}
             inputText={data.string}
-            // onInsertUserInfo={insertUserInfoHandler}
             onSetUserInfo={setUserInfo}
-            // onChangeValidity={validityChangeHandler}
+            userInfo={userInfo}
+            onSetInputValidity={setInputValidity}
             inputValidity={inputValidity}
           />
         ))}
@@ -110,11 +124,13 @@ const LoginForm = ({
 
       <section className="loginBottomBtnArea">
         {loginMode === 'signIn' && (
-          <button onClick={goToResetPw}>패스워드 재설정하기</button>
+          <button type="button" onClick={goToResetPw}>
+            패스워드 재설정하기
+          </button>
         )}
         {loginMode === 'signUp' && (
-          <button onClick={goToSignIn}>
-            <p>이솝 계정을 가지고 계십니까?</p>
+          <button type="button" onClick={goToSignIn}>
+            <p>위솝 계정을 가지고 계십니까?</p>
           </button>
         )}
       </section>
