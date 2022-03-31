@@ -12,6 +12,7 @@
     background-color: $color-beige;
     text-align: center;
     overflow-x: hidden;
+    overflow-y: hidden;
 
     .carouselContainer {
       display: flex;
@@ -19,7 +20,7 @@
       height: calc(95vw * 0.5625);
       max-height: 100vh;
       transform: translate(0);
-      transition: all 200ms linear;
+      transition: all 400ms linear;
 
       .mainCarouselContainer {
         @include center;
@@ -73,6 +74,26 @@
       transform: translateX(25%);
       width: 15%;
       height: 25%;
+    }
+  }
+
+  .indicator {
+    position: relative;
+    width: 93vw;
+    height: 2px;
+    margin: 1vh 5vw;
+    background-color: #cccbc2;
+    z-index: 1;
+
+    .indicatorBlock {
+      position: absolute;
+      left: 0;
+      width: 31vw;
+      height: 2px;
+      background-color: $font-gray;
+      transform: translate(0);
+      transition: all 400ms linear;
+      z-index: 2;
     }
   }
 }

@@ -6,30 +6,30 @@ const MainCarousel = () => {
   const [slidePosition, setSlidePosition] = useState(0);
 
   const slideRef = useRef();
+  const indicatorRef = useRef();
 
   const prevSlideHandler = () => {
-    let newPosition = slidePosition;
-    if (newPosition > 0) {
-      newPosition = newPosition - 1;
+    let newSlidePosition = slidePosition;
+    if (newSlidePosition > 0) {
+      newSlidePosition = newSlidePosition - 1;
     }
-    let translation = newPosition * -33;
-    slideRef.current.style.transform = `translate(${translation}%)`;
-    setSlidePosition(newPosition);
-    console.log('position', translation);
-    console.log('slideposition', slidePosition);
+    let slideTranslation = newSlidePosition * -33;
+    let indicatorTranslation = newSlidePosition * 100;
+    slideRef.current.style.transform = `translate(${slideTranslation}%)`;
+    indicatorRef.current.style.transform = `translate(${indicatorTranslation}%)`;
+    setSlidePosition(newSlidePosition);
   };
 
   const nextSlideHandler = () => {
-    let newPosition = slidePosition;
-    if (newPosition < SlideData.length - 1) {
-      newPosition = newPosition + 1;
+    let newSlidePosition = slidePosition;
+    if (newSlidePosition < SlideData.length - 3) {
+      newSlidePosition = newSlidePosition + 1;
     }
-    let translation = newPosition * -33;
-    slideRef.current.style.transform = `translate(${translation}%)`;
-    setSlidePosition(newPosition);
-
-    console.log('position', translation);
-    console.log('slideposition', slidePosition);
+    let slideTranslation = newSlidePosition * -33;
+    let indicatorTranslation = newSlidePosition * 100;
+    slideRef.current.style.transform = `translate(${slideTranslation}%)`;
+    indicatorRef.current.style.transform = `translate(${indicatorTranslation}%)`;
+    setSlidePosition(newSlidePosition);
   };
 
   return (
@@ -64,6 +64,9 @@ const MainCarousel = () => {
           src="images/main/rightarrow.png"
           alt="rightarrow"
         />
+      </div>
+      <div className="indicator">
+        <span ref={indicatorRef} className="indicatorBlock" />
       </div>
     </div>
   );
