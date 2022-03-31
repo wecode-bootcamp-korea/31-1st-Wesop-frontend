@@ -1,7 +1,12 @@
 import React from 'react';
-import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
+
 const Main = () => {
-  return <Nav />;
+  return (
+    <div className="Main">
+      <Footer />
+    </div>
+  );
 };
 
 export default Main;
