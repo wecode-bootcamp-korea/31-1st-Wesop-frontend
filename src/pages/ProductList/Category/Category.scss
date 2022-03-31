@@ -27,7 +27,7 @@
     }
 
     .subCategoryIntro {
-      @include center($center: space-between);
+      @include center($justify-content: space-between);
       font-size: $font-small;
 
       span {

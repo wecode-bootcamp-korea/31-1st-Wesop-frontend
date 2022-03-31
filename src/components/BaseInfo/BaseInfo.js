@@ -1,11 +1,12 @@
 import React from 'react';
 import './BaseInfo.scss';
 
-const BaseInfo = ({ title, description, btnText, imgSrc }) => {
+const BaseInfo = ({ subtitle, title, description, btnText, imgSrc }) => {
   return (
     <div className="baseInfo">
       <div className="twoColumnModule">
         <aside className="copy">
+          {subtitle && <h3 className="subtitle">{subtitle}</h3>}
           <h2 className="title">{title}</h2>
           <p className="description">{description}</p>
           <button className="btnHoverDark">

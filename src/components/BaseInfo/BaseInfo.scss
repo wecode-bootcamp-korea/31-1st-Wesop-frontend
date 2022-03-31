@@ -5,12 +5,18 @@
   overflow-x: hidden;
 
   .twoColumnModule {
-    @include center($center: space-between);
+    @include center($justify-content: space-between);
 
     .copy {
       padding-left: 80px;
       width: 475px;
       height: 472px;
+      color: $color-dark-gray;
+
+      .subtitle {
+        margin-bottom: 20px;
+        font-size: $font-small;
+      }
 
       .title {
         margin-bottom: 30px;

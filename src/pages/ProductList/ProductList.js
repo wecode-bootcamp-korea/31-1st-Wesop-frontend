@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './ProductList.scss';
+import Nav from './../../components/Nav/Nav';
 import Category from './Category/Category';
 import FilterOpen from './FilterOpen/FilterOpen';
 import BaseInfo from '../../components/BaseInfo/BaseInfo';
-import { useEffect } from 'react';
+import Footer from './../../components/Footer/Footer';
+import './ProductList.scss';
 
 const ProductList = () => {
   const [productList, setProductList] = useState([]);
@@ -22,7 +23,7 @@ const ProductList = () => {
 
   return (
     <div className="ProductList">
-      <nav style={{ height: 80, backgroundColor: 'black' }}>wesop</nav>
+      <Nav />
       <header>
         <Link to="/">
           <img className="logo" alt="logo" src="/images/common/Wesop.png" />
@@ -68,11 +69,13 @@ const ProductList = () => {
         })}
       </main>
       <BaseInfo
+        subtitle={LIST_PAGE_BASEINFO_DATA.subtitle}
         title={LIST_PAGE_BASEINFO_DATA.title}
         description={LIST_PAGE_BASEINFO_DATA.description}
         btnText={LIST_PAGE_BASEINFO_DATA.btnText}
         imgSrc={LIST_PAGE_BASEINFO_DATA.imgSrc}
       />
+      <Footer />
     </div>
   );
 };
@@ -146,6 +149,7 @@ const CATEGORY_LIST = [
 ];
 
 const LIST_PAGE_BASEINFO_DATA = {
+  subtitle: '',
   title: '내 피부 이해하기',
   description:
     '피부의 특성과 필요를 더 깊이 이해하여 피부를 정화하고 영양을 공급하며 보호하는 데 가장 적합한 제품을 선택하려면 본 가이드를 자세히 살펴보시기 바랍니다.',
