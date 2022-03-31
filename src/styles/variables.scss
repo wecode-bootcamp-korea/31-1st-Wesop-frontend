@@ -12,7 +12,7 @@ $font-regular: 16px;
 $font-small: 14px;
 
 @mixin center($display: flex, $justify-content: center, $align-items: center) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: $display;
+  justify-content: $justify-content;
+  align-items: $align-items;
 }
