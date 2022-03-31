@@ -151,7 +151,7 @@ const LIST_PAGE_BASEINFO_DATA = {
     '피부의 특성과 필요를 더 깊이 이해하여 피부를 정화하고 영양을 공급하며 보호하는 데 가장 적합한 제품을 선택하려면 본 가이드를 자세히 살펴보시기 바랍니다.',
   btnText: '자세히 살펴보기',
   imgSrc:
-    'https://images.unsplash.com/photo-1581182800629-7d90925ad072?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
+    'https://github.com/suhun96/wesope-img-repo/blob/main/%EB%B0%B1%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C/1123123.jpg?raw=true',
 };
 
 export default ProductList;
