@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoginSubmitBtn.scss';
 
-const LoginSubmitBtn = ({ loginMode, onChangeLoginMode }) => {
+const LoginSubmitBtn = ({ loginMode, onChangeLoginMode, inputValidity }) => {
   let buttonText = '';
 
   if (loginMode === 'main') {
@@ -18,8 +18,9 @@ const LoginSubmitBtn = ({ loginMode, onChangeLoginMode }) => {
     buttonText = '제출';
   }
 
-  const goToReceivedPw = () => {
-    onChangeLoginMode('receivedPw');
+  const goToReceivedPw = event => {
+    if (inputValidity.email && inputValidity.emailContainAt)
+      onChangeLoginMode('receivedPw');
   };
 
   return (

@@ -49,7 +49,10 @@ const LoginInput = ({
       <input
         type={inputType}
         placeholder={inputText}
-        onChange={changeUserInfo}
+        onChange={event => {
+          changeUserInfo(event);
+          changeValidityHandler(event);
+        }}
         onBlur={changeValidityHandler}
         name={infoType}
       />

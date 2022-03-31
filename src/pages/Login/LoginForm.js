@@ -18,7 +18,7 @@ const LoginForm = ({
     firstName: '',
     lastName: '',
     password: '',
-    repassword: '',
+    rePassword: '',
   });
 
   const [inputValidity, setInputValidity] = useState({
@@ -48,6 +48,7 @@ const LoginForm = ({
       inputValidity.email &&
       loginMode === 'main'
     ) {
+      // 백앤드 통신코드 작성예정입니다. 콘솔로그 잠깐만 봐주세요 멘토님 ㅠㅠ
       console.log(`email submit : ${userInfo.email}`);
     }
 
@@ -57,10 +58,13 @@ const LoginForm = ({
       inputValidity.password &&
       loginMode === 'signIn'
     ) {
+      // 백앤드 통신코드 작성예정입니다. 콘솔로그 잠깐만 봐주세요 멘토님 ㅠㅠ
       console.log(userInfo.email, userInfo.password);
     }
 
     if (isInputAllValid && loginMode === 'signUp') {
+      // 백앤드 통신코드 작성예정입니다. 콘솔로그 잠깐만 봐주세요 멘토님 ㅠㅠ
+      console.log(userInfo);
     }
   };
 
@@ -105,6 +109,7 @@ const LoginForm = ({
           <LoginSubmitButton
             onChangeLoginMode={onChangeLoginMode}
             loginMode={loginMode}
+            inputValidity={inputValidity}
           />
         )}
         {loginMode === 'receivedPw' && (
