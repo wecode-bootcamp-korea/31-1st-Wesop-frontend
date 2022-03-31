@@ -1,1 +1,24 @@
 @import '../../styles/variables.scss';
+
+.Nav {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background-color: $color-dark-gray;
+  color: $color-beige;
+  font-size: $font-small;
+
+  .navMainCategory {
+    @include center($justify-content: space-between);
+    margin-left: 20px;
+
+    .fa-magnifying-glass {
+      margin-left: 13px;
+      font-size: 17px;
+    }
+  }
+  .navUserCategory {
+    @include center;
+    margin-right: 20px;
+  }
+}

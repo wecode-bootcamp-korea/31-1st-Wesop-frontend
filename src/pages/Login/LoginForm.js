@@ -27,28 +27,38 @@ const LoginForm = ({
     lastName: false,
     password: false,
     rePasswrod: false,
+    emailContainAt: false,
+    samePassword: false,
   });
-  // 지우기
-  // const formIsValid = enteredNameIsValid && enteredStreetIsValid && enteredCityIsValid && enteredPostalCodeIsValid;
 
-  // 지우기
-  // const isValid =
-  //   isValid[email.value] &&
-  //   isValid[firstName.value] &&
-  //   isValid[lastName.value] &&
-  //   isValid[password.value] &&
-  //   isValid[rePasswrod.value];
+  const isInputAllValid =
+    inputValidity.email &&
+    inputValidity.firstName &&
+    inputValidity.lastName &&
+    inputValidity.password &&
+    inputValidity.rePasswrod &&
+    inputValidity.emailContainAt &&
+    inputValidity.samePassword;
 
-  const insertUserInfoHandler = event => {
-    console.log(event.target);
-    // const { name, value } = event.target;
-    // setUserInfo({ [name]: value });
-  };
+  // const insertUserInfoHandler = key => {
+  //   console.log(key);
+  //   // setUserInfo({ [key]: value });
+  // };
 
-  const sumbmitHandler = () => {
-    // TODO: 유효한지에 대한 1차검사
-    // 유효했으면 userInfo에 대한 백앤드 통신코드 구성
-  };
+  // handleInput = (e) => {
+  // const { name, value } = e.target;
+  // setInputVal({ [name]: value })
+  // }
+
+  // TODO: 수정
+  // const validityChangeHandler = event => {
+  //   setInputValidity()
+  // };
+
+  // const sumbmitHandler = () => {
+  //   // TODO: 유효한지에 대한 1차검사
+  //   // 유효했으면 userInfo에 대한 백앤드 통신코드 구성
+  // };
 
   const goToSignIn = () => {
     onChangeLoginMode('signIn');
@@ -68,7 +78,7 @@ const LoginForm = ({
       </section>
 
       <section className="loginMessageArea">
-        <LoginMessage loginMode={loginMode} />
+        <LoginMessage loginMode={loginMode} inputValidity={inputValidity} />
       </section>
 
       <section className="loginInputArea">
@@ -78,7 +88,10 @@ const LoginForm = ({
             infoType={data.infoType}
             inputType={data.inputType}
             inputText={data.string}
-            onInsertUserInfo={insertUserInfoHandler}
+            // onInsertUserInfo={insertUserInfoHandler}
+            onSetUserInfo={setUserInfo}
+            // onChangeValidity={validityChangeHandler}
+            inputValidity={inputValidity}
           />
         ))}
       </section>
