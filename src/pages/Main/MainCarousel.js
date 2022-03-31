@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import SlideData from './SlideData';
 import './MainCarousel.scss';
 
+let widthSpan = 100;
+
 const MainCarousel = () => {
   const [slidePosition, setSlidePosition] = useState(0);
 
@@ -10,12 +12,23 @@ const MainCarousel = () => {
     if (newPosition > 0) {
       newPosition = newPosition - 1;
     }
+    translateFullSlides(newPosition);
+    setSlidePosition(newPosition);
   };
 
-  const nextSlideHanler = () => {
+  const nextSlideHandler = () => {
     let newPosition = slidePosition;
-    if (newPosition < )
+    if (newPosition < SlideData.length - 1) {
+      newPosition = newPosition + 1;
+    }
+    translateFullSlides(newPosition);
+    setSlidePosition(newPosition);
   };
+
+  const translateFullSlides = newPosition => {
+    let toTranslate = -widthSpan * newPosition;
+  };
+
   return (
     <div className="MainCarousel">
       <div className="carouselContainer">
