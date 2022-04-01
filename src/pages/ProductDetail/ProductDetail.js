@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ProductDetailSectionList from './ProductDetailSectionList';
 import ProductDetailArticleList from './ProductDetailArticleList';
 import ProductDetailAsideList from './ProductDetailAsideList';
+import ProductDetailModal from './ProductDetailModal';
 import './ProductDetailSection.scss';
 import './ProductDetailArticle.scss';
 import './ProductDetailAside.scss';
@@ -9,25 +10,53 @@ import './ProductDetailAside.scss';
 const ProductDetail = () => {
   const [sectionList, setSectionList] = useState([]);
 
+  const [articleList, setArticleList] = useState([]);
+
+  const [asideList, setAsideList] = useState([]);
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const [modal, setModal] = useState(false);
+
+  function handleopenButton() {
+    setModal(true);
+  }
+
+  const slideRef = useRef(null);
+
+  const TOTAL_SLIDES = 4;
+
+  let slideTransition = currentSlide * 14.25;
+
+  const NextSlide = () => {
+    currentSlide >= TOTAL_SLIDES
+      ? setCurrentSlide(0)
+      : setCurrentSlide(currentSlide + 1);
+  };
+
+  const PrevSlide = () => {
+    currentSlide === 0
+      ? setCurrentSlide(TOTAL_SLIDES)
+      : setCurrentSlide(currentSlide - 1);
+  };
+
   useEffect(() => {
     fetch('http://localhost:3000/data/ProductDetailSectionList.json')
       .then(res => res.json())
+
       .then(data => {
         setSectionList(data);
       });
   }, []);
 
-  const [articleList, setArticleList] = useState([]);
-
   useEffect(() => {
     fetch('http://localhost:3000/data/ProductDetailArticleList.json')
       .then(res => res.json())
+
       .then(data => {
         setArticleList(data);
       });
   }, []);
-
-  const [asideList, setAsideList] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/data/ProductDetailAsideList.json')
@@ -37,8 +66,15 @@ const ProductDetail = () => {
       });
   }, []);
 
+  useEffect(() => {
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${slideTransition}%)`;
+  });
+
   return (
-    <>
+    <div>
+      {modal === true ? <ProductDetailModal /> : null}
+
       <nav className="nav" />
       <div className="productDetailBackground">
         <img
@@ -51,6 +87,10 @@ const ProductDetail = () => {
           <div />
           <div>
             <div className="productDetailSectionContainer">
+              <i
+                onClick={handleopenButton}
+                className="fa-regular fa-square-plus"
+              />
               {sectionList.map(product => {
                 return (
                   <ProductDetailSectionList
@@ -85,7 +125,7 @@ const ProductDetail = () => {
 
         <aside className="productDetailAside">
           <div className="subProductDetailAside">
-            <div className="goodProductUseTogether">
+            <div ref={slideRef} className="goodProductUseTogether">
               <div className="greatUseTogether">함께 사용하기 좋은 제품</div>
               {asideList.map(product => {
                 return (
@@ -94,11 +134,12 @@ const ProductDetail = () => {
               })}
             </div>
           </div>
-          <button className="slide-1" onClick />
-          <button className="slide-2" />
+          <button className="Prev" onClick={PrevSlide} />
+          <button className="Next" onClick={NextSlide} />
         </aside>
       </div>
-    </>
+    </div>
   );
 };
+
 export default ProductDetail;

@@ -6,14 +6,61 @@
 .productDetailBackground {
   background-color: #fffef2;
   height: 100%;
+}
 
-  .productDetailLogo {
-    width: 120px;
-    height: 40px;
-    position: relative;
-    top: 105px;
-    left: 30px;
-  }
+.modalContainer {
+  overflow: hidden;
+}
+
+.mainIngredientModalTextContainer {
+  position: fixed;
+  z-index: 2;
+  height: 100%;
+  padding: 160px 40px 80px 40px;
+  background-color: #f1f0e8;
+}
+
+.fa-x {
+  position: relative;
+  bottom: 140px;
+  left: 640px;
+}
+
+.ingredientContainer {
+  width: 428px;
+  height: 178px;
+  margin-right: 106px;
+  margin-left: 106px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333333;
+}
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.ingredientSpacing {
+  margin-bottom: 25px;
+}
+
+.ingrdSpcng {
+  margin-bottom: 30px;
+}
+
+.productDetailLogo {
+  width: 120px;
+  height: 40px;
+  position: relative;
+  top: 105px;
+  left: 30px;
 }
 
 .productDetailSection {
@@ -35,6 +82,13 @@
   font-size: 14px;
   line-height: 1.4;
   color: #333333;
+}
+
+.fa-square-plus {
+  position: relative;
+  font-size: 20px;
+  top: 345px;
+  left: 340px;
 }
 
 .productDetailSectionList {
@@ -70,14 +124,6 @@
   font-weight: 350;
 }
 
-.productDetailImg {
-  width: 440px;
-  height: 430px;
-  position: relative;
-  right: 470px;
-  bottom: 490px;
-}
-
 .shoppingCartButton {
   padding-top: 20px;
   padding: 20px 15px 20px 15px;
@@ -109,4 +155,12 @@
       color: #333333;
     }
   }
+}
+
+.productDetailImg {
+  width: 440px;
+  height: 430px;
+  position: relative;
+  right: 470px;
+  bottom: 490px;
 }
