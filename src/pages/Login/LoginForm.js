@@ -40,6 +40,8 @@ const LoginForm = ({
     inputValidity.emailContainAt &&
     inputValidity.samePassword;
 
+  const [loginError, setLoginError] = useState('');
+
   const clearUserState = () => {
     setUserInfo({
       email: '',
@@ -50,26 +52,25 @@ const LoginForm = ({
     });
   };
 
-  const maintainUserState = () => {
-    setUserInfo(prevInfo => {
-      return { ...prevInfo };
-    });
-  };
-
-  console.log(userInfo);
-
+  // const maintainUserState = () => {
+  //   setUserInfo(prevInfo => {
+  //     console.log(prevInfo);
+  //     return { ...prevInfo };
+  //   });
+  // };;
   const goToSignIn = () => {
-    maintainUserState();
+    setUserInfo(prev => {
+      return { ...prev };
+    });
     onChangeLoginMode('signIn');
   };
-
   const goToSignUp = () => {
-    maintainUserState();
+    // maintainUserState();
     onChangeLoginMode('signUp');
   };
 
   const goToResetPw = () => {
-    maintainUserState();
+    // maintainUserState();
     onChangeLoginMode('resetPw');
   };
 
@@ -89,9 +90,8 @@ const LoginForm = ({
       })
         .then(res => res.json())
         .then(res => {
-          console.log(res);
-
           if (res.message === true) {
+            setLoginError('');
             goToSignIn();
           }
 
@@ -121,6 +121,7 @@ const LoginForm = ({
         .then(res => {
           if (res.message === 'SUCCESS') {
             localStorage.setItem('wtw-token', res.token);
+            setLoginError('');
             clearUserState();
             onCloseModal();
           } else {
@@ -143,6 +144,7 @@ const LoginForm = ({
         .then(res => {
           if (res.message === 'SUCCESS') {
             localStorage.setItem('wtw-token', res.token);
+            setLoginError('');
             clearUserState();
             onCloseModal();
           } else if (
@@ -165,7 +167,11 @@ const LoginForm = ({
       </section>
 
       <section className="loginMessageArea">
-        <LoginMessage loginMode={loginMode} inputValidity={inputValidity} />
+        <LoginMessage
+          loginMode={loginMode}
+          inputValidity={inputValidity}
+          loginError={loginError}
+        />
       </section>
 
       <section className="loginInputArea">

@@ -4,6 +4,7 @@ import './LoginMessage.scss';
 const LoginMessage = ({ loginMode }) => {
   let titleMsg = '';
   let contentMsg = '';
+  let errorMsg = '';
 
   if (loginMode === 'main') {
     titleMsg = '안녕하세요';
@@ -21,12 +22,11 @@ const LoginMessage = ({ loginMode }) => {
     titleMsg = '진행 중입니다.';
     contentMsg = '새 패스워드를 만들기 위한 링크가 전송되었습니다.';
   }
-
   return (
     <div className="loginMessage">
-      <p className="titleMessae">{titleMsg}</p>
+      <p className="titleMessage">{titleMsg}</p>
       <p className="contentMessage">{contentMsg}</p>
-      {/* 에러메세지 나올경우 여기 넣어야됨 */}
+      <p className="loginErrorMessage">{errorMsg}</p>
     </div>
   );
 };

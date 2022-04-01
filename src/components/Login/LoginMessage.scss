@@ -3,7 +3,7 @@
 .loginMessage {
   padding: 0 0 30px 0;
 
-  .titleMessae {
+  .titleMessage {
     padding: 10px 0 10px;
     font-size: $font-medium;
     color: $font-gray;
@@ -13,5 +13,12 @@
 
     font-size: $font-small;
     color: $font-light-gray;
+  }
+
+  .loginErrorMessage {
+    padding: 10px 0 0 0;
+
+    font-size: $font-small;
+    color: red;
   }
 }

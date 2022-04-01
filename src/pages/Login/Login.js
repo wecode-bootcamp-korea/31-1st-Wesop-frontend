@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Main from '../Main/Main';
 import LoginCard from '../../components/Login/LoginCard';
 import LoginForm from './LoginForm';
 import './Login.scss';
@@ -8,15 +6,13 @@ import './Login.scss';
 const Login = () => {
   // 로그인모드 종류 = [main , signUp , signIn, resetPw, receivedPw]
   const [loginMode, setLoginMode] = useState('signUp');
-
-  const navigate = useNavigate();
+  const [isShowModal, setIsShowModal] = useState('true');
 
   const changeLoginModeHandler = type => {
     setLoginMode(type);
   };
-
   const closeModalHandler = () => {
-    navigate('/');
+    setIsShowModal(isShowModal ? false : true);
   };
 
   const insertLoginForm = dataName => {
@@ -52,15 +48,17 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="backdrop" onClick={closeModalHandler} />
-      <LoginCard className="loginInner">
+      <div
+        className={`backdrop ${isShowModal ? '' : 'hideModal'}`}
+        onClick={closeModalHandler}
+      />
+      <LoginCard className={`loginInner ${isShowModal ? '' : 'hideModal'}`}>
         {loginMode === 'main' && insertLoginForm(FIRSTWINDOW_DATA)}
         {loginMode === 'signIn' && insertLoginForm(SIGNIN_DATA)}
         {loginMode === 'signUp' && insertLoginForm(SIGNUP_DATA)}
         {loginMode === 'resetPw' && insertLoginForm(RESETPW_DATA)}
         {loginMode === 'receivedPw' && insertLoginForm([])}
       </LoginCard>
-      <Main className="backMain" />
     </div>
   );
 };
