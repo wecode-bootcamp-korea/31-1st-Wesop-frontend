@@ -22,7 +22,7 @@ const LoginMessage = ({ loginMode, loginError }) => {
     titleMsg = '진행 중입니다.';
     contentMsg = '새 패스워드를 만들기 위한 링크가 전송되었습니다.';
   }
-  // 1.wrongEmail 2.wrongPassword 3.failedPost
+  // 1.wrongEmail 2.wrongPassword 3.failedPost 4.alreadyExist
   if (loginError === 'wrongEmail') {
     errorMsg = '이메일 양식에 맞게 입력해주세요(8글자 이상, @ 포함)';
   } else if (loginError === 'wrongPassword') {

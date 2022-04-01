@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './LoginInput.scss';
 
 const LoginInput = ({
@@ -48,8 +48,7 @@ const LoginInput = ({
 
   const containAtErrorMsg = (
     <p className="inputErrorMsg">
-      이메일 주소 형식에 맞지 않습니다. 다시 확인해주세요. (예:
-      name@example.com)
+      이메일 주소 형식에 맞지 않습니다. 다시 확인해주세요.
     </p>
   );
 
@@ -57,9 +56,18 @@ const LoginInput = ({
     <p className="inputErrorMsg">이전에 사용했던 패스워드를 입력하세요.</p>
   );
 
+  const isContainAtError =
+    userInfo.email && infoType === 'email' && !inputValidity.emailContainAt;
+
+  const isSamePasswordErr =
+    userInfo.rePassword &&
+    infoType === 'rePassword' &&
+    !inputValidity.samePassword;
+
   return (
     <div className="loginInput">
       <input
+        className="insert"
         readOnly={
           loginMode === 'signIn' && inputType === 'email' ? true : false
         }
@@ -73,14 +81,8 @@ const LoginInput = ({
         name={infoType}
         value={userInfo[infoType]}
       />
-      {userInfo.email && infoType === 'email ' && !inputValidity.emailContainAt
-        ? containAtErrorMsg
-        : ''}
-      {userInfo.rePassword &&
-      infoType === 'rePassword' &&
-      !inputValidity.samePassword
-        ? samePasswordErrorMsg
-        : ''}
+      {isContainAtError ? containAtErrorMsg : ''}
+      {isSamePasswordErr ? samePasswordErrorMsg : ''}
     </div>
   );
 };

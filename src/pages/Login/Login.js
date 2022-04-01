@@ -20,8 +20,6 @@ const Login = () => {
     rePassword: '',
   });
 
-  console.log(userInfo);
-
   const [inputValidity, setInputValidity] = useState({
     email: false,
     firstName: false,
@@ -31,8 +29,6 @@ const Login = () => {
     emailContainAt: false,
     samePassword: false,
   });
-
-  console.log(inputValidity);
 
   const clearUserStateHandler = () => {
     setUserInfo({
