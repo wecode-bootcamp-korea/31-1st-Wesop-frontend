@@ -35,22 +35,17 @@
       @include center($justify-content: space-between);
       padding-left: 10px;
 
-      .filterSubNavList {
+      .filterSubNavListHead {
+        border-right: 1px solid $font-light-gray;
+        margin-right: 5px;
+        padding-right: 5px;
+      }
+
+      .filterSubNavLink {
         padding: 0 10px;
         font-size: $font-small;
         color: $font-light-gray;
         text-decoration: none;
-
-        &:first-child {
-          margin-right: 5px;
-          padding-right: 10px;
-          border-right: 1px solid $font-light-gray;
-        }
-
-        .filterSubNavLink {
-          font-size: $font-small;
-          color: $font-light-gray;
-        }
       }
     }
     .filterBtn {

@@ -11,11 +11,14 @@ const ProductList = () => {
   const [productList, setProductList] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  useEffect(() => {
-    fetch('http://localhost:3000/data/category_products.json')
-      .then(res => res.json())
-      .then(data => setProductList(data));
-  }, []);
+  //TODO : 백엔드 통신 코드
+  // useEffect(() => {
+  //   fetch('http://10.58.7.21:8000/products')
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       setProductList(res.result);
+  //     });
+  // }, []);
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);
@@ -32,20 +35,18 @@ const ProductList = () => {
       </header>
       <div className="filterWrapper">
         <ul className="filterSubNavContainer">
-          <li className="filterSubNavList">
-            <button className="filterSubNavLink">
-              <Link to="/product-list">모든 스킨 </Link>
-            </button>
+          <li className="filterSubNavListHead">
+            <Link to="/product-list" className="filterSubNavLink">
+              모든 스킨{' '}
+            </Link>
           </li>
           {CATEGORY_LIST.map(category => {
             return (
-              <Link
-                key={category.id}
-                className="filterSubNavList"
-                to={`${category.category}`}
-              >
-                {category.category}
-              </Link>
+              <li key={category.id}>
+                <Link className="filterSubNavLink" to={`${category.category}`}>
+                  {category.category}
+                </Link>
+              </li>
             );
           })}
           <Outlet />

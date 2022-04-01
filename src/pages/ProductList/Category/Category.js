@@ -16,7 +16,7 @@ const Category = ({
   };
 
   let showLeftBtn = counter > 0;
-  let showRightBtn = counter !== products.length - 3 && counter * 22.2 < 1920;
+  let showRightBtn = counter !== products.length - 3;
 
   return (
     <div
