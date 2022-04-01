@@ -3,10 +3,10 @@ import React from 'react';
 function ProductDetailAsideList({ product }) {
   return (
     <div className="AsideListImgContainer">
-      <img className="AsideListImg" alt="스킨" src={product.productImg} />
+      <img className="AsideListImg" alt="스킨" src={product.image} />
       <div className="introductionItem">
-        <p>{product.productName}</p>
-        <p>{product.productDescription}</p>
+        <p>{product.name}</p>
+        <p>{product.skintype}</p>
       </div>
     </div>
   );

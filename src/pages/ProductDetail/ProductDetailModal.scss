@@ -1,0 +1,47 @@
+.modalContainer {
+  overflow: hidden;
+
+  .mainIngredientModalTextContainer {
+    position: fixed;
+    z-index: 2;
+    height: 100%;
+    padding: 160px 40px 80px 40px;
+    background-color: #f1f0e8;
+
+    .fa-x {
+      position: relative;
+      bottom: 140px;
+      left: 640px;
+    }
+  }
+}
+
+.ingredientContainer {
+  width: 428px;
+  height: 178px;
+  margin-right: 106px;
+  margin-left: 106px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333333;
+
+  .ingredientSpacing {
+    margin-bottom: 25px;
+  }
+
+  .ingrdSpcng {
+    margin-bottom: 30px;
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.5;
+  cursor: pointer;
+}

@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
-import ProductDetail from '../ProductDetail/ProductDetail';
+import React from 'react';
 
-export default function ProductDetailModal() {
-  const [modal, setModal] = useState(true);
-
-  function handleCloseButton() {
-    setModal(false);
-  }
-
+function ProductDetailModal({ onChangeModal, data }) {
   return (
     <div className="modalContainer">
       <div className="mainIngredientModalTextContainer">
-        <i onClick={handleCloseButton} className="fa-solid fa-x" />
+        <i className="fa-solid fa-x" onClick={onChangeModal} />
         <div className="ingredientContainer">
           <p className="ingredientSpacing">성분</p>
           <p className="ingrdSpcng">
-            포도씨오일, 해바라기씨오일, 토코페롤, 마트리카리아꽃오일
+            {data[0].main_ingredients[0].ingredients}
           </p>
           <p className="ingrdSpcng">
             성분 목록은 변경될 수 있습니다. 구매하신 제품에 대한 정확한 성분
@@ -27,8 +20,8 @@ export default function ProductDetailModal() {
           </p>
         </div>
       </div>
-      <div className="modalOverlay" />
-      {modal === false ? <ProductDetail /> : null}
+      <div className="modalOverlay" onClick={onChangeModal} />
     </div>
   );
 }
+export default ProductDetailModal;

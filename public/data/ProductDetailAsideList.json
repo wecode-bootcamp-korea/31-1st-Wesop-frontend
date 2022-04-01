@@ -1,38 +1,38 @@
 [
   {
     "id": 1,
-    "productName": "루센트 페이셜 컨센트레이트",
-    "productDescription": "비타민을 풍부하게 함유한 레이어링 세럼",
-    "productImg": "/images/productDetail/투명배경1.png"
+    "name": "루센트 페이셜 컨센트레이트",
+    "skintype": "비타민을 풍부하게 함유한 레이어링 세럼",
+    "image": "/images/productDetail/투명배경1.png"
   },
   {
     "id": 2,
-    "productName": "파슬리 씨드 안티 옥시던트 인텐스 세럼",
-    "productDescription": "지속적인 수분을 공급하는 항산화 세럼",
-    "productImg": "/images/productDetail/투명배경2.png"
+    "name": "파슬리 씨드 안티 옥시던트 인텐스 세럼",
+    "skintype": "지속적인 수분을 공급하는 항산화 세럼",
+    "image": "/images/productDetail/투명배경2.png"
   },
   {
     "id": 3,
-    "productName": "테싯 오 드 퍼퓸",
-    "productDescription": "활기찬 기운을 불어넣는 현대적인 향수",
-    "productImg": "/images/productDetail/투명배경3.png"
+    "name": "테싯 오 드 퍼퓸",
+    "skintype": "활기찬 기운을 불어넣는 현대적인 향수",
+    "image": "/images/productDetail/투명배경3.png"
   },
   {
     "id": 4,
-    "productName": "진저 플라이트",
-    "productDescription": "마음을 진정시키는 롤-온 타입의 펄스 포인트 관리",
-    "productImg": "/images/productDetail/투명배경4.png"
+    "name": "진저 플라이트",
+    "skintype": "마음을 진정시키는 롤-온 타입의 펄스 포인트 관리",
+    "image": "/images/productDetail/투명배경4.png"
   },
   {
     "id": 5,
-    "productName": "비 트리플 씨 페이셜 밸런싱 젤",
-    "productDescription": "비타민 B를 함유해 풍부한 영양을 선사하는 젤",
-    "productImg": "/images/productDetail/투명배경5.png"
+    "name": "비 트리플 씨 페이셜 밸런싱 젤",
+    "skintype": "비타민 B를 함유해 풍부한 영양을 선사하는 젤",
+    "image": "/images/productDetail/투명배경5.png"
   },
   {
     "id": 6,
-    "productName": "파슬리 씨드 안티 옥시던트 페이셜 트리트먼트",
-    "productDescription": "지속적인 촉촉함으로 보습을 채워주는 오일 블렌드",
-    "productImg": "/images/productDetail/투명배경6.png"
+    "name": "파슬리 씨드 안티 옥시던트 페이셜 트리트먼트",
+    "skintype": "지속적인 촉촉함으로 보습을 채워주는 오일 블렌드",
+    "image": "/images/productDetail/투명배경6.png"
   }
 ]

@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import ProductDetailSectionList from './ProductDetailSectionList';
-import ProductDetailArticleList from './ProductDetailArticleList';
-import ProductDetailAsideList from './ProductDetailAsideList';
+import ProductDetailSectionList from './ProductDetailSection';
+import ProductDetailArticleList from './ProductDetailArticle';
+import ProductDetailAsideList from './ProductDetailAside';
 import ProductDetailModal from './ProductDetailModal';
+import './ProductDetail.scss';
 import './ProductDetailSection.scss';
 import './ProductDetailArticle.scss';
 import './ProductDetailAside.scss';
+import './ProductDetailModal.scss';
 
 const ProductDetail = () => {
   const [sectionList, setSectionList] = useState([]);
@@ -16,17 +18,13 @@ const ProductDetail = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const [modal, setModal] = useState(false);
-
-  function handleopenButton() {
-    setModal(true);
-  }
+  const [showModal, setShowModal] = useState(false);
 
   const slideRef = useRef(null);
 
   const TOTAL_SLIDES = 4;
 
-  let slideTransition = currentSlide * 14.25;
+  const slideTransition = currentSlide * 14.25;
 
   const NextSlide = () => {
     currentSlide >= TOTAL_SLIDES
@@ -40,19 +38,21 @@ const ProductDetail = () => {
       : setCurrentSlide(currentSlide - 1);
   };
 
-  useEffect(() => {
-    fetch('http://localhost:3000/data/ProductDetailSectionList.json')
-      .then(res => res.json())
+  const changeModalHandler = () => {
+    showModal ? setShowModal(false) : setShowModal(true);
+  };
 
+  useEffect(() => {
+    fetch('http://localhost:3000/data/ProductDetail.json')
+      .then(res => res.json())
       .then(data => {
         setSectionList(data);
       });
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/ProductDetailArticleList.json')
+    fetch('http://localhost:3000/data/ProductDetail.json')
       .then(res => res.json())
-
       .then(data => {
         setArticleList(data);
       });
@@ -73,7 +73,12 @@ const ProductDetail = () => {
 
   return (
     <div>
-      {modal === true ? <ProductDetailModal /> : null}
+      {showModal ? (
+        <ProductDetailModal
+          data={sectionList}
+          onChangeModal={changeModalHandler}
+        />
+      ) : null}
 
       <nav className="nav" />
       <div className="productDetailBackground">
@@ -88,7 +93,7 @@ const ProductDetail = () => {
           <div>
             <div className="productDetailSectionContainer">
               <i
-                onClick={handleopenButton}
+                onClick={changeModalHandler}
                 className="fa-regular fa-square-plus"
               />
               {sectionList.map(product => {

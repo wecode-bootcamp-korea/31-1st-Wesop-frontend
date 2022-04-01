@@ -1,13 +1,13 @@
 .ProductDetailArticle {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 626px;
+  height: 666px;
   background-color: #f5f5e8;
-}
 
-.ProductDetailArticleImg {
-  width: 720px;
-  height: 626px;
+  .ProductDetailArticleImg {
+    width: 720px;
+    height: 666px;
+  }
 }
 
 .ProductDetailArticleContainer {
@@ -19,11 +19,22 @@
   line-height: 1.6;
   font-size: 14px;
   color: #666666;
+
+  .ArticleSubContainer {
+    .howUseUnderline {
+      border-bottom: 2px solid black;
+      padding-bottom: 15px;
+
+      .subDetailFontColor {
+        color: #333333;
+      }
+    }
+  }
 }
 
-.howUseUnderline {
-  border-bottom: 2px solid black;
-  padding-bottom: 15px;
+.howUseFontColor {
+  font-size: 30px;
+  color: #333333;
 }
 
 .subDetailUnderline {
@@ -34,13 +45,4 @@
 
 .subDetailUnderlined {
   padding-top: 14px;
-}
-
-.howUseFontColor {
-  font-size: 30px;
-  color: #333333;
-}
-
-.subDetailFontColor {
-  color: #333333;
 }
