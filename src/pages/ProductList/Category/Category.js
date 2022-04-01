@@ -3,11 +3,7 @@ import Product from './Product/Product';
 import './Category.scss';
 
 const Category = ({
-  categoryId,
-  categoryName,
-  categoryDescription,
-  products,
-  evenCategory,
+  category: { categoryId, categoryName, categoryDescription, products },
 }) => {
   const [counter, setCounter] = useState(0);
 

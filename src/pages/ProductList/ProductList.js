@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import Nav from './../../components/Nav/Nav';
 import Category from './Category/Category';
 import FilterOpen from './FilterOpen/FilterOpen';
@@ -33,17 +33,22 @@ const ProductList = () => {
       <div className="filterWrapper">
         <ul className="filterSubNavContainer">
           <li className="filterSubNavList">
-            <button className="filterSubNavLink">모든 스킨 </button>
+            <button className="filterSubNavLink">
+              <Link to="/product-list">모든 스킨 </Link>
+            </button>
           </li>
           {CATEGORY_LIST.map(category => {
             return (
-              <li key={category.id} className="filterSubNavList">
-                <button className="filterSubNavLink">
-                  {category.category}
-                </button>
-              </li>
+              <Link
+                key={category.id}
+                className="filterSubNavList"
+                to={`${category.category}`}
+              >
+                {category.category}
+              </Link>
             );
           })}
+          <Outlet />
         </ul>
         <div className="filterBtnContainer">
           {isFilterOpen ? (
@@ -64,16 +69,28 @@ const ProductList = () => {
       </div>
       {isFilterOpen && <FilterOpen />}
       <main className="mainContent">
-        {productList.map(category => {
-          return <Category key={category.categoryId} {...category} />;
-        })}
+        {productList.map(
+          ({ categoryId, categoryName, categoryDescription, products }) => {
+            return (
+              <Category
+                key={categoryId}
+                category={{
+                  categoryId,
+                  categoryName,
+                  categoryDescription,
+                  products,
+                }}
+              />
+            );
+          }
+        )}
       </main>
       <BaseInfo
-        subtitle={LIST_PAGE_BASEINFO_DATA.subtitle}
-        title={LIST_PAGE_BASEINFO_DATA.title}
-        description={LIST_PAGE_BASEINFO_DATA.description}
-        btnText={LIST_PAGE_BASEINFO_DATA.btnText}
-        imgSrc={LIST_PAGE_BASEINFO_DATA.imgSrc}
+        subtitle={subtitle}
+        title={title}
+        description={description}
+        btnText={btnText}
+        imgSrc={imgSrc}
       />
       <Footer />
     </div>
@@ -148,7 +165,7 @@ const CATEGORY_LIST = [
   },
 ];
 
-const LIST_PAGE_BASEINFO_DATA = {
+const { subtitle, title, description, btnText, imgSrc } = {
   subtitle: '',
   title: '내 피부 이해하기',
   description:

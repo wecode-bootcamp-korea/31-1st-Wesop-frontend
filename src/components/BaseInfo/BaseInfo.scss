@@ -1,7 +1,7 @@
 @import './../../styles/variables.scss';
 
 .baseInfo {
-  padding: 150px 0px;
+  padding: 150px 0;
   overflow-x: hidden;
 
   .twoColumnModule {
@@ -47,7 +47,7 @@
         .btnIcon {
           color: $font-light-gray;
           font-size: $font-small;
-          margin: 0px 14px;
+          margin: 0 14px;
         }
 
         .btnText {
