@@ -2,6 +2,7 @@ import React from 'react';
 import './LoginInput.scss';
 
 const LoginInput = ({
+  loginMode,
   infoType,
   inputText,
   inputType,
@@ -47,6 +48,7 @@ const LoginInput = ({
   return (
     <div className="loginInput">
       <input
+        readOnly={loginMode === 'signIn' ? true : false}
         type={inputType}
         placeholder={inputText}
         onChange={event => {

@@ -26,6 +26,7 @@ const LoginMessage = ({ loginMode }) => {
     <div className="loginMessage">
       <p className="titleMessae">{titleMsg}</p>
       <p className="contentMessage">{contentMsg}</p>
+      {/* 에러메세지 나올경우 여기 넣어야됨 */}
     </div>
   );
 };

@@ -40,6 +40,39 @@ const LoginForm = ({
     inputValidity.emailContainAt &&
     inputValidity.samePassword;
 
+  const clearUserState = () => {
+    setUserInfo({
+      email: '',
+      firstName: '',
+      lastName: '',
+      password: '',
+      rePassword: '',
+    });
+  };
+
+  const maintainUserState = () => {
+    setUserInfo(prevInfo => {
+      return { ...prevInfo };
+    });
+  };
+
+  console.log(userInfo);
+
+  const goToSignIn = () => {
+    maintainUserState();
+    onChangeLoginMode('signIn');
+  };
+
+  const goToSignUp = () => {
+    maintainUserState();
+    onChangeLoginMode('signUp');
+  };
+
+  const goToResetPw = () => {
+    maintainUserState();
+    onChangeLoginMode('resetPw');
+  };
+
   const sumbmitHandler = event => {
     event.preventDefault();
 
@@ -48,7 +81,27 @@ const LoginForm = ({
       inputValidity.email &&
       loginMode === 'main'
     ) {
-      // console.log(`email submit : ${userInfo.email}`);
+      fetch('http://10.58.7.33:8000/users/check', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: userInfo.email,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          console.log(res);
+
+          if (res.message === true) {
+            goToSignIn();
+          }
+
+          if (res.message === 'VALIDATION_ERROR') {
+            console.log('유효한 양식으로 입력해주세요');
+          }
+          if (!res.message) {
+            goToSignUp();
+          }
+        });
     }
 
     if (
@@ -57,20 +110,49 @@ const LoginForm = ({
       inputValidity.password &&
       loginMode === 'signIn'
     ) {
-      // console.log(userInfo.email, userInfo.password);
+      fetch('http://10.58.7.33:8000/users/login', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: userInfo.email,
+          password: userInfo.password,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res.message === 'SUCCESS') {
+            localStorage.setItem('wtw-token', res.token);
+            clearUserState();
+            onCloseModal();
+          } else {
+            console.log('비밀번호가 틀립니다에 맞춰서 작동할 코드');
+          }
+        });
     }
 
     if (isInputAllValid && loginMode === 'signUp') {
-      // console.log(userInfo);
+      fetch('http://10.58.7.33:8000/users/signup', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: userInfo.email,
+          password: userInfo.password,
+          last_name: userInfo.lastName,
+          first_name: userInfo.firstName,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res.message === 'SUCCESS') {
+            localStorage.setItem('wtw-token', res.token);
+            clearUserState();
+            onCloseModal();
+          } else if (
+            res.message === 'VALIDATION_ERROR' ||
+            res.message === 'KEY_ERROR'
+          ) {
+            console.log('회원가입 전송 실패');
+          }
+        });
     }
-  };
-
-  const goToSignIn = () => {
-    onChangeLoginMode('signIn');
-  };
-
-  const goToResetPw = () => {
-    onChangeLoginMode('resetPw');
   };
 
   return (
@@ -90,6 +172,7 @@ const LoginForm = ({
         {formData.map(data => (
           <LoginInput
             key={data.infoType}
+            loginMode={loginMode}
             infoType={data.infoType}
             inputType={data.inputType}
             inputText={data.string}
