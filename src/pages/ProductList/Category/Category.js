@@ -16,7 +16,7 @@ const Category = ({
   };
 
   let showLeftBtn = counter > 0;
-  let showRightBtn = counter !== products.length - 3;
+  let showRightBtn = counter !== products.length - 3 && products.length > 3;
 
   return (
     <div
@@ -37,7 +37,6 @@ const Category = ({
             <span>
               {categoryName} 모두 보기 ({products.length})
             </span>
-            ㅂ
             <i className="fas fa-thin fa-arrow-right" />
           </button>
         </div>
@@ -45,7 +44,7 @@ const Category = ({
       <div className="productBodyScrollable">
         <div
           className="products"
-          style={{ transform: `translateX(-${22.2 * counter}%)` }}
+          style={{ transform: `translateX(-${27 * counter}%)` }}
         >
           {products.map(product => {
             return <Product key={product.productId} {...product} />;
