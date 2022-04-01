@@ -16,7 +16,7 @@ const Category = ({
   };
 
   let showLeftBtn = counter > 0;
-  let showRightBtn = counter !== products.length - 3 && counter * 22.2 < 1920;
+  let showRightBtn = counter !== products.length - 3;
 
   return (
     <div
@@ -37,6 +37,7 @@ const Category = ({
             <span>
               {categoryName} 모두 보기 ({products.length})
             </span>
+            ㅂ
             <i className="fas fa-thin fa-arrow-right" />
           </button>
         </div>
@@ -78,5 +79,4 @@ const Category = ({
     </div>
   );
 };
-
 export default Category;
