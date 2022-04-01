@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoginMessage.scss';
 
-const LoginMessage = ({ loginMode }) => {
+const LoginMessage = ({ loginMode, loginError }) => {
   let titleMsg = '';
   let contentMsg = '';
   let errorMsg = '';
@@ -21,6 +21,14 @@ const LoginMessage = ({ loginMode }) => {
   } else if (loginMode === 'receivedPw') {
     titleMsg = '진행 중입니다.';
     contentMsg = '새 패스워드를 만들기 위한 링크가 전송되었습니다.';
+  }
+  // 1.wrongEmail 2.wrongPassword 3.failedPost
+  if (loginError === 'wrongEmail') {
+    errorMsg = '이메일 양식에 맞게 입력해주세요(8글자 이상, @ 포함)';
+  } else if (loginError === 'wrongPassword') {
+    errorMsg = '이메일과 패스워드가 일치하지 않습니다. 다시 시도하십시오';
+  } else if (loginError === 'failedPost') {
+    errorMsg = '정보 전송에 실패하였습니다. 잠시후 다시 시도하십시오.';
   }
   return (
     <div className="loginMessage">

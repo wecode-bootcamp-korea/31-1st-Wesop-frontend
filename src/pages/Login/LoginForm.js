@@ -12,15 +12,10 @@ const LoginForm = ({
   onChangeLoginMode,
   onCloseModal,
   loginMode,
+  userInfo,
+  setUserInfo,
+  onClearUserInfo,
 }) => {
-  const [userInfo, setUserInfo] = useState({
-    email: '',
-    firstName: '',
-    lastName: '',
-    password: '',
-    rePassword: '',
-  });
-
   const [inputValidity, setInputValidity] = useState({
     email: false,
     firstName: false,
@@ -30,6 +25,7 @@ const LoginForm = ({
     emailContainAt: false,
     samePassword: false,
   });
+  console.log(inputValidity);
 
   const isInputAllValid =
     inputValidity.email &&
@@ -40,37 +36,17 @@ const LoginForm = ({
     inputValidity.emailContainAt &&
     inputValidity.samePassword;
 
+  // 1.wrongEmail 2.wrongPassword 3.failedPost
   const [loginError, setLoginError] = useState('');
 
-  const clearUserState = () => {
-    setUserInfo({
-      email: '',
-      firstName: '',
-      lastName: '',
-      password: '',
-      rePassword: '',
-    });
-  };
-
-  // const maintainUserState = () => {
-  //   setUserInfo(prevInfo => {
-  //     console.log(prevInfo);
-  //     return { ...prevInfo };
-  //   });
-  // };;
   const goToSignIn = () => {
-    setUserInfo(prev => {
-      return { ...prev };
-    });
     onChangeLoginMode('signIn');
   };
   const goToSignUp = () => {
-    // maintainUserState();
     onChangeLoginMode('signUp');
   };
 
   const goToResetPw = () => {
-    // maintainUserState();
     onChangeLoginMode('resetPw');
   };
 
@@ -96,9 +72,10 @@ const LoginForm = ({
           }
 
           if (res.message === 'VALIDATION_ERROR') {
-            console.log('유효한 양식으로 입력해주세요');
+            setLoginError('wrongEmail');
           }
           if (!res.message) {
+            setLoginError('');
             goToSignUp();
           }
         });
@@ -120,12 +97,14 @@ const LoginForm = ({
         .then(res => res.json())
         .then(res => {
           if (res.message === 'SUCCESS') {
+            console.log('success');
             localStorage.setItem('wtw-token', res.token);
             setLoginError('');
-            clearUserState();
+            onClearUserInfo();
             onCloseModal();
           } else {
-            console.log('비밀번호가 틀립니다에 맞춰서 작동할 코드');
+            setLoginError('wrongPassword');
+            console.log('failed');
           }
         });
     }
@@ -145,13 +124,13 @@ const LoginForm = ({
           if (res.message === 'SUCCESS') {
             localStorage.setItem('wtw-token', res.token);
             setLoginError('');
-            clearUserState();
+            onClearUserInfo();
             onCloseModal();
           } else if (
             res.message === 'VALIDATION_ERROR' ||
             res.message === 'KEY_ERROR'
           ) {
-            console.log('회원가입 전송 실패');
+            setLoginError('failedPost');
           }
         });
     }
@@ -160,9 +139,15 @@ const LoginForm = ({
   return (
     <form className="loginForm" onSubmit={sumbmitHandler}>
       <section className="loginTopBtnArea">
-        <LoginCloseMiniBtn onCloseModal={onCloseModal} />
+        <LoginCloseMiniBtn
+          onCloseModal={onCloseModal}
+          onClearUserInfo={onClearUserInfo}
+        />
         {loginMode === 'main' || (
-          <LoginBackMiniBtn onChangeLoginMode={onChangeLoginMode} />
+          <LoginBackMiniBtn
+            onChangeLoginMode={onChangeLoginMode}
+            onClearUserInfo={onClearUserInfo}
+          />
         )}
       </section>
 

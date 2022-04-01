@@ -28,7 +28,9 @@ const LoginInput = ({
           return { ...prevInfo, [name]: false };
         });
 
-    userInfo.email.includes('@')
+    userInfo.email.includes('@') &&
+    userInfo.email.trim().length > 7 &&
+    userInfo.email.includes('.')
       ? onSetInputValidity(prevInfo => {
           return { ...prevInfo, emailContainAt: true };
         })
@@ -48,7 +50,9 @@ const LoginInput = ({
   return (
     <div className="loginInput">
       <input
-        readOnly={loginMode === 'signIn' ? true : false}
+        readOnly={
+          loginMode === 'signIn' && inputType === 'email' ? true : false
+        }
         type={inputType}
         placeholder={inputText}
         onChange={event => {
@@ -57,6 +61,7 @@ const LoginInput = ({
         }}
         onBlur={changeValidityHandler}
         name={infoType}
+        value={userInfo[infoType]}
       />
     </div>
   );

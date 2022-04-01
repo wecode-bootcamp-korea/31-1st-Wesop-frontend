@@ -1,8 +1,9 @@
 import React from 'react';
 import './LoginBackMiniBtn.scss';
 
-const LoginBackMiniBtn = ({ onChangeLoginMode }) => {
+const LoginBackMiniBtn = ({ onChangeLoginMode, onClearUserInfo }) => {
   const goToMain = () => {
+    onClearUserInfo();
     onChangeLoginMode('main');
   };
 

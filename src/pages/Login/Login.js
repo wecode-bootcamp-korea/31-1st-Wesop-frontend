@@ -5,12 +5,33 @@ import FIRSTWINDOW_DATA from '../../components/Login/LOGIN_DATA/FIRSTWINDOW_DATA
 import RESETPW_DATA from '../../components/Login/LOGIN_DATA/RESETPW_DATA';
 import SIGNIN_DATA from '../../components/Login/LOGIN_DATA/SIGNIN_DATA';
 import SIGNUP_DATA from '../../components/Login/LOGIN_DATA/SIGNUP_DATA';
+import Main from '../Main/Main';
 import './Login.scss';
 
 const Login = () => {
   // 로그인모드 종류 = [main , signUp , signIn, resetPw, receivedPw]
   const [loginMode, setLoginMode] = useState('signUp');
   const [isShowModal, setIsShowModal] = useState('true');
+
+  const [userInfo, setUserInfo] = useState({
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    rePassword: '',
+  });
+
+  console.log(userInfo);
+
+  const clearUserStateHandler = () => {
+    setUserInfo({
+      email: '',
+      firstName: '',
+      lastName: '',
+      password: '',
+      rePassword: '',
+    });
+  };
 
   const changeLoginModeHandler = type => {
     setLoginMode(type);
@@ -26,15 +47,22 @@ const Login = () => {
         onChangeLoginMode={changeLoginModeHandler}
         onCloseModal={closeModalHandler}
         loginMode={loginMode}
+        userInfo={userInfo}
+        setUserInfo={setUserInfo}
+        onClearUserInfo={clearUserStateHandler}
       />
     );
   };
+
   return (
     <div className="login">
       <div
+        // 부모 컴포넌트랑 연결시에는 그냥 부모 컴포넌트에서 state파서 삼항연산자로 토글 만들면 됨.
+        // className="backdrop"
         className={`backdrop ${isShowModal ? '' : 'hideModal'}`}
-        onClick={closeModalHandler}
+        onClick={(closeModalHandler, clearUserStateHandler)}
       />
+      {/* <LoginCard className="loginInner"> */}
       <LoginCard className={`loginInner ${isShowModal ? '' : 'hideModal'}`}>
         {loginMode === 'main' && insertLoginForm(FIRSTWINDOW_DATA)}
         {loginMode === 'signIn' && insertLoginForm(SIGNIN_DATA)}
