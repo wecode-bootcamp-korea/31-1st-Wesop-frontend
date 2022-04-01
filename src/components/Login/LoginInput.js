@@ -6,6 +6,7 @@ const LoginInput = ({
   infoType,
   inputText,
   inputType,
+  inputValidity,
   userInfo,
   onSetUserInfo,
   onSetInputValidity,
@@ -28,9 +29,7 @@ const LoginInput = ({
           return { ...prevInfo, [name]: false };
         });
 
-    userInfo.email.includes('@') &&
-    userInfo.email.trim().length > 7 &&
-    userInfo.email.includes('.')
+    userInfo.email.includes('@')
       ? onSetInputValidity(prevInfo => {
           return { ...prevInfo, emailContainAt: true };
         })
@@ -46,6 +45,17 @@ const LoginInput = ({
           return { ...prevInfo, samePassword: false };
         });
   };
+
+  const containAtErrorMsg = (
+    <p className="inputErrorMsg">
+      이메일 주소 형식에 맞지 않습니다. 다시 확인해주세요. (예:
+      name@example.com)
+    </p>
+  );
+
+  const samePasswordErrorMsg = (
+    <p className="inputErrorMsg">이전에 사용했던 패스워드를 입력하세요.</p>
+  );
 
   return (
     <div className="loginInput">
@@ -63,6 +73,14 @@ const LoginInput = ({
         name={infoType}
         value={userInfo[infoType]}
       />
+      {userInfo.email && infoType === 'email ' && !inputValidity.emailContainAt
+        ? containAtErrorMsg
+        : ''}
+      {userInfo.rePassword &&
+      infoType === 'rePassword' &&
+      !inputValidity.samePassword
+        ? samePasswordErrorMsg
+        : ''}
     </div>
   );
 };

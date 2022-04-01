@@ -15,18 +15,9 @@ const LoginForm = ({
   userInfo,
   setUserInfo,
   onClearUserInfo,
+  inputValidity,
+  onSetInputValidity,
 }) => {
-  const [inputValidity, setInputValidity] = useState({
-    email: false,
-    firstName: false,
-    lastName: false,
-    password: false,
-    rePassword: false,
-    emailContainAt: false,
-    samePassword: false,
-  });
-  console.log(inputValidity);
-
   const isInputAllValid =
     inputValidity.email &&
     inputValidity.firstName &&
@@ -36,7 +27,7 @@ const LoginForm = ({
     inputValidity.emailContainAt &&
     inputValidity.samePassword;
 
-  // 1.wrongEmail 2.wrongPassword 3.failedPost
+  // 1.wrongEmail 2.wrongPassword 3.failedPost 4.alreadyExist
   const [loginError, setLoginError] = useState('');
 
   const goToSignIn = () => {
@@ -75,8 +66,9 @@ const LoginForm = ({
             setLoginError('wrongEmail');
           }
           if (!res.message) {
-            setLoginError('');
             goToSignUp();
+            onClearUserInfo();
+            setLoginError('');
           }
         });
     }
@@ -97,14 +89,12 @@ const LoginForm = ({
         .then(res => res.json())
         .then(res => {
           if (res.message === 'SUCCESS') {
-            console.log('success');
             localStorage.setItem('wtw-token', res.token);
             setLoginError('');
             onClearUserInfo();
             onCloseModal();
           } else {
             setLoginError('wrongPassword');
-            console.log('failed');
           }
         });
     }
@@ -126,6 +116,9 @@ const LoginForm = ({
             setLoginError('');
             onClearUserInfo();
             onCloseModal();
+          }
+          if (res.message === 'ALREADY_EXIST_EMAIL') {
+            setLoginError('alreadyExist');
           } else if (
             res.message === 'VALIDATION_ERROR' ||
             res.message === 'KEY_ERROR'
@@ -169,7 +162,7 @@ const LoginForm = ({
             inputText={data.string}
             onSetUserInfo={setUserInfo}
             userInfo={userInfo}
-            onSetInputValidity={setInputValidity}
+            onSetInputValidity={onSetInputValidity}
             inputValidity={inputValidity}
           />
         ))}

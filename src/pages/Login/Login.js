@@ -5,12 +5,11 @@ import FIRSTWINDOW_DATA from '../../components/Login/LOGIN_DATA/FIRSTWINDOW_DATA
 import RESETPW_DATA from '../../components/Login/LOGIN_DATA/RESETPW_DATA';
 import SIGNIN_DATA from '../../components/Login/LOGIN_DATA/SIGNIN_DATA';
 import SIGNUP_DATA from '../../components/Login/LOGIN_DATA/SIGNUP_DATA';
-import Main from '../Main/Main';
 import './Login.scss';
 
 const Login = () => {
   // 로그인모드 종류 = [main , signUp , signIn, resetPw, receivedPw]
-  const [loginMode, setLoginMode] = useState('signUp');
+  const [loginMode, setLoginMode] = useState('main');
   const [isShowModal, setIsShowModal] = useState('true');
 
   const [userInfo, setUserInfo] = useState({
@@ -22,6 +21,18 @@ const Login = () => {
   });
 
   console.log(userInfo);
+
+  const [inputValidity, setInputValidity] = useState({
+    email: false,
+    firstName: false,
+    lastName: false,
+    password: false,
+    rePassword: false,
+    emailContainAt: false,
+    samePassword: false,
+  });
+
+  console.log(inputValidity);
 
   const clearUserStateHandler = () => {
     setUserInfo({
@@ -50,6 +61,8 @@ const Login = () => {
         userInfo={userInfo}
         setUserInfo={setUserInfo}
         onClearUserInfo={clearUserStateHandler}
+        inputValidity={inputValidity}
+        onSetInputValidity={setInputValidity}
       />
     );
   };

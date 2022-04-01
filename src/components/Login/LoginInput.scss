@@ -20,4 +20,9 @@
   input:focus {
     outline: none;
   }
+
+  .inputErrorMsg {
+    font-size: $font-small;
+    color: red;
+  }
 }

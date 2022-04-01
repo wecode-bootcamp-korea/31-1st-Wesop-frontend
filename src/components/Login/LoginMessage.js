@@ -29,6 +29,8 @@ const LoginMessage = ({ loginMode, loginError }) => {
     errorMsg = '이메일과 패스워드가 일치하지 않습니다. 다시 시도하십시오';
   } else if (loginError === 'failedPost') {
     errorMsg = '정보 전송에 실패하였습니다. 잠시후 다시 시도하십시오.';
+  } else if (loginError === 'alreadyExist') {
+    errorMsg = '이미 등록된 이메일입니다.';
   }
   return (
     <div className="loginMessage">
