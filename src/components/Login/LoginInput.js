@@ -74,15 +74,13 @@ const LoginInput = ({
       setIsSamePasswrod(true);
     }
   };
+
   const userInfoAndInputValidityHandler = event => {
     changeUserInfo(event);
     changeValidityHandler(event);
     changeIsContainSymbolAtHandler(event);
     changeIsSamePasswordHandler(event);
   };
-
-  const errorMsg1 = 'abc';
-  const errorMsg2 = 'eee';
 
   return (
     <div className="loginInput">
@@ -94,7 +92,7 @@ const LoginInput = ({
         type={inputType}
         placeholder={inputText}
         onChange={userInfoAndInputValidityHandler}
-        onBlur={changeValidityHandler}
+        onBlur={userInfoAndInputValidityHandler}
         name={infoType}
         value={userInfo[infoType]}
       />
