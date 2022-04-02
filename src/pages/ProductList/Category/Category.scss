@@ -1,0 +1,91 @@
+@import './../../../styles/variables.scss';
+
+.category {
+  display: flex;
+  height: 530px;
+
+  .productTitleWrapper {
+    width: 22.2%;
+    padding: 40px 20px 71px 40px;
+    word-wrap: break-word;
+    color: $font-gray;
+
+    .descriptionBox {
+      margin-top: 200px;
+      padding-bottom: 50px;
+      color: $font-gray;
+
+      .descriptionTitleBtn {
+        font-size: $font-medium;
+        margin-bottom: 20px;
+      }
+
+      .descriptionText {
+        font-size: $font-regular;
+        line-height: 1.6;
+      }
+    }
+
+    .subCategoryIntro {
+      @include center($justify-content: space-between);
+      font-size: $font-small;
+
+      span {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .productBodyScrollable {
+    width: 78.8%;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s ease-in-out;
+
+    .products {
+      transition: 0.4s ease-in-out;
+    }
+
+    .carouselLeft,
+    .carouselRight {
+      position: absolute;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      background-color: transparent;
+    }
+
+    .carouselLeftBtn,
+    .carouselRightBtn {
+      width: 80px;
+      height: 80px;
+      background-color: $color-dark-gray;
+      color: $color-beige;
+      transform: translateY(230px);
+      display: none;
+    }
+
+    .carouselRight {
+      right: 0;
+
+      &:hover .carouselRightBtn {
+        display: block;
+      }
+    }
+
+    .carouselLeft {
+      &:hover .carouselLeftBtn {
+        display: block;
+      }
+    }
+  }
+}
+
+.lightBeige {
+  background-color: $color-beige;
+}
+
+.darkBeige {
+  background-color: #ebeade;
+}
