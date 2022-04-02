@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.MainModalIntro {
+  .MainModal {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .modalPopup {
+    transition: all 500ms ease-in-out;
+  }
+}
