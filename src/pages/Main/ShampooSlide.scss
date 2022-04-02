@@ -5,13 +5,12 @@
   font-size: $font-size;
 }
 
-.MainModalPopup {
+.ShampooSlide {
   position: relative;
   height: 90vh;
   width: 90vw;
   background-color: #ebeade;
   transform: translate(0, -130%);
-  // transition: all 500ms ease-in-out;
 
   .popupImage {
     width: 20vw;

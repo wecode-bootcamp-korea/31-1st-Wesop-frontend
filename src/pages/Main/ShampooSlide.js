@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
-import './MainModalPopup.scss';
+import './ShampooSlide.scss';
 
-const MainModalPopup = ({ state }) => {
+const ShampooSlide = ({ state }) => {
   const popupRef = useRef();
 
   return (
-    <div ref={popupRef} className="MainModalPopup">
-      <div className="MainModalPopupWrapper">
+    <div ref={popupRef} className="ShampooSlide">
+      <div className="popupWrapper">
         <img
           className="popupImage"
           src="/images/main/투명배경1.png"
@@ -34,4 +34,4 @@ const MainModalPopup = ({ state }) => {
   );
 };
 
-export default MainModalPopup;
+export default ShampooSlide;

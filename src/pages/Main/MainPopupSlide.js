@@ -1,13 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PopupSlideIntro from './PopupSlideIntro';
-import MainModalContainer from './MainModalContainer';
-import MainModalPopup from './MainModalPopup';
-import ModalData from './ModalData';
-import './MainModalIntro.scss';
+import MainShampooContainer from './MainShampooContainer';
+import ShampooSlide from './ShampooSlide';
+import ShampooData from './ShampooData';
+import './MainPopupSlide.scss';
 
-const MainModalIntro = () => {
+const MainPopupSlide = () => {
   const popupRef = useRef();
-  const [leftPopupState, setLeftPopupState] = useState(false);
+  const [leftPopupState, setLeftPopupState] = useState(true);
 
   useEffect(() => {
     leftPopupState
@@ -16,11 +16,11 @@ const MainModalIntro = () => {
   }, [leftPopupState]);
 
   return (
-    <div className="MainModalIntro">
+    <div className="MainPopupSlide">
       <PopupSlideIntro />
-      <div className="MainModal">
-        {ModalData.map(data => (
-          <MainModalContainer
+      <div className="mainShampoo">
+        {ShampooData.map(data => (
+          <MainShampooContainer
             key={data.id}
             title={data.title}
             header={data.header}
@@ -29,11 +29,11 @@ const MainModalIntro = () => {
           />
         ))}
       </div>
-      <div ref={popupRef} className="modalPopup">
-        <MainModalPopup state={setLeftPopupState} />
+      <div ref={popupRef} className="shampooPopup">
+        <ShampooSlide state={setLeftPopupState} />
       </div>
     </div>
   );
 };
 
-export default MainModalIntro;
+export default MainPopupSlide;

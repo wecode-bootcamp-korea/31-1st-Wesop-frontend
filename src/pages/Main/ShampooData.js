@@ -1,4 +1,4 @@
-const ModalData = [
+const ShampooData = [
   {
     id: 1,
     title: '샴푸',
@@ -17,4 +17,4 @@ const ModalData = [
   },
 ];
 
-export default ModalData;
+export default ShampooData;

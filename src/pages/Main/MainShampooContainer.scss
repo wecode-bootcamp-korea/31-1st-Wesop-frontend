@@ -5,19 +5,18 @@
   font-size: $font-size;
 }
 
-.MainModalContainer {
+.MainShampooContainer {
   position: relative;
   width: 50%;
   height: 100%;
-  // overflow: visible;
 
-  .MainModalImage {
+  .shampooImage {
     max-width: 50vw;
     width: 100%;
     height: 100%;
   }
 
-  .MainModalWrapper {
+  .shampooWrapper {
     @include center;
     flex-direction: column;
     position: absolute;
@@ -26,20 +25,20 @@
     left: 20%;
     color: $color-beige;
 
-    .MainModalTitle {
+    .shampooTitle {
       @include modalFont;
     }
 
-    .MainModalHeader {
+    .shampooHeader {
       @include modalFont($font-size: $font-regular);
     }
 
-    .MainModalDescription {
+    .shampooDescription {
       @include modalFont($font-size: $font-small);
       font-style: underline;
     }
 
-    .MainModalLink {
+    .shampooLink {
       @include modalFont($font-size: $font-regular);
       text-decoration: underline;
       cursor: pointer;

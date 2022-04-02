@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 
-.MainModalIntro {
-  .MainModal {
+.MainPopupSlide {
+  .mainShampoo {
     display: flex;
     flex-direction: row;
     position: relative;
@@ -10,7 +10,7 @@
     overflow: visible;
   }
 
-  .modalPopup {
+  .shampooPopup {
     transition: all 500ms ease-in-out;
   }
 }
