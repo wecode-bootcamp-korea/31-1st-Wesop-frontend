@@ -56,7 +56,6 @@ const Category = ({
               name="left"
               className="carouselLeftBtn"
               onClick={leftBtnClickHandler}
-              disabled={showLeftBtn ? false : true}
             >
               <i className="fa-solid fa-chevron-left" />
             </button>
@@ -68,7 +67,6 @@ const Category = ({
               name="right"
               className="carouselRightBtn"
               onClick={rightBtnClickHandler}
-              disabled={showRightBtn ? false : true}
             >
               <i className="fa-solid fa-chevron-right" />
             </button>
