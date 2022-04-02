@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './LoginInput.scss';
 
 const LoginInput = ({
@@ -6,7 +6,7 @@ const LoginInput = ({
   infoType,
   inputText,
   inputType,
-  inputValidity,
+  onResetLoginErrorMsg,
   userInfo,
   onSetUserInfo,
   onSetInputValidity,
@@ -77,6 +77,7 @@ const LoginInput = ({
 
   const userInfoAndInputValidityHandler = event => {
     changeUserInfo(event);
+    onResetLoginErrorMsg();
     changeValidityHandler(event);
     changeIsContainSymbolAtHandler(event);
     changeIsSamePasswordHandler(event);

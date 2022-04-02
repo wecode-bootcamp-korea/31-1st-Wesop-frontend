@@ -41,15 +41,18 @@ const LoginForm = ({
     onChangeLoginMode('resetPw');
   };
 
+  const resetLoginErrorMsgHandler = () => {
+    setLoginError('');
+  };
+
   const sumbmitHandler = event => {
     event.preventDefault();
-
     if (
       inputValidity.emailContainAt &&
       inputValidity.email &&
       loginMode === 'main'
     ) {
-      fetch('http://10.58.7.33:8000/users/check', {
+      fetch('http://10.58.1.191:8000/users/check', {
         method: 'POST',
         body: JSON.stringify({
           email: userInfo.email,
@@ -79,7 +82,7 @@ const LoginForm = ({
       inputValidity.password &&
       loginMode === 'signIn'
     ) {
-      fetch('http://10.58.7.33:8000/users/login', {
+      fetch('http://10.58.1.191:8000/users/login', {
         method: 'POST',
         body: JSON.stringify({
           email: userInfo.email,
@@ -100,7 +103,7 @@ const LoginForm = ({
     }
 
     if (isInputAllValid && loginMode === 'signUp') {
-      fetch('http://10.58.7.33:8000/users/signup', {
+      fetch('http://10.58.1.191:8000/users/signup', {
         method: 'POST',
         body: JSON.stringify({
           email: userInfo.email,
@@ -160,6 +163,7 @@ const LoginForm = ({
             infoType={data.infoType}
             inputType={data.inputType}
             inputText={data.string}
+            onResetLoginErrorMsg={resetLoginErrorMsgHandler}
             onSetUserInfo={setUserInfo}
             userInfo={userInfo}
             onSetInputValidity={onSetInputValidity}
