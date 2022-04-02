@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './LoginInput.scss';
 
 const LoginInput = ({
@@ -11,6 +11,9 @@ const LoginInput = ({
   onSetUserInfo,
   onSetInputValidity,
 }) => {
+  const [isContainSymbolAt, setIsContainSymbolAt] = useState(true);
+  const [isSamePassword, setIsSamePasswrod] = useState(true);
+
   const changeUserInfo = event => {
     const { name, value } = event.target;
     onSetUserInfo(prevUserInfo => {
@@ -46,23 +49,40 @@ const LoginInput = ({
         });
   };
 
-  const containAtErrorMsg = (
-    <p className="inputErrorMsg">
-      이메일 주소 형식에 맞지 않습니다. 다시 확인해주세요.
-    </p>
-  );
+  const changeIsContainSymbolAtHandler = event => {
+    if (
+      userInfo.email &&
+      infoType === 'email' &&
+      !event.target.value.includes('@') &&
+      event.target.value
+    ) {
+      setIsContainSymbolAt(false);
+    } else {
+      setIsContainSymbolAt(true);
+    }
+  };
 
-  const samePasswordErrorMsg = (
-    <p className="inputErrorMsg">이전에 사용했던 패스워드를 입력하세요.</p>
-  );
+  const changeIsSamePasswordHandler = event => {
+    if (
+      userInfo.rePassword &&
+      infoType === 'rePassword' &&
+      !(userInfo.password === event.target.value) &&
+      event.target.value
+    ) {
+      setIsSamePasswrod(false);
+    } else {
+      setIsSamePasswrod(true);
+    }
+  };
+  const userInfoAndInputValidityHandler = event => {
+    changeUserInfo(event);
+    changeValidityHandler(event);
+    changeIsContainSymbolAtHandler(event);
+    changeIsSamePasswordHandler(event);
+  };
 
-  const isContainAtError =
-    userInfo.email && infoType === 'email' && !inputValidity.emailContainAt;
-
-  const isSamePasswordErr =
-    userInfo.rePassword &&
-    infoType === 'rePassword' &&
-    !inputValidity.samePassword;
+  const errorMsg1 = 'abc';
+  const errorMsg2 = 'eee';
 
   return (
     <div className="loginInput">
@@ -73,16 +93,19 @@ const LoginInput = ({
         }
         type={inputType}
         placeholder={inputText}
-        onChange={event => {
-          changeUserInfo(event);
-          changeValidityHandler(event);
-        }}
+        onChange={userInfoAndInputValidityHandler}
         onBlur={changeValidityHandler}
         name={infoType}
         value={userInfo[infoType]}
       />
-      {isContainAtError ? containAtErrorMsg : ''}
-      {isSamePasswordErr ? samePasswordErrorMsg : ''}
+      <p className="inputErrorMsg">
+        {isContainSymbolAt
+          ? ''
+          : '이메일 주소 형식에 맞지 않습니다. 다시 확인해주세요.'}{' '}
+      </p>
+      <p className="inputErrorMsg">
+        {isSamePassword ? '' : '이전에 사용했던 패스워드를 입력하세요.'}
+      </p>
     </div>
   );
 };
