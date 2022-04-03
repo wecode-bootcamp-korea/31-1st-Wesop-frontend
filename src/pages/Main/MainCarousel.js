@@ -5,29 +5,30 @@ import './MainCarousel.scss';
 const MainCarousel = () => {
   const [slidePosition, setSlidePosition] = useState(0);
   const [slideData, setSlideData] = useState([]);
+  const [badgeData, setBadgeData] = useState([]);
 
   const slideRef = useRef();
   const indicatorRef = useRef();
 
-  const badgeData = slideData.filter(function (list) {
-    return list.badge.includes('종환');
-  });
-
-  const sliceData = badgeData.slice(0, 5);
-
-  console.log(sliceData);
-  // useEffect(() => {
-  //   fetch('http://10.58.1.137/products')
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-  // }, []);
-
   useEffect(() => {
-    fetch('/data/dataSample.json')
+    fetch('http://10.58.2.50:8000/products')
       .then(res => res.json())
       .then(data => setSlideData(data));
-    // .then(slideData => slideData.filter(slideData));
   }, []);
+
+  console.log(slideData.filter(data => data.badge === '종환 MD 추천'));
+
+  // useEffect(() => {
+  //   setBadgeData(slideData.filter(data => data.badge.includes('종환')));
+  // }, [slideData]);
+
+  // console.log(badgeData);
+  // useEffect(() => {
+  //   fetch('/data/dataSample.json')
+  //     .then(res => res.json())
+  //     .then(data => setSlideData(data));
+  //   // .then(slideData => slideData.filter(slideData));
+  // }, []);
 
   const prevSlideHandler = () => {
     let newSlidePosition = slidePosition;
