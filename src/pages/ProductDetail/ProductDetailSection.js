@@ -34,11 +34,7 @@ function ProductDetailSectionList({ mainDescription }) {
         </div>
         <div className="productDetailUnderlined">
           <p className="productDetailSpaces">주요성분</p>
-          <p className="productDetailExplanation">
-            {main_ingredients.map((ingredient, i) => (
-              <span key={i}>{ingredient}, </span>
-            ))}
-          </p>
+          <p className="productDetailExplanation">{main_ingredients} </p>
         </div>
         <div className="productDetailUndrl">
           <p className="productDetailSpaces">사이즈</p>

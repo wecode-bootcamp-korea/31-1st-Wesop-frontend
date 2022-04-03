@@ -153,6 +153,7 @@ const ProductDetail = () => {
             </div>
           </div>
         </aside>
+        <div />
       </div>
     </div>
   );
