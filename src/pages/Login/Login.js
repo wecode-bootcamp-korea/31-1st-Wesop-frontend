@@ -9,8 +9,7 @@ import './Login.scss';
 
 const Login = () => {
   // 로그인모드 종류 = [main , signUp , signIn, resetPw, receivedPw]
-  const [loginMode, setLoginMode] = useState('main');
-
+  const [loginMode, setLoginMode] = useState('receivedPw');
   const [userInfo, setUserInfo] = useState({
     email: '',
     firstName: '',
@@ -67,11 +66,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div
-        className="backdrop"
-        onClick={(closeModalHandler, clearUserStateHandler)}
-      />
-      <LoginCard className="loginInner">
+      <LoginCard>
         {loginMode === 'main' && insertLoginForm(FIRSTWINDOW_DATA)}
         {loginMode === 'signIn' && insertLoginForm(SIGNIN_DATA)}
         {loginMode === 'signUp' && insertLoginForm(SIGNUP_DATA)}
