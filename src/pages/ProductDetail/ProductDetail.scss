@@ -55,9 +55,6 @@
   top: 275px;
 }
 
-.Next:hover .Prev:hover {
-}
-
 .fa-angle-left,
 .fa-angle-right {
   color: white;
@@ -65,5 +62,21 @@
 }
 
 .indicatorContainor {
-  background-color: #cbcbc0;
+  overflow: hidden;
+  margin-right: 20px;
+  margin-left: 20px;
+
+  .indicatorLine {
+    position: relative;
+    background-color: #cbcbc0;
+    width: 100vw;
+    height: 2px;
+
+    .indicatorBlock {
+      position: absolute;
+      background-color: #333333;
+      width: 20vw;
+      height: 2px;
+    }
+  }
 }

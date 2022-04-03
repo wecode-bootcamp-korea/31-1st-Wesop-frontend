@@ -18,10 +18,12 @@ const ProductDetail = () => {
   const [showModal, setShowModal] = useState(false);
 
   const slideRef = useRef(null);
+  const indicatorRef = useRef(null);
 
   const TOTAL_SLIDES = 4;
 
   const slideTransition = currentSlide * 14.25;
+  const indicatorTranslation = currentSlide * 100;
 
   const NextSlide = () => {
     currentSlide >= TOTAL_SLIDES
@@ -78,8 +80,10 @@ const ProductDetail = () => {
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${slideTransition}%)`;
+    indicatorRef.current.style.transition = 'all 0.5s ease-in-out';
+    indicatorRef.current.style.transform = `translate(${indicatorTranslation}%)`;
+    setCurrentSlide(currentSlide);
   });
-
   return (
     <div>
       {showModal ? (
@@ -152,8 +156,12 @@ const ProductDetail = () => {
               })}
             </div>
           </div>
+          <div className="indicatorContainor">
+            <div className="indicatorLine">
+              <span className="indicatorBlock" ref={indicatorRef} />
+            </div>
+          </div>
         </aside>
-        <div />
       </div>
     </div>
   );

@@ -28,6 +28,32 @@
   color: white;
 }
 
+.categoryTeg {
+  display: flex;
+}
+
+.categoryLink {
+  padding-right: 13px;
+}
+
+.categoryLink::after,
+.subCategoryLink::after {
+  display: block;
+  content: '';
+  border-bottom: solid 1px black;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+.categoryLink:hover::after,
+.subCategoryLink:hover::after {
+  transform: scaleX(1);
+}
+
+.categoryLink::after,
+.subCategoryLink::after {
+  transform-origin: 0% 50%;
+}
+
 .productDetailSectionList {
   width: 360px;
 

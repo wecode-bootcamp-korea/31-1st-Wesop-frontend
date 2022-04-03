@@ -16,7 +16,11 @@ function ProductDetailSectionList({ mainDescription }) {
     <div className="productDetailSectionList">
       <div className="productDetailCategory">
         <div className="productDetailUndrl">
-          <span>스킨 {category}</span>
+          <ui className="categoryTeg">
+            <span className="categoryLink">스킨</span>
+            <li />
+            <span className="subCategoryLink">{category}</span>
+          </ui>
         </div>
         <div className="productDetailSpaces">
           <p className="productDetailName">{name}</p>
@@ -44,7 +48,7 @@ function ProductDetailSectionList({ mainDescription }) {
       <button className="shoppingCartButton">
         카트에 추가하기 - ₩ {price}
       </button>
-      <img className="productDetailImg" src={product_imges} />
+      <img className="productDetailImg" src={product_imges} alt="스킨" />
     </div>
   );
 }
