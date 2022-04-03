@@ -2,11 +2,12 @@ import React from 'react';
 import './BaseInfo.scss';
 
 const BaseInfo = ({ subtitle, title, description, btnText, imgSrc }) => {
+  const check = subtitle.length > 0;
   return (
     <div className="baseInfo">
       <div className="twoColumnModule">
         <aside className="copy">
-          {subtitle && <h3 className="subtitle">{subtitle}</h3>}
+          {check && <h3 className="subtitle">{subtitle}</h3>}
           <h2 className="title">{title}</h2>
           <p className="description">{description}</p>
           <button className="btnHoverDark">
@@ -17,7 +18,7 @@ const BaseInfo = ({ subtitle, title, description, btnText, imgSrc }) => {
           </button>
         </aside>
         <div className="imgWrapper">
-          <img className alt="cover" src={imgSrc} />
+          <img alt="cover" src={imgSrc} />
         </div>
       </div>
     </div>

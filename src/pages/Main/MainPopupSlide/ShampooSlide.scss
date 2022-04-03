@@ -1,0 +1,56 @@
+@import '../../../styles/variables.scss';
+
+@mixin popupFont($font-size: $font-large) {
+  margin-bottom: 20px;
+  font-size: $font-size;
+}
+
+.ShampooSlide {
+  position: relative;
+  height: 90vh;
+  width: 90vw;
+  background-color: #ebeade;
+  transform: translate(0, -130%);
+
+  .popupImage {
+    width: 20vw;
+    height: auto;
+    margin: 4vw;
+  }
+
+  .popupBlock {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 15%;
+    left: 30%;
+
+    .popupTitle {
+      @include popupFont;
+    }
+
+    .popupHeader {
+      @include popupFont($font-size: $font-regular);
+    }
+
+    .popupDescription {
+      @include popupFont($font-size: $font-small);
+      width: 50vw;
+      line-height: 1.6;
+    }
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    width: 20px;
+    height: 20px;
+    border: none;
+
+    .leftArrow {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

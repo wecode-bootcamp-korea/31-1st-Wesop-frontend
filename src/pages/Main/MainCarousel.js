@@ -1,12 +1,33 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import SlideData from './SlideData';
 import './MainCarousel.scss';
 
 const MainCarousel = () => {
   const [slidePosition, setSlidePosition] = useState(0);
+  const [slideData, setSlideData] = useState([]);
 
   const slideRef = useRef();
   const indicatorRef = useRef();
+
+  const badgeData = slideData.filter(function (list) {
+    return list.badge.includes('종환');
+  });
+
+  const sliceData = badgeData.slice(0, 5);
+
+  console.log(sliceData);
+  // useEffect(() => {
+  //   fetch('http://10.58.1.137/products')
+  //     .then(res => res.json())
+  //     .then(data => console.log(data));
+  // }, []);
+
+  useEffect(() => {
+    fetch('/data/dataSample.json')
+      .then(res => res.json())
+      .then(data => setSlideData(data));
+    // .then(slideData => slideData.filter(slideData));
+  }, []);
 
   const prevSlideHandler = () => {
     let newSlidePosition = slidePosition;
@@ -36,16 +57,12 @@ const MainCarousel = () => {
     <div className="MainCarousel">
       <div className="fixedScreen">
         <div ref={slideRef} className="carouselContainer">
-          {SlideData.map(data => (
-            <div key={data.id} className="mainCarouselContainer">
-              <img
-                className="mainCarouselImage"
-                src={data.image}
-                alt={data.name}
-              />
-              <div className="mainCarouselProductName">{data.name}</div>
+          {SlideData.map(({ id, image, name, description }) => (
+            <div key={id} className="mainCarouselContainer">
+              <img className="mainCarouselImage" src={image} alt={name} />
+              <div className="mainCarouselProductName">{name}</div>
               <div className="mainCarouselProductDescription">
-                {data.description}
+                {description}
               </div>
             </div>
           ))}
