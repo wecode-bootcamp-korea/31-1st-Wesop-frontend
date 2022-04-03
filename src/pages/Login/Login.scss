@@ -8,13 +8,5 @@
   width: 100%;
   height: 100%;
 
-  z-index: 10;
-
-  .loginInner {
-    z-index: 999;
-  }
-}
-
-.hideModal {
-  display: none;
+  z-index: 999;
 }
