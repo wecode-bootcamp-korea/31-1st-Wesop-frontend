@@ -18,8 +18,14 @@
       font-size: 20px;
       top: 345px;
       left: 340px;
+      opacity: 1;
     }
   }
+}
+
+.fa-square-plus:hover {
+  background-color: black;
+  color: white;
 }
 
 .productDetailSectionList {
@@ -69,10 +75,14 @@
   color: #fffef2;
 }
 
+.shoppingCartButton:hover {
+  background-color: black;
+}
+
 .productDetailImg {
-  width: 440px;
-  height: 430px;
+  width: 220px;
+  height: 400px;
   position: relative;
-  right: 470px;
-  bottom: 490px;
+  right: 350px;
+  bottom: 460px;
 }

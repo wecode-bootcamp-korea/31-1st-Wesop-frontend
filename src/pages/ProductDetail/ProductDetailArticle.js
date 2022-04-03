@@ -1,32 +1,36 @@
 import React from 'react';
 
-function ProductDetailArticleList({ product }) {
+function ProductDetailArticle({ subDescription }) {
+  const { 사용법, 사용량, 텍스처, 향, subproductImg } = subDescription;
+
   return (
-    <article className="ProductDetailArticle">
-      <img
-        className="ProductDetailArticleImg"
-        alt="스킨"
-        src={product.subproductImg}
-      />
+    <div className="ProductDetailArticle">
+      <div className="DetailArticleImg">
+        <img
+          className="ProductDetailArticleImg"
+          alt="스킨"
+          src={subproductImg}
+        />
+      </div>
       <div className="ProductDetailArticleContainer">
-        <div className="howUseUnderline">
+        <div className="howUseUnderlined">
           <p className="subDetailFontColor">사용법</p>
-          <p className="howUseFontColor">{product.사용법}</p>
+          <p className="howUseFontColor">{사용법}</p>
         </div>
         <div className="subDetailUnderline">
           <p className="subDetailFontColor">사용량</p>
-          <p>{product.사용량}</p>
+          <p>{사용량}</p>
         </div>
         <div className="subDetailUnderline">
           <p className="subDetailFontColor">텍스처</p>
-          <p>{product.텍스처}</p>
+          <p>{텍스처}</p>
         </div>
-        <div className="subDetailUnderlined">
+        <div>
           <p className="subDetailFontColor">향</p>
-          <p>{product.향}</p>
+          <p>{향}</p>
         </div>
       </div>
-    </article>
+    </div>
   );
 }
-export default ProductDetailArticleList;
+export default ProductDetailArticle;

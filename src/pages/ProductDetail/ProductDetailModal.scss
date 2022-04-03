@@ -7,12 +7,37 @@
     height: 100%;
     padding: 160px 40px 80px 40px;
     background-color: #f1f0e8;
+    animation: moveDown 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 
     .fa-x {
       position: relative;
       bottom: 140px;
       left: 640px;
+      animation: moveUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     }
+  }
+}
+
+@keyframes moveUp {
+  /* 하단에서 */
+  0% {
+    transform: translateX(100%);
+  }
+  /* 중앙으로 위치 */
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Hide Modal content */
+@keyframes moveDown {
+  /* 중앙에 있는 모달 콘텐츠를 */
+  0% {
+    transform: translateX(-100%);
+  }
+  /* 하단으로 위치 */
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -30,6 +55,7 @@
   }
 
   .ingrdSpcng {
+    margin-top: 30px;
     margin-bottom: 30px;
   }
 }

@@ -5,9 +5,15 @@
   background-color: #f5f5e8;
 
   .ProductDetailArticleImg {
-    width: 720px;
-    height: 666px;
+    width: 300px;
+    height: 300px;
   }
+}
+
+.DetailArticleImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ProductDetailArticleContainer {
@@ -21,15 +27,15 @@
   color: #666666;
 
   .ArticleSubContainer {
-    .howUseUnderline {
-      border-bottom: 2px solid black;
-      padding-bottom: 15px;
-
-      .subDetailFontColor {
-        color: #333333;
-      }
+    .subDetailFontColor {
+      color: #333333;
     }
   }
+}
+
+.howUseUnderlined {
+  border-bottom: 2px solid black;
+  padding-bottom: 15px;
 }
 
 .howUseFontColor {

@@ -1,15 +1,15 @@
 import React from 'react';
 
-function ProductDetailModal({ onChangeModal, data }) {
+function ProductDetailModal({ onChangeModal, ingredients }) {
   return (
     <div className="modalContainer">
       <div className="mainIngredientModalTextContainer">
         <i className="fa-solid fa-x" onClick={onChangeModal} />
         <div className="ingredientContainer">
           <p className="ingredientSpacing">성분</p>
-          <p className="ingrdSpcng">
-            {data[0].main_ingredients[0].ingredients}
-          </p>
+          {ingredients.map((ingredient, i) => (
+            <span key={i}>{ingredient}, </span>
+          ))}
           <p className="ingrdSpcng">
             성분 목록은 변경될 수 있습니다. 구매하신 제품에 대한 정확한 성분
             목록은, 사용 전 제품 라벨을 참조하시기 바랍니다.

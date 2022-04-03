@@ -38,3 +38,32 @@
     }
   }
 }
+
+.ProductDetailButton {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+}
+
+.Next,
+.Prev {
+  width: 80px;
+  height: 80px;
+  border: none;
+  background-color: #333333;
+  position: relative;
+  top: 275px;
+}
+
+.Next:hover .Prev:hover {
+}
+
+.fa-angle-left,
+.fa-angle-right {
+  color: white;
+  font-size: 20px;
+}
+
+.indicatorContainor {
+  background-color: #cbcbc0;
+}

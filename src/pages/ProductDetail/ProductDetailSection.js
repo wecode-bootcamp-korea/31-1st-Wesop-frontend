@@ -1,44 +1,54 @@
 import React from 'react';
 
-function ProductDetailSectionList({ product }) {
+function ProductDetailSectionList({ mainDescription }) {
+  const {
+    category,
+    name,
+    descriptrion,
+    skin_type,
+    feeling,
+    main_ingredients,
+    size,
+    price,
+    product_imges,
+  } = mainDescription;
   return (
     <div className="productDetailSectionList">
       <div className="productDetailCategory">
-        <span>스킨</span>
-        <span>{product.category}</span>
-      </div>
-      <div className="productDetailSpaces">
-        <p className="productDetailName">{product.name}</p>
-      </div>
-      <div className="productDetailUnderline">
-        <p className="productDetailExplanation">{product.descriptrion}</p>
-      </div>
-      <div className="productDetailUnderlined">
-        <p className="productDetailSpaces">피부타입</p>
-        <p className="productDetailExplanation">{product.skin_type}</p>
-      </div>
-      <div className="productDetailUnderlined">
-        <p className="productDetailSpaces">사용감</p>
-        <p className="productDetailExplanation">{product.feeling}</p>
-      </div>
-      <div className="productDetailUnderlined">
-        <p className="productDetailSpaces">주요성분</p>
-        <p className="productDetailExplanation">
-          {product.main_ingredients[0].main_ingredients}
-        </p>
-      </div>
-      <div className="productDetailUndrl">
-        <p className="productDetailSpaces">사이즈</p>
-        <p className="productDetailExplanation">{product.size}</p>
+        <div className="productDetailUndrl">
+          <span>스킨 {category}</span>
+        </div>
+        <div className="productDetailSpaces">
+          <p className="productDetailName">{name}</p>
+          <div className="productDetailUnderline">
+            <p className="productDetailExplanation">{descriptrion}</p>
+          </div>
+        </div>
+        <div className="productDetailUnderlined">
+          <p className="productDetailSpaces">피부타입</p>
+          <p className="productDetailExplanation">{skin_type}</p>
+        </div>
+        <div className="productDetailUnderlined">
+          <p className="productDetailSpaces">사용감</p>
+          <p className="productDetailExplanation">{feeling}</p>
+        </div>
+        <div className="productDetailUnderlined">
+          <p className="productDetailSpaces">주요성분</p>
+          <p className="productDetailExplanation">
+            {main_ingredients.map((ingredient, i) => (
+              <span key={i}>{ingredient}, </span>
+            ))}
+          </p>
+        </div>
+        <div className="productDetailUndrl">
+          <p className="productDetailSpaces">사이즈</p>
+          <p className="productDetailExplanation">{size}</p>
+        </div>
       </div>
       <button className="shoppingCartButton">
-        카트에 추가하기 - ₩{product.price}
+        카트에 추가하기 - ₩ {price}
       </button>
-      <img
-        className="productDetailImg"
-        alt="스킨"
-        src={product.product_imges}
-      />
+      <img className="productDetailImg" src={product_imges} />
     </div>
   );
 }
