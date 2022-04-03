@@ -1,0 +1,26 @@
+.filterColumnContent {
+  padding-bottom: 15px;
+
+  input[type='checkbox'] {
+    display: none;
+  }
+
+  input[type='checkbox'] + label:before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 15px;
+    border: 1px solid #c9c8be;
+    cursor: pointer;
+  }
+
+  input[type='checkbox']:checked + label::before {
+    content: '✓';
+    width: 14px;
+    height: 14px;
+    margin-right: 15px;
+    border: 1px solid #c9c8be;
+    cursor: pointer;
+  }
+}
