@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "badge": "사랑 받는 기프트",
+    "productName": "사과 클렌저",
+    "size": "60ml",
+    "price": "32000.00",
+    "url": [
+      "https://github.com/suhun96/wesope-url-repo/blob/main/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC2.png?raw=true"
+    ],
+    "category": {
+      "categoryId": 1,
+      "categoryName": "클렌저",
+      "categoryDescription": "피부의 남은 각질, 불필요한 유분 그리고 기타 잔여물을 말끔히 씻어내어 피부를 깨끗하게 하는 것은 인텔리전트 스킨케어의 기초입니다."
+    }
+  },
+  {
+    "id": 2,
+    "badge": "종환 MD 추천",
+    "productName": "오렌지 클렌저",
+    "size": "200ml",
+    "price": "40000.00",
+    "url": [
+      "https://github.com/suhun96/wesope-url-repo/blob/main/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC5.png?raw=true"
+    ],
+    "category": {
+      "categoryId": 1,
+      "categoryName": "클렌저",
+      "categoryDescription": "피부의 남은 각질, 불필요한 유분 그리고 기타 잔여물을 말끔히 씻어내어 피부를 깨끗하게 하는 것은 인텔리전트 스킨케어의 기초입니다."
+    }
+  },
+  {
+    "id": 3,
+    "badge": "",
+    "productName": "딸기 클렌저",
+    "size": "100ml",
+    "price": "10000.00",
+    "url": [
+      "https://github.com/suhun96/wesope-url-repo/blob/main/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC3.png?raw=true"
+    ],
+    "category": {
+      "categoryId": 1,
+      "categoryName": "클렌저",
+      "categoryDescription": "피부의 남은 각질, 불필요한 유분 그리고 기타 잔여물을 말끔히 씻어내어 피부를 깨끗하게 하는 것은 인텔리전트 스킨케어의 기초입니다."
+    }
+  },
+  {
+    "id": 4,
+    "badge": "\"\"",
+    "productName": "민트 클렌저",
+    "size": "100ml",
+    "price": "12000.00",
+    "url": [
+      "https://github.com/suhun96/wesope-url-repo/blob/main/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC5.png?raw=true"
+    ],
+    "category": {
+      "categoryId": 1,
+      "categoryName": "클렌저",
+      "categoryDescription": "피부의 남은 각질, 불필요한 유분 그리고 기타 잔여물을 말끔히 씻어내어 피부를 깨끗하게 하는 것은 인텔리전트 스킨케어의 기초입니다."
+    }
+  },
+  {
+    "id": 5,
+    "badge": "\"\"",
+    "productName": "수박 클렌저",
+    "size": "100ml",
+    "price": "17000.00",
+    "url": [
+      "https://github.com/suhun96/wesope-url-repo/blob/main/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC2.png?raw=true"
+    ],
+    "category": {
+      "categoryId": 1,
+      "categoryName": "클렌저",
+      "categoryDescription": "피부의 남은 각질, 불필요한 유분 그리고 기타 잔여물을 말끔히 씻어내어 피부를 깨끗하게 하는 것은 인텔리전트 스킨케어의 기초입니다."
+    }
+  },
+  {
+    "id": 6,
+    "badge": "데일리 필수품",
+    "productName": "살구 클렌저",
+    "size": "200ml",
+    "price": "19000.00",
+    "url": [
+      "https://github.com/suhun96/wesope-url-repo/blob/main/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC5.png?raw=true"
+    ],
+    "category": {
+      "categoryId": 1,
+      "categoryName": "클렌저",
+      "categoryDescription": "피부의 남은 각질, 불필요한 유분 그리고 기타 잔여물을 말끔히 씻어내어 피부를 깨끗하게 하는 것은 인텔리전트 스킨케어의 기초입니다."
+    }
+  },
+  {
+    "id": 7,
+    "badge": "\"\"",
+    "productName": "바나나 클렌저",
+    "size": "100ml",
+    "price": "10000.00",
+    "url": [
+      "https://github.com/suhun96/wesope-url-repo/blob/main/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC/%E1%84%90%E1%85%AE%E1%84%86%E1%85%A7%E1%86%BC%E1%84%87%E1%85%A2%E1%84%80%E1%85%A7%E1%86%BC3.png?raw=true"
+    ],
+    "category": {
+      "categoryId": 1,
+      "categoryName": "클렌저",
+      "categoryDescription": "피부의 남은 각질, 불필요한 유분 그리고 기타 잔여물을 말끔히 씻어내어 피부를 깨끗하게 하는 것은 인텔리전트 스킨케어의 기초입니다."
+    }
+  }
+]

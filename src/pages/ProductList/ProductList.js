@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductListLayout from './ProductListLayout/ProductListLayout';
 import FilterOpen from './FilterOpen/FilterOpen';
 import Category from './Category/Category';
+import CategoryList from './CategoryList/CategoryList';
 import './ProductList.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -12,10 +13,30 @@ const ProductList = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/data/${location.search}`)
+    fetch(`http://localhost:3000/data/category.json`)
       .then(res => res.json())
-      .then(data => setProductList(data));
-  }, [location.search]);
+      .then(data => {
+        const categoryArr = [];
+        for (let x of data) {
+          categoryArr.push(x.category);
+        }
+        const map = new Map();
+        for (const category of categoryArr) {
+          map.set(JSON.stringify(category), category);
+        }
+        const category = [...map.values()];
+        for (let i = 0; i < category.length; i++) {
+          const newArr = data.filter(
+            item => item.category.categoryId === i + 1
+          );
+          category[i].products = newArr;
+        }
+        setProductList(category);
+      });
+  }, []);
+
+  console.log(productList);
+  console.log(location.search);
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);
@@ -74,23 +95,27 @@ const ProductList = () => {
         </div>
       </div>
       {isFilterOpen && <FilterOpen />}
-      <main className="mainContent">
-        {productList.map(
-          ({ categoryId, categoryName, categoryDescription, products }) => {
-            return (
-              <Category
-                key={categoryId}
-                category={{
-                  categoryId,
-                  categoryName,
-                  categoryDescription,
-                  products,
-                }}
-              />
-            );
-          }
-        )}
-      </main>
+      {location.search === '' ? (
+        <main className="mainContent">
+          {productList.map(
+            ({ categoryId, categoryName, categoryDescription, products }) => {
+              return (
+                <Category
+                  key={categoryId}
+                  category={{
+                    categoryId,
+                    categoryName,
+                    categoryDescription,
+                    products,
+                  }}
+                />
+              );
+            }
+          )}
+        </main>
+      ) : (
+        <CategoryList />
+      )}
     </ProductListLayout>
   );
 };
