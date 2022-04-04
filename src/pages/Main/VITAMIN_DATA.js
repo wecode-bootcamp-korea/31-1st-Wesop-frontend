@@ -1,4 +1,4 @@
-const VitaminBaseData = [
+const VITAMIN_DATA = [
   {
     subtitle: '더 아테네움',
     title: '위솝에 있어 비타민이란',
@@ -9,4 +9,4 @@ const VitaminBaseData = [
   },
 ];
 
-export default VitaminBaseData;
+export default VITAMIN_DATA;

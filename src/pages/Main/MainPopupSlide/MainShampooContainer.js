@@ -13,7 +13,7 @@ const MainShampooContainer = ({ title, header, description, state }) => {
         <div className="shampooTitle">{title}</div>
         <div className="shampooHeader">{header}</div>
         <div className="shampooDescription">{description}</div>
-        <div onClick={() => state(false)} className="shampooLink">
+        <div onClick={() => state(true)} className="shampooLink">
           {title} 보기
         </div>
       </div>

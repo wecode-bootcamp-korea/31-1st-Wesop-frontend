@@ -4,7 +4,7 @@ import './MainStoreLocator.scss';
 
 const MainStoreLocator = () => {
   return (
-    <div className="baseInfo">
+    <div className="MainStoreLocator">
       <div className="twoColumnModule">
         <aside className="copy">
           <h2 className="title">스토어 로케이터</h2>

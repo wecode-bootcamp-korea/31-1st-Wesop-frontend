@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import SlideData from './SlideData';
+import SLIDE_DATA from './SLIDE_DATA';
 import './MainCarousel.scss';
 
 const MainCarousel = () => {
@@ -30,8 +30,9 @@ const MainCarousel = () => {
   //   // .then(slideData => slideData.filter(slideData));
   // }, []);
 
+  let newSlidePosition = slidePosition;
+
   const prevSlideHandler = () => {
-    let newSlidePosition = slidePosition;
     if (newSlidePosition > 0) {
       newSlidePosition = newSlidePosition - 1;
     }
@@ -43,8 +44,7 @@ const MainCarousel = () => {
   };
 
   const nextSlideHandler = () => {
-    let newSlidePosition = slidePosition;
-    if (newSlidePosition < SlideData.length - 3) {
+    if (newSlidePosition < SLIDE_DATA.length - 3) {
       newSlidePosition = newSlidePosition + 1;
     }
     let slideTranslation = newSlidePosition * -33;
@@ -58,7 +58,7 @@ const MainCarousel = () => {
     <div className="MainCarousel">
       <div className="fixedScreen">
         <div ref={slideRef} className="carouselContainer">
-          {SlideData.map(({ id, image, name, description }) => (
+          {SLIDE_DATA.map(({ id, image, name, description }) => (
             <div key={id} className="mainCarouselContainer">
               <img className="mainCarouselImage" src={image} alt={name} />
               <div className="mainCarouselProductName">{name}</div>

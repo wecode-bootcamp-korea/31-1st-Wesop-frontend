@@ -1,4 +1,4 @@
-const StoreLocationData = [
+const STORE_DATA = [
   {
     id: 1,
     location: '위솝 잠실',
@@ -16,4 +16,4 @@ const StoreLocationData = [
   },
 ];
 
-export default StoreLocationData;
+export default STORE_DATA;

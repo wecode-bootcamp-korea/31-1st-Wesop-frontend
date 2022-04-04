@@ -1,4 +1,4 @@
-const SlideData = [
+const SLIDE_DATA = [
   {
     id: 1,
     image: '/images/main/투명배경1.png',
@@ -31,4 +31,4 @@ const SlideData = [
   },
 ];
 
-export default SlideData;
+export default SLIDE_DATA;

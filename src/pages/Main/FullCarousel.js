@@ -1,18 +1,18 @@
 import React, { useRef, useState } from 'react';
-import StoreLocationData from './StoreLocationData';
+import STORE_DATA from './STORE_DATA';
 import './FullCarousel.scss';
 
 const FullCarousel = () => {
   const [slidePosition, setSlidePosition] = useState(0);
-
   const slideRef = useRef();
 
+  let newSlidePosition = slidePosition;
+
   const prevSlideHandler = () => {
-    let newSlidePosition = slidePosition;
     if (newSlidePosition > 0) {
       newSlidePosition = newSlidePosition - 1;
     } else if (newSlidePosition === 0) {
-      newSlidePosition = StoreLocationData.length - 1;
+      newSlidePosition = STORE_DATA.length - 1;
     }
     let slideTranslation = newSlidePosition * -34;
     slideRef.current.style.transform = `translate(${slideTranslation}%)`;
@@ -20,10 +20,9 @@ const FullCarousel = () => {
   };
 
   const nextSlideHandler = () => {
-    let newSlidePosition = slidePosition;
-    if (newSlidePosition < StoreLocationData.length - 1) {
+    if (newSlidePosition < STORE_DATA.length - 1) {
       newSlidePosition = newSlidePosition + 1;
-    } else if (newSlidePosition === StoreLocationData.length - 1) {
+    } else if (newSlidePosition === STORE_DATA.length - 1) {
       newSlidePosition = 0;
     }
     let slideTranslation = newSlidePosition * -34;
@@ -35,7 +34,7 @@ const FullCarousel = () => {
     <div className="FullCarousel">
       <div className="fixedScreen">
         <div ref={slideRef} className="carouselContainer">
-          {StoreLocationData.map(({ id, image, location }) => (
+          {STORE_DATA.map(({ id, image, location }) => (
             <div key={id} className="mainCarouselContainer">
               <img className="mainCarouselImage" src={image} alt={location} />
             </div>

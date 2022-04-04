@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from '../../components/Nav/Nav';
 import MainVideo from './MainVideo';
 import MainCarousel from './MainCarousel';
-import VitaminBaseData from './VitaminBaseData';
+import VITAMIN_DATA from './VITAMIN_DATA';
 import BaseInfo from '../../components/BaseInfo/BaseInfo';
 import MainPopupSlide from './MainPopupSlide/MainPopupSlide';
 import Selection from './Selection';
@@ -18,11 +18,11 @@ const Main = () => {
       <MainVideo />
       <MainCarousel />
       <BaseInfo
-        subtitle={VitaminBaseData[0].subtitle}
-        title={VitaminBaseData[0].title}
-        description={VitaminBaseData[0].description}
-        btnText={VitaminBaseData[0].btnText}
-        imgSrc={VitaminBaseData[0].imgSrc}
+        subtitle={VITAMIN_DATA[0].subtitle}
+        title={VITAMIN_DATA[0].title}
+        description={VITAMIN_DATA[0].description}
+        btnText={VITAMIN_DATA[0].btnText}
+        imgSrc={VITAMIN_DATA[0].imgSrc}
       />
       <MainPopupSlide />
       <Selection />
