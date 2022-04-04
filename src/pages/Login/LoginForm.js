@@ -7,7 +7,6 @@ import LoginBackMiniBtn from '../../components/Login/LoginBackMiniBtn';
 import LoginCloseMainBtn from '../../components/Login/LoginCloseMainBtn';
 import { SERVER_ADDRESS } from '../../config/config';
 import './LoginForm.scss';
-import { type } from '@testing-library/user-event/dist/type';
 
 const LoginForm = ({
   formData,
