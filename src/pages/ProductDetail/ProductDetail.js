@@ -100,8 +100,6 @@ const ProductDetail = () => {
       });
   }, []);
 
-  console.log(subDescription);
-
   return (
     <div>
       {showModal ? (
