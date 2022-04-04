@@ -22,9 +22,9 @@ const LoginInput = ({
   };
 
   const changeValidityHandler = event => {
-    const { name } = event.target;
+    const { name, value } = event.target;
 
-    event.target.value.trim().length > 0
+    value.trim().length > 0
       ? onSetInputValidity(prevInfo => {
           return { ...prevInfo, [name]: true };
         })
@@ -50,11 +50,13 @@ const LoginInput = ({
   };
 
   const changeIsContainSymbolAtHandler = event => {
+    const { value } = event.target;
+
     if (
       userInfo.email &&
       infoType === 'email' &&
-      !event.target.value.includes('@') &&
-      event.target.value
+      !value.includes('@') &&
+      value
     ) {
       setIsContainSymbolAt(false);
     } else {
@@ -63,11 +65,13 @@ const LoginInput = ({
   };
 
   const changeIsSamePasswordHandler = event => {
+    const { value } = event.target;
+
     if (
       userInfo.rePassword &&
       infoType === 'rePassword' &&
-      !(userInfo.password === event.target.value) &&
-      event.target.value
+      !(userInfo.password === value) &&
+      value
     ) {
       setIsSamePasswrod(false);
     } else {

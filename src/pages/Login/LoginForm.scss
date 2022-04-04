@@ -7,22 +7,18 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-
     padding: 0 0 20px 0;
   }
 
   .loginBottomBtnArea {
     display: flex;
     justify-content: center;
-
     margin: 10px 0 0 0;
 
     button {
       border: 0;
       background-color: transparent;
-
       color: $font-gray;
-
       opacity: 0.8;
     }
 

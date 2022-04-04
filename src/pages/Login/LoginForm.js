@@ -5,6 +5,7 @@ import LoginInput from '../../components/Login/LoginInput';
 import LoginCloseMiniBtn from '../../components/Login/LoginCloseMiniBtn';
 import LoginBackMiniBtn from '../../components/Login/LoginBackMiniBtn';
 import LoginCloseMainBtn from '../../components/Login/LoginCloseMainBtn';
+import { LOGIN_SERVER_ADDRESS } from '../../config/config';
 import './LoginForm.scss';
 
 const LoginForm = ({
@@ -18,14 +19,24 @@ const LoginForm = ({
   inputValidity,
   onSetInputValidity,
 }) => {
+  const {
+    email,
+    firstName,
+    lastName,
+    password,
+    rePassword,
+    emailContainAt,
+    samePassword,
+  } = inputValidity;
+
   const isInputAllValid =
-    inputValidity.email &&
-    inputValidity.firstName &&
-    inputValidity.lastName &&
-    inputValidity.password &&
-    inputValidity.rePassword &&
-    inputValidity.emailContainAt &&
-    inputValidity.samePassword;
+    email &&
+    firstName &&
+    lastName &&
+    password &&
+    rePassword &&
+    emailContainAt &&
+    samePassword;
 
   // 1.wrongEmail 2.wrongPassword 3.failedPost 4.alreadyExist
   const [loginError, setLoginError] = useState('');
@@ -45,65 +56,71 @@ const LoginForm = ({
     setLoginError('');
   };
 
-  const sumbmitHandler = event => {
-    event.preventDefault();
-    if (
-      inputValidity.emailContainAt &&
-      inputValidity.email &&
-      loginMode === 'main'
-    ) {
-      fetch('http://10.58.1.191:8000/users/check', {
-        method: 'POST',
-        body: JSON.stringify({
-          email: userInfo.email,
-        }),
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res.message === true) {
+  const mainEmailInfoSubmit = () => {
+    fetch(`${LOGIN_SERVER_ADDRESS}/users/check`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: userInfo.email,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        const { message } = res;
+
+        const resCondition = {
+          true: function () {
             setLoginError('');
             goToSignIn();
-          }
-
-          if (res.message === 'VALIDATION_ERROR') {
+          },
+          VALIDATION_ERROR: function () {
             setLoginError('wrongEmail');
-          }
-          if (!res.message) {
+          },
+          false: function () {
             goToSignUp();
             onClearUserInfo();
             setLoginError('');
-          }
-        });
-    }
+          },
+        };
 
-    if (
-      inputValidity.emailContainAt &&
-      inputValidity.email &&
-      inputValidity.password &&
-      loginMode === 'signIn'
-    ) {
-      fetch('http://10.58.1.191:8000/users/login', {
-        method: 'POST',
-        body: JSON.stringify({
-          email: userInfo.email,
-          password: userInfo.password,
-        }),
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res.message === 'SUCCESS') {
-            localStorage.setItem('wtw-token', res.token);
+        resCondition[message]();
+      });
+  };
+
+  const signInInfoSubmit = () => {
+    fetch(`${LOGIN_SERVER_ADDRESS}/users/login`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: userInfo.email,
+        password: userInfo.password,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        const { token, email, userId, firstName, lastName, message } = res;
+
+        const resCondition = {
+          SUCCESS: function () {
+            localStorage.setItem('token', token);
+            localStorage.setItem('email', email);
+            localStorage.setItem('userId', userId);
+            localStorage.setItem('firstName', firstName);
+            localStorage.setItem('lastName', lastName);
             setLoginError('');
             onClearUserInfo();
             onCloseModal();
-          } else {
+          },
+          VALIDATION_ERROR: function () {
             setLoginError('wrongPassword');
-          }
-        });
-    }
+          },
+        };
 
+        resCondition[message]();
+      });
+  };
+
+  const signUpInfoSubmit = () => {
     if (isInputAllValid && loginMode === 'signUp') {
-      fetch('http://10.58.1.191:8000/users/signup', {
+      fetch(`${LOGIN_SERVER_ADDRESS}/users/signup`, {
         method: 'POST',
         body: JSON.stringify({
           email: userInfo.email,
@@ -114,21 +131,49 @@ const LoginForm = ({
       })
         .then(res => res.json())
         .then(res => {
-          if (res.message === 'SUCCESS') {
-            localStorage.setItem('wtw-token', res.token);
-            setLoginError('');
-            onClearUserInfo();
-            onCloseModal();
-          }
-          if (res.message === 'ALREADY_EXIST_EMAIL') {
-            setLoginError('alreadyExist');
-          } else if (
-            res.message === 'VALIDATION_ERROR' ||
-            res.message === 'KEY_ERROR'
-          ) {
-            setLoginError('failedPost');
-          }
+          const { token, email, userId, firstName, lastName, message } = res;
+
+          const resCondition = {
+            SUCCESS: function () {
+              localStorage.setItem('token', token);
+              localStorage.setItem('email', email);
+              localStorage.setItem('userId', userId);
+              localStorage.setItem('firstName', firstName);
+              localStorage.setItem('lastName', lastName);
+              setLoginError('');
+              onClearUserInfo();
+              onCloseModal();
+            },
+            ALREADY_EXIST_EMAIL: function () {
+              setLoginError('alreadyExist');
+            },
+            VALIDATION_ERROR: function () {
+              setLoginError('wrongEmail');
+            },
+            KEY_ERROR: function () {
+              setLoginError('failedPost');
+            },
+          };
+
+          resCondition[message]();
         });
+    }
+  };
+
+  const sumbmitHandler = event => {
+    const { email, emailContainAt, password } = inputValidity;
+
+    event.preventDefault();
+    if (emailContainAt && email && loginMode === 'main') {
+      mainEmailInfoSubmit();
+    }
+
+    if (emailContainAt && email && password && loginMode === 'signIn') {
+      signInInfoSubmit();
+    }
+
+    if (isInputAllValid && loginMode === 'signUp') {
+      signUpInfoSubmit();
     }
   };
 
@@ -146,7 +191,6 @@ const LoginForm = ({
           />
         )}
       </section>
-
       <section className="loginMessageArea">
         <LoginMessage
           loginMode={loginMode}
@@ -156,13 +200,13 @@ const LoginForm = ({
       </section>
 
       <section className="loginInputArea">
-        {formData.map(data => (
+        {formData.map(({ infoType, inputType, string }) => (
           <LoginInput
-            key={data.infoType}
+            key={infoType}
             loginMode={loginMode}
-            infoType={data.infoType}
-            inputType={data.inputType}
-            inputText={data.string}
+            infoType={infoType}
+            inputType={inputType}
+            inputText={string}
             onResetLoginErrorMsg={resetLoginErrorMsgHandler}
             onSetUserInfo={setUserInfo}
             userInfo={userInfo}
@@ -171,7 +215,6 @@ const LoginForm = ({
           />
         ))}
       </section>
-
       <section className="loginMainBtnArea">
         {loginMode === 'receivedPw' || (
           <LoginSubmitButton
@@ -184,7 +227,6 @@ const LoginForm = ({
           <LoginCloseMainBtn onCloseModal={onCloseModal} />
         )}
       </section>
-
       <section className="loginBottomBtnArea">
         {loginMode === 'signIn' && (
           <button type="button" onClick={goToResetPw}>

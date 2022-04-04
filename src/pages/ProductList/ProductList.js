@@ -5,8 +5,6 @@ import Category from './Category/Category';
 import FilterOpen from './FilterOpen/FilterOpen';
 import BaseInfo from '../../components/BaseInfo/BaseInfo';
 import Footer from './../../components/Footer/Footer';
-import Login from '../Login/Login';
-import ModalOverLay from '../../components/UI/ModalOverLay';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -95,8 +93,6 @@ const ProductList = () => {
         imgSrc={imgSrc}
       />
       <Footer />
-      <ModalOverLay />
-      <Login />
     </div>
   );
 };

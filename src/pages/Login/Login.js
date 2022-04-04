@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import LoginCard from '../../components/Login/LoginCard';
 import LoginForm from './LoginForm';
-import FIRSTWINDOW_DATA from '../../components/Login/LOGIN_DATA/FIRSTWINDOW_DATA';
-import RESETPW_DATA from '../../components/Login/LOGIN_DATA/RESETPW_DATA';
-import SIGNIN_DATA from '../../components/Login/LOGIN_DATA/SIGNIN_DATA';
-import SIGNUP_DATA from '../../components/Login/LOGIN_DATA/SIGNUP_DATA';
+import {
+  FIRSTWINDOW_DATA,
+  RESETPW_DATA,
+  SIGNIN_DATA,
+  SIGNUP_DATA,
+} from '../../components/Login/LOGIN_DATA/LOGIN_DATA';
+
 import './Login.scss';
 
 const Login = () => {
   // 로그인모드 종류 = [main , signUp , signIn, resetPw, receivedPw]
-  const [loginMode, setLoginMode] = useState('receivedPw');
+  const [loginMode, setLoginMode] = useState('signUp');
+
   const [userInfo, setUserInfo] = useState({
     email: '',
     firstName: '',
