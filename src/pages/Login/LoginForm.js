@@ -7,6 +7,7 @@ import LoginBackMiniBtn from '../../components/Login/LoginBackMiniBtn';
 import LoginCloseMainBtn from '../../components/Login/LoginCloseMainBtn';
 import { SERVER_ADDRESS } from '../../config/config';
 import './LoginForm.scss';
+import { type } from '@testing-library/user-event/dist/type';
 
 const LoginForm = ({
   formData,
@@ -56,8 +57,10 @@ const LoginForm = ({
     setLoginError('');
   };
 
+  const { mainAddress, signInAddress, signUpAddress } = SERVER_ADDRESS;
+
   const mainEmailInfoSubmit = () => {
-    fetch(`${SERVER_ADDRESS.main}`, {
+    fetch(mainAddress, {
       method: 'POST',
       body: JSON.stringify({
         email: userInfo.email,
@@ -87,7 +90,7 @@ const LoginForm = ({
   };
 
   const signInInfoSubmit = () => {
-    fetch(`${SERVER_ADDRESS.signIn}`, {
+    fetch(signInAddress, {
       method: 'POST',
       body: JSON.stringify({
         email: userInfo.email,
@@ -120,7 +123,7 @@ const LoginForm = ({
 
   const signUpInfoSubmit = () => {
     if (isInputAllValid && loginMode === 'signUp') {
-      fetch(`${SERVER_ADDRESS.signUp}`, {
+      fetch(signUpAddress, {
         method: 'POST',
         body: JSON.stringify({
           email: userInfo.email,
