@@ -5,7 +5,7 @@ import LoginInput from '../../components/Login/LoginInput';
 import LoginCloseMiniBtn from '../../components/Login/LoginCloseMiniBtn';
 import LoginBackMiniBtn from '../../components/Login/LoginBackMiniBtn';
 import LoginCloseMainBtn from '../../components/Login/LoginCloseMainBtn';
-import { SERVER_ADDRESS } from '../../config/config';
+import { LOGIN_SERVER_ADDRESS } from '../../config/config';
 import './LoginForm.scss';
 
 const LoginForm = ({
@@ -56,7 +56,7 @@ const LoginForm = ({
     setLoginError('');
   };
 
-  const { mainAddress, signInAddress, signUpAddress } = SERVER_ADDRESS;
+  const { mainAddress, signInAddress, signUpAddress } = LOGIN_SERVER_ADDRESS;
 
   const mainEmailInfoSubmit = () => {
     fetch(mainAddress, {
