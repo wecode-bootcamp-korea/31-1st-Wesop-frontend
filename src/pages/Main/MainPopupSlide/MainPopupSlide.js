@@ -6,11 +6,16 @@ import SHAMPOO_DATA from './SHAMPOO_DATA';
 import './MainPopupSlide.scss';
 
 const MainPopupSlide = () => {
-  const [leftPopupState, setLeftPopupState] = useState(false);
+  const [leftPopupState, setLeftPopupState] = useState({
+    state: false,
+    title: '',
+    data: [],
+  });
+
   const popupRef = useRef();
 
   useEffect(() => {
-    leftPopupState
+    leftPopupState.state
       ? (popupRef.current.style.transform = `translate(0)`)
       : (popupRef.current.style.transform = `translate(-100%)`);
   }, [leftPopupState]);
@@ -26,20 +31,17 @@ const MainPopupSlide = () => {
             header={header}
             description={description}
             state={setLeftPopupState}
+            data={SHAMPOO_DATA}
           />
         ))}
       </div>
       <div ref={popupRef} className="shampooPopup">
-        {SHAMPOO_DATA.map(({ id, image, title, header, detail }) => (
+        {leftPopupState.data.filterData && (
           <ShampooSlide
-            key={id}
-            image={image}
-            title={title}
-            header={header}
-            detail={detail}
+            data={leftPopupState.data.filterData}
             state={setLeftPopupState}
           />
-        ))}
+        )}
       </div>
     </div>
   );

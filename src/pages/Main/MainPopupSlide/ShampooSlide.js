@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import './ShampooSlide.scss';
 
-const ShampooSlide = ({ image, title, header, detail, state }) => {
+const ShampooSlide = ({ data, state }) => {
   const popupRef = useRef();
+
+  const { image, title, header, detail } = data[0];
 
   return (
     <div ref={popupRef} className="ShampooSlide">
@@ -13,7 +15,15 @@ const ShampooSlide = ({ image, title, header, detail, state }) => {
           <div className="popupHeader">{header}</div>
           <div className="popupDescription">{detail}</div>
         </div>
-        <div className="closeBtn" onClick={() => state(false)}>
+        <div
+          className="closeBtn"
+          onClick={() =>
+            state(stateObject => ({
+              ...stateObject,
+              state: false,
+            }))
+          }
+        >
           <img
             className="leftArrow"
             src="/images/main/leftarrow.png"
