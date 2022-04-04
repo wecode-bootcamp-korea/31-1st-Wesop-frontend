@@ -1,6 +1,12 @@
 import React from 'react';
+import './ProductDetailSection.scss';
 
-function ProductDetailSectionList({ mainDescription }) {
+function ProductDetailSection({
+  mainDescription,
+  changeModalHandler,
+  goToCategory,
+  goToSubCategory,
+}) {
   const {
     category,
     name,
@@ -12,44 +18,82 @@ function ProductDetailSectionList({ mainDescription }) {
     price,
     product_imges,
   } = mainDescription;
+
+  const productContent = [
+    {
+      divClassName: 'productDetailSpaces',
+      firstPClassName: 'productDetailName',
+      firstString: name,
+      secondPClassName: 'productDetailExplanation',
+      secondString: descriptrion,
+    },
+    {
+      divClassName: 'productDetailUnderlined',
+      firstPClassName: 'productDetailSpaces',
+      firstString: '피부타입',
+      secondPClassName: 'subDetailContent',
+      secondString: skin_type,
+    },
+    {
+      divClassName: 'productDetailUnderlined',
+      firstPClassName: 'productDetailSpaces',
+      firstString: '피부타입',
+      secondPClassName: 'subDetailContent',
+      secondString: feeling,
+    },
+    {
+      divClassName: 'productDetailUnderlined',
+      firstPClassName: 'productDetailSpaces',
+      firstString: '피부타입',
+      secondPClassName: 'subDetailContent',
+      secondString: main_ingredients,
+    },
+    {
+      divClassName: 'productDetailUnderlined',
+      firstPClassName: 'productDetailSpaces',
+      firstString: '피부타입',
+      secondPClassName: 'subDetailContent',
+      secondString: size,
+    },
+  ];
+
   return (
-    <div className="productDetailSectionList">
-      <div className="productDetailCategory">
-        <div className="productDetailUndrl">
-          <ui className="categoryTeg">
-            <span className="categoryLink">스킨</span>
-            <li />
-            <span className="subCategoryLink">{category}</span>
-          </ui>
-        </div>
-        <div className="productDetailSpaces">
-          <p className="productDetailName">{name}</p>
-          <div className="productDetailUnderline">
-            <p className="productDetailExplanation">{descriptrion}</p>
+    <div className="productDetailSection">
+      <div className="productDetailSectionContainer">
+        <div className="productDetailCategory">
+          <div className="productDetailUndrl">
+            <ui className="categoryTeg">
+              <span className="categoryLink" onClick={goToCategory}>
+                스킨
+              </span>
+              <li />
+              <span className="subCategoryLink" onClick={goToSubCategory}>
+                {category}
+              </span>
+            </ui>
           </div>
+          {productContent.map(
+            ({
+              divClassName,
+              firstPClassName,
+              firstString,
+              secondPClassName,
+              secondString,
+            }) => (
+              <div key={divClassName} className={divClassName}>
+                <p className={firstPClassName}>{firstString}</p>
+                <p className={secondPClassName}>{secondString}</p>
+              </div>
+            )
+          )}
         </div>
-        <div className="productDetailUnderlined">
-          <p className="productDetailSpaces">피부타입</p>
-          <p className="productDetailExplanation">{skin_type}</p>
-        </div>
-        <div className="productDetailUnderlined">
-          <p className="productDetailSpaces">사용감</p>
-          <p className="productDetailExplanation">{feeling}</p>
-        </div>
-        <div className="productDetailUnderlined">
-          <p className="productDetailSpaces">주요성분</p>
-          <p className="productDetailExplanation">{main_ingredients} </p>
-        </div>
-        <div className="productDetailUndrl">
-          <p className="productDetailSpaces">사이즈</p>
-          <p className="productDetailExplanation">{size}</p>
-        </div>
+        <button className="shoppingCartButton">
+          카트에 추가하기 - ₩ {price}
+        </button>
+        <i onClick={changeModalHandler} className="fa-regular fa-square-plus" />
+        <img className="productDetailImg" src={product_imges} alt="스킨" />
       </div>
-      <button className="shoppingCartButton">
-        카트에 추가하기 - ₩ {price}
-      </button>
-      <img className="productDetailImg" src={product_imges} alt="스킨" />
     </div>
   );
 }
-export default ProductDetailSectionList;
+export default ProductDetailSection;

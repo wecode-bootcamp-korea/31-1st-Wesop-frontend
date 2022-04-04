@@ -1,13 +1,15 @@
+@import '../../styles/variables.scss';
+
 .productDetailAside {
-  padding-top: 150px;
-  padding-bottom: 150px;
   height: 852px;
+  padding-top: 70px;
+  padding-bottom: 150px;
 
   .subProductDetailAside {
+    height: 462px;
     margin-left: 80px;
     margin-right: 80px;
     margin-bottom: 48px;
-    height: 462px;
     overflow: hidden;
 
     .goodProductUseTogether {
@@ -23,19 +25,19 @@
   }
 }
 
-.AsideListImgContainer {
+.asideListImgContainer {
   text-align: center;
 }
 
-.AsideListImg {
-  margin-left: 10px;
+.asideListImg {
   width: 220px;
   height: 400px;
+  margin-left: 10px;
 }
 
 .introductionItem {
+  color: $color-dark-gray;
+  font-size: 14px;
   text-align: center;
   line-height: 1.6;
-  font-size: 14px;
-  color: #333333;
 }

@@ -1,28 +1,31 @@
 import React, { useState, useRef, useEffect } from 'react';
-import ProductDetailSectionList from './ProductDetailSection';
-import ProductDetailArticleList from './ProductDetailArticle';
-import ProductDetailAsideList from './ProductDetailAside';
+import { useNavigate } from 'react-router-dom';
+import ProductDetailSection from './ProductDetailSection';
+import ProductDetailService from './ProductDetailService';
+import ProductDetailArticle from './ProductDetailArticle';
+import ProductDetailAside from './ProductDetailAside';
 import ProductDetailModal from './ProductDetailModal';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 import './ProductDetail.scss';
-import './ProductDetailSection.scss';
-import './ProductDetailArticle.scss';
-import './ProductDetailAside.scss';
-import './ProductDetailModal.scss';
+
 const ProductDetail = () => {
   const [mainDescription, setMainDescription] = useState([]);
+
   const [subDescription, setSubDescription] = useState([]);
+
   const [bottmScrollDescription, setBottmScrollDescription] = useState([]);
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const [showModal, setShowModal] = useState(false);
-
   const slideRef = useRef(null);
+
   const indicatorRef = useRef(null);
 
   const TOTAL_SLIDES = 4;
 
   const slideTransition = currentSlide * 14.25;
+
   const indicatorTranslation = currentSlide * 100;
 
   const NextSlide = () => {
@@ -37,10 +40,30 @@ const ProductDetail = () => {
       : setCurrentSlide(currentSlide - 1);
   };
 
+  const [showModal, setShowModal] = useState(false);
+
   const changeModalHandler = () => {
     showModal ? setShowModal(false) : setShowModal(true);
     document.body.style.overflow = showModal ? 'auto' : 'hidden';
   };
+
+  const navigate = useNavigate();
+
+  const goToCategory = () => {
+    navigate();
+  };
+
+  const goToSubCategory = () => {
+    navigate();
+  };
+
+  useEffect(() => {
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${slideTransition}%)`;
+
+    indicatorRef.current.style.transition = 'all 0.5s ease-in-out';
+    indicatorRef.current.style.transform = `translate(${indicatorTranslation}%)`;
+  });
 
   // // 실제서버
   // useEffect(() => {
@@ -77,13 +100,8 @@ const ProductDetail = () => {
       });
   }, []);
 
-  useEffect(() => {
-    slideRef.current.style.transition = 'all 0.5s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${slideTransition}%)`;
-    indicatorRef.current.style.transition = 'all 0.5s ease-in-out';
-    indicatorRef.current.style.transform = `translate(${indicatorTranslation}%)`;
-    setCurrentSlide(currentSlide);
-  });
+  console.log(subDescription);
+
   return (
     <div>
       {showModal ? (
@@ -93,7 +111,7 @@ const ProductDetail = () => {
         />
       ) : null}
 
-      <nav className="nav" />
+      <Nav />
 
       <div className="productDetailBackground">
         <img
@@ -102,44 +120,23 @@ const ProductDetail = () => {
           alt="스킨"
         />
 
-        <section className="productDetailSection">
-          <div />
-          <div />
-          <div>
-            <div className="productDetailSectionContainer">
-              <i
-                onClick={changeModalHandler}
-                className="fa-regular fa-square-plus"
-              />
-              <ProductDetailSectionList mainDescription={mainDescription} />
-            </div>
-          </div>
-        </section>
+        <ProductDetailSection
+          mainDescription={mainDescription}
+          changeModalHandler={changeModalHandler}
+          goToCategory={goToCategory}
+          goToSubCategory={goToSubCategory}
+        />
 
-        <section className="productDetailService">
-          <div className="productDetailServiceMessage">
-            <span className="serviceGift">무료 선물 포장 서비스</span>
-            <br />
-            주문하신 모든 제품에 대해 선물 포장 서비스를 제공해 드립니다.
-          </div>
-          <div className="productDetailServiceMessage">
-            <span className="serviceGift">샘플 & 코튼 백 증정</span>
-            <br />
-            모든 주문 건에 무료 샘플과 코튼 백을 제공해 드립니다. <br />
-            (샘플 종류는 임의 지정이 불가합니다.)
-          </div>
-        </section>
+        <ProductDetailService />
 
-        <article>
-          <ProductDetailArticleList subDescription={subDescription} />
-        </article>
+        <ProductDetailArticle subDescription={subDescription} />
 
         <aside className="productDetailAside">
-          <div className="ProductDetailButton">
-            <button className="Prev" onClick={PrevSlide}>
+          <div className="productDetailButton">
+            <button className="prev" onClick={PrevSlide}>
               <i className="fa-solid fa-angle-left" />
             </button>
-            <button className="Next" onClick={NextSlide}>
+            <button className="next" onClick={NextSlide}>
               <i class="fa-solid fa-angle-right" />
             </button>
           </div>
@@ -148,10 +145,7 @@ const ProductDetail = () => {
               <div className="greatUseTogether">함께 사용하기 좋은 제품</div>
               {bottmScrollDescription.map(product => {
                 return (
-                  <ProductDetailAsideList
-                    key={product.name}
-                    product={product}
-                  />
+                  <ProductDetailAside key={product.name} product={product} />
                 );
               })}
             </div>
@@ -163,6 +157,8 @@ const ProductDetail = () => {
           </div>
         </aside>
       </div>
+
+      <Footer />
     </div>
   );
 };

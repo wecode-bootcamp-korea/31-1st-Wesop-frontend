@@ -1,9 +1,10 @@
 import React from 'react';
+import './ProductDetailAside.scss';
 
-function ProductDetailAsideList({ product }) {
+function ProductDetailAside({ product }) {
   return (
-    <div className="AsideListImgContainer">
-      <img className="AsideListImg" alt="스킨" src={product.image} />
+    <div className="asideListImgContainer">
+      <img className="asideListImg" alt="스킨" src={product.image} />
       <div className="introductionItem">
         <p>{product.name}</p>
         <p>{product.skintype}</p>
@@ -11,4 +12,4 @@ function ProductDetailAsideList({ product }) {
     </div>
   );
 }
-export default ProductDetailAsideList;
+export default ProductDetailAside;

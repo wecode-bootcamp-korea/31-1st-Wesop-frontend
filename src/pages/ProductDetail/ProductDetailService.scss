@@ -1,0 +1,24 @@
+@import '../../styles/variables.scss';
+
+.productDetailService {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 100px;
+
+  .productDetailServiceMessage {
+    height: 67px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #666666;
+    border-right: 1px solid #d4d4c9;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.6;
+
+    .serviceGift {
+      color: $color-dark-gray;
+    }
+  }
+}

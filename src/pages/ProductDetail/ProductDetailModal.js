@@ -1,4 +1,5 @@
 import React from 'react';
+import './ProductDetailModal.scss';
 
 function ProductDetailModal({ onChangeModal, ingredients }) {
   return (
