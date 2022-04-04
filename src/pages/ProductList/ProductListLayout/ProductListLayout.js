@@ -5,7 +5,7 @@ import Nav from '../../../components/Nav/Nav';
 import BaseInfo from '../../../components/BaseInfo/BaseInfo';
 import Footer from '../../../components/Footer/Footer';
 
-const ProductListLayout = props => {
+const ProductListLayout = ({ children, productList }) => {
   return (
     <div className="ProductList">
       <Nav />
@@ -14,7 +14,7 @@ const ProductListLayout = props => {
           <img className="logo" alt="logo" src="/images/common/Wesop.png" />
         </Link>
       </header>
-      {props.children}
+      {children}
       <BaseInfo
         subtitle={subtitle}
         title={title}

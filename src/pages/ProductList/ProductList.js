@@ -14,9 +14,9 @@ const ProductList = () => {
   }, []);
 
   return (
-    <ProductListLayout>
+    <ProductListLayout productList={productList}>
       <h1 className="mainCategory">스킨</h1>
-      <Filter productList={productList} />
+      <Filter />
       <main className="mainContent">
         {productList.map(
           ({ categoryId, categoryName, categoryDescription, products }) => {

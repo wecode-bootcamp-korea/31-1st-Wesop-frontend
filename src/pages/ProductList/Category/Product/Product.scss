@@ -33,20 +33,4 @@
       transform: translateX(-47%);
     }
   }
-
-  .productSizePrice {
-    font-size: $font-small;
-
-    .productSizePriceName {
-      margin-bottom: 10px;
-      color: $font-gray;
-    }
-
-    .productSizePriceInfo {
-      span {
-        color: $font-light-gray;
-        padding-right: 5px;
-      }
-    }
-  }
 }

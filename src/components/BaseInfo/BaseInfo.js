@@ -17,7 +17,7 @@ const BaseInfo = ({ subtitle, title, description, btnText, imgSrc }) => {
           </button>
         </aside>
         <div className="imgWrapper">
-          <img className alt="cover" src={imgSrc} />
+          <img alt="cover" src={imgSrc} />
         </div>
       </div>
     </div>

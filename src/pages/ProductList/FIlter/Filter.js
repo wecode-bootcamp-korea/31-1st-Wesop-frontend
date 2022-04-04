@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import FilterOpen from '../FilterOpen/FilterOpen';
 import './Filter.scss';
 
-const Filter = ({ productList }) => {
+const Filter = () => {
   const navigate = useNavigate();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const filterClickHandler = () => {
@@ -19,12 +19,12 @@ const Filter = ({ productList }) => {
       <div className="filter">
         <ul className="filterSubNavContainer">
           <li className="filterSubNavList">
-            <button onclick={goToAllSkin} className="filterSubNavBtn">
+            <button onClick={goToAllSkin} className="filterSubNavBtn">
               모든 스킨
             </button>
           </li>
 
-          {productList.map(({ categoryId, categoryName }) => {
+          {CATEGORY_LIST.map(({ categoryId, categoryName }) => {
             //TODO : 추후 백엔드에서 받아오는 데이터로 변경 필요
             return (
               <li key={categoryId} className="filterSubNavList">
@@ -58,9 +58,31 @@ const Filter = ({ productList }) => {
         </div>
       </div>
       {isFilterOpen && <FilterOpen />}
-      <Outlet />
     </>
   );
 };
 
 export default Filter;
+
+const CATEGORY_LIST = [
+  {
+    categoryId: 1,
+    categoryName: '클렌저',
+  },
+  {
+    categoryId: 2,
+    categoryName: '각질제거',
+  },
+  {
+    categoryId: 3,
+    categoryName: '트리트먼트&마스크',
+  },
+  {
+    categoryId: 4,
+    categoryName: '토너',
+  },
+  {
+    categoryId: 5,
+    categoryName: '하이드레이터',
+  },
+];

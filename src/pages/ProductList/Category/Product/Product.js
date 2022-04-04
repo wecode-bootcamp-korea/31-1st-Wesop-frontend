@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Product.scss';
+import ProductSizePrice from './ProductSizePrice/ProductSizePrice';
 
 const Product = ({ badge, productName, size, price, url }) => {
   return (
@@ -11,14 +12,7 @@ const Product = ({ badge, productName, size, price, url }) => {
           <img className="productImage" alt="product" src={url} />
         </Link>
       </div>
-      <div className="productSizePrice">
-        <div className="productSizePriceName">{productName}</div>
-        <div className="productSizePriceInfo">
-          <span>{size}</span>
-          <span>/</span>
-          <span>₩ {Number(price).toLocaleString()}</span>
-        </div>
-      </div>
+      <ProductSizePrice productName={productName} size={size} price={price} />
     </div>
   );
 };
