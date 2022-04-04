@@ -13,7 +13,7 @@ const ProductList = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/data/category.json`)
+    fetch(`http://localhost:3000/data/${location.search}`)
       .then(res => res.json())
       .then(data => {
         const categoryArr = [];
@@ -33,7 +33,7 @@ const ProductList = () => {
         }
         setProductList(category);
       });
-  }, []);
+  }, [location.search]);
 
   console.log(productList);
   console.log(location.search);
