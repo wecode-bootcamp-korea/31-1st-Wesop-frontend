@@ -5,7 +5,7 @@ import LoginInput from '../../components/Login/LoginInput';
 import LoginCloseMiniBtn from '../../components/Login/LoginCloseMiniBtn';
 import LoginBackMiniBtn from '../../components/Login/LoginBackMiniBtn';
 import LoginCloseMainBtn from '../../components/Login/LoginCloseMainBtn';
-import { LOGIN_SERVER_ADDRESS } from '../../config/config';
+import { SERVER_ADDRESS } from '../../config/config';
 import './LoginForm.scss';
 
 const LoginForm = ({
@@ -57,7 +57,7 @@ const LoginForm = ({
   };
 
   const mainEmailInfoSubmit = () => {
-    fetch(`${LOGIN_SERVER_ADDRESS}/users/check`, {
+    fetch(`${SERVER_ADDRESS.main}`, {
       method: 'POST',
       body: JSON.stringify({
         email: userInfo.email,
@@ -87,7 +87,7 @@ const LoginForm = ({
   };
 
   const signInInfoSubmit = () => {
-    fetch(`${LOGIN_SERVER_ADDRESS}/users/login`, {
+    fetch(`${SERVER_ADDRESS.signIn}`, {
       method: 'POST',
       body: JSON.stringify({
         email: userInfo.email,
@@ -120,7 +120,7 @@ const LoginForm = ({
 
   const signUpInfoSubmit = () => {
     if (isInputAllValid && loginMode === 'signUp') {
-      fetch(`${LOGIN_SERVER_ADDRESS}/users/signup`, {
+      fetch(`${SERVER_ADDRESS.signUp}`, {
         method: 'POST',
         body: JSON.stringify({
           email: userInfo.email,
@@ -132,7 +132,6 @@ const LoginForm = ({
         .then(res => res.json())
         .then(res => {
           const { token, email, userId, firstName, lastName, message } = res;
-
           const resCondition = {
             SUCCESS: function () {
               localStorage.setItem('token', token);

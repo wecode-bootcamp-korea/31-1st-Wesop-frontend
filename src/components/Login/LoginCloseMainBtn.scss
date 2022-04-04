@@ -12,11 +12,11 @@
     color: $font-gray;
     opacity: 0.8;
     transition: all 0.5s;
-  }
 
-  button:hover {
-    background-color: rgb(23, 23, 23);
-    color: rgb(255, 255, 255);
-    opacity: 1;
+    &:hover {
+      background-color: rgb(23, 23, 23);
+      color: rgb(255, 255, 255);
+      opacity: 1;
+    }
   }
 }

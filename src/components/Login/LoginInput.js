@@ -23,6 +23,7 @@ const LoginInput = ({
 
   const changeValidityHandler = event => {
     const { name, value } = event.target;
+    const { email, password, rePassword } = userInfo;
 
     value.trim().length > 0
       ? onSetInputValidity(prevInfo => {
@@ -32,7 +33,7 @@ const LoginInput = ({
           return { ...prevInfo, [name]: false };
         });
 
-    userInfo.email.includes('@')
+    email.includes('@')
       ? onSetInputValidity(prevInfo => {
           return { ...prevInfo, emailContainAt: true };
         })
@@ -40,7 +41,7 @@ const LoginInput = ({
           return { ...prevInfo, emailContainAt: false };
         });
 
-    userInfo.password === userInfo.rePassword
+    password === rePassword
       ? onSetInputValidity(prevInfo => {
           return { ...prevInfo, samePassword: true };
         })
@@ -51,13 +52,9 @@ const LoginInput = ({
 
   const changeIsContainSymbolAtHandler = event => {
     const { value } = event.target;
+    const { email } = userInfo;
 
-    if (
-      userInfo.email &&
-      infoType === 'email' &&
-      !value.includes('@') &&
-      value
-    ) {
+    if (email && infoType === 'email' && !value.includes('@') && value) {
       setIsContainSymbolAt(false);
     } else {
       setIsContainSymbolAt(true);
@@ -66,11 +63,11 @@ const LoginInput = ({
 
   const changeIsSamePasswordHandler = event => {
     const { value } = event.target;
-
+    const { password, rePassword } = userInfo;
     if (
-      userInfo.rePassword &&
+      rePassword &&
       infoType === 'rePassword' &&
-      !(userInfo.password === value) &&
+      !(password === value) &&
       value
     ) {
       setIsSamePasswrod(false);
