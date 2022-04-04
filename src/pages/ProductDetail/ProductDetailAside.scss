@@ -1,30 +1,5 @@
 @import '../../styles/variables.scss';
 
-.productDetailAside {
-  height: 852px;
-  padding-top: 70px;
-  padding-bottom: 150px;
-
-  .subProductDetailAside {
-    height: 462px;
-    margin-left: 80px;
-    margin-right: 80px;
-    margin-bottom: 48px;
-    overflow: hidden;
-
-    .goodProductUseTogether {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      width: 2989px;
-      height: 462px;
-
-      .greatUseTogether {
-        font-size: 30px;
-      }
-    }
-  }
-}
-
 .asideListImgContainer {
   text-align: center;
 }
