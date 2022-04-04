@@ -6,7 +6,7 @@ import {
   RESETPW_DATA,
   SIGNIN_DATA,
   SIGNUP_DATA,
-} from '../../components/Login/LOGIN_DATA/LOGIN_DATA';
+} from '../../components/Login/DATA/LOGIN_DATA';
 
 import './Login.scss';
 
