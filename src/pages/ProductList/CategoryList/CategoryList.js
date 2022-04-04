@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import ProductListLayout from '../ProductListLayout/ProductListLayout';
-import Filter from '../FIlter/Filter';
 import ProductSizePrice from '../Category/Product/ProductSizePrice/ProductSizePrice';
 import './CategoryList.scss';
 
@@ -28,7 +27,6 @@ const CategoryList = () => {
   return (
     <ProductListLayout>
       <h1 className="mainCategory">{categoryProducts.categoryName}</h1>
-      <Filter />
       <main className="productsWrapper">
         <div className="categoryTitleWrapper">
           <h2 class="CPSubcatIntroDescription-headline">처음의 시작</h2>
