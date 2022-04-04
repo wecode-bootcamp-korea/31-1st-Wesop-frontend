@@ -8,7 +8,7 @@ const Search = () => {
         <img className="logo" src="/images/common/Wesop.png" alt="로고" />
         <form className="searchInputWrapper">
           <input className="searchInput" name="searchInput" type="text" />
-          <button className="searchBtn" />
+          <button className="searchBtn">→</button>
         </form>
       </div>
       <div className="searchList">a</div>
