@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import SLIDE_DATA from './SLIDE_DATA';
 import './MainCarousel.scss';
 
