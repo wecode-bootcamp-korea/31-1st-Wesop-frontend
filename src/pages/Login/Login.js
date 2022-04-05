@@ -11,7 +11,6 @@ import {
 import './Login.scss';
 
 const Login = () => {
-  // 로그인모드 종류 = [main , signUp , signIn, resetPw, receivedPw]
   const [loginMode, setLoginMode] = useState('main');
 
   const [userInfo, setUserInfo] = useState({
@@ -46,9 +45,9 @@ const Login = () => {
     setLoginMode(type);
   };
   const closeModalHandler = () => {
-    // TODO: 여기서 상위 컴포넌트의 Login 관련한 State끄거 켤 수 있게 해야됨.
-    // 여기서 작성하는게 아니라 그거 핸들러 받아서 이 이름으로 뿌리면 될듯 이미 내부에다가 onCloseModal로 뿌려놔가지고
-    // closeModalHandler만 내용 바꾸면 됨
+    // TODO: 여기서 상위 컴포넌트의 Login 관련한 State끄거 켤 수 있게 해야됩니다.
+    // 여기서 작성하는게 아니라 그거 핸들러 받아서 이 이름으로 뿌리면 될 거 같습니다.
+    // 이미 내부에다가 onCloseModal로 뿌려놔서 변수명은 안바꾸는게 좋습니다.
   };
 
   const insertLoginForm = dataName => {
