@@ -17,29 +17,33 @@ const Nav = () => {
     setShowingLoginModal(false);
   };
   return (
-    <>
-      <div className="Nav">
-        <div className="navMainCategory">
-          {NAV_CATEGORY_LIST.map(({ id, categoryName }) => (
-            <CategoryElement key={id} categoryName={categoryName} />
-          ))}
-          <i className="fa-solid fa-magnifying-glass" />
-        </div>
-        <div className="navUserCategory">
-          {USER_CATEGORY_LIST.map(({ id, categoryName }) => (
-            <CategoryElement
-              key={id}
-              categoryName={categoryName}
-              onOpenLoginModal={openLoginModalHandler}
-            />
-          ))}
-        </div>
+    <div className="Nav">
+      <div className="navMainCategory">
+        {NAV_CATEGORY_LIST.map(({ id, categoryName }) => (
+          <CategoryElement key={id} categoryName={categoryName} />
+        ))}
+        <i className="fa-solid fa-magnifying-glass" />
       </div>
-      <div className="loginModalArea">
-        {showingLoginModal ? <Login /> : ''}
-        {showingLoginModal ? <ModalOverLay /> : ''}
+      <div className="navUserCategory">
+        {USER_CATEGORY_LIST.map(({ id, categoryName }) => (
+          <CategoryElement
+            key={id}
+            categoryName={categoryName}
+            onOpenLoginModal={openLoginModalHandler}
+          />
+        ))}
       </div>
-    </>
+      {showingLoginModal ? (
+        <Login onCLoseLoginModal={closeLoginModalHandler} />
+      ) : (
+        ''
+      )}
+      {showingLoginModal ? (
+        <ModalOverLay onCLoseLoginModal={closeLoginModalHandler} />
+      ) : (
+        ''
+      )}
+    </div>
   );
 };
 
