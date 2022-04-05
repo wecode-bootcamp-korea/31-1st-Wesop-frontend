@@ -33,7 +33,7 @@ const MainCarousel = () => {
   };
 
   return (
-    <div className="MainCarousel">
+    <div className="mainCarousel">
       <div className="fixedScreen">
         <div ref={slideRef} className="carouselContainer">
           {SLIDE_DATA.map(({ id, image, name, description }) => (

@@ -21,7 +21,7 @@ const MainPopupSlide = () => {
   }, [leftPopupState]);
 
   return (
-    <div className="MainPopupSlide">
+    <div className="mainPopupSlide">
       <PopupSlideIntro />
       <div className="mainShampoo">
         {SHAMPOO_DATA.map(({ id, title, header, description }) => (
@@ -30,7 +30,7 @@ const MainPopupSlide = () => {
             title={title}
             header={header}
             description={description}
-            state={setLeftPopupState}
+            setLeftPopupState={setLeftPopupState}
             data={SHAMPOO_DATA}
           />
         ))}
@@ -39,7 +39,7 @@ const MainPopupSlide = () => {
         {leftPopupState.data.filterData && (
           <ShampooSlide
             data={leftPopupState.data.filterData}
-            state={setLeftPopupState}
+            setLeftPopupState={setLeftPopupState}
           />
         )}
       </div>

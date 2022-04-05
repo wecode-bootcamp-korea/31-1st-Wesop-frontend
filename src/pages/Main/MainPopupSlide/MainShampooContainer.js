@@ -2,13 +2,27 @@ import React from 'react';
 import './MainShampooContainer.scss';
 import SHAMPOO_DATA from './SHAMPOO_DATA';
 
-const MainShampooContainer = ({ title, header, description, state }) => {
+const MainShampooContainer = ({
+  title,
+  header,
+  description,
+  setLeftPopupState,
+}) => {
   let filterData = SHAMPOO_DATA.filter(function (data) {
     return data.title.includes(title);
   });
 
+  const popupHandler = () => {
+    setLeftPopupState(stateObject => ({
+      ...stateObject,
+      state: true,
+      title: { title },
+      data: { filterData },
+    }));
+  };
+
   return (
-    <div className="MainShampooContainer">
+    <div className="mainShampooContainer">
       <img
         className="shampooImage"
         src="/images/main/샴푸백그라운드.jpg"
@@ -18,17 +32,7 @@ const MainShampooContainer = ({ title, header, description, state }) => {
         <div className="shampooTitle">{title}</div>
         <div className="shampooHeader">{header}</div>
         <div className="shampooDescription">{description}</div>
-        <div
-          onClick={() =>
-            state(stateObject => ({
-              ...stateObject,
-              state: true,
-              title: { title },
-              data: { filterData },
-            }))
-          }
-          className="shampooLink"
-        >
+        <div onClick={popupHandler} className="shampooLink">
           {title} 보기
         </div>
       </div>

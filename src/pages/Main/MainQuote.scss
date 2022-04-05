@@ -1,17 +1,17 @@
 @import '../../styles/variables.scss';
 
-.MainQuote {
+.mainQuote {
   @include center;
   flex-direction: column;
   width: 100%;
   height: 500px;
 
-  .MainQuoteWrapper {
-    .MainQuoteHeader {
+  .mainQuoteWrapper {
+    .mainQuoteHeader {
       margin-bottom: 20px;
       font-size: $font-large;
     }
-    .MainQuoteAuthor {
+    .mainQuoteAuthor {
       @include center;
     }
   }

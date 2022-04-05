@@ -3,7 +3,7 @@ import './PopupSlideIntro.scss';
 
 const PopupSlideIntro = () => {
   return (
-    <div className="PopupSlideIntro">
+    <div className="popupSlideIntro">
       <div className="popupSlideIntroHeader">
         <div className="introHeaderTitle">샴푸와 컨디셔너</div>
         <div className="introHeaderPhrase">

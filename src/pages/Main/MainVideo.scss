@@ -1,9 +1,9 @@
 @import '../../styles/variables.scss';
 
-.MainVideo {
+.mainVideo {
   height: 85vh;
 
-  .MainVideoWrapper {
+  .mainVideoWrapper {
     position: relative;
 
     .backgroundVideo {
@@ -17,7 +17,7 @@
       width: 150px;
     }
 
-    .MainVideoParagraphWrapper {
+    .mainVideoParagraphWrapper {
       display: flex;
       flex-direction: column;
       position: absolute;
@@ -25,28 +25,26 @@
       left: 19%;
       color: $font-gray;
 
-      .MainVideoParagraphIntro {
+      .mainVideoParagraphIntro {
         margin-bottom: 15px;
         font-size: $font-small;
         font-weight: bold;
       }
 
-      .MainVideoParagraphHeader {
+      .mainVideoParagraphHeader {
         margin-bottom: 15px;
         font-size: 26px;
       }
 
-      .MainVideoParagraphContent {
+      .mainVideoParagraphContent {
         width: 310px;
         margin-bottom: 15px;
         line-height: 1.6;
         font-size: $font-regular;
       }
 
-      .MainVideoParagraphLink {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      .mainVideoParagraphLink {
+        @include center($justify-content: space-between);
         width: 300px;
         height: 60px;
         border: 1px solid $font-gray;

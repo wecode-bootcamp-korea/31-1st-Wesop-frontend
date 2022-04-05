@@ -3,12 +3,12 @@ import './MainQuote.scss';
 
 const MainQuote = () => {
   return (
-    <div className="MainQuote">
-      <div className="MainQuoteWrapper">
-        <div className="MainQuoteHeader">
+    <div className="mainQuote">
+      <div className="mainQuoteWrapper">
+        <div className="mainQuoteHeader">
           ‘In youth we learn, in age we understand.’
         </div>
-        <div className="MainQuoteAuthor">Marie von Ebner-Eschenbach</div>
+        <div className="mainQuoteAuthor">Marie von Ebner-Eschenbach</div>
       </div>
     </div>
   );

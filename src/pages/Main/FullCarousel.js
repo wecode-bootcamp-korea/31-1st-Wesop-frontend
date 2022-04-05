@@ -31,7 +31,7 @@ const FullCarousel = () => {
   };
 
   return (
-    <div className="FullCarousel">
+    <div className="fullCarousel">
       <div className="fixedScreen">
         <div ref={slideRef} className="carouselContainer">
           {STORE_DATA.map(({ id, image, location }) => (
