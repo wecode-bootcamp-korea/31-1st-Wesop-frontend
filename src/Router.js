@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import Nav from './components/Nav/Nav';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import ProductList from './pages/ProductList/ProductList';
@@ -9,6 +9,7 @@ import CategoryList from './pages/ProductList/CategoryList/CategoryList';
 function Router() {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import Nav from './../../components/Nav/Nav';
 import Category from './Category/Category';
 import FilterOpen from './FilterOpen/FilterOpen';
 import BaseInfo from '../../components/BaseInfo/BaseInfo';
@@ -23,7 +22,6 @@ const ProductList = () => {
 
   return (
     <div className="ProductList">
-      <Nav />
       <header>
         <Link to="/">
           <img className="logo" alt="logo" src="/images/common/Wesop.png" />
