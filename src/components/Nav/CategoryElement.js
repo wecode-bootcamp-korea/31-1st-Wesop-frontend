@@ -2,12 +2,17 @@ import React from 'react';
 import './CategoryElement.scss';
 
 const CategoryElement = ({ categoryName, onOpenLoginModal }) => {
-  const onlyLoginBtnOpenLoginModal = () => {
-    if (categoryName === '로그인') onOpenLoginModal();
+  const conditionWhatWindowOpened = {
+    로그인: function () {
+      onOpenLoginModal();
+    },
   };
 
   return (
-    <span className="CategoryElement" onClick={onlyLoginBtnOpenLoginModal}>
+    <span
+      className="CategoryElement"
+      onClick={conditionWhatWindowOpened[categoryName]}
+    >
       {categoryName}
     </span>
   );
