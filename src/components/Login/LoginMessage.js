@@ -1,5 +1,5 @@
 import React from 'react';
-import { TITLE_MSG, CONTENT_MSG, ERROR_MSG } from './DATA/MESSAGE';
+import { TITLE_MSG, CONTENT_MSG, ERROR_MSG } from './DATA/LOGIN_MESSAGE';
 import './LoginMessage.scss';
 
 const LoginMessage = ({ loginMode, loginError }) => {

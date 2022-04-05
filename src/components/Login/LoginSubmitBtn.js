@@ -1,5 +1,5 @@
 import React from 'react';
-import { BUTTON_TEXT } from './DATA/MESSAGE';
+import { BUTTON_TEXT } from './DATA/LOGIN_MESSAGE';
 import './LoginSubmitBtn.scss';
 
 const LoginSubmitBtn = ({ loginMode, onChangeLoginMode, inputValidity }) => {

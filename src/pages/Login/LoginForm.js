@@ -59,7 +59,6 @@ const LoginForm = ({
   const { loginMainAddress, loginSignInAddress, loginSignUpAddress } =
     LOGIN_SERVER_ADDRESS;
 
-  /////////////////////////////////////
   const mainEmailInfoSubmit = () => {
     fetch(loginMainAddress, {
       method: 'POST',
@@ -70,7 +69,6 @@ const LoginForm = ({
       .then(res => res.json())
       .then(res => {
         const { message } = res;
-
         const resCondition = {
           true: function () {
             setLoginError('');
@@ -89,8 +87,6 @@ const LoginForm = ({
         resCondition[message]();
       });
   };
-
-  ///////////////////////////////////////
 
   const signInInfoSubmit = () => {
     fetch(loginSignInAddress, {
