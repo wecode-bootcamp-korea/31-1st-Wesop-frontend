@@ -14,21 +14,21 @@ const ProductList = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const getAllProducts = () => {
-    fetch(`http://localhost:3000/data/all-product.json`)
+    fetch(`http://10.58.7.7:8000/products${location.search}`)
       .then(res => res.json())
-      .then(data => setProductList(data));
+      .then(data => setProductList(data.result));
   };
 
   const getCategoryInfo = () => {
-    fetch(`http://localhost:3000/data/category.json`)
+    fetch(`http://10.58.7.7:8000/products/categories${location.search}`)
       .then(res => res.json())
-      .then(data => setCategoryInfo(data));
+      .then(data => setCategoryInfo(data.result));
   };
 
   useEffect(() => {
     getCategoryInfo();
     getAllProducts();
-  }, []);
+  }, [location.search]);
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);
@@ -49,7 +49,7 @@ const ProductList = () => {
   return (
     <ProductListLayout productList={productList}>
       <h1 className="mainCategory">
-        {location.search === '' ? '스킨' : productList[0].categoryName}
+        {location.search === '' ? '스킨' : categoryInfo.categoryName}
       </h1>
       <div className="filter">
         <ul className="filterSubNavContainer">
@@ -59,7 +59,7 @@ const ProductList = () => {
             </button>
           </li>
 
-          {categoryInfo.map(({ categoryId, categoryName }) => {
+          {CATEGORY_LIST.map(({ categoryId, categoryName }) => {
             return (
               <li key={categoryId} className="filterSubNavList">
                 <button
@@ -111,11 +111,23 @@ const ProductList = () => {
           )}
         </main>
       ) : (
-        //TODO : 추후에는 그냥 'productList'로 변경해주고, fetch하는 부분에서 쿼리스트링으로 해당 카테고리에 대한 데이터만 받아오기
-        <CategoryList productList={productList[0]} />
+        <CategoryList categoryInfo={categoryInfo} productList={productList} />
       )}
     </ProductListLayout>
   );
 };
 
+const CATEGORY_LIST = [
+  { categoryId: 1, categoryName: '클렌저' },
+  { categoryId: 2, categoryName: '각질 제거' },
+  { categoryId: 3, categoryName: '트리트먼트&마스크' },
+  { categoryId: 4, categoryName: '토너' },
+  { categoryId: 5, categoryName: '하이드레이터' },
+  { categoryId: 6, categoryName: '립&아이' },
+  { categoryId: 7, categoryName: '쉐이빙' },
+  { categoryId: 8, categoryName: '선 케어' },
+  { categoryId: 9, categoryName: '키트' },
+  { categoryId: 10, categoryName: '스킨 케어 세트 추천' },
+  { categoryId: 11, categoryName: '스킨 케어 기프트' },
+];
 export default ProductList;
