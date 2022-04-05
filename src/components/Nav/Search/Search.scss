@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.Search {
+.search {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 86.5vh;
@@ -10,7 +10,7 @@
   .searchBox {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 15vh;
     padding: 20px;
 
     .logo {
