@@ -12,7 +12,9 @@ const ProductList = () => {
   const [productList, setProductList] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  useEffect(() => {
+  const getProductListByCategory = () => {};
+
+  const getAllProductList = () => {
     fetch('http://localhost:3000/data/category.json')
       .then(res => res.json())
       .then(data => {
@@ -33,7 +35,13 @@ const ProductList = () => {
         }
         setProductList(category);
       });
+  };
+
+  useEffect(() => {
+    getAllProductList();
   }, []);
+
+  useEffect(() => {}, [location.search]);
 
   // TODO: 백엔드와 통신코드 추후 수정하기 (객체 형태로 받는 걸 배열인 뒤의 value 값만 받아서 해야 하는데 확인 필요함)
   // useEffect(() => {

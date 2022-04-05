@@ -1,0 +1,22 @@
+@import '/src/styles/variables.scss';
+
+.loginCloseMainBtn {
+  button {
+    width: 100%;
+    min-width: 210px;
+    height: 60px;
+    padding: 21px 23px;
+    margin: 10px 0 0 0;
+    background-color: transparent;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    color: $font-gray;
+    opacity: 0.8;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: rgb(23, 23, 23);
+      color: rgb(255, 255, 255);
+      opacity: 1;
+    }
+  }
+}

@@ -8,7 +8,6 @@ import Footer from '../../../components/Footer/Footer';
 const ProductListLayout = ({ children, productList }) => {
   return (
     <div className="ProductList">
-      <Nav />
       <header>
         <Link to="/">
           <img className="logo" alt="logo" src="/images/common/Wesop.png" />

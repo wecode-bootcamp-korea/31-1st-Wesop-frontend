@@ -16,7 +16,7 @@ const Category = ({
   };
 
   let showLeftBtn = counter > 0;
-  let showRightBtn = counter !== products.length - 3 && counter * 22.2 < 1920;
+  let showRightBtn = counter !== products.length - 3 && products.length > 3;
 
   return (
     <div
@@ -44,7 +44,7 @@ const Category = ({
       <div className="productBodyScrollable">
         <div
           className="products"
-          style={{ transform: `translateX(-${22.2 * counter}%)` }}
+          style={{ transform: `translateX(-${27 * counter}%)` }}
         >
           {products.map(({ id, badge, productName, size, price, url }) => {
             return (
@@ -61,7 +61,6 @@ const Category = ({
               name="left"
               className="carouselLeftBtn"
               onClick={leftBtnClickHandler}
-              disabled={showLeftBtn ? false : true}
             >
               <i className="fa-solid fa-chevron-left" />
             </button>
@@ -73,7 +72,6 @@ const Category = ({
               name="right"
               className="carouselRightBtn"
               onClick={rightBtnClickHandler}
-              disabled={showRightBtn ? false : true}
             >
               <i className="fa-solid fa-chevron-right" />
             </button>
@@ -83,5 +81,4 @@ const Category = ({
     </div>
   );
 };
-
 export default Category;

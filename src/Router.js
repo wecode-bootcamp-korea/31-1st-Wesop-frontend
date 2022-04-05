@@ -5,10 +5,12 @@ import Main from './pages/Main/Main';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import CategoryList from './pages/ProductList/CategoryList/CategoryList';
+import Nav from './components/Nav/Nav';
 
 function Router() {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
