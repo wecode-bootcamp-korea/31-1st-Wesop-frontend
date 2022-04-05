@@ -1,10 +1,5 @@
 @import '../../styles/variables.scss';
 
-.nav {
-  margin-top: 80px;
-  background-color: white;
-}
-
 .productDetailBackground {
   height: 100%;
   background-color: $color-beige;
@@ -26,14 +21,14 @@
   .productDetailButton {
     @include center($justify-content: space-between);
 
-    .next,
-    .prev {
+    .prev,
+    .next {
       position: relative;
       top: 275px;
       width: 80px;
       height: 80px;
-      border: none;
       background-color: $color-dark-gray;
+      border: none;
 
       .fa-angle-left,
       .fa-angle-right {
@@ -42,43 +37,43 @@
       }
     }
   }
-}
 
-.subProductDetailAside {
-  height: 462px;
-  margin-left: 80px;
-  margin-right: 80px;
-  margin-bottom: 48px;
-  overflow: hidden;
-
-  .goodProductUseTogether {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    width: 2989px;
+  .subProductDetailAside {
     height: 462px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 48px;
+    overflow: hidden;
 
-    .greatUseTogether {
-      font-size: 30px;
+    .goodProductUseTogether {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      width: 2989px;
+      height: 462px;
+
+      .greatUseTogether {
+        font-size: 30px;
+      }
     }
   }
-}
 
-.indicatorContainor {
-  margin-right: 20px;
-  margin-left: 20px;
-  overflow: hidden;
+  .indicatorContainor {
+    margin-right: 20px;
+    margin-left: 20px;
+    overflow: hidden;
 
-  .indicatorLine {
-    position: relative;
-    width: 100vw;
-    height: 2px;
-    background-color: #cbcbc0;
-
-    .indicatorBlock {
-      position: absolute;
-      width: 20vw;
+    .indicatorLine {
+      position: relative;
+      width: 100vw;
       height: 2px;
-      background-color: $color-dark-gray;
+      background-color: #cbcbc0;
+
+      .indicatorBlock {
+        position: absolute;
+        width: 20vw;
+        height: 2px;
+        background-color: $color-dark-gray;
+      }
     }
   }
 }

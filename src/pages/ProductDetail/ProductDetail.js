@@ -1,66 +1,46 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ProductDetailSection from './ProductDetailSection';
-import ProductDetailService from './ProductDetailService';
-import ProductDetailArticle from './ProductDetailArticle';
-import ProductDetailAside from './ProductDetailAside';
-import ProductDetailModal from './ProductDetailModal';
-import Nav from '../../components/Nav/Nav';
-import Footer from '../../components/Footer/Footer';
+import ProductDetailSection from './ProductDetailSection/ProductDetailSection';
+import ProductDetailService from './ProductDetailService/ProductDetailService';
+import ProductDetailArticle from './ProductDetailArticle/ProductDetailArticle';
+import ProductDetailAside from './ProductDetailAside/ProductDetailAside';
+import ProductDetailModal from './ProductDetailModal/ProductDetailModal';
+import ProductDetailReview from './ProductDetailReview/ProductDetailReview';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
   const [mainDescription, setMainDescription] = useState([]);
-
   const [subDescription, setSubDescription] = useState([]);
-
   const [bottmScrollDescription, setBottmScrollDescription] = useState([]);
-
+  const [showModal, setShowModal] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slideRef = useRef(null);
-
   const indicatorRef = useRef(null);
 
   const TOTAL_SLIDES = 4;
-
   const slideTransition = currentSlide * 14.25;
-
   const indicatorTranslation = currentSlide * 100;
 
-  const NextSlide = () => {
+  const nextSlide = () => {
     currentSlide >= TOTAL_SLIDES
       ? setCurrentSlide(0)
       : setCurrentSlide(currentSlide + 1);
   };
 
-  const PrevSlide = () => {
+  const prevSlide = () => {
     currentSlide === 0
       ? setCurrentSlide(TOTAL_SLIDES)
       : setCurrentSlide(currentSlide - 1);
   };
-
-  const [showModal, setShowModal] = useState(false);
 
   const changeModalHandler = () => {
     showModal ? setShowModal(false) : setShowModal(true);
     document.body.style.overflow = showModal ? 'auto' : 'hidden';
   };
 
-  const navigate = useNavigate();
-
-  const goToCategory = () => {
-    navigate();
-  };
-
-  const goToSubCategory = () => {
-    navigate();
-  };
-
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${slideTransition}%)`;
-
     indicatorRef.current.style.transition = 'all 0.5s ease-in-out';
     indicatorRef.current.style.transform = `translate(${indicatorTranslation}%)`;
   });
@@ -84,7 +64,7 @@ const ProductDetail = () => {
 
   // mock data
   useEffect(() => {
-    fetch('http://localhost:3000/data/mainDescription.json')
+    fetch('data/mainDescription.json')
       .then(res => res.json())
       .then(data => {
         setMainDescription(data[0]);
@@ -93,7 +73,7 @@ const ProductDetail = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/bottomDescription.json')
+    fetch('data/bottomDescription.json')
       .then(res => res.json())
       .then(data => {
         setBottmScrollDescription(data);
@@ -109,8 +89,6 @@ const ProductDetail = () => {
         />
       ) : null}
 
-      <Nav />
-
       <div className="productDetailBackground">
         <img
           className="productDetailLogo"
@@ -121,8 +99,6 @@ const ProductDetail = () => {
         <ProductDetailSection
           mainDescription={mainDescription}
           changeModalHandler={changeModalHandler}
-          goToCategory={goToCategory}
-          goToSubCategory={goToSubCategory}
         />
 
         <ProductDetailService />
@@ -131,10 +107,10 @@ const ProductDetail = () => {
 
         <aside className="productDetailAside">
           <div className="productDetailButton">
-            <button className="prev" onClick={PrevSlide}>
+            <button className="prev" onClick={prevSlide}>
               <i className="fa-solid fa-angle-left" />
             </button>
-            <button className="next" onClick={NextSlide}>
+            <button className="next" onClick={nextSlide}>
               <i class="fa-solid fa-angle-right" />
             </button>
           </div>
@@ -156,7 +132,7 @@ const ProductDetail = () => {
         </aside>
       </div>
 
-      <Footer />
+      <ProductDetailReview />
     </div>
   );
 };

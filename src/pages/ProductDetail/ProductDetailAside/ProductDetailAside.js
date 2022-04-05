@@ -2,12 +2,13 @@ import React from 'react';
 import './ProductDetailAside.scss';
 
 function ProductDetailAside({ product }) {
+  const { image, name, skintype } = product;
   return (
     <div className="asideListImgContainer">
-      <img className="asideListImg" alt="스킨" src={product.image} />
+      <img className="asideListImg" alt="스킨" src={image} />
       <div className="introductionItem">
-        <p>{product.name}</p>
-        <p>{product.skintype}</p>
+        <p>{name}</p>
+        <p>{skintype}</p>
       </div>
     </div>
   );
