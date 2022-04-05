@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Product.scss';
 import ProductSizePrice from './ProductSizePrice/ProductSizePrice';
 
-const Product = ({ badge, productName, size, price, url }) => {
+const Product = ({ product: { badge, productName, size, price, url } }) => {
   return (
     <div className="product">
       <div className="productBadgeWrapper">{badge}</div>

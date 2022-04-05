@@ -46,8 +46,13 @@ const Category = ({
           className="products"
           style={{ transform: `translateX(-${22.2 * counter}%)` }}
         >
-          {products.map(product => {
-            return <Product key={product.productId} {...product} />;
+          {products.map(({ id, badge, productName, size, price, url }) => {
+            return (
+              <Product
+                key={id}
+                product={{ badge, productName, size, price, url }}
+              />
+            );
           })}
         </div>
         {showLeftBtn && (

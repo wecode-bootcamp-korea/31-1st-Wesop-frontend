@@ -7,18 +7,18 @@ import './ProductList.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const ProductList = () => {
-  const [productList, setProductList] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
+  const [productList, setProductList] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/data/${location.search}`)
+    fetch('http://localhost:3000/data/category.json')
       .then(res => res.json())
       .then(data => {
         const categoryArr = [];
-        for (let x of data) {
-          categoryArr.push(x.category);
+        for (let product of data) {
+          categoryArr.push(product.category);
         }
         const map = new Map();
         for (const category of categoryArr) {
@@ -33,10 +33,31 @@ const ProductList = () => {
         }
         setProductList(category);
       });
-  }, [location.search]);
+  }, []);
 
-  console.log(productList);
-  console.log(location.search);
+  // TODO: 백엔드와 통신코드 추후 수정하기 (객체 형태로 받는 걸 배열인 뒤의 value 값만 받아서 해야 하는데 확인 필요함)
+  // useEffect(() => {
+  //   fetch(`http://localhost:3000/data/${location.search}`)
+  //     .then(res => res.json())
+  //     .then(data.result => {
+  //       const categoryArr = [];
+  //       for (let x of data.result) {
+  //         categoryArr.push(x.category);
+  //       }
+  //       const map = new Map();
+  //       for (const category of categoryArr) {
+  //         map.set(JSON.stringify(category), category);
+  //       }
+  //       const category = [...map.values()];
+  //       for (let i = 0; i < category.length; i++) {
+  //         const newArr = data.result.filter(
+  //           item => item.category.categoryId === i + 1
+  //         );
+  //         category[i].products = newArr;
+  //       }
+  //       setProductList(category);
+  //     });
+  // }, [location.search]);
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);
@@ -53,7 +74,9 @@ const ProductList = () => {
 
   return (
     <ProductListLayout productList={productList}>
-      <h1 className="mainCategory">스킨</h1>
+      <h1 className="mainCategory">
+        {location.search === '' ? '스킨' : productList[0].categoryName}
+      </h1>
       <div className="filter">
         <ul className="filterSubNavContainer">
           <li className="filterSubNavList">
@@ -114,7 +137,8 @@ const ProductList = () => {
           )}
         </main>
       ) : (
-        <CategoryList />
+        //TODO : 추후에는 그냥 'productList'로 변경해주고, fetch하는 부분에서 쿼리스트링으로 해당 카테고리에 대한 데이터만 받아오기
+        <CategoryList productList={productList[0]} />
       )}
     </ProductListLayout>
   );
@@ -140,6 +164,30 @@ const CATEGORY_LIST = [
   {
     categoryId: 5,
     categoryName: '하이드레이터',
+  },
+  {
+    categoryId: 6,
+    categoryName: '립&아이',
+  },
+  {
+    categoryId: 7,
+    categoryName: '쉐이빙',
+  },
+  {
+    categoryId: 8,
+    categoryName: '선 케어',
+  },
+  {
+    categoryId: 9,
+    categoryName: '키트',
+  },
+  {
+    categoryId: 10,
+    categoryName: '스킨 케어 세트 추천',
+  },
+  {
+    categoryId: 11,
+    categoryName: '스킨 케어 기프트',
   },
 ];
 

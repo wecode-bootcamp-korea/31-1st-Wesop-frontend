@@ -1,83 +1,26 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ProductSizePrice from '../Category/Product/ProductSizePrice/ProductSizePrice';
+import React from 'react';
 import './CategoryList.scss';
+import CategoryProduct from './CategoryProduct/CategoryProduct';
 
-const CategoryList = () => {
-  const navigate = useNavigate();
-
+const CategoryList = ({
+  productList: { categoryName, categoryDescription, products },
+}) => {
   return (
-    <main className="productsWrapper">
+    <main className="categoryList">
       <div className="categoryTitleWrapper">
-        <h2 class="CPSubcatIntroDescription-headline">처음의 시작</h2>
-        <p class="CPSubcatIntroDescription-info">
-          각질, 불필요한 유분 그리고 기타 잔여물을 말끔히 씻어내어 피부를
-          깨끗하게 하는 것은 인텔리전트 스킨케어의 기초입니다.
-        </p>
+        {/* //TODO: 아래 내용은 백엔드에서 tag까지 통으로 주기로 해서 해당 부분
+        변경해주기 */}
+        <h2 class="CPSubcatIntroDescription-headline">{categoryName}</h2>
+        <p class="CPSubcatIntroDescription-info">{categoryDescription}</p>
       </div>
-      <div className="categoryProductWrapper">
-        <div className="productImgInfoWrapper">
-          <div className="imgWrapper">
-            <img
-              alt="category-product"
-              src="/images/productList/투명배경1.png"
-            />
-          </div>
-          <ProductSizePrice productName="리무브" size="60 mL" price="27000" />
-        </div>
-        <div className="descriptionWrapper">
-          <div className="description">
-            <span className="title">피부타입</span>
-            <span className="content">모든 피부, 메이크업을 한 피부</span>
-          </div>
-          <div className="description">
-            <span className="title">사용감</span>
-            <span className="content">진정된, 생기있는</span>
-          </div>
-        </div>
-      </div>
-      <div className="categoryProductWrapper">
-        <div className="productImgInfoWrapper">
-          <div className="imgWrapper">
-            <img
-              alt="category-product"
-              src="/images/productList/투명배경2.png"
-            />
-          </div>
-          <ProductSizePrice productName="리무브" size="60 mL" price="27000" />
-        </div>
-        <div className="descriptionWrapper">
-          <div className="description">
-            <span className="title">피부타입</span>
-            <span className="content">모든 피부, 메이크업을 한 피부</span>
-          </div>
-          <div className="description">
-            <span className="title">사용감</span>
-            <span className="content">진정된, 생기있는</span>
-          </div>
-        </div>
-      </div>
-      <div className="categoryProductWrapper">
-        <div className="productImgInfoWrapper">
-          <div className="imgWrapper">
-            <img
-              alt="category-product"
-              src="/images/productList/투명배경3.png"
-            />
-          </div>
-          <ProductSizePrice productName="리무브" size="60 mL" price="27000" />
-        </div>
-        <div className="descriptionWrapper">
-          <div className="description">
-            <span className="title">피부타입</span>
-            <span className="content">모든 피부, 메이크업을 한 피부</span>
-          </div>
-          <div className="description">
-            <span className="title">사용감</span>
-            <span className="content">진정된, 생기있는</span>
-          </div>
-        </div>
-      </div>
+      {products.map(({ id, productName, size, price, url }) => {
+        return (
+          <CategoryProduct
+            key={id}
+            products={{ id, productName, size, price, url }}
+          />
+        );
+      })}
     </main>
   );
 };
