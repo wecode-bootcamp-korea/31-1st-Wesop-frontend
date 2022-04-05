@@ -3,11 +3,14 @@ import CategoryElement from './CategoryElement';
 import NAV_CATEGORY_LIST from './navCategoryData';
 import USER_CATEGORY_LIST from './userCategoryData';
 import Login from '../../pages/Login/Login';
+import Cart from '../../pages/Cart/Cart';
 import ModalOverLay from '../UI/ModalOverLay';
 import './Nav.scss';
 
 const Nav = () => {
   const [showingLoginModal, setShowingLoginModal] = useState(false);
+  const [showingCartModal, setShowingCartModal] = useState(false);
+  const [cartList, setCartList] = useState([]);
 
   const openLoginModalHandler = () => {
     setShowingLoginModal(true);
@@ -16,8 +19,27 @@ const Nav = () => {
   const closeLoginModalHandler = () => {
     setShowingLoginModal(false);
   };
+
+  const openCartModalHandler = () => {
+    setShowingCartModal(true);
+  };
+
+  const closeCartModalHandler = () => {
+    setShowingCartModal(false);
+  };
+
+  const cartListHandler = () => {
+    setCartList();
+  };
+
   return (
     <div className="Nav">
+      {showingCartModal ? (
+        <Cart onChangeCartList={cartListHandler} cartList={cartList} />
+      ) : (
+        ''
+      )}
+      {showingCartModal ? <ModalOverLay /> : ''}
       <div className="navMainCategory">
         {NAV_CATEGORY_LIST.map(({ id, categoryName }) => (
           <CategoryElement key={id} categoryName={categoryName} />
@@ -30,6 +52,7 @@ const Nav = () => {
             key={id}
             categoryName={categoryName}
             onOpenLoginModal={openLoginModalHandler}
+            onOpenCartModal={openCartModalHandler}
           />
         ))}
       </div>

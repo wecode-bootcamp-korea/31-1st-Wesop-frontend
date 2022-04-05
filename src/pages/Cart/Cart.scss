@@ -1,6 +1,17 @@
 @import '../../styles/variables.scss';
 
+// position: fixed;
+// left: 0;
+// top: 0;
+// display: flex;
+// justify-content: center;
+// width: 100%;
+// z-index: 999;
+
 .cart {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 40px 40px 0 40px;
   background-color: rgb(37, 37, 37);
   z-index: 3333;
