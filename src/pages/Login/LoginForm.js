@@ -56,10 +56,12 @@ const LoginForm = ({
     setLoginError('');
   };
 
-  const { mainAddress, signInAddress, signUpAddress } = LOGIN_SERVER_ADDRESS;
+  const { loginMainAddress, loginSignInAddress, loginSignUpAddress } =
+    LOGIN_SERVER_ADDRESS;
 
+  /////////////////////////////////////
   const mainEmailInfoSubmit = () => {
-    fetch(mainAddress, {
+    fetch(loginMainAddress, {
       method: 'POST',
       body: JSON.stringify({
         email: userInfo.email,
@@ -88,8 +90,10 @@ const LoginForm = ({
       });
   };
 
+  ///////////////////////////////////////
+
   const signInInfoSubmit = () => {
-    fetch(signInAddress, {
+    fetch(loginSignInAddress, {
       method: 'POST',
       body: JSON.stringify({
         email: userInfo.email,
@@ -122,7 +126,7 @@ const LoginForm = ({
 
   const signUpInfoSubmit = () => {
     if (isInputAllValid && loginMode === 'signUp') {
-      fetch(signUpAddress, {
+      fetch(loginSignUpAddress, {
         method: 'POST',
         body: JSON.stringify({
           email: userInfo.email,

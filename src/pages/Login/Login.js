@@ -12,7 +12,7 @@ import './Login.scss';
 
 const Login = () => {
   // 로그인모드 종류 = [main , signUp , signIn, resetPw, receivedPw]
-  const [loginMode, setLoginMode] = useState('signUp');
+  const [loginMode, setLoginMode] = useState('main');
 
   const [userInfo, setUserInfo] = useState({
     email: '',
