@@ -1,0 +1,47 @@
+@import '../../../styles/variables.scss';
+
+@mixin modalFont($margin-bottom: 30px, $font-size: $font-large) {
+  margin-bottom: $margin-bottom;
+  font-size: $font-size;
+}
+
+.mainShampooContainer {
+  position: relative;
+  width: 50%;
+  height: 100%;
+
+  .shampooImage {
+    max-width: 50vw;
+    width: 100%;
+    height: 100%;
+  }
+
+  .shampooWrapper {
+    @include center;
+    flex-direction: column;
+    position: absolute;
+    width: 60%;
+    top: 15vh;
+    left: 20%;
+    color: $color-beige;
+
+    .shampooTitle {
+      @include modalFont;
+    }
+
+    .shampooHeader {
+      @include modalFont($font-size: $font-regular);
+    }
+
+    .shampooDescription {
+      @include modalFont($font-size: $font-small);
+      font-style: underline;
+    }
+
+    .shampooLink {
+      @include modalFont($font-size: $font-regular);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@import './../../styles/variables.scss';
+
+.mainStoreLocator {
+  padding: 150px 0;
+  background-color: $color-beige;
+  overflow-x: hidden;
+
+  .twoColumnModule {
+    @include center($justify-content: space-between);
+
+    .copy {
+      padding-left: 80px;
+      width: 475px;
+      height: 472px;
+      color: $color-dark-gray;
+
+      .title {
+        margin-bottom: 30px;
+        font-size: $font-large;
+      }
+
+      .description {
+        margin-bottom: 30px;
+        line-height: 1.6;
+        font-size: $font-regular;
+      }
+
+      .btnHoverDark {
+        padding: 21px 10px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background-color: $color-beige;
+        transition: 0.2s ease-in;
+
+        &:hover {
+          background-color: $color-dark-gray;
+
+          .btnText,
+          .btnIcon {
+            color: $color-beige;
+          }
+        }
+
+        .btnText,
+        .btnIcon {
+          margin: 0 14px;
+          color: $font-light-gray;
+          font-size: $font-small;
+        }
+
+        .btnText {
+          margin-right: 135px;
+        }
+      }
+    }
+
+    .imgWrapper {
+      width: 830px;
+      height: 470px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
