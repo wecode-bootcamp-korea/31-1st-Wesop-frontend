@@ -7,27 +7,28 @@ const Search = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [data, setData] = useState({});
+  const [searchData, setSearchData] = useState({});
   const [searchInput, setSearchInput] = useState('');
 
+  const decodeLocation = decodeURI(location.search);
+
   useEffect(() => {
-    fetch(`http://10.58.1.236:8000/products?search=${decodeLocation}`)
+    fetch(`http://10.58.1.236:8000/products${decodeLocation}`)
       .then(res => res.json())
-      .then(data => setData(data));
-  }, []);
+      .then(data => setSearchData(data));
+  }, [location.search]);
 
   const inputHandler = e => {
     setSearchInput(e.target.value);
   };
 
   const queryHandler = () => {
-    const queryString = `?searchMenu=open&search=${searchInput}`;
-    navigate(queryString);
+    const queryString = decodeURI(`?search=${searchInput}`);
+    navigate(`/${queryString}`);
   };
 
-  const decodeLocation = decodeURI(location.search);
   // const inputValidCheck = searchInput.length > 1 && data.includes(searchInput);
-
+  console.log(searchData);
   return (
     <div className="search">
       <div className="searchBox">
@@ -44,7 +45,7 @@ const Search = () => {
           </button>
         </div>
       </div>
-      <SearchList />
+      <SearchList searchData={searchData} />
     </div>
   );
 };
