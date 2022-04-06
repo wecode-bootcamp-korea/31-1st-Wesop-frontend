@@ -28,7 +28,6 @@ const Search = () => {
   };
 
   // const inputValidCheck = searchInput.length > 1 && data.includes(searchInput);
-  console.log(searchData);
   return (
     <div className="search">
       <div className="searchBox">
