@@ -14,8 +14,6 @@ const SearchList = ({ searchData }) => {
     setProductURL(value);
   };
 
-  console.log(productURL);
-
   return (
     <div className="searchList" onMouseLeave={() => hoverHandler(false)}>
       <div className="listContainer">

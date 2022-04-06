@@ -9,6 +9,7 @@ const Search = () => {
 
   const [searchData, setSearchData] = useState({});
   const [searchInput, setSearchInput] = useState('');
+  const [showList, setShowList] = useState(false);
 
   const decodeLocation = decodeURI(location.search);
 
@@ -27,7 +28,10 @@ const Search = () => {
     navigate(`/${queryString}`);
   };
 
-  // const inputValidCheck = searchInput.length > 1 && data.includes(searchInput);
+  const listHandler = () => {
+    setShowList(true);
+  };
+
   return (
     <div className="search">
       <div className="searchBox">
@@ -39,12 +43,16 @@ const Search = () => {
             type="text"
             onChange={inputHandler}
           />
-          <button className="searchBtn" type="button" onClick={queryHandler}>
+          <button
+            className="searchBtn"
+            type="button"
+            onClick={queryHandler && listHandler}
+          >
             →
           </button>
         </div>
       </div>
-      <SearchList searchData={searchData} />
+      {showList && <SearchList searchData={searchData} />}
     </div>
   );
 };
