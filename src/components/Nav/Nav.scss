@@ -1,4 +1,10 @@
 @import '../../styles/variables.scss';
+@mixin navRightBtnStyle {
+  margin: 0 1vw 0 0;
+  border: 0;
+  color: $color-beige;
+  background-color: transparent;
+}
 
 .Nav {
   display: flex;
@@ -27,24 +33,15 @@
     }
 
     .oepnLoginModalBtn {
-      margin: 0 1vw 0 0;
-      border: 0;
-      color: $color-beige;
-      background-color: transparent;
+      @include navRightBtnStyle;
     }
 
     .openCartModalBtn {
-      margin: 0 1vw 0 0;
-      border: 0;
-      color: $color-beige;
-      background-color: transparent;
+      @include navRightBtnStyle;
     }
 
     .logOutBtn {
-      margin: 0 1vw 0 0;
-      border: 0;
-      color: $color-beige;
-      background-color: transparent;
+      @include navRightBtnStyle;
     }
   }
 }
