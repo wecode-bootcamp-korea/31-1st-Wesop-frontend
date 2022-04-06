@@ -4,7 +4,6 @@ import ProductDetailService from './ProductDetailService/ProductDetailService';
 import ProductDetailArticle from './ProductDetailArticle/ProductDetailArticle';
 import ProductDetailAside from './ProductDetailAside/ProductDetailAside';
 import ProductDetailModal from './ProductDetailModal/ProductDetailModal';
-import ProductDetailReview from './ProductDetailReview/ProductDetailReview';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
@@ -131,8 +130,6 @@ const ProductDetail = () => {
           </div>
         </aside>
       </div>
-
-      <ProductDetailReview />
     </div>
   );
 };
