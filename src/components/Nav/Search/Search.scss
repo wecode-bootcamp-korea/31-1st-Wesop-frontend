@@ -2,7 +2,7 @@
 
 .search {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   height: 86.5vh;
   width: 100%;
   background-color: $color-beige;
@@ -53,5 +53,10 @@
         cursor: pointer;
       }
     }
+
+    // .searchList {
+    //   display: grid;
+    //   grid-template-columns: 1fr 1fr;
+    // }
   }
 }

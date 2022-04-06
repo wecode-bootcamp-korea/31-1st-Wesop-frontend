@@ -11,6 +11,7 @@ const SearchImage = () => {
           alt="서치이미지"
         />
       </div>
+      <div className="linkWrapper">더 알아보기</div>
     </div>
   );
 };

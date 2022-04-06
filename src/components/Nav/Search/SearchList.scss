@@ -1,25 +1,32 @@
 @import '../../../styles/variables.scss';
 
 .searchList {
-  display: flex;
-  flex-direction: column;
-  margin-top: 5vh;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   // border-left: 1px solid $font-light-gray;
 
-  .listTitle {
-    font-size: $font-regular;
-    margin-bottom: 20px;
-  }
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 15vh;
+    padding: 20px;
 
-  .searchListWrapper {
-    .searchItem {
-      margin-bottom: 10px;
-      font-size: $font-small;
+    .listTitle {
+      font-size: $font-regular;
+      margin-bottom: 20px;
     }
 
-    .searchItem:hover {
-      border-bottom: 1px solid $color-dark-gray;
+    .searchListWrapper {
+      .searchItem {
+        margin-bottom: 10px;
+        font-size: $font-small;
+      }
+
+      .searchItem:hover {
+        // border-bottom: 1px solid $color-dark-gray;
+        text-decoration: underline;
+      }
     }
   }
 }
