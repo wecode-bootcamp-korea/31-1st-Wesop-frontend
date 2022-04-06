@@ -28,8 +28,8 @@ const Search = () => {
     navigate(`/${queryString}`);
   };
 
-  const listHandler = () => {
-    setShowList(true);
+  const listHandler = boolean => {
+    setShowList(boolean);
   };
 
   return (
@@ -46,7 +46,10 @@ const Search = () => {
           <button
             className="searchBtn"
             type="button"
-            onClick={queryHandler && listHandler}
+            onClick={() => {
+              listHandler(true);
+              queryHandler();
+            }}
           >
             →
           </button>
