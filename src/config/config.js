@@ -12,7 +12,7 @@ export const LOGIN_SERVER_ADDRESS = {
 //   loginMainAddress: `${BASE_URL}/users/check`,
 //   loginSignInAddress: `${BASE_URL}/users/login`,
 //   loginSignUpAddress: `${BASE_URL}/users/signup`,
-//   categoryInfo: `${BASE_URL}/products/categories`,
+//   category: `${BASE_URL}/products/categories`,
 //   products: `${BASE_URL}/products`,
 // };
 
