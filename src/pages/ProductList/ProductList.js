@@ -1,33 +1,30 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ProductListLayout from './ProductListLayout/ProductListLayout';
 import FilterOpen from './FilterOpen/FilterOpen';
 import Category from './Category/Category';
 import CategoryList from './CategoryList/CategoryList';
 import './ProductList.scss';
-import { useLocation, useNavigate } from 'react-router-dom';
+import API from '../../config/config';
 
 const ProductList = () => {
+  const { products, categoryInfo } = API;
   const location = useLocation();
   const navigate = useNavigate();
   const [productList, setProductList] = useState([]);
   const [categoryInfo, setCategoryInfo] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const getAllProducts = () => {
-    fetch(`http://10.58.7.7:8000/products${location.search}`)
+  useEffect(() => {
+    fetch(`${products / location.search}`)
       .then(res => res.json())
       .then(data => setProductList(data.result));
-  };
-
-  const getCategoryInfo = () => {
-    fetch(`http://10.58.7.7:8000/products/categories${location.search}`)
-      .then(res => res.json())
-      .then(data => setCategoryInfo(data.result));
-  };
+  }, [location.search]);
 
   useEffect(() => {
-    getCategoryInfo();
-    getAllProducts();
+    fetch(`${categoryInfo / location.search}`)
+      .then(res => res.json())
+      .then(data => setCategoryInfo(data.result));
   }, [location.search]);
 
   const filterClickHandler = () => {

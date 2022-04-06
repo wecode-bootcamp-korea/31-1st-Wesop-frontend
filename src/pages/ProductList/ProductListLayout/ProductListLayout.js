@@ -1,9 +1,8 @@
 import React from 'react';
-import './ProductListLayout.scss';
 import { Link } from 'react-router-dom';
-import Nav from '../../../components/Nav/Nav';
 import BaseInfo from '../../../components/BaseInfo/BaseInfo';
 import Footer from '../../../components/Footer/Footer';
+import './ProductListLayout.scss';
 
 const ProductListLayout = ({ children, productList }) => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import './CategoryList.scss';
 import CategoryProduct from './CategoryProduct/CategoryProduct';
+import './CategoryList.scss';
 
 const CategoryList = ({ productList, categoryInfo }) => {
   return (
