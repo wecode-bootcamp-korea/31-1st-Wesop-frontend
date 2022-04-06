@@ -11,14 +11,14 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
 
   // const postLocalCartList = () => {
   //   fetch(cartMainAddress, {
-  //     method: 'POST',
+  //     method: 'GET',
   //     headers: {
   //       Authorization: localStorage.getItem('token'),
   //     },
-  //     body: {
-  //       // TODO:cart 보내야되는데 어떻게 보내야 할지 상의
-  //     },
-  //   }).then(res => res.json());
+  //     // body: JSON.stringify({ product_id: 1 }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => console.log(res));
   // };
 
   //////////////////////////// 서버에 받아오는거
@@ -32,8 +32,8 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
       },
     })
       .then(res => res.json())
-      .then(dataList => {
-        onChangeCartList(dataList);
+      .then(res => {
+        onChangeCartList(res.message);
       });
   };
 
@@ -55,6 +55,9 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
     setCartListTotalPrice(0);
     onChangeCartList([]);
   };
+
+  console.log(cartList);
+
   return (
     <div className="cart">
       <div className="cartProducts">
@@ -71,12 +74,13 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
           </button>
         </div>
         <ul className="cartProductList">
+          {/* {cartList.map((cartItem, index) => ( */}
           {cartList.map((cartItem, index) => (
             <CartItemList
               key={cartItem.productId}
+              cartItem={cartItem}
               cartList={cartList}
               onChangeCartList={onChangeCartList}
-              cartItem={cartItem}
               itemIndex={index}
               cartListTotalPrice={cartListTotalPrice}
               onAddToTotalPrice={addPriceToCartListTotalPriceHandler}
@@ -87,7 +91,8 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
       <div className="cartAllDelete">
         <button
           className="cartAllDeleteBtn"
-          onClick={removeAllCartItemsHandler}
+          // onClick={removeAllCartItemsHandler}
+          onClick={getRemoteCartList}
         >
           전체삭제
         </button>

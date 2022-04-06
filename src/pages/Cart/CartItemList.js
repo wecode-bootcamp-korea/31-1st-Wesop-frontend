@@ -6,10 +6,7 @@ const CartItemList = ({
   onChangeCartList,
   onAddToTotalPrice,
 }) => {
-  // const { totalPrice ,productId, productName, size, quantity, price } = cartItem;
-  // console.log(totalPrice ,productId, productName, size, quantity, price);
-  console.log(cartList);
-  console.log(`${cartItem.productId} quantity: ${cartItem.quantity}`);
+  console.log(cartItem);
   ///////////////////////////////////////////////////////
   // 수량 하나 추가 버튼기능
 
@@ -40,7 +37,7 @@ const CartItemList = ({
           <a href="http://naver.com">{cartItem.productName}</a>
         </div>
         <div className="productVolume">
-          <span>{cartItem.size}</span>
+          <span>{cartItem.productSize}</span>
         </div>
 
         <div className="productQuantity">
