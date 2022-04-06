@@ -1,0 +1,18 @@
+@import '../../../styles/variables.scss';
+
+.asideListImgContainer {
+  text-align: center;
+
+  .asideListImg {
+    width: 220px;
+    height: 400px;
+    margin-left: 10px;
+
+    .introductionItem {
+      color: $color-dark-gray;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.6;
+    }
+  }
+}

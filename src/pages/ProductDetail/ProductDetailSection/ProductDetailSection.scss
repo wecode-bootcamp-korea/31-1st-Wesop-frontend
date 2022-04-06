@@ -1,0 +1,112 @@
+@import '../../../styles/variables.scss';
+
+.productDetailSection {
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  .productDetailImg {
+    position: relative;
+    left: 200px;
+    top: 40px;
+    width: 220px;
+    height: 440px;
+  }
+
+  .productDetailSectionContainer {
+    position: relative;
+    left: 300px;
+    width: 360px;
+    color: $color-dark-gray;
+    font-size: 14px;
+    line-height: 1.6;
+
+    .productDetailCategory {
+      padding-bottom: 20px;
+
+      .categoryTag {
+        display: flex;
+
+        .categoryLink {
+          padding-right: 13px;
+        }
+
+        .categoryLink,
+        .subCategoryLink {
+          color: $color-dark-gray;
+          text-decoration: none;
+
+          &::after {
+            content: '';
+            display: block;
+            border-bottom: solid 1px black;
+            transform: scaleX(0);
+            transition: transform 250ms ease-in-out;
+          }
+
+          &:hover::after {
+            border-bottom: solid 1px black;
+            transform: scaleX(1);
+          }
+
+          &::after {
+            transform-origin: 0% 50%;
+          }
+        }
+      }
+    }
+
+    .productDetailName {
+      font-size: 2em;
+      font-weight: 350;
+      margin-bottom: 15px;
+    }
+
+    .productDescription {
+      padding-bottom: 13px;
+      border-bottom: 2px solid black;
+    }
+
+    .productInformation {
+      padding-top: 15px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid #d4d4c9;
+    }
+
+    .fa-square-plus {
+      position: relative;
+      bottom: 60px;
+      left: 340px;
+      font-size: 20px;
+
+      &:hover {
+        color: white;
+        background-color: black;
+      }
+    }
+  }
+
+  .productModule {
+    position: relative;
+    bottom: 24px;
+
+    .productSize {
+      padding-top: 15px;
+      padding-bottom: 13px;
+    }
+  }
+
+  .shoppingCartButton {
+    width: 360px;
+    height: 58px;
+    padding: 20px 15px 20px 15px;
+    color: #fffef2;
+    background-color: $color-dark-gray;
+    border: none;
+
+    &:hover {
+      background-color: black;
+    }
+  }
+}
