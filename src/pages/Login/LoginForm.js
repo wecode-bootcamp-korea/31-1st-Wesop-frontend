@@ -18,6 +18,7 @@ const LoginForm = ({
   onClearUserInfo,
   inputValidity,
   onSetInputValidity,
+  onSetLoginedUserInfo,
 }) => {
   const {
     email,
@@ -103,10 +104,12 @@ const LoginForm = ({
         const resCondition = {
           SUCCESS: function () {
             localStorage.setItem('token', token);
-            localStorage.setItem('email', email);
-            localStorage.setItem('userId', userId);
-            localStorage.setItem('firstName', firstName);
-            localStorage.setItem('lastName', lastName);
+            onSetLoginedUserInfo({
+              email: email,
+              userId: userId,
+              firstName: firstName,
+              lastName: lastName,
+            });
             setLoginError('');
             onClearUserInfo();
             onCloseModal();
@@ -137,10 +140,12 @@ const LoginForm = ({
           const resCondition = {
             SUCCESS: function () {
               localStorage.setItem('token', token);
-              localStorage.setItem('email', email);
-              localStorage.setItem('userId', userId);
-              localStorage.setItem('firstName', firstName);
-              localStorage.setItem('lastName', lastName);
+              onSetLoginedUserInfo({
+                email: email,
+                userId: userId,
+                firstName: firstName,
+                lastName: lastName,
+              });
               setLoginError('');
               onClearUserInfo();
               onCloseModal();

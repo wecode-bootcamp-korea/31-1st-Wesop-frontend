@@ -20,5 +20,31 @@
   .navUserCategory {
     @include center;
     margin-right: 20px;
+
+    .loginedUserName {
+      margin: 0 1vw 0 0;
+      color: $color-beige;
+    }
+
+    .oepnLoginModalBtn {
+      margin: 0 1vw 0 0;
+      border: 0;
+      color: $color-beige;
+      background-color: transparent;
+    }
+
+    .openCartModalBtn {
+      margin: 0 1vw 0 0;
+      border: 0;
+      color: $color-beige;
+      background-color: transparent;
+    }
+
+    .logOutBtn {
+      margin: 0 1vw 0 0;
+      border: 0;
+      color: $color-beige;
+      background-color: transparent;
+    }
   }
 }

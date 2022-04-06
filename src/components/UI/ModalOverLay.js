@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './ModalOverLay.scss';
 
-const ModalOverLay = ({ children, onCLoseLoginModal }) => {
+const ModalOverLay = ({ children, onCloseLoginModal }) => {
   useEffect(() => {
     document.body.style.cssText = `
       position: fixed; 
@@ -16,7 +16,7 @@ const ModalOverLay = ({ children, onCLoseLoginModal }) => {
   }, []);
 
   return (
-    <div className="modalOverLay" onClick={onCLoseLoginModal}>
+    <div className="modalOverLay" onClick={onCloseLoginModal}>
       {children}
     </div>
   );
