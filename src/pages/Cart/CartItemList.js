@@ -1,34 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CartItemList.scss';
 const CartItemList = ({
   cartItem,
   cartList,
   onChangeCartList,
-  onEditCartItem,
-  itemIndex,
   onAddToTotalPrice,
 }) => {
-  const test1 = () => {
-    console.log('minus');
-  };
-  const test2 = () => {
-    console.log('plus');
-  };
-  const test3 = () => {
-    console.log('delete');
-  };
+  // const { totalPrice ,productId, productName, size, quantity, price } = cartItem;
+  // console.log(totalPrice ,productId, productName, size, quantity, price);
+  console.log(cartList);
+  console.log(`${cartItem.productId} quantity: ${cartItem.quantity}`);
+  ///////////////////////////////////////////////////////
+  // 수량 하나 추가 버튼기능
 
-  // const { productId, productName, size, quantity, price } = cartItem;
-  // console.log(productId, productName, size, quantity, price);
-  // console.log(`itemIndex: ${itemIndex}`);
+  ///////////////////////////////////////////////////////
+  // 수량 하나 제거 버튼기능
 
   /////////////////////////////////////////////////////////
 
-  let itemTotalPrice = cartItem.quantity * cartItem.price;
-
   useEffect(() => {
-    onAddToTotalPrice(itemTotalPrice);
-  }, [cartItem.quantity]);
+    onAddToTotalPrice(cartItem.totalPrice);
+  }, []);
 
   //////////////////////////////////////////////////////
 
@@ -62,10 +54,8 @@ const CartItemList = ({
             value={cartItem.quantity}
             readOnly={true}
           />
-          {/* TODO:데이터 넣고 아래걸로 */}
-          {/* <input className="productQuantityInputBox" type="text" value={quantity} onChange={해당 event.target.value quantity로 바꾸는 거}/> */}
 
-          <button className="productQuantityBtn onePlustBtn" onClick={test2}>
+          <button className="productQuantityBtn onePlustBtn">
             <i className="fa-solid fa-plus" />
           </button>
 
@@ -79,7 +69,7 @@ const CartItemList = ({
         </div>
 
         <div className="productTotalPrice">
-          <span>{`₩${itemTotalPrice}`}</span>
+          <span>{`₩${cartItem.totalPrice}`}</span>
         </div>
       </div>
     </li>

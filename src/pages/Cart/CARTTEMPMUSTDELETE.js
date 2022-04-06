@@ -42,6 +42,12 @@
 //   setCartList(newCartList);
 // };
 
+// const changeItemPrice = () => {
+//   let oldPrice = itemPrice;
+//   setItemPrice(cartItem.quantity * cartItem.price);
+//   onAddToTotalPrice(itemPrice - oldPrice);
+// };
+
 ////////////////////////////////////////////////////////////////////
 
 // 추가완

@@ -4,14 +4,16 @@
     "productName": "1번상품 productName",
     "size": "100 mL",
     "quantity": 1,
-    "price": "10000"
+    "price": "10000",
+    "totalPrice": 10000
   },
   {
     "productId": 2,
     "productName": "2번상품 productName",
     "size": "200 mL",
     "quantity": 6,
-    "price": "20000"
+    "price": "20000",
+    "totalPrice": 120000
   },
 
   {
@@ -19,22 +21,23 @@
     "productName": "3번상품 productName",
     "size": "300 mL",
     "quantity": 9,
-    "price": "30000"
+    "price": "30000",
+    "totalPrice": 270000
   },
-
   {
     "productId": 4,
     "productName": "4번상품 productName",
     "size": "400 mL",
     "quantity": 14,
-    "price": "40000"
+    "price": "40000",
+    "totalPrice": 480000
   },
-
   {
     "productId": 5,
     "productName": "5번상품 productName",
     "size": "500 mL",
-    "quantity": "5",
-    "price": "50000"
+    "quantity": 5,
+    "price": "50000",
+    "totalPrice": 250000
   }
 ]

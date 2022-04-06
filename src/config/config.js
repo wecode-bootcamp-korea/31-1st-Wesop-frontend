@@ -1,4 +1,4 @@
-const loginServerRootAddress = 'http://10.58.6.208:8000';
+const loginServerRootAddress = 'http://10.58.2.34:8000';
 
 export const LOGIN_SERVER_ADDRESS = {
   loginMainAddress: `${loginServerRootAddress}/users/check`,
@@ -6,7 +6,7 @@ export const LOGIN_SERVER_ADDRESS = {
   loginSignUpAddress: `${loginServerRootAddress}/users/signup`,
 };
 
-const cartServerRootAddress = 'http://10.58.3.155:8000';
+const cartServerRootAddress = 'http://10.58.2.34:8000';
 
 export const CART_SERVER_ADDRESS = {
   cartMainAddress: `${cartServerRootAddress}/carts/cart`,

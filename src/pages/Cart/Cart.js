@@ -21,9 +21,11 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
   //   }).then(res => res.json());
   // };
 
+  //////////////////////////// 서버에 받아오는거
+
   const getRemoteCartList = () => {
-    // fetch(cartMainAddress, {
-    fetch('http://localhost:3000/data/cart_list.json', {
+    fetch(cartMainAddress, {
+      // fetch('http://localhost:3000/data/cart_list.json', {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -39,12 +41,8 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
     getRemoteCartList();
   }, []);
 
-  // index도 내려서 받는다
-  // index이용해서 접근하고 수정한다
   // 수정한 state를 바탕으로 백앤드 서버에 보낸다.
   // 배열 전체를 새로 보내야할지 수정사항만 보내야할지에 대해 고민해봐야
-
-  const removeCartListItemHandler = () => {};
 
   ////////////////////////////////////////////////////////////////////
   const addPriceToCartListTotalPriceHandler = price => {
@@ -56,7 +54,6 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
   const removeAllCartItemsHandler = () => {
     setCartListTotalPrice(0);
     onChangeCartList([]);
-    // TODO: 전체삭제시 백앤드에 post하는 시점 고려해봐야
   };
   return (
     <div className="cart">
@@ -81,6 +78,7 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
               onChangeCartList={onChangeCartList}
               cartItem={cartItem}
               itemIndex={index}
+              cartListTotalPrice={cartListTotalPrice}
               onAddToTotalPrice={addPriceToCartListTotalPriceHandler}
             />
           ))}
@@ -89,7 +87,7 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
       <div className="cartAllDelete">
         <button
           className="cartAllDeleteBtn"
-          onClick={(removeAllCartItemsHandler, onCloseCartModal)}
+          onClick={removeAllCartItemsHandler}
         >
           전체삭제
         </button>

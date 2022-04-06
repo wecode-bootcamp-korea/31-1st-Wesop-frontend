@@ -15,11 +15,13 @@ const ModalOverLay = ({ children, onCLoseLoginModal, onCloseCartModal }) => {
     };
   }, []);
 
+  const closeModal = () => {
+    onCLoseLoginModal();
+    onCloseCartModal();
+  };
+
   return (
-    <div
-      className="modalOverLay"
-      onClick={(onCLoseLoginModal, onCloseCartModal)}
-    >
+    <div className="modalOverLay" onClick={closeModal}>
       {children}
     </div>
   );

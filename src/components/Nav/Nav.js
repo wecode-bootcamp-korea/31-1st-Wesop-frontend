@@ -60,7 +60,10 @@ const Nav = () => {
         ''
       )}
       {showingCartModal ? (
-        <ModalOverLay onCloseCartModal={closeCartModalHandler} />
+        <ModalOverLay
+          onCloseCartModal={closeCartModalHandler}
+          onCLoseLoginModal={closeLoginModalHandler}
+        />
       ) : (
         ''
       )}
@@ -70,7 +73,10 @@ const Nav = () => {
         ''
       )}
       {showingLoginModal ? (
-        <ModalOverLay onCLoseLoginModal={closeLoginModalHandler} />
+        <ModalOverLay
+          onCloseCartModal={closeCartModalHandler}
+          onCLoseLoginModal={closeLoginModalHandler}
+        />
       ) : (
         ''
       )}
