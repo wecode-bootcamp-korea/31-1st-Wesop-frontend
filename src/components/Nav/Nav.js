@@ -10,7 +10,8 @@ import './Nav.scss';
 const Nav = () => {
   const [showingLoginModal, setShowingLoginModal] = useState(false);
   const [showingCartModal, setShowingCartModal] = useState(false);
-  const [cartList, setCartList] = useState([]);
+  // TODO: 잘되면 삭제
+  // const [cartList, setCartList] = useState([]);
 
   const openLoginModalHandler = () => {
     setShowingLoginModal(true);
@@ -28,9 +29,10 @@ const Nav = () => {
     setShowingCartModal(false);
   };
 
-  const cartListHandler = data => {
-    setCartList(data);
-  };
+  // TODO: 잘되면 삭제
+  // const cartListHandler = data => {
+  //   setCartList(data);
+  // };
 
   return (
     <div className="Nav">
@@ -51,11 +53,7 @@ const Nav = () => {
         ))}
       </div>
       {showingCartModal ? (
-        <Cart
-          onChangeCartList={cartListHandler}
-          onCloseCartModal={closeCartModalHandler}
-          cartList={cartList}
-        />
+        <Cart onCloseCartModal={closeCartModalHandler} />
       ) : (
         ''
       )}

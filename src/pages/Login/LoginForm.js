@@ -98,33 +98,26 @@ const LoginForm = ({
     })
       .then(res => res.json())
       .then(res => {
-        localStorage.setItem('token', res.token);
+        const { token, email, userId, firstName, lastName, message } = res;
 
-        // const { token, email, userId, firstName, lastName, message } = res;
+        const resCondition = {
+          SUCCESS: function () {
+            localStorage.setItem('token', token);
+            localStorage.setItem('email', email);
+            localStorage.setItem('userId', userId);
+            localStorage.setItem('firstName', firstName);
+            localStorage.setItem('lastName', lastName);
 
-        // const resCondition = {
-        //   SUCCESS: function () {
-        //     localStorage.setItem('token', JSON.stringfy(token));
-        //     // localStorage.setItem('email', email);
-        //     // localStorage.setItem('userId', userId);
-        //     // localStorage.setItem('firstName', firstName);
-        //     // localStorage.setItem('lastName', lastName);
+            setLoginError('');
+            onClearUserInfo();
+            onCloseModal();
+          },
+          VALIDATION_ERROR: function () {
+            setLoginError('wrongPassword');
+          },
+        };
 
-        //     // localStorage.setItem.JSON.stringify(('token', token));
-        //     // localStorage.setItem.JSON.stringify(('email', email));
-        //     // localStorage.setItem.JSON.stringify(('userId', userId));
-        //     // localStorage.setItem.JSON.stringify(('firstName', firstName));
-        //     // localStorage.setItem.JSON.stringify(('lastName', lastName));
-        //     setLoginError('');
-        //     onClearUserInfo();
-        //     onCloseModal();
-        //   },
-        //   VALIDATION_ERROR: function () {
-        //     setLoginError('wrongPassword');
-        //   },
-        // };
-
-        // resCondition[message]();
+        resCondition[message]();
       });
   };
 

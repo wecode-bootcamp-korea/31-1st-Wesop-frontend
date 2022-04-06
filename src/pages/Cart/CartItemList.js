@@ -7,6 +7,8 @@ const CartItemList = ({
   onAddToTotalPrice,
 }) => {
   console.log(cartItem);
+
+  // productId, cartId ,productName, productSize, quantity, totalPrice
   ///////////////////////////////////////////////////////
   // 수량 하나 추가 버튼기능
 

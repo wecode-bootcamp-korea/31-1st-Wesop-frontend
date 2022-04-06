@@ -3,15 +3,14 @@ import CartItemList from './CartItemList';
 import { CART_SERVER_ADDRESS } from '../../config/config';
 import './Cart.scss';
 
-const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
-  ////////////////////////////////////////////////////////////////////
-
+const Cart = ({ onCloseCartModal }) => {
+  const [cartList, setCartList] = useState([]);
   const [cartListTotalPrice, setCartListTotalPrice] = useState(0);
   const { cartMainAddress } = CART_SERVER_ADDRESS;
 
   // const postLocalCartList = () => {
   //   fetch(cartMainAddress, {
-  //     method: 'GET',
+  //     method: 'POST',
   //     headers: {
   //       Authorization: localStorage.getItem('token'),
   //     },
@@ -20,43 +19,49 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
   //     .then(res => res.json())
   //     .then(res => console.log(res));
   // };
+  ///////////////////////////////////////////
+  ///////////////////////////////////////////
+
+  ///////////////////////////// 서버에 cartId를 보내서 해당 한줄 지워버리는 기능
+  ///////////////////////////// 전체 삭제 할때는 cartId 전부 보내서 지우는 식으로
+  const postDeletedCartItemToServer = () => {
+    fetch(cartMainAddress, {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+      body : JSON.stringify({
+        product_id :
+      })
+    });
+  };
 
   //////////////////////////// 서버에 받아오는거
 
   const getRemoteCartList = () => {
-    fetch(cartMainAddress, {
-      // fetch('http://localhost:3000/data/cart_list.json', {
+    // fetch(cartMainAddress, {
+    fetch('http://localhost:3000/data/cart_list.json', {
       method: 'GET',
-      headers: {
-        Authorization: localStorage.getItem('token'),
-      },
-    })
-      .then(res => res.json())
-      .then(res => {
-        onChangeCartList(res.message);
-      });
+      // headers: {
+      //   Authorization: localStorage.getItem('token'),
+      // },
+    });
+    // .then(res => console.log(res));
+    // .then(res => res.json())
+    // .then(res => {
+    //   setCartList(res.message);
+    // });
   };
 
   useEffect(() => {
     getRemoteCartList();
   }, []);
 
-  // 수정한 state를 바탕으로 백앤드 서버에 보낸다.
-  // 배열 전체를 새로 보내야할지 수정사항만 보내야할지에 대해 고민해봐야
-
-  ////////////////////////////////////////////////////////////////////
   const addPriceToCartListTotalPriceHandler = price => {
     setCartListTotalPrice(
       prevcartListTotalPrice => (prevcartListTotalPrice += price)
     );
   };
-
-  const removeAllCartItemsHandler = () => {
-    setCartListTotalPrice(0);
-    onChangeCartList([]);
-  };
-
-  console.log(cartList);
 
   return (
     <div className="cart">
@@ -74,14 +79,11 @@ const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
           </button>
         </div>
         <ul className="cartProductList">
-          {/* {cartList.map((cartItem, index) => ( */}
-          {cartList.map((cartItem, index) => (
+          {cartList.map(cartItem => (
             <CartItemList
               key={cartItem.productId}
               cartItem={cartItem}
               cartList={cartList}
-              onChangeCartList={onChangeCartList}
-              itemIndex={index}
               cartListTotalPrice={cartListTotalPrice}
               onAddToTotalPrice={addPriceToCartListTotalPriceHandler}
             />
