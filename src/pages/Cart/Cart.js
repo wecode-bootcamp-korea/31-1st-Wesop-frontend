@@ -3,11 +3,12 @@ import CartItemList from './CartItemList';
 import { CART_SERVER_ADDRESS } from '../../config/config';
 import './Cart.scss';
 
-const Cart = ({ cartList, onChangeCartList }) => {
+const Cart = ({ cartList, onChangeCartList, onCloseCartModal }) => {
   ////////////////////////////////////////////////////////////////////
 
-  // const [cartListTotalPrice, setCartListTotalPrice] = useState(0);
-  // const { cartMainAddress } = CART_SERVER_ADDRESS;
+  const [cartListTotalPrice, setCartListTotalPrice] = useState(0);
+  const { cartMainAddress } = CART_SERVER_ADDRESS;
+
   // const postLocalCartList = () => {
   //   fetch(cartMainAddress, {
   //     method: 'POST',
@@ -29,71 +30,34 @@ const Cart = ({ cartList, onChangeCartList }) => {
       },
     })
       .then(res => res.json())
-      .then(res => console.log(res))
-      .then(datalist => onChangeCartList(datalist));
+      .then(dataList => {
+        onChangeCartList(dataList);
+      });
   };
 
-  // useEffect(() => {
-  //   getRemoteCartList();
-  // }, []);
+  useEffect(() => {
+    getRemoteCartList();
+  }, []);
 
-  // const addCartListItemHandler = item => {
-  //   let newCartList = [...cartList];
-  //   const { productId } = item;
-  //   const existingItem = newCartList.find(
-  //     cartItem => cartItem.productId === productId
-  //   );
+  // index도 내려서 받는다
+  // index이용해서 접근하고 수정한다
+  // 수정한 state를 바탕으로 백앤드 서버에 보낸다.
+  // 배열 전체를 새로 보내야할지 수정사항만 보내야할지에 대해 고민해봐야
 
-  //   if (existingItem) {
-  //     existingItem.quantity += item.quantity;
-  //   } else {
-  //     newCartList.push(item);
-  //   }
-  //   setCartList(newCartList);
-  // };
-
-  // const editCartListItemHandler = (item, number) => {
-  //   console.log(item);
-  //   let newCartList = [...cartList];
-  //   console.log(newCartList);
-  //   const { prodcutId } = item;
-  //   const existentItem = newCartList.find(
-  //     cartItem => cartItem.productId === prodcutId
-  //   );
-  //   console.log(existentItem);
-
-  //   if (!existentItem) return;
-  //   console.log(existentItem);
-  //   existentItem.quantity += number;
-
-  //   if (existentItem.quantity <= 0) {
-  //     newCartList = newCartList.filter(cartItem => cartItem.Id !== prodcutId);
-  //   }
-  //   setCartList(newCartList);
-  // };
-
-  // const removeCartListItemHandler = item => {
-  //   let newCartList = [...cartList];
-  //   const { productId } = item;
-  //   newCartList = newCartList.filter(
-  //     cartItem => cartItem.productId !== productId
-  //   );
-  //   setCartList(newCartList);
-  // };
-
-  // const removeAllCartItemsHandler = () => {
-  //   setCartListTotalPrice(0);
-  //   setCartList([]);
-  // };
-
-  // const addPriceToCartListTotalPriceHandler = price => {
-  //   setCartListTotalPrice(
-  //     prevcartListTotalPrice => (prevcartListTotalPrice += price)
-  //   );
-  // };
+  const removeCartListItemHandler = () => {};
 
   ////////////////////////////////////////////////////////////////////
+  const addPriceToCartListTotalPriceHandler = price => {
+    setCartListTotalPrice(
+      prevcartListTotalPrice => (prevcartListTotalPrice += price)
+    );
+  };
 
+  const removeAllCartItemsHandler = () => {
+    setCartListTotalPrice(0);
+    onChangeCartList([]);
+    // TODO: 전체삭제시 백앤드에 post하는 시점 고려해봐야
+  };
   return (
     <div className="cart">
       <div className="cartProducts">
@@ -101,19 +65,23 @@ const Cart = ({ cartList, onChangeCartList }) => {
           <div className="cartHeaderTitleLabel">카트</div>
           <div className="cartHeaderSizeLabel">사이즈</div>
           <div className="cartHeaderProductLabel">수량</div>
-          <button className="cartHeaderCloseBtn" type="button">
-            {/* <i className="fa-solid fa-xmark" /> */}x
+          <button
+            className="cartHeaderCloseBtn"
+            type="button"
+            onClick={onCloseCartModal}
+          >
+            <i className="fa-solid fa-xmark" />
           </button>
         </div>
         <ul className="cartProductList">
-          {cartList.map(cartItem => (
+          {cartList.map((cartItem, index) => (
             <CartItemList
               key={cartItem.productId}
+              cartList={cartList}
+              onChangeCartList={onChangeCartList}
               cartItem={cartItem}
-              // cartListTotalPrice={cartListTotalPrice}
-              // onEditCartItem={editCartListItemHandler}
-              // onRemoveCartItem={removeCartListItemHandler}
-              // onAddToTotalPrice={addPriceToCartListTotalPriceHandler}
+              itemIndex={index}
+              onAddToTotalPrice={addPriceToCartListTotalPriceHandler}
             />
           ))}
         </ul>
@@ -121,7 +89,7 @@ const Cart = ({ cartList, onChangeCartList }) => {
       <div className="cartAllDelete">
         <button
           className="cartAllDeleteBtn"
-          // onClick={removeAllCartItemsHandler}
+          onClick={(removeAllCartItemsHandler, onCloseCartModal)}
         >
           전체삭제
         </button>
@@ -132,8 +100,7 @@ const Cart = ({ cartList, onChangeCartList }) => {
         </div>
         <div className="cartSummaryPrice">
           <span className="cartSummaryPriceDescription">소계 (세금 포함)</span>
-          {/* <span className="cartSummaryPriceTotal">{`₩ ${cartListTotalPrice}`}</span> */}
-          <span className="cartSummaryPriceTotal">{`₩ `}</span>
+          <span className="cartSummaryPriceTotal">{`₩ ${cartListTotalPrice}`}</span>
         </div>
         <div className="cartSummarySubmitBtn">
           <button type="button">결제하기</button>

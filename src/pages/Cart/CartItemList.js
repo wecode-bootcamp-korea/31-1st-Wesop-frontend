@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import './CartItemList.scss';
 const CartItemList = ({
   cartItem,
+  cartList,
+  onChangeCartList,
   onEditCartItem,
-  onRemoveCartItem,
+  itemIndex,
   onAddToTotalPrice,
-  listTotalPrice,
 }) => {
   const test1 = () => {
     console.log('minus');
@@ -17,43 +18,49 @@ const CartItemList = ({
     console.log('delete');
   };
 
-  const { productName, size, quantity, price } = cartItem;
-  const itemTotalPrice = quantity * price;
+  // const { productId, productName, size, quantity, price } = cartItem;
+  // console.log(productId, productName, size, quantity, price);
+  // console.log(`itemIndex: ${itemIndex}`);
+
+  /////////////////////////////////////////////////////////
+
+  let itemTotalPrice = cartItem.quantity * cartItem.price;
 
   useEffect(() => {
     onAddToTotalPrice(itemTotalPrice);
-  }, [itemTotalPrice]);
+  }, [cartItem.quantity]);
 
   //////////////////////////////////////////////////////
 
-  const minusOneQuantity = () => {
-    onEditCartItem(cartItem, -1);
+  const deleteItemInList = () => {
+    const newList = cartList.filter(item => {
+      return item.productId !== cartItem.productId;
+    });
+    onChangeCartList(newList);
   };
 
+  /////////////////////////////////////////////////////
   return (
     <li className="cartProductListItems">
       <div className="carProductItemInner">
         <div className="productName">
           {/* <a href="TODO:상품주소 템플릿 리터럴로 만들어서 넣어야됨">{productName}</a> */}
-          <a href="http://naver.com">{productName}</a>
+          <a href="http://naver.com">{cartItem.productName}</a>
         </div>
         <div className="productVolume">
-          {/* TODO:데이터 넣고 아래걸로 */}
-          <span>{size}</span>
+          <span>{cartItem.size}</span>
         </div>
 
         <div className="productQuantity">
-          <button
-            className="productQuantityBtn oneMinusBtn"
-            onClick={minusOneQuantity}
-          >
+          <button className="productQuantityBtn oneMinusBtn">
             <i className="fa-solid fa-minus" />
           </button>
 
           <input
             className="productQuantityInputBox"
-            type="text"
-            defaultValue={quantity}
+            type="number"
+            value={cartItem.quantity}
+            readOnly={true}
           />
           {/* TODO:데이터 넣고 아래걸로 */}
           {/* <input className="productQuantityInputBox" type="text" value={quantity} onChange={해당 event.target.value quantity로 바꾸는 거}/> */}
@@ -65,7 +72,7 @@ const CartItemList = ({
           <button
             className="productListDeleteBtn"
             type="button"
-            onClick={test3}
+            onClick={deleteItemInList}
           >
             삭제
           </button>

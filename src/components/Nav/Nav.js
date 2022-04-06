@@ -28,18 +28,12 @@ const Nav = () => {
     setShowingCartModal(false);
   };
 
-  const cartListHandler = () => {
-    setCartList();
+  const cartListHandler = data => {
+    setCartList(data);
   };
 
   return (
     <div className="Nav">
-      {showingCartModal ? (
-        <Cart onChangeCartList={cartListHandler} cartList={cartList} />
-      ) : (
-        ''
-      )}
-      {showingCartModal ? <ModalOverLay /> : ''}
       <div className="navMainCategory">
         {NAV_CATEGORY_LIST.map(({ id, categoryName }) => (
           <CategoryElement key={id} categoryName={categoryName} />
@@ -56,6 +50,20 @@ const Nav = () => {
           />
         ))}
       </div>
+      {showingCartModal ? (
+        <Cart
+          onChangeCartList={cartListHandler}
+          onCloseCartModal={closeCartModalHandler}
+          cartList={cartList}
+        />
+      ) : (
+        ''
+      )}
+      {showingCartModal ? (
+        <ModalOverLay onCloseCartModal={closeCartModalHandler} />
+      ) : (
+        ''
+      )}
       {showingLoginModal ? (
         <Login onCLoseLoginModal={closeLoginModalHandler} />
       ) : (
