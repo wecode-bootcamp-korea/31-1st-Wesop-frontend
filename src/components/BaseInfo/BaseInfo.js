@@ -6,7 +6,7 @@ const BaseInfo = ({ subtitle, title, description, btnText, imgSrc }) => {
     <div className="baseInfo">
       <div className="twoColumnModule">
         <aside className="copy">
-          {subtitle && <h3 className="subtitle">{subtitle}</h3>}
+          {subtitle.length > 0 && <h3 className="subtitle">{subtitle}</h3>}
           <h2 className="title">{title}</h2>
           <p className="description">{description}</p>
           <button className="btnHoverDark">
@@ -17,7 +17,7 @@ const BaseInfo = ({ subtitle, title, description, btnText, imgSrc }) => {
           </button>
         </aside>
         <div className="imgWrapper">
-          <img className alt="cover" src={imgSrc} />
+          <img alt="cover" src={imgSrc} />
         </div>
       </div>
     </div>

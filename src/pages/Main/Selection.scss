@@ -1,0 +1,12 @@
+@import '../../styles/variables.scss';
+
+.selection {
+  margin-bottom: 200px;
+
+  .selectionWord {
+    padding: 0 6vw;
+    font-size: $font-large;
+    color: $color-dark-gray;
+    transform: translateY(30vh);
+  }
+}

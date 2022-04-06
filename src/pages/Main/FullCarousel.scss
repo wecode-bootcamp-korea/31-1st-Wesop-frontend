@@ -1,0 +1,68 @@
+@import '../../styles/variables.scss';
+
+.fullCarousel {
+  position: relative;
+
+  .fixedScreen {
+    display: flex;
+    height: 472px;
+    text-align: center;
+    overflow: visible;
+
+    .carouselContainer {
+      display: flex;
+      height: 472px;
+      max-height: 100vh;
+      transition: all 400ms linear;
+
+      .mainCarouselContainer {
+        @include center;
+        width: 65.65vw;
+      }
+    }
+  }
+
+  .leftArrowContainer {
+    @include center;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 6vw;
+    height: 6vw;
+    background-color: $color-dark-gray;
+    cursor: pointer;
+
+    .arrowContainer {
+      width: 1vw;
+      height: 1.5vw;
+      transform: translate(-10%);
+
+      .leftArrow {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .rightArrowContainer {
+    @include center;
+    position: absolute;
+    top: 40%;
+    right: 0;
+    width: 6vw;
+    height: 6vw;
+    background-color: $color-dark-gray;
+    cursor: pointer;
+
+    .arrowContainer {
+      width: 1vw;
+      height: 1.5vw;
+      transform: translate(10%);
+
+      .rightArrow {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
