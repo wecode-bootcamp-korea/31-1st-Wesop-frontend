@@ -1,4 +1,10 @@
 @import '../../styles/variables.scss';
+@mixin navRightBtnStyle {
+  margin: 0 1vw 0 0;
+  border: 0;
+  color: $color-beige;
+  background-color: transparent;
+}
 
 .Nav {
   display: flex;
@@ -20,5 +26,22 @@
   .navUserCategory {
     @include center;
     margin-right: 20px;
+
+    .loginedUserName {
+      margin: 0 1vw 0 0;
+      color: $color-beige;
+    }
+
+    .oepnLoginModalBtn {
+      @include navRightBtnStyle;
+    }
+
+    .openCartModalBtn {
+      @include navRightBtnStyle;
+    }
+
+    .logOutBtn {
+      @include navRightBtnStyle;
+    }
   }
 }
