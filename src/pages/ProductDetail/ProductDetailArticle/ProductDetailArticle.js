@@ -15,9 +15,7 @@ function ProductDetailArticle({ subDescription }) {
         {SUB_PRODUCT_CONTENT.map(data => (
           <div key={data.id} className={data.divClassName}>
             <p className={data.secondPClassName}>{data.name}</p>
-            <p className={data.firstPClassName}>
-              {subDescription[`${data.name}`]}
-            </p>
+            <p className={data.firstPClassName}>{subDescription[data.name]}</p>
           </div>
         ))}
       </div>

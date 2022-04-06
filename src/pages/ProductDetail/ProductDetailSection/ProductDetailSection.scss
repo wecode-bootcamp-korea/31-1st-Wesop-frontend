@@ -2,21 +2,22 @@
 
 .productDetailSection {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   padding-top: 120px;
   padding-bottom: 120px;
 
   .productDetailImg {
+    position: relative;
+    left: 200px;
+    top: 40px;
     width: 220px;
     height: 440px;
-    position: relative;
-    right: 100px;
-    top: 40px;
   }
 
   .productDetailSectionContainer {
+    position: relative;
+    left: 300px;
     width: 360px;
-    margin-right: 120px;
     color: $color-dark-gray;
     font-size: 14px;
     line-height: 1.6;
@@ -24,7 +25,7 @@
     .productDetailCategory {
       padding-bottom: 20px;
 
-      .categoryTeg {
+      .categoryTag {
         display: flex;
 
         .categoryLink {

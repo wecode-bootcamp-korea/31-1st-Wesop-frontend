@@ -11,7 +11,7 @@ function ProductDetailSection({ mainDescription, changeModalHandler }) {
       <img className="productDetailImg" src={product_imges} alt="스킨" />
       <div className="productDetailSectionContainer">
         <div className="productDetailCategory">
-          <ui className="categoryTeg">
+          <ui className="categoryTag">
             <Link to="/" className="categoryLink">
               스킨
             </Link>
@@ -27,7 +27,7 @@ function ProductDetailSection({ mainDescription, changeModalHandler }) {
           {PRODUCT_CONTENT.map(data => (
             <div className="productInformation" key={data.id}>
               <p>{data.content}</p>
-              <p>{mainDescription[`${data.name}`]}</p>
+              <p>{mainDescription[data.name]}</p>
             </div>
           ))}
           <i
