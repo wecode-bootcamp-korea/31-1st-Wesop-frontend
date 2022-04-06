@@ -8,7 +8,7 @@ import './ProductList.scss';
 import API from '../../config/config';
 
 const ProductList = () => {
-  const { products, category } = API;
+  const { allProducts, category } = API;
   const location = useLocation();
   const navigate = useNavigate();
   const [productList, setProductList] = useState([]);
@@ -16,7 +16,7 @@ const ProductList = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`${products / location.search}`)
+    fetch(`${allProducts / location.search}`)
       .then(res => res.json())
       .then(data => setProductList(data.result));
   }, [location.search]);
