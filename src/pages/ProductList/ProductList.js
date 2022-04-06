@@ -16,13 +16,13 @@ const ProductList = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`${allProducts / location.search}`)
+    fetch(`${allProducts}/${location.search}`)
       .then(res => res.json())
       .then(data => setProductList(data.result));
   }, [location.search]);
 
   useEffect(() => {
-    fetch(`${category / location.search}`)
+    fetch(`${category}/${location.search}`)
       .then(res => res.json())
       .then(data => setCategoryInfo(data.result));
   }, [location.search]);
