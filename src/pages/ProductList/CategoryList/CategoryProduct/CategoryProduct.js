@@ -3,7 +3,7 @@ import ProductSizePrice from '../../Category/Product/ProductSizePrice/ProductSiz
 import './CategoryProduct.scss';
 
 const CategoryProduct = ({
-  products: { id, productName, size, price, url },
+  products: { id, productName, size, price, url, skin_type, feeling },
 }) => {
   return (
     <div className="categoryProduct">
@@ -17,11 +17,11 @@ const CategoryProduct = ({
         <div className="description">
           {/* // TODO: 백엔드 데이터 확인해서 넣기 */}
           <span className="title">피부타입</span>
-          <span className="content">모든 피부, 메이크업을 한 피부</span>
+          <span className="content">{skin_type[0]}</span>
         </div>
         <div className="description">
           <span className="title">사용감</span>
-          <span className="content">진정된, 생기있는</span>
+          <span className="content">{feeling.join(', ')}</span>
         </div>
       </div>
       <button className="addToCart">

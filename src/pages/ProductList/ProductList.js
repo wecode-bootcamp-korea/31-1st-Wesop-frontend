@@ -16,16 +16,19 @@ const ProductList = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`${allProducts}/${location.search}`)
+    fetch(`${allProducts}${location.search}`)
       .then(res => res.json())
       .then(data => setProductList(data.result));
-  }, [location.search]);
+  }, [location.search, setProductList]);
 
   useEffect(() => {
-    fetch(`${category}/${location.search}`)
+    fetch(`${category}${categoryUrl}`)
       .then(res => res.json())
       .then(data => setCategoryInfo(data.result));
   }, [location.search]);
+
+  const categoryUrl =
+    location.search === '' ? '' : `/${location.search.slice(13)}`;
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);

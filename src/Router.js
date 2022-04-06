@@ -6,7 +6,6 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
-import Nav from './components/Nav/Nav';
 
 function Router() {
   return (
