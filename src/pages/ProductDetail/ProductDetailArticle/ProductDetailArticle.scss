@@ -1,0 +1,50 @@
+@import '../../../styles/variables.scss';
+
+.productDetailArticle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 666px;
+  background-color: #f5f5e8;
+
+  .detailArticleImg {
+    @include center;
+
+    .productDetailArticleImg {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .productDetailArticleContainer {
+    height: 626px;
+    margin-left: 120px;
+    margin-right: 120px;
+    padding-top: 115px;
+    padding-bottom: 115px;
+    color: $font-light-gray;
+    font-size: 14px;
+    line-height: 1.4;
+
+    .howUseUnderline {
+      padding-bottom: 15px;
+      border-bottom: 2px solid black;
+
+      .subDetailFontColor {
+        color: $color-dark-gray;
+      }
+
+      .howUseFontColor {
+        color: $color-dark-gray;
+        font-size: 30px;
+      }
+    }
+
+    .howUseFontColord {
+      padding-top: 14px;
+    }
+    .subDetailUnderline {
+      padding-bottom: 14px;
+      border-bottom: 1px solid #d4d4c9;
+    }
+  }
+}

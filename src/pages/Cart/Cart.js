@@ -8,33 +8,31 @@ const Cart = ({ onCloseCartModal }) => {
   const [cartListTotalPrice, setCartListTotalPrice] = useState(0);
   const { cartMainAddress } = CART_SERVER_ADDRESS;
 
-  // const postLocalCartList = () => {
-  //   fetch(cartMainAddress, {
-  //     method: 'POST',
-  //     headers: {
-  //       Authorization: localStorage.getItem('token'),
-  //     },
-  //     // body: JSON.stringify({ product_id: 1 }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => console.log(res));
-  // };
-  ///////////////////////////////////////////
-  ///////////////////////////////////////////
-
-  ///////////////////////////// 서버에 cartId를 보내서 해당 한줄 지워버리는 기능
-  ///////////////////////////// 전체 삭제 할때는 cartId 전부 보내서 지우는 식으로
-  const postDeletedCartItemToServer = () => {
+  const postLocalCartList = () => {
     fetch(cartMainAddress, {
       method: 'POST',
       headers: {
         Authorization: localStorage.getItem('token'),
       },
-      body : JSON.stringify({
-        product_id :
-      })
-    });
+      // body: JSON.stringify({ product_id: 1 }),
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
   };
+  ///////////////////////////////////////////
+  ///////////////////////////////////////////
+
+  ///////////////////////////// 서버에 cartId를 보내서 해당 한줄 지워버리는 기능
+  ///////////////////////////// 전체 삭제 할때는 cartId 전부 보내서 지우는 식으로
+  // const postDeletedCartItemToServer = () => {
+  //   fetch(cartMainAddress, {
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization: localStorage.getItem('token'),
+  //     },
+  //     body: JSON.stringify({ product_id: 100 }),
+  //   }).then(res => console.log(res));
+  // };
 
   //////////////////////////// 서버에 받아오는거
 

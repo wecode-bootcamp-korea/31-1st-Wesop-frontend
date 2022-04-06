@@ -10,7 +10,7 @@ import {
 
 import './Login.scss';
 
-const Login = ({ onCLoseLoginModal }) => {
+const Login = ({ onCloseLoginModal, onSetLoginedUserInfo }) => {
   const [loginMode, setLoginMode] = useState('main');
 
   const [userInfo, setUserInfo] = useState({
@@ -45,7 +45,7 @@ const Login = ({ onCLoseLoginModal }) => {
     setLoginMode(type);
   };
   const closeModalHandler = () => {
-    onCLoseLoginModal();
+    onCloseLoginModal();
   };
 
   const insertLoginForm = dataName => {
@@ -60,6 +60,7 @@ const Login = ({ onCLoseLoginModal }) => {
         onClearUserInfo={clearUserStateHandler}
         inputValidity={inputValidity}
         onSetInputValidity={setInputValidity}
+        onSetLoginedUserInfo={onSetLoginedUserInfo}
       />
     );
   };

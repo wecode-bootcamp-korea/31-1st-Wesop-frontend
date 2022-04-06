@@ -1,0 +1,61 @@
+@import '../../../styles/variables.scss';
+
+.modalContainer {
+  overflow: hidden;
+
+  .mainIngredientModalTextContainer {
+    position: fixed;
+    height: 100%;
+    padding: 160px 40px 80px 40px;
+    background-color: #f1f0e8;
+    animation: moveUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    z-index: 2;
+
+    @keyframes moveUp {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .fa-x {
+      position: relative;
+      left: 640px;
+      bottom: 140px;
+    }
+
+    .ingredientContainer {
+      width: 428px;
+      height: 178px;
+      margin-right: 106px;
+      margin-left: 106px;
+      color: $color-dark-gray;
+      font-size: 14px;
+      line-height: 1.6;
+
+      .ingredientSpacing {
+        margin-bottom: 25px;
+      }
+
+      .ingrdSpcng {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 1;
+    animation: moveDown 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+}
