@@ -9,10 +9,9 @@ const Search = () => {
 
   const [data, setData] = useState({});
   const [searchInput, setSearchInput] = useState('');
-  // const [listHover, setListHover] = useState(false);
 
   useEffect(() => {
-    fetch('https://node-pagnation.herokuapp.com/users')
+    fetch(`http://10.58.1.236:8000/products?search=${decodeLocation}`)
       .then(res => res.json())
       .then(data => setData(data));
   }, []);
@@ -21,11 +20,12 @@ const Search = () => {
     setSearchInput(e.target.value);
   };
 
-  useEffect(() => {
+  const queryHandler = () => {
     const queryString = `?searchMenu=open&search=${searchInput}`;
     navigate(queryString);
-  }, [searchInput]);
+  };
 
+  const decodeLocation = decodeURI(location.search);
   // const inputValidCheck = searchInput.length > 1 && data.includes(searchInput);
 
   return (
@@ -39,7 +39,7 @@ const Search = () => {
             type="text"
             onChange={inputHandler}
           />
-          <button className="searchBtn" type="button">
+          <button className="searchBtn" type="button" onClick={queryHandler}>
             →
           </button>
         </div>

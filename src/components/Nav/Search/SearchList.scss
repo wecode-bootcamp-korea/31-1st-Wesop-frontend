@@ -18,6 +18,8 @@
     }
 
     .searchListWrapper {
+      animation: $loadEffect;
+
       .searchItem {
         margin-bottom: 10px;
         font-size: $font-small;

@@ -10,6 +10,7 @@
 
   .imageWrapper {
     position: relative;
+    animation: $loadEffect;
 
     .itemImage {
       position: absolute;
