@@ -12,8 +12,8 @@ export const LOGIN_SERVER_ADDRESS = {
 //   loginMainAddress: `${BASE_URL}/users/check`,
 //   loginSignInAddress: `${BASE_URL}/users/login`,
 //   loginSignUpAddress: `${BASE_URL}/users/signup`,
-//   category: `${BASE_URL}/products/categories`,
-//   allProducts: `${BASE_URL}/products`,
+//   category: `${BASE_URL}/products/categories/`,
+//   allProducts: `${BASE_URL}/products/`,
 // };
 
 // export default API;

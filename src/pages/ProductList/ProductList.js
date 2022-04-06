@@ -4,11 +4,10 @@ import ProductListLayout from './ProductListLayout/ProductListLayout';
 import FilterOpen from './FilterOpen/FilterOpen';
 import Category from './Category/Category';
 import CategoryList from './CategoryList/CategoryList';
-import './ProductList.scss';
 import API from '../../config/config';
+import './ProductList.scss';
 
 const ProductList = () => {
-  const { allProducts, category } = API;
   const location = useLocation();
   const navigate = useNavigate();
   const [productList, setProductList] = useState([]);
@@ -16,19 +15,19 @@ const ProductList = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`${allProducts}${location.search}`)
+    fetch(API.allProducts`${location.search}`)
       .then(res => res.json())
       .then(data => setProductList(data.result));
-  }, [location.search, setProductList]);
+  }, [location.search]);
 
   useEffect(() => {
-    fetch(`${category}${categoryUrl}`)
+    fetch(API.category`${categoryUrl}`)
       .then(res => res.json())
       .then(data => setCategoryInfo(data.result));
   }, [location.search]);
 
   const categoryUrl =
-    location.search === '' ? '' : `/${location.search.slice(13)}`;
+    location.search === '' ? '' : `${location.search.slice(13)}`;
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);
