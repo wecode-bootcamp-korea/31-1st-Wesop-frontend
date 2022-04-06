@@ -1,4 +1,4 @@
-const loginServerRootAddress = 'http://10.58.6.208:8000';
+const loginServerRootAddress = 'http://10.58.2.34:8000';
 
 export const LOGIN_SERVER_ADDRESS = {
   loginMainAddress: `${loginServerRootAddress}/users/check`,
