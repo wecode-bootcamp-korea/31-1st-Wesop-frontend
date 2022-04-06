@@ -44,24 +44,6 @@ const ProductDetail = () => {
     indicatorRef.current.style.transform = `translate(${indicatorTranslation}%)`;
   });
 
-  // // 실제서버
-  // useEffect(() => {
-  //   fetch('http://10.58.5.254:8000/products/detail/1')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setMainDescription(data.result[0]);
-  //       setSubDescription(data.result[1]);
-  //     });
-  // }, []);
-  // useEffect(() => {
-  //   fetch('http://10.58.5.254:8000/products/recommend/1')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setBottmScrollDescription(data.result[0]);
-  //     });
-  // }, []);
-
-  // mock data
   useEffect(() => {
     fetch('data/mainDescription.json')
       .then(res => res.json())
