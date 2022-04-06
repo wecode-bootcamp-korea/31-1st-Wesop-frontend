@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SearchList from './SearchList';
+import SearchImage from './SearchImage';
 import './Search.scss';
 
 const Search = () => {
@@ -9,6 +10,7 @@ const Search = () => {
 
   const [data, setData] = useState({});
   const [searchInput, setSearchInput] = useState('');
+  const [listHover, setListHover] = useState(false);
 
   useEffect(() => {
     fetch('https://node-pagnation.herokuapp.com/users')
@@ -25,8 +27,6 @@ const Search = () => {
     navigate(queryString);
   }, [searchInput]);
 
-  console.log(location.search);
-
   return (
     <div className="search">
       <div className="searchBox">
@@ -42,9 +42,9 @@ const Search = () => {
         </div>
       </div>
       <div className="searchList">
-        <SearchList />
+        <SearchList setListHover={setListHover} />
       </div>
-      <div className="searchImage">이미지</div>
+      <div className="searchImage">{listHover && <SearchImage />}</div>
     </div>
   );
 };
