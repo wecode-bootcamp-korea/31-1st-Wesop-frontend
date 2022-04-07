@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from '../../pages/Login/Login';
+import Cart from '../../pages/Cart/Cart';
 import ModalOverLay from '../UI/ModalOverLay';
 import CategoryElement from './CategoryElement';
 import NAV_CATEGORY_LIST from './navCategoryData';
 import './Nav.scss';
 
 const Nav = () => {
-  const [showingLoginModal, setShowingLoginModal] = useState(false);
   const [loginedUserInfo, setLoginedUserInfo] = useState({});
+
+  const [showingLoginModal, setShowingLoginModal] = useState(false);
+  const [showingCartModal, setShowingCartModal] = useState(false);
+  const [isLogined, setIsLogined] = useState(false);
 
   const clearLoginedUserInfo = () => {
     setLoginedUserInfo({
@@ -31,9 +35,36 @@ const Nav = () => {
     setShowingLoginModal(false);
   };
 
+  const openCartModalHandler = () => {
+    setShowingCartModal(true);
+  };
+
+  const closeCartModalHandler = () => {
+    setShowingCartModal(false);
+  };
+
   const loginedUserInfoHandler = userInfo => {
     setLoginedUserInfo(userInfo);
   };
+
+  const alertRecommendLogin = () => {
+    alert('카트기능을 이용하시려면 로그인 해주세요.');
+  };
+
+  const showMessageCantOpenModal = () => {
+    openLoginModalHandler();
+    alertRecommendLogin();
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      setIsLogined(true);
+    } else if (!token) {
+      setIsLogined(false);
+    }
+  }, [loginedUserInfo]);
 
   return (
     <div className="Nav">
@@ -44,7 +75,7 @@ const Nav = () => {
         <i className="fa-solid fa-magnifying-glass" />
       </div>
       <div className="navUserCategory">
-        {loginedUserInfo.email ? (
+        {isLogined ? (
           <span className="loginedUserName">
             {loginedUserInfo.lastName}
             {loginedUserInfo.firstName}
@@ -59,22 +90,25 @@ const Nav = () => {
           </button>
         )}
 
-        {/* TODO: Cart 컴포넌트 제작할때 true일때 버튼에는 onClick이벤트로 카트 모달이 열리게 설정해야 합니다.   */}
-        {loginedUserInfo.email ? (
-          <button className="openCartModalBtn" type="button">
+        {isLogined ? (
+          <button
+            className="openCartModalBtn"
+            type="button"
+            onClick={openCartModalHandler}
+          >
             카트
           </button>
         ) : (
           <button
             className="openCartModalBtn"
             type="button"
-            onClick={openLoginModalHandler}
+            onClick={showMessageCantOpenModal}
           >
             카트
           </button>
         )}
 
-        {loginedUserInfo.email ? (
+        {isLogined ? (
           <button className="logOutBtn" onClick={logoutHandler}>
             로그아웃
           </button>
@@ -82,6 +116,19 @@ const Nav = () => {
           ''
         )}
       </div>
+      {showingCartModal ? (
+        <Cart onCloseCartModal={closeCartModalHandler} />
+      ) : (
+        ''
+      )}
+      {showingCartModal ? (
+        <ModalOverLay
+          onCloseCartModal={closeCartModalHandler}
+          onCloseLoginModal={closeLoginModalHandler}
+        />
+      ) : (
+        ''
+      )}
       {showingLoginModal ? (
         <Login
           onCloseLoginModal={closeLoginModalHandler}
@@ -91,7 +138,10 @@ const Nav = () => {
         ''
       )}
       {showingLoginModal ? (
-        <ModalOverLay onCloseLoginModal={closeLoginModalHandler} />
+        <ModalOverLay
+          onCloseCartModal={closeCartModalHandler}
+          onCloseLoginModal={closeLoginModalHandler}
+        />
       ) : (
         ''
       )}

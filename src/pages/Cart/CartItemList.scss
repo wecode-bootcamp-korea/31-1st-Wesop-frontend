@@ -1,0 +1,93 @@
+@import '../../styles/variables.scss';
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.cartProductListItems {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 10px 0;
+  height: 55px;
+  border: 1px solid rgb(188, 187, 180, 0.2);
+  border-width: 0 0 1px 0;
+  font-size: 13px;
+  color: $color-light-gray;
+
+  .carProductItemInner {
+    display: flex;
+
+    .productName {
+      width: 40vw;
+
+      a {
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: $color-light-gray;
+        text-decoration: none;
+      }
+
+      a:link {
+        color: $color-light-gray;
+        text-decoration: none;
+      }
+    }
+
+    .productVolume {
+      width: 23vw;
+    }
+
+    .productQuantity {
+      width: 25vw;
+      .productQuantityBtn {
+        background-color: transparent;
+        color: $color-light-gray;
+        border: 0;
+      }
+      .productQuantityInputBox {
+        width: 3vw;
+        border: 0;
+        background-color: transparent;
+        text-align: center;
+        color: $color-light-gray;
+
+        &:focus,
+        :active {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+
+      .productListDeleteBtn {
+        border: 0;
+        background-color: transparent;
+        color: $color-light-gray;
+        opacity: 0;
+      }
+    }
+
+    .productTotalPrice {
+      position: absolute;
+      right: 3vw;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
+  }
+  &:hover {
+    .productQuantity {
+      .productListDeleteBtn {
+        background-color: transparent;
+        border: none;
+        color: $color-light-gray;
+        opacity: 0.7;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
