@@ -1,4 +1,5 @@
 import React from 'react';
+import MenuCategory from './MenuCategory';
 import './NavMenu.scss';
 
 const NavMenu = () => {
@@ -7,7 +8,14 @@ const NavMenu = () => {
       <div className="menuLogo">
         <img className="logoImage" src="/images/common/Wesop.png" alt="로고" />
       </div>
-      <div className="column" />
+      <MenuCategory />
+      <div className="imageContainer">
+        <img
+          className="menuImage"
+          src="/images/common/MenuImage.jpg"
+          alt="메뉴"
+        />
+      </div>
     </div>
   );
 };

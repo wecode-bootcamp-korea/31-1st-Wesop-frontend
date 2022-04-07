@@ -17,7 +17,7 @@ const Search = () => {
     fetch(`http://10.58.1.236:8000/products${decodeLocation}`)
       .then(res => res.json())
       .then(data => setSearchData(data));
-  }, [location.search]);
+  }, [decodeLocation]);
 
   const inputHandler = e => {
     setSearchInput(e.target.value);

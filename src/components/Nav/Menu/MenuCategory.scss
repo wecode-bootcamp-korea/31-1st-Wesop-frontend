@@ -1,0 +1,59 @@
+@import '../../../styles/variables.scss';
+
+.menuCategory {
+  display: flex;
+
+  .categoryList {
+    width: 13vw;
+    margin: 0 30px;
+
+    .categoryTitle {
+      margin-bottom: 20px;
+    }
+
+    .listItem {
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .listItem:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .skinTypeList {
+    width: 13vw;
+    margin: 0 30px;
+
+    .skinTypeTitle {
+      margin-bottom: 20px;
+    }
+
+    .skinType {
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .skinType:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .newProductList {
+    width: 13vw;
+    margin: 0 30px;
+
+    .newProductTitle {
+      margin-bottom: 20px;
+    }
+
+    .newProduct {
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .newProduct:hover {
+      text-decoration: underline;
+    }
+  }
+}
