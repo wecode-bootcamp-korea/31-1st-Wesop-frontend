@@ -1,14 +1,13 @@
-const loginServerRootAddress = 'http://10.58.6.208:8000';
-
-export const LOGIN_SERVER_ADDRESS = {
-  loginMainAddress: `${loginServerRootAddress}/users/check`,
-  loginSignInAddress: `${loginServerRootAddress}/users/login`,
-  loginSignUpAddress: `${loginServerRootAddress}/users/signup`,
+const BASE_URL = 'http://10.58.4.167:8000';
+const API = {
+  loginMainAddress: `${BASE_URL}/users/check`,
+  loginSignInAddress: `${BASE_URL}/users/login`,
+  loginSignUpAddress: `${BASE_URL}/users/signup`,
+  cartMainAddress: `${BASE_URL}/carts`,
+  category: `${BASE_URL}/products/categories`,
+  allProducts: `${BASE_URL}/products`,
+  mainDescription: `${BASE_URL}/products/`,
+  bottomDescription: `${BASE_URL}/products/recommend/`,
 };
 
-const DetailServerRootAddress = 'http://10.58.4.196:8000';
-
-export const DETAIL_SERVER_ADDRESS = {
-  mainDescription: `${DetailServerRootAddress}/products/`,
-  bottomDescription: `${DetailServerRootAddress}/products/recommend/`,
-};
+export default API;
