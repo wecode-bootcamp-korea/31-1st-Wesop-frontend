@@ -4,7 +4,6 @@ import ProductListLayout from './ProductListLayout/ProductListLayout';
 import FilterOpen from './FilterOpen/FilterOpen';
 import Category from './Category/Category';
 import CategoryList from './CategoryList/CategoryList';
-import API from '../../config/config';
 import './ProductList.scss';
 
 const ProductList = () => {
