@@ -1,52 +1,76 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import Category from './Category/Category';
+import { useLocation, useNavigate } from 'react-router-dom';
+import ProductListLayout from './ProductListLayout/ProductListLayout';
 import FilterOpen from './FilterOpen/FilterOpen';
-import BaseInfo from '../../components/BaseInfo/BaseInfo';
-import Footer from './../../components/Footer/Footer';
+import Category from './Category/Category';
+import CategoryList from './CategoryList/CategoryList';
 import './ProductList.scss';
+import API from '../../config/config';
 
 const ProductList = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [productList, setProductList] = useState([]);
+  const [categoryInfo, setCategoryInfo] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
+  const categoryUrl =
+    location.search === '' ? '' : `/${location.search.split('=')[1]}`;
+
   useEffect(() => {
-    fetch('http://localhost:3000/data/category_products.json')
+    fetch(API.allProducts`${location.search}`)
       .then(res => res.json())
-      .then(data => setProductList(data));
-  }, []);
+      .then(data => setProductList(data.result));
+  }, [location.search]);
+
+  useEffect(() => {
+    fetch(API.category`${categoryUrl}`)
+      .then(res => res.json())
+      .then(data => setCategoryInfo(data.result));
+  }, [categoryUrl]);
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);
   };
 
+  const goToAllSkin = () => {
+    navigate('/product-list');
+  };
+
+  const updateUrl = id => {
+    const queryString = `?category_id=${id}`;
+    navigate(queryString);
+  };
+
+  const productsForEachCategory = id =>
+    productList.filter(product => product.category.categoryId === id);
+
   return (
-    <div className="ProductList">
-      <header>
-        <Link to="/">
-          <img className="logo" alt="logo" src="/images/common/Wesop.png" />
-        </Link>
-        <h1 className="mainCategory">스킨</h1>
-      </header>
-      <div className="filterWrapper">
+    <ProductListLayout productList={productList}>
+      <h1 className="mainCategory">
+        {location.search === '' ? '스킨' : categoryInfo.categoryName}
+      </h1>
+      <div className="filter">
         <ul className="filterSubNavContainer">
           <li className="filterSubNavList">
-            <button className="filterSubNavLink">
-              <Link to="/product-list">모든 스킨 </Link>
+            <button onClick={goToAllSkin} className="filterSubNavBtn">
+              모든 스킨
             </button>
           </li>
-          {CATEGORY_LIST.map(category => {
+          {CATEGORY_LIST.map(({ categoryId, categoryName }) => {
             return (
-              <Link
-                key={category.id}
-                className="filterSubNavList"
-                to={`${category.category}`}
-              >
-                {category.category}
-              </Link>
+              <li key={categoryId} className="filterSubNavList">
+                <button
+                  onClick={() => {
+                    updateUrl(categoryId);
+                  }}
+                  className="filterSubNavBtn"
+                >
+                  {categoryName}
+                </button>
+              </li>
             );
           })}
-          <Outlet />
         </ul>
         <div className="filterBtnContainer">
           {isFilterOpen ? (
@@ -66,111 +90,43 @@ const ProductList = () => {
         </div>
       </div>
       {isFilterOpen && <FilterOpen />}
-      <main className="mainContent">
-        {productList.map(
-          ({ categoryId, categoryName, categoryDescription, products }) => {
-            return (
-              <Category
-                key={categoryId}
-                category={{
-                  categoryId,
-                  categoryName,
-                  categoryDescription,
-                  products,
-                }}
-              />
-            );
-          }
-        )}
-      </main>
-      <BaseInfo
-        subtitle={subtitle}
-        title={title}
-        description={description}
-        btnText={btnText}
-        imgSrc={imgSrc}
-      />
-      <Footer />
-    </div>
+      {location.search === '' ? (
+        <main className="mainContent">
+          {categoryInfo.length === 11 &&
+            categoryInfo.map(
+              ({ categoryId, categoryName, categoryDescription }) => {
+                return (
+                  <Category
+                    key={categoryId}
+                    category={{
+                      categoryId,
+                      categoryName,
+                      categoryDescription,
+                    }}
+                    products={productsForEachCategory(categoryId)}
+                  />
+                );
+              }
+            )}
+        </main>
+      ) : (
+        <CategoryList categoryInfo={categoryInfo} productList={productList} />
+      )}
+    </ProductListLayout>
   );
 };
 
 const CATEGORY_LIST = [
-  {
-    id: 1,
-    category: '클렌저',
-    description:
-      '피부의 남은 각질, 불필요한 유분 그리고 기타 잔여물을 말끔히 씻어내어 피부를 깨끗하게 하는 것은 인텔리전트 스킨케어의 기초입니다.',
-  },
-  {
-    id: 2,
-    category: '각질 제거',
-    description:
-      '효과적인 각질 관리는 피부의 잔여물과 불필요한 유분을 깨끗하게 세정해주는 동시에 피부를 부드럽고 생기 있게 가꿔줍니다.',
-  },
-  {
-    id: 3,
-    category: '트리트먼트 & 마스크',
-    description:
-      '딥 클렌징 마스크에서 너리싱 페이셜 오일에 이르기까지 모든 스킨 케어 루틴을 보완하는 제품',
-  },
-  {
-    id: 4,
-    category: '토너',
-    description:
-      '토너는 클렌징과 수분 공급 사이에서 중요한 과정입니다. 피부의 밸런스를 잡아 주어 수분 공급 시 우수한 효과를 볼 수 있게 합니다.',
-  },
-  {
-    id: 5,
-    category: '하이드레이터',
-    description:
-      '피부에 보습, 영양을 주고 진정을 돕는 하이드레이터는 피부를 건강하게 가꿔주고 우수한 상태로 유지 시켜줍니다.',
-  },
-  {
-    id: 6,
-    category: '립&아이',
-    description:
-      '다른 피부보다도 얇고 연약한 입술과 눈가 주변은 섬세하고 민감하여 주기적인 수분 공급과 보호가 필요합니다.',
-  },
-  {
-    id: 7,
-    category: '쉐이빙',
-    description:
-      '이솝의 쉐이빙 도구와 제품은 차분하고 신선한 쉐이빙의 경험을 선사합니다',
-  },
-  {
-    id: 8,
-    category: '선 케어',
-    description:
-      '자외선에 노출되기 전에 효과적으로 피부를 보호하며 피부의 건강을 유지시켜줍니다.',
-  },
-  {
-    id: 9,
-    category: '키트',
-    description: '다양한 피부 타입에 적합한 효과적인 셀렉션',
-  },
-  {
-    id: 10,
-    category: '스킨 케어 세트 추천',
-    description:
-      '함께 잘 어울리는 조합으로 구성되어 있어 간결하지만 탁월한 맞춤 케어를 제공합니다.',
-  },
-  {
-    id: 11,
-    category: '스킨 케어 기프트',
-    description:
-      '이솝 제품군에서 스킨 케어 제품은 개인용은 물론 사려 깊은 선물용으로 많은 사랑을 받고 있습니다.',
-  },
+  { categoryId: 1, categoryName: '클렌저' },
+  { categoryId: 2, categoryName: '각질 제거' },
+  { categoryId: 3, categoryName: '트리트먼트&마스크' },
+  { categoryId: 4, categoryName: '토너' },
+  { categoryId: 5, categoryName: '하이드레이터' },
+  { categoryId: 6, categoryName: '립&아이' },
+  { categoryId: 7, categoryName: '쉐이빙' },
+  { categoryId: 8, categoryName: '선 케어' },
+  { categoryId: 9, categoryName: '키트' },
+  { categoryId: 10, categoryName: '스킨 케어 세트 추천' },
+  { categoryId: 11, categoryName: '스킨 케어 기프트' },
 ];
-
-const { subtitle, title, description, btnText, imgSrc } = {
-  subtitle: '',
-  title: '내 피부 이해하기',
-  description:
-    '피부의 특성과 필요를 더 깊이 이해하여 피부를 정화하고 영양을 공급하며 보호하는 데 가장 적합한 제품을 선택하려면 본 가이드를 자세히 살펴보시기 바랍니다.',
-  btnText: '자세히 살펴보기',
-  imgSrc:
-    'https://github.com/suhun96/wesope-img-repo/blob/main/%EB%B0%B1%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C/1123123.jpg?raw=true',
-};
-
 export default ProductList;

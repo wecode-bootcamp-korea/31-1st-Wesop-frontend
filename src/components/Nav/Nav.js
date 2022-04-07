@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import NavMenu from './Menu/NavMenu';
 import Search from './Search/Search';
 import Login from '../../pages/Login/Login';
+import Cart from '../../pages/Cart/Cart';
 import ModalOverLay from '../UI/ModalOverLay';
 import CategoryElement from './CategoryElement';
 import NAV_CATEGORY_LIST from './navCategoryData';
 import './Nav.scss';
 
 const Nav = () => {
-  const [showingLoginModal, setShowingLoginModal] = useState(false);
   const [loginedUserInfo, setLoginedUserInfo] = useState({});
   const [menu, setMenu] = useState('');
+
+  const [showingLoginModal, setShowingLoginModal] = useState(false);
+  const [showingCartModal, setShowingCartModal] = useState(false);
+  const [isLogined, setIsLogined] = useState(false);
 
   const clearLoginedUserInfo = () => {
     setLoginedUserInfo({
@@ -32,6 +36,14 @@ const Nav = () => {
 
   const closeLoginModalHandler = () => {
     setShowingLoginModal(false);
+  };
+
+  const openCartModalHandler = () => {
+    setShowingCartModal(true);
+  };
+
+  const closeCartModalHandler = () => {
+    setShowingCartModal(false);
   };
 
   const loginedUserInfoHandler = userInfo => {
@@ -113,7 +125,10 @@ const Nav = () => {
         ''
       )}
       {showingLoginModal ? (
-        <ModalOverLay onCloseLoginModal={closeLoginModalHandler} />
+        <ModalOverLay
+          onCloseCartModal={closeCartModalHandler}
+          onCloseLoginModal={closeLoginModalHandler}
+        />
       ) : (
         ''
       )}
