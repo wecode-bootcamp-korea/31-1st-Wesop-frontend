@@ -1,0 +1,67 @@
+@import './../../../../styles/variables.scss';
+
+.categoryProduct {
+  width: 33.3%;
+  text-align: center;
+  transition: 0.2s ease-in;
+
+  &:hover {
+    background-color: #f6f5e8;
+  }
+
+  .productImgInfoWrapper {
+    .imgWrapper {
+      height: 400px;
+    }
+
+    img {
+      height: 95%;
+      padding-top: 80px;
+    }
+  }
+
+  .descriptionWrapper {
+    width: 70%;
+    margin: 0 auto;
+
+    .description {
+      padding: 20px 0;
+      font-size: $font-small;
+      border-bottom: 0.5px solid $font-light-gray;
+      text-align: left;
+
+      &:first-child {
+        margin-top: 20px;
+        border-top: 2px solid $color-dark-gray;
+      }
+
+      .title {
+        margin-right: 40px;
+        color: $color-dark-gray;
+      }
+
+      .content {
+        color: $font-light-gray;
+      }
+    }
+  }
+
+  &:hover .addToCart {
+    background-color: $color-dark-gray;
+    opacity: 0.9;
+  }
+
+  .addToCart {
+    width: 100%;
+    margin-top: 20px;
+    padding: 21px 10px;
+    color: $color-beige;
+    opacity: 0;
+    transition: 0.2s ease-in;
+
+    &:hover {
+      background-color: black;
+      transition: 0.2s ease-in;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import '../../../styles/variables.scss';
+
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+
+  .categoryTitleWrapper {
+    width: 33.3%;
+    padding: 80px 40px;
+
+    h2 {
+      margin: 20px 0;
+      line-height: 1.33;
+      font-size: $font-large;
+      color: $font-gray;
+      letter-spacing: 1.8px;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: $font-regular;
+    }
+  }
+}

@@ -1,9 +1,40 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import CategoryProduct from './CategoryProduct/CategoryProduct';
+import './CategoryList.scss';
 
-const CategoryList = () => {
-  let params = useParams();
-  return <div className="categoryList"> hello {params.category}</div>;
+const CategoryList = ({ productList, categoryInfo }) => {
+  function receivedMarkup() {
+    return { __html: categoryInfo.categorySubDescription };
+  }
+
+  return (
+    <main className="categoryList">
+      <div className="categoryTitleWrapper">
+        {categoryInfo.categorySubDescription && (
+          <div dangerouslySetInnerHTML={receivedMarkup()} />
+        )}
+      </div>
+      {productList &&
+        productList.map(
+          ({ id, productName, size, price, url, skin_type, feeling }) => {
+            return (
+              <CategoryProduct
+                key={id}
+                products={{
+                  id,
+                  productName,
+                  size,
+                  price,
+                  url,
+                  skin_type,
+                  feeling,
+                }}
+              />
+            );
+          }
+        )}
+    </main>
+  );
 };
 
 export default CategoryList;
