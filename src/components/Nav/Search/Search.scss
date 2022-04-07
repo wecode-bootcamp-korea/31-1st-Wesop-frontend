@@ -1,11 +1,21 @@
 @import '../../../styles/variables.scss';
 
+@keyframes navOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .search {
   display: grid;
   grid-template-columns: 1fr 2fr;
   height: 86.5vh;
   width: 100%;
   background-color: $color-beige;
+  animation: 0.7s ease-in-out navOpacity;
 
   .searchBox {
     display: flex;
