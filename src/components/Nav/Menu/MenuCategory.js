@@ -7,14 +7,16 @@ import './MenuCategory.scss';
 const MenuCategory = () => {
   const navigate = useNavigate();
 
+  const categoryHandler = () => {
+    navigate('/product-list');
+  };
+
   return (
     <div className="menuCategory">
       <ul className="categoryList">
-        <li className="categoryTitle" onClick={navigate('/product-list')}>
-          카테고리
-        </li>
+        <li className="categoryTitle">카테고리</li>
         {CATEGORY_LIST.map(({ name }) => (
-          <li key={name} className="listItem">
+          <li key={name} className="listItem" onClick={categoryHandler}>
             {name}
           </li>
         ))}
