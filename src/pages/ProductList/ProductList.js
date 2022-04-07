@@ -5,6 +5,7 @@ import FilterOpen from './FilterOpen/FilterOpen';
 import Category from './Category/Category';
 import CategoryList from './CategoryList/CategoryList';
 import './ProductList.scss';
+import API from '../../config/config';
 
 const ProductList = () => {
   const location = useLocation();
@@ -17,13 +18,13 @@ const ProductList = () => {
     location.search === '' ? '' : `/${location.search.split('=')[1]}`;
 
   useEffect(() => {
-    fetch(`http://10.58.4.167:8000/products${location.search}`)
+    fetch(API.allProducts`${location.search}`)
       .then(res => res.json())
       .then(data => setProductList(data.result));
   }, [location.search]);
 
   useEffect(() => {
-    fetch(`http://10.58.4.167:8000/products/categories${categoryUrl}`)
+    fetch(API.category`${categoryUrl}`)
       .then(res => res.json())
       .then(data => setCategoryInfo(data.result));
   }, [categoryUrl]);
