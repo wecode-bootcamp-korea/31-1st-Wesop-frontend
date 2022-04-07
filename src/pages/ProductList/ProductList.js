@@ -14,7 +14,7 @@ const ProductList = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const categoryUrl =
-    location.search === '' ? '' : `/${location.search.slice(13)}`;
+    location.search === '' ? '' : `/${location.search.split('=')[1]}`;
 
   useEffect(() => {
     fetch(`http://10.58.4.167:8000/products${location.search}`)
@@ -41,7 +41,6 @@ const ProductList = () => {
     navigate(queryString);
   };
 
-  console.log(categoryInfo);
   const productsForEachCategory = id =>
     productList.filter(product => product.category.categoryId === id);
 
