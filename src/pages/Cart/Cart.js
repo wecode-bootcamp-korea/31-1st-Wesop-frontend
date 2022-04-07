@@ -3,14 +3,12 @@ import CartItemList from './CartItemList';
 import { CART_SERVER_ADDRESS } from '../../config/config';
 import './Cart.scss';
 
-const { cartMainAddress } = CART_SERVER_ADDRESS;
-
 const Cart = ({ onCloseCartModal }) => {
   const [cartList, setCartList] = useState([]);
   const [cartListTotalPrice, setCartListTotalPrice] = useState(0);
 
   const getRemoteCartList = () => {
-    fetch(cartMainAddress, {
+    fetch(CART_SERVER_ADDRESS.cartMainAddress, {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -24,12 +22,15 @@ const Cart = ({ onCloseCartModal }) => {
   };
 
   const deletedCartItemToServer = deleteProductId => {
-    fetch(`${cartMainAddress}?cart_ids=${deleteProductId}`, {
-      method: 'DELETE',
-      headers: {
-        Authorization: localStorage.getItem('token'),
-      },
-    }).then(setTimeout(() => getRemoteCartList(), 300));
+    fetch(
+      `${CART_SERVER_ADDRESS.cartMainAddress}?cart_ids=${deleteProductId}`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+      }
+    ).then(setTimeout(() => getRemoteCartList(), 300));
   };
 
   const addPriceToCartListTotalPriceHandler = price => {

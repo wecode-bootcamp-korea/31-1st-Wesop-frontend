@@ -51,6 +51,11 @@ const Nav = () => {
     alert('카트기능을 이용하시려면 로그인 해주세요.');
   };
 
+  const showMessageCantOpenModal = () => {
+    openLoginModalHandler();
+    alertRecommendLogin();
+  };
+
   useEffect(() => {
     const token = localStorage.getItem('token');
 
@@ -97,10 +102,7 @@ const Nav = () => {
           <button
             className="openCartModalBtn"
             type="button"
-            onClick={() => {
-              openLoginModalHandler();
-              alertRecommendLogin();
-            }}
+            onClick={showMessageCantOpenModal}
           >
             카트
           </button>

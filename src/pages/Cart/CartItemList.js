@@ -10,15 +10,12 @@ const CartItemList = ({
   onAddToTotalPrice,
   getRemoteCartList,
 }) => {
-  const { cartMainAddress } = CART_SERVER_ADDRESS;
-  const { mainDescription } = DETAIL_SERVER_ADDRESS;
-
   const { productId, cartId, productName, productSize, quantity, totalPrice } =
     cartItem;
 
   const editItemQuantityInCart = modifiedQuantity => {
     const cartIdInFunc = cartId;
-    fetch(`${cartMainAddress}/cart/${cartIdInFunc}`, {
+    fetch(`${CART_SERVER_ADDRESS.cartMainAddress}/cart/${cartIdInFunc}`, {
       method: 'PATCH',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -49,7 +46,9 @@ const CartItemList = ({
     <li className="cartProductListItems">
       <div className="carProductItemInner">
         <div className="productName">
-          <a href={`${mainDescription}${productId}`}>{productName}</a>
+          <a href={`${DETAIL_SERVER_ADDRESS.mainDescription}${productId}`}>
+            {productName}
+          </a>
         </div>
         <div className="productVolume">
           <span>{productSize}</span>
