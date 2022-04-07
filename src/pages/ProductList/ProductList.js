@@ -17,16 +17,16 @@ const ProductList = () => {
     location.search === '' ? '' : `/${location.search.slice(13)}`;
 
   useEffect(() => {
-    fetch(`http://10.58.4.167:8000/products/categories${categoryUrl}`)
-      .then(res => res.json())
-      .then(data => setCategoryInfo(data.result));
-  }, [categoryUrl]);
-
-  useEffect(() => {
     fetch(`http://10.58.4.167:8000/products${location.search}`)
       .then(res => res.json())
       .then(data => setProductList(data.result));
   }, [location.search]);
+
+  useEffect(() => {
+    fetch(`http://10.58.4.167:8000/products/categories${categoryUrl}`)
+      .then(res => res.json())
+      .then(data => setCategoryInfo(data.result));
+  }, [categoryUrl]);
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);
@@ -47,9 +47,7 @@ const ProductList = () => {
   return (
     <ProductListLayout productList={productList}>
       <h1 className="mainCategory">
-        {location.search === ''
-          ? '스킨'
-          : categoryInfo[location.search.slice()].categoryName}
+        {location.search === '' ? '스킨' : categoryInfo.categoryName}
       </h1>
       <div className="filter">
         <ul className="filterSubNavContainer">
