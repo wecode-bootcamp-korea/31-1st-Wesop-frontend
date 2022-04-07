@@ -1,5 +1,13 @@
 @import '../../styles/variables.scss';
 
+.mainCategory {
+  height: 24px;
+  margin: 70px 0 20px 0;
+  padding: 0 20px 0 40px;
+  font-size: $font-medium;
+  color: $color-dark-gray;
+}
+
 .filter {
   @include center($justify-content: space-between);
   padding: 23px 40px 23px 20px;
@@ -53,11 +61,4 @@
       font-size: 20px;
     }
   }
-}
-
-.mainCategory {
-  margin: 70px 0 20px 0;
-  padding: 0 20px 0 40px;
-  font-size: $font-medium;
-  color: $color-dark-gray;
 }
