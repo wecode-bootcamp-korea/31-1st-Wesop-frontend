@@ -14,20 +14,20 @@ const ProductList = () => {
   const [categoryInfo, setCategoryInfo] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
+  const categoryUrl =
+    location.search === '' ? '' : `/${location.search.slice(13)}`;
+
   useEffect(() => {
-    fetch(API.allProducts`${location.search}`)
+    fetch(`http://10.58.4.167:8000/products/categories${categoryUrl}`)
+      .then(res => res.json())
+      .then(data => setCategoryInfo(data.result));
+  }, [categoryUrl]);
+
+  useEffect(() => {
+    fetch(`http://10.58.4.167:8000/products${location.search}`)
       .then(res => res.json())
       .then(data => setProductList(data.result));
   }, [location.search]);
-
-  useEffect(() => {
-    fetch(API.category`${categoryUrl}`)
-      .then(res => res.json())
-      .then(data => setCategoryInfo(data.result));
-  }, [location.search]);
-
-  const categoryUrl =
-    location.search === '' ? '' : `/${location.search.slice(13)}`;
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);
@@ -42,13 +42,15 @@ const ProductList = () => {
     navigate(queryString);
   };
 
-  const products = id =>
+  const productsForEachCategory = id =>
     productList.filter(product => product.category.categoryId === id);
 
   return (
     <ProductListLayout productList={productList}>
       <h1 className="mainCategory">
-        {location.search === '' ? '스킨' : categoryInfo.categoryName}
+        {location.search === ''
+          ? '스킨'
+          : categoryInfo[location.search.slice()].categoryName}
       </h1>
       <div className="filter">
         <ul className="filterSubNavContainer">
@@ -92,7 +94,7 @@ const ProductList = () => {
       {isFilterOpen && <FilterOpen />}
       {location.search === '' ? (
         <main className="mainContent">
-          {categoryInfo &&
+          {categoryInfo.length === 11 &&
             categoryInfo.map(
               ({ categoryId, categoryName, categoryDescription }) => {
                 return (
@@ -103,7 +105,7 @@ const ProductList = () => {
                       categoryName,
                       categoryDescription,
                     }}
-                    products={products(categoryId)}
+                    products={productsForEachCategory(categoryId)}
                   />
                 );
               }

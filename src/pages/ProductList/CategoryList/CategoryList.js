@@ -4,13 +4,13 @@ import './CategoryList.scss';
 
 const CategoryList = ({ productList, categoryInfo }) => {
   function receivedMarkup() {
-    return { __html: categoryInfo[0].categorySubDescription };
+    return { __html: categoryInfo.categorySubDescription };
   }
 
   return (
     <main className="categoryList">
       <div className="categoryTitleWrapper">
-        {categoryInfo.length === 1 && (
+        {categoryInfo.categorySubDescription && (
           <div dangerouslySetInnerHTML={receivedMarkup()} />
         )}
       </div>

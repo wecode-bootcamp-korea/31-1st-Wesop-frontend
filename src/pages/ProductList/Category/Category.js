@@ -47,14 +47,15 @@ const Category = ({
           className="products"
           style={{ transform: `translateX(-${27 * counter}%)` }}
         >
-          {products.map(({ id, badge, productName, size, price, url }) => {
-            return (
-              <Product
-                key={id}
-                product={{ badge, productName, size, price, url }}
-              />
-            );
-          })}
+          {products &&
+            products.map(({ id, badge, productName, size, price, url }) => {
+              return (
+                <Product
+                  key={id}
+                  product={{ badge, productName, size, price, url }}
+                />
+              );
+            })}
         </div>
         {showLeftBtn && (
           <div className="carouselLeft">
