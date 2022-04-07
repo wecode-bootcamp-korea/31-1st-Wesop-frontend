@@ -29,7 +29,19 @@
         display: flex;
 
         .categoryLink {
-          padding-right: 13px;
+          padding-right: 20px;
+
+          &::before {
+            position: absolute;
+            top: 8px;
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            margin-left: 32px;
+            background: black;
+            border-radius: 50%;
+            content: '';
+          }
         }
 
         .categoryLink,
@@ -38,9 +50,9 @@
           text-decoration: none;
 
           &::after {
-            content: '';
             display: block;
             border-bottom: solid 1px black;
+            content: '';
             transform: scaleX(0);
             transition: transform 250ms ease-in-out;
           }

@@ -3,33 +3,36 @@ import { Link } from 'react-router-dom';
 import './ProductDetailSection.scss';
 
 function ProductDetailSection({ mainDescription, changeModalHandler }) {
-  const { category, name, descriptrion, size, price, product_imges } =
+  const { category, name, description, size, price, product_imges } =
     mainDescription;
-
   return (
     <div className="productDetailSection">
       <img className="productDetailImg" src={product_imges} alt="스킨" />
       <div className="productDetailSectionContainer">
         <div className="productDetailCategory">
-          <ui className="categoryTag">
+          <ul className="categoryTag">
             <Link to="/" className="categoryLink">
               스킨
             </Link>
-            <li />
             <Link to="/" className="subCategoryLink">
               {category}
             </Link>
-          </ui>
+          </ul>
         </div>
         <div>
           <p className="productDetailName">{name}</p>
-          <p className="productDescription">{descriptrion}</p>
-          {PRODUCT_CONTENT.map(data => (
-            <div className="productInformation" key={data.id}>
-              <p>{data.content}</p>
-              <p>{mainDescription[data.name]}</p>
-            </div>
-          ))}
+          <p className="productDescription">{description}</p>
+          {PRODUCT_CONTENT.map(data => {
+            return (
+              <div className="productInformation" key={data.id}>
+                <p>{data.content}</p>
+                {mainDescription[data.name] && (
+                  <p>{mainDescription[data.name].join(', ')}</p>
+                )}
+              </div>
+            );
+          })}
+
           <i
             onClick={changeModalHandler}
             className="fa-regular fa-square-plus"

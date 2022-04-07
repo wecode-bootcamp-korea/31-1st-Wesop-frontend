@@ -18,7 +18,7 @@ function Router() {
         <Route path="/product-list" element={<ProductList />}>
           <Route path=":category" element={<CategoryList />} />
         </Route>
-        <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>
