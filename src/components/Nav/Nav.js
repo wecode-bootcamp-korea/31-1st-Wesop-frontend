@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from '../../pages/Login/Login';
 import Cart from '../../pages/Cart/Cart';
 import ModalOverLay from '../UI/ModalOverLay';
@@ -11,6 +11,7 @@ const Nav = () => {
 
   const [showingLoginModal, setShowingLoginModal] = useState(false);
   const [showingCartModal, setShowingCartModal] = useState(false);
+  const [isLogined, setIsLogined] = useState(false);
 
   const clearLoginedUserInfo = () => {
     setLoginedUserInfo({
@@ -50,6 +51,16 @@ const Nav = () => {
     alert('카트기능을 이용하시려면 로그인 해주세요.');
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      setIsLogined(true);
+    } else if (!token) {
+      setIsLogined(false);
+    }
+  }, [loginedUserInfo]);
+
   return (
     <div className="Nav">
       <div className="navMainCategory">
@@ -59,7 +70,7 @@ const Nav = () => {
         <i className="fa-solid fa-magnifying-glass" />
       </div>
       <div className="navUserCategory">
-        {loginedUserInfo.email ? (
+        {isLogined ? (
           <span className="loginedUserName">
             {loginedUserInfo.lastName}
             {loginedUserInfo.firstName}
@@ -74,7 +85,7 @@ const Nav = () => {
           </button>
         )}
 
-        {loginedUserInfo.email ? (
+        {isLogined ? (
           <button
             className="openCartModalBtn"
             type="button"
@@ -95,7 +106,7 @@ const Nav = () => {
           </button>
         )}
 
-        {loginedUserInfo.email ? (
+        {isLogined ? (
           <button className="logOutBtn" onClick={logoutHandler}>
             로그아웃
           </button>

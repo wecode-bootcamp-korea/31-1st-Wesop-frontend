@@ -65,9 +65,9 @@ const Cart = ({ onCloseCartModal }) => {
         </div>
         <ul className="cartProductList">
           {cartList !== 'INVALID_USER' &&
-            cartList.map((cartItem, { productId }) => (
+            cartList.map(cartItem => (
               <CartItemList
-                key={productId}
+                key={cartItem.productId}
                 cartItem={cartItem}
                 deletedCartItemToServer={deletedCartItemToServer}
                 onAddToTotalPrice={addPriceToCartListTotalPriceHandler}
