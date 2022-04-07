@@ -104,20 +104,12 @@ const LoginForm = ({
         const resCondition = {
           SUCCESS: function () {
             localStorage.setItem('token', token);
-<<<<<<< HEAD
-            localStorage.setItem('email', email);
-            localStorage.setItem('userId', userId);
-            localStorage.setItem('firstName', firstName);
-            localStorage.setItem('lastName', lastName);
-
-=======
             onSetLoginedUserInfo({
               email: email,
               userId: userId,
               firstName: firstName,
               lastName: lastName,
             });
->>>>>>> master
             setLoginError('');
             onClearUserInfo();
             onCloseModal();

@@ -1,13 +1,5 @@
 @import '../../styles/variables.scss';
 
-// position: fixed;
-// left: 0;
-// top: 0;
-// display: flex;
-// justify-content: center;
-// width: 100%;
-// z-index: 999;
-
 .cart {
   position: fixed;
   top: 0;
@@ -15,6 +7,7 @@
   padding: 40px 40px 0 40px;
   background-color: rgb(37, 37, 37);
   z-index: 3333;
+
   .cartProducts {
     .cartHeader {
       display: flex;
@@ -59,23 +52,6 @@
           }
         }
       }
-    }
-  }
-
-  .cartAllDelete {
-    padding: 10px 0 0 0;
-    .cartAllDeleteBtn {
-      position: absolute;
-      right: 45px;
-
-      background-color: transparent;
-      border: none;
-      color: rgb(188, 187, 180, 0.5);
-      transition: all 0.3s;
-    }
-
-    .cartAllDeleteBtn:hover {
-      color: rgb(188, 187, 180, 1);
     }
   }
 

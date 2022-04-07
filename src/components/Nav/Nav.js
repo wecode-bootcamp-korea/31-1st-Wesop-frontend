@@ -8,10 +8,14 @@ import './Nav.scss';
 
 const Nav = () => {
   const [loginedUserInfo, setLoginedUserInfo] = useState({});
+  // TODO: 임시 홍길동 지우기
+  // const [loginedUserInfo, setLoginedUserInfo] = useState({
+  //   email: 'Test',
+  //   lastName: '홍',
+  //   firstName: '길동',
+  // });
   const [showingLoginModal, setShowingLoginModal] = useState(false);
   const [showingCartModal, setShowingCartModal] = useState(false);
-  // TODO: 잘되면 삭제
-  // const [cartList, setCartList] = useState([]);
 
   const clearLoginedUserInfo = () => {
     setLoginedUserInfo({
@@ -43,13 +47,12 @@ const Nav = () => {
     setShowingCartModal(false);
   };
 
-  // TODO: 잘되면 삭제
-  // const cartListHandler = data => {
-  //   setCartList(data);
-  // };
-
   const loginedUserInfoHandler = userInfo => {
     setLoginedUserInfo(userInfo);
+  };
+
+  const alertRecommendLogin = () => {
+    alert('카트기능을 이용하시려면 로그인 해주세요.');
   };
 
   return (
@@ -88,7 +91,10 @@ const Nav = () => {
           <button
             className="openCartModalBtn"
             type="button"
-            onClick={openLoginModalHandler}
+            onClick={() => {
+              openLoginModalHandler();
+              alertRecommendLogin();
+            }}
           >
             카트
           </button>
@@ -110,7 +116,7 @@ const Nav = () => {
       {showingCartModal ? (
         <ModalOverLay
           onCloseCartModal={closeCartModalHandler}
-          onCLoseLoginModal={closeLoginModalHandler}
+          onCloseLoginModal={closeLoginModalHandler}
         />
       ) : (
         ''
@@ -126,7 +132,7 @@ const Nav = () => {
       {showingLoginModal ? (
         <ModalOverLay
           onCloseCartModal={closeCartModalHandler}
-          onCLoseLoginModal={closeLoginModalHandler}
+          onCloseLoginModal={closeLoginModalHandler}
         />
       ) : (
         ''

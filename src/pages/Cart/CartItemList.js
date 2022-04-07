@@ -1,49 +1,71 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './CartItemList.scss';
+import { CART_SERVER_ADDRESS } from '../../config/config';
+import { DETAIL_SERVER_ADDRESS } from '../../config/config';
+
 const CartItemList = ({
   cartItem,
-  cartList,
-  onChangeCartList,
+  deletedCartItemToServer,
   onAddToTotalPrice,
+  getRemoteCartList,
 }) => {
-  console.log(cartItem);
+  const { cartMainAddress } = CART_SERVER_ADDRESS;
+  const { mainDescription } = DETAIL_SERVER_ADDRESS;
 
-  // productId, cartId ,productName, productSize, quantity, totalPrice
+  // const { productId, cartId ,productName, productSize, quantity, totalPrice } = cartItem
+
   ///////////////////////////////////////////////////////
-  // 수량 하나 추가 버튼기능
+  // 수량 조절 기능
+  const editItemQuantityInCart = modifiedQuantity => {
+    const cartIdInFunc = cartItem.cartId;
 
-  ///////////////////////////////////////////////////////
-  // 수량 하나 제거 버튼기능
+    fetch(cartMainAddress, {
+      method: 'PATCH',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        cart_id: cartIdInFunc,
+        quantity: modifiedQuantity,
+      }),
+    }).then(getRemoteCartList());
+  };
 
-  /////////////////////////////////////////////////////////
+  const plusOneItemQuantity = () => {
+    editItemQuantityInCart(cartItem.quantity + 1);
+  };
+
+  const minusOneItemQuantity = () => {
+    editItemQuantityInCart(cartItem.quantity - 1);
+  };
 
   useEffect(() => {
     onAddToTotalPrice(cartItem.totalPrice);
   }, []);
-
-  //////////////////////////////////////////////////////
+  // TODO: 체크
+  // }, [cartItem]);
 
   const deleteItemInList = () => {
-    const newList = cartList.filter(item => {
-      return item.productId !== cartItem.productId;
-    });
-    onChangeCartList(newList);
+    deletedCartItemToServer(cartItem.cartId);
   };
 
-  /////////////////////////////////////////////////////
   return (
     <li className="cartProductListItems">
       <div className="carProductItemInner">
         <div className="productName">
-          {/* <a href="TODO:상품주소 템플릿 리터럴로 만들어서 넣어야됨">{productName}</a> */}
-          <a href="http://naver.com">{cartItem.productName}</a>
+          <a href={`${mainDescription}${cartItem.productId}`}>
+            {cartItem.productName}
+          </a>
         </div>
         <div className="productVolume">
           <span>{cartItem.productSize}</span>
         </div>
 
         <div className="productQuantity">
-          <button className="productQuantityBtn oneMinusBtn">
+          <button
+            className="productQuantityBtn oneMinusBtn"
+            onClick={minusOneItemQuantity}
+          >
             <i className="fa-solid fa-minus" />
           </button>
 
@@ -54,7 +76,10 @@ const CartItemList = ({
             readOnly={true}
           />
 
-          <button className="productQuantityBtn onePlustBtn">
+          <button
+            className="productQuantityBtn onePlustBtn"
+            onClick={plusOneItemQuantity}
+          >
             <i className="fa-solid fa-plus" />
           </button>
 

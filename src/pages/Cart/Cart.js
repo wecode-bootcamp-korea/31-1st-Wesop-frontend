@@ -3,52 +3,32 @@ import CartItemList from './CartItemList';
 import { CART_SERVER_ADDRESS } from '../../config/config';
 import './Cart.scss';
 
+const { cartMainAddress } = CART_SERVER_ADDRESS;
+
 const Cart = ({ onCloseCartModal }) => {
   const [cartList, setCartList] = useState([]);
   const [cartListTotalPrice, setCartListTotalPrice] = useState(0);
-  const { cartMainAddress } = CART_SERVER_ADDRESS;
 
-  const postLocalCartList = () => {
+  const getRemoteCartList = () => {
     fetch(cartMainAddress, {
-      method: 'POST',
+      method: 'GET',
       headers: {
         Authorization: localStorage.getItem('token'),
       },
-      // body: JSON.stringify({ product_id: 1 }),
     })
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => {
+        setCartList(res.message);
+      });
   };
-  ///////////////////////////////////////////
-  ///////////////////////////////////////////
 
-  ///////////////////////////// 서버에 cartId를 보내서 해당 한줄 지워버리는 기능
-  ///////////////////////////// 전체 삭제 할때는 cartId 전부 보내서 지우는 식으로
-  // const postDeletedCartItemToServer = () => {
-  //   fetch(cartMainAddress, {
-  //     method: 'POST',
-  //     headers: {
-  //       Authorization: localStorage.getItem('token'),
-  //     },
-  //     body: JSON.stringify({ product_id: 100 }),
-  //   }).then(res => console.log(res));
-  // };
-
-  //////////////////////////// 서버에 받아오는거
-
-  const getRemoteCartList = () => {
-    // fetch(cartMainAddress, {
-    fetch('http://localhost:3000/data/cart_list.json', {
-      method: 'GET',
-      // headers: {
-      //   Authorization: localStorage.getItem('token'),
-      // },
-    });
-    // .then(res => console.log(res));
-    // .then(res => res.json())
-    // .then(res => {
-    //   setCartList(res.message);
-    // });
+  const deletedCartItemToServer = deleteProductId => {
+    fetch(`${cartMainAddress}?cart_id=${deleteProductId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+    }).then(getRemoteCartList());
   };
 
   useEffect(() => {
@@ -65,9 +45,9 @@ const Cart = ({ onCloseCartModal }) => {
     <div className="cart">
       <div className="cartProducts">
         <div className="cartHeader">
-          <div className="cartHeaderTitleLabel">카트</div>
-          <div className="cartHeaderSizeLabel">사이즈</div>
-          <div className="cartHeaderProductLabel">수량</div>
+          <span className="cartHeaderTitleLabel">카트</span>
+          <span className="cartHeaderSizeLabel">사이즈</span>
+          <span className="cartHeaderProductLabel">수량</span>
           <button
             className="cartHeaderCloseBtn"
             type="button"
@@ -77,25 +57,17 @@ const Cart = ({ onCloseCartModal }) => {
           </button>
         </div>
         <ul className="cartProductList">
-          {cartList.map(cartItem => (
-            <CartItemList
-              key={cartItem.productId}
-              cartItem={cartItem}
-              cartList={cartList}
-              cartListTotalPrice={cartListTotalPrice}
-              onAddToTotalPrice={addPriceToCartListTotalPriceHandler}
-            />
-          ))}
+          {cartList !== 'INVALID_USER' &&
+            cartList.map(cartItem => (
+              <CartItemList
+                key={cartItem.productId}
+                cartItem={cartItem}
+                deletedCartItemToServer={deletedCartItemToServer}
+                onAddToTotalPrice={addPriceToCartListTotalPriceHandler}
+                getRemoteCartList={getRemoteCartList}
+              />
+            ))}
         </ul>
-      </div>
-      <div className="cartAllDelete">
-        <button
-          className="cartAllDeleteBtn"
-          // onClick={removeAllCartItemsHandler}
-          onClick={getRemoteCartList}
-        >
-          전체삭제
-        </button>
       </div>
       <div className="cartSummary">
         <div className="cartSummaryMsg">

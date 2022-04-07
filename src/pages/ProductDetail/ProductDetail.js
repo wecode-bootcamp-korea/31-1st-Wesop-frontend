@@ -92,7 +92,7 @@ const ProductDetail = () => {
               <i className="fa-solid fa-angle-left" />
             </button>
             <button className="next" onClick={nextSlide}>
-              <i class="fa-solid fa-angle-right" />
+              <i className="fa-solid fa-angle-right" />
             </button>
           </div>
           <div className="subProductDetailAside">
