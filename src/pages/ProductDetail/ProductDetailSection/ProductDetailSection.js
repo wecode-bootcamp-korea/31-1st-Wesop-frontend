@@ -4,7 +4,7 @@ import './ProductDetailSection.scss';
 import { CART_SERVER_ADDRESS } from '../../../config/config';
 
 function ProductDetailSection({ mainDescription, changeModalHandler }) {
-  const { category, name, descriptrion, size, price, product_imges } =
+  const { category, name, description, size, price, product_imges } =
     mainDescription;
 
   const { cartMainAddress } = CART_SERVER_ADDRESS;
@@ -36,7 +36,6 @@ function ProductDetailSection({ mainDescription, changeModalHandler }) {
             <Link to="/" className="categoryLink">
               스킨
             </Link>
-            <li />
             <Link to="/" className="subCategoryLink">
               {category}
             </Link>
@@ -44,13 +43,18 @@ function ProductDetailSection({ mainDescription, changeModalHandler }) {
         </div>
         <div>
           <p className="productDetailName">{name}</p>
-          <p className="productDescription">{descriptrion}</p>
-          {PRODUCT_CONTENT.map(data => (
-            <div className="productInformation" key={data.id}>
-              <p>{data.content}</p>
-              <p>{mainDescription[data.name]}</p>
-            </div>
-          ))}
+          <p className="productDescription">{description}</p>
+          {PRODUCT_CONTENT.map(data => {
+            return (
+              <div className="productInformation" key={data.id}>
+                <p>{data.content}</p>
+                {mainDescription[data.name] && (
+                  <p>{mainDescription[data.name].join(', ')}</p>
+                )}
+              </div>
+            );
+          })}
+
           <i
             onClick={changeModalHandler}
             className="fa-regular fa-square-plus"
@@ -65,7 +69,7 @@ function ProductDetailSection({ mainDescription, changeModalHandler }) {
                 className="shoppingCartButton"
                 onClick={addItemToServerCartHandler}
               >
-                카트에 추가하기 - ₩ {price}
+                카트에 추가하기 - ₩ {Number(price).toLocaleString()}
               </button>
             </div>
           </div>

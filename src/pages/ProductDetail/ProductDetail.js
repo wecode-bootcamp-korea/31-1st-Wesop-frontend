@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ProductDetailSection from './ProductDetailSection/ProductDetailSection';
 import ProductDetailService from './ProductDetailService/ProductDetailService';
 import ProductDetailArticle from './ProductDetailArticle/ProductDetailArticle';
 import ProductDetailAside from './ProductDetailAside/ProductDetailAside';
 import ProductDetailModal from './ProductDetailModal/ProductDetailModal';
+import API from '../../config/config';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
@@ -12,6 +14,8 @@ const ProductDetail = () => {
   const [bottmScrollDescription, setBottmScrollDescription] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const params = useParams();
 
   const slideRef = useRef(null);
   const indicatorRef = useRef(null);
@@ -45,19 +49,19 @@ const ProductDetail = () => {
   });
 
   useEffect(() => {
-    fetch('data/mainDescription.json')
+    fetch(`${API.mainDescription}${params.id}`)
       .then(res => res.json())
       .then(data => {
-        setMainDescription(data[0]);
-        setSubDescription(data[1]);
+        setMainDescription(data.result[0]);
+        setSubDescription(data.result[1]);
       });
   }, []);
 
   useEffect(() => {
-    fetch('data/bottomDescription.json')
+    fetch(`${API.bottomDescription}${params.id}`)
       .then(res => res.json())
       .then(data => {
-        setBottmScrollDescription(data);
+        setBottmScrollDescription(data.result);
       });
   }, []);
 
@@ -73,7 +77,7 @@ const ProductDetail = () => {
       <div className="productDetailBackground">
         <img
           className="productDetailLogo"
-          src="images/productDetail/Wesop.png"
+          src="/images/productDetail/Wesop.png"
           alt="스킨"
         />
 

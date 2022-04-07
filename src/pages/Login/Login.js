@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LoginCard from '../';
 
 const Login = ({ onCloseLoginModal, onSetLoginedUserInfo }) => {
   const [loginMode, setLoginMode] = useState('main');
