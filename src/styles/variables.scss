@@ -11,8 +11,22 @@ $font-medium: 24px;
 $font-regular: 16px;
 $font-small: 14px;
 
+$loadEffect: 1.2s ease-in-out loadEffect;
+
 @mixin center($display: flex, $justify-content: center, $align-items: center) {
   display: $display;
   justify-content: $justify-content;
   align-items: $align-items;
+}
+
+@keyframes loadEffect {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

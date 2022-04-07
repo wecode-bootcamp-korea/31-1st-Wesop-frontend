@@ -35,6 +35,10 @@ const NAV_CATEGORY_LIST = [
     id: 9,
     categoryName: '스토어',
   },
+  {
+    id: 10,
+    categoryName: '검색',
+  },
 ];
 
 export default NAV_CATEGORY_LIST;

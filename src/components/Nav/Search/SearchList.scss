@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+
+.searchList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 15vh;
+    padding: 20px;
+
+    .listTitle {
+      font-size: $font-regular;
+      margin-bottom: 20px;
+    }
+
+    .searchListWrapper {
+      animation: $loadEffect;
+
+      .searchItem {
+        margin-bottom: 10px;
+        font-size: $font-small;
+        cursor: pointer;
+      }
+
+      .searchItem:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
