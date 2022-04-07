@@ -1,10 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductDetailSection.scss';
+import { CART_SERVER_ADDRESS } from '../../../config/config';
 
 function ProductDetailSection({ mainDescription, changeModalHandler }) {
   const { category, name, description, size, price, product_imges } =
     mainDescription;
+
+  const { cartMainAddress } = CART_SERVER_ADDRESS;
+
+  const postItemToCartInServer = () => {
+    fetch(cartMainAddress, {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+      body: JSON.stringify({ product_id: 20 }),
+    });
+  };
+
+  const addItemToServerCartHandler = () => {
+    if (!localStorage.getItem('token')) {
+      alert('장바구니 기능을 이용하시려면 로그인 해주세요.');
+    } else {
+      postItemToCartInServer();
+    }
+  };
+
   return (
     <div className="productDetailSection">
       <img className="productDetailImg" src={product_imges} alt="스킨" />
@@ -43,7 +65,10 @@ function ProductDetailSection({ mainDescription, changeModalHandler }) {
               <p>{size}</p>
             </div>
             <div>
-              <button className="shoppingCartButton">
+              <button
+                className="shoppingCartButton"
+                onClick={addItemToServerCartHandler}
+              >
                 카트에 추가하기 - ₩ {Number(price).toLocaleString()}
               </button>
             </div>

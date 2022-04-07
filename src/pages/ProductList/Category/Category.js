@@ -3,7 +3,8 @@ import Product from './Product/Product';
 import './Category.scss';
 
 const Category = ({
-  category: { categoryId, categoryName, categoryDescription, products },
+  category: { categoryId, categoryName, categoryDescription },
+  products,
 }) => {
   const [counter, setCounter] = useState(0);
 
@@ -46,9 +47,15 @@ const Category = ({
           className="products"
           style={{ transform: `translateX(-${27 * counter}%)` }}
         >
-          {products.map(product => {
-            return <Product key={product.productId} {...product} />;
-          })}
+          {products &&
+            products.map(({ id, badge, productName, size, price, url }) => {
+              return (
+                <Product
+                  key={id}
+                  product={{ badge, productName, size, price, url }}
+                />
+              );
+            })}
         </div>
         {showLeftBtn && (
           <div className="carouselLeft">

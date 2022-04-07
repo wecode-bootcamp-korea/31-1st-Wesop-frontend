@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ModalOverLay.scss';
 
-const ModalOverLay = ({ children }) => {
+const ModalOverLay = ({ children, onCloseLoginModal, onCloseCartModal }) => {
+  useEffect(() => {
+    document.body.style.cssText = `
+      position: fixed; 
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.cssText = '';
+      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+    };
+  }, []);
+
+  const closeModal = () => {
+    onCloseLoginModal();
+    onCloseCartModal();
+  };
+
   return (
-    <div
-      className="modalOverLay"
-      // TODO: 모달창 바깥부분 눌렀을때 모달창이 닫힐수 있게 onClick 이벤트 설정해주시면 됩니다.
-    >
+    <div className="modalOverLay" onClick={closeModal}>
       {children}
     </div>
   );
