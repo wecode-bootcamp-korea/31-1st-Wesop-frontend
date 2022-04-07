@@ -44,7 +44,7 @@ function ProductDetailSection({ mainDescription, changeModalHandler }) {
             </div>
             <div>
               <button className="shoppingCartButton">
-                카트에 추가하기 - ₩ {price}
+                카트에 추가하기 - ₩ {Number(price).toLocaleString()}
               </button>
             </div>
           </div>
