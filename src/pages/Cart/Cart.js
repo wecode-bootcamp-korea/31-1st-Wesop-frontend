@@ -24,18 +24,12 @@ const Cart = ({ onCloseCartModal }) => {
   };
 
   const deletedCartItemToServer = deleteProductId => {
-    fetch(`${cartMainAddress}/cart/?cart_id=${deleteProductId}`, {
+    fetch(`${cartMainAddress}?cart_ids=${deleteProductId}`, {
       method: 'DELETE',
       headers: {
         Authorization: localStorage.getItem('token'),
       },
-    }).then(setTimeout(() => getRemoteCartList(), 500));
-  };
-
-  const deleteAllCartItemsInServerHandler = () => {
-    for (let i = 0; i < cartList.length; i++) {
-      deletedCartItemToServer(cartList[i].productId);
-    }
+    }).then(setTimeout(() => getRemoteCartList(), 300));
   };
 
   const addPriceToCartListTotalPriceHandler = price => {
@@ -72,17 +66,10 @@ const Cart = ({ onCloseCartModal }) => {
                 deletedCartItemToServer={deletedCartItemToServer}
                 onAddToTotalPrice={addPriceToCartListTotalPriceHandler}
                 getRemoteCartList={getRemoteCartList}
+                cartList={cartList}
               />
             ))}
         </ul>
-      </div>
-      <div className="cartAllDelete">
-        <button
-          className="cartAllDeleteBtn"
-          onClick={deleteAllCartItemsInServerHandler}
-        >
-          전체삭제
-        </button>
       </div>
       <div className="cartSummary">
         <div className="cartSummaryMsg">

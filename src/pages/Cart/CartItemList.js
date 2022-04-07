@@ -4,6 +4,7 @@ import { CART_SERVER_ADDRESS } from '../../config/config';
 import { DETAIL_SERVER_ADDRESS } from '../../config/config';
 
 const CartItemList = ({
+  cartList,
   cartItem,
   deletedCartItemToServer,
   onAddToTotalPrice,
@@ -25,7 +26,7 @@ const CartItemList = ({
       body: JSON.stringify({
         quantity: modifiedQuantity,
       }),
-    }).then(setTimeout(() => getRemoteCartList(), 500));
+    }).then(setTimeout(() => getRemoteCartList(), 300));
   };
 
   const plusOneItemQuantity = () => {
@@ -38,7 +39,7 @@ const CartItemList = ({
 
   useEffect(() => {
     onAddToTotalPrice(totalPrice);
-  }, []);
+  }, [cartList]);
 
   const deleteItemInList = () => {
     deletedCartItemToServer(cartId);
