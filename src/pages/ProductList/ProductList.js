@@ -41,6 +41,7 @@ const ProductList = () => {
     navigate(queryString);
   };
 
+  console.log(categoryInfo);
   const productsForEachCategory = id =>
     productList.filter(product => product.category.categoryId === id);
 
