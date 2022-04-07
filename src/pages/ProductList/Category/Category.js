@@ -11,7 +11,6 @@ const Category = ({
     setCounter(counter - 1);
   };
 
-  console.log(products);
   const rightBtnClickHandler = () => {
     setCounter(counter + 1);
   };

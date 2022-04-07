@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SearchList from './SearchList';
-import API from '../../../config/config';
 import './Search.scss';
 
 const Search = () => {
@@ -15,7 +14,7 @@ const Search = () => {
   const decodeLocation = decodeURI(location.search);
 
   useEffect(() => {
-    fetch(API.allProducts`${decodeLocation}`)
+    fetch(`http://10.58.4.196:8000/products${decodeLocation}`)
       .then(res => res.json())
       .then(data => setSearchData(data));
   }, [decodeLocation]);

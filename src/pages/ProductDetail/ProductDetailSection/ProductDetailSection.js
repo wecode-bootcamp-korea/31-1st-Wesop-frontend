@@ -7,7 +7,6 @@ function ProductDetailSection({ mainDescription, changeModalHandler, params }) {
   const { category, name, description, size, price, product_imges } =
     mainDescription;
   const postItemToCartInServer = () => {
-    console.log(params);
     fetch(API.cartMainAddress, {
       method: 'POST',
       headers: {

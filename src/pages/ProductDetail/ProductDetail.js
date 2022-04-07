@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ProductDetailSection from './ProductDetailSection/ProductDetailSection';
 import ProductDetailService from './ProductDetailService/ProductDetailService';
 import ProductDetailArticle from './ProductDetailArticle/ProductDetailArticle';
@@ -15,6 +15,7 @@ const ProductDetail = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const params = useParams();
+  const navigate = useNavigate();
 
   const slideRef = useRef(null);
   const indicatorRef = useRef(null);
@@ -64,6 +65,10 @@ const ProductDetail = () => {
       });
   }, []);
 
+  const goToMain = () => {
+    navigate('/');
+  };
+
   return (
     <div>
       {showModal ? (
@@ -78,6 +83,7 @@ const ProductDetail = () => {
           className="productDetailLogo"
           src="/images/productDetail/Wesop.png"
           alt="스킨"
+          onClick={goToMain}
         />
 
         <ProductDetailSection
