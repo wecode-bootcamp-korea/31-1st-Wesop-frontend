@@ -17,29 +17,36 @@ const Cart = ({ onCloseCartModal }) => {
       },
     })
       .then(res => res.json())
+      .then(setCartListTotalPrice(0))
       .then(res => {
         setCartList(res.message);
       });
   };
 
   const deletedCartItemToServer = deleteProductId => {
-    fetch(`${cartMainAddress}?cart_id=${deleteProductId}`, {
+    fetch(`${cartMainAddress}/cart/?cart_id=${deleteProductId}`, {
       method: 'DELETE',
       headers: {
         Authorization: localStorage.getItem('token'),
       },
-    }).then(getRemoteCartList());
+    }).then(setTimeout(() => getRemoteCartList(), 500));
   };
 
-  useEffect(() => {
-    getRemoteCartList();
-  }, []);
+  const deleteAllCartItemsInServerHandler = () => {
+    for (let i = 0; i < cartList.length; i++) {
+      deletedCartItemToServer(cartList[i].productId);
+    }
+  };
 
   const addPriceToCartListTotalPriceHandler = price => {
     setCartListTotalPrice(
       prevcartListTotalPrice => (prevcartListTotalPrice += price)
     );
   };
+
+  useEffect(() => {
+    getRemoteCartList();
+  }, []);
 
   return (
     <div className="cart">
@@ -58,9 +65,9 @@ const Cart = ({ onCloseCartModal }) => {
         </div>
         <ul className="cartProductList">
           {cartList !== 'INVALID_USER' &&
-            cartList.map(cartItem => (
+            cartList.map((cartItem, { productId }) => (
               <CartItemList
-                key={cartItem.productId}
+                key={productId}
                 cartItem={cartItem}
                 deletedCartItemToServer={deletedCartItemToServer}
                 onAddToTotalPrice={addPriceToCartListTotalPriceHandler}
@@ -68,6 +75,14 @@ const Cart = ({ onCloseCartModal }) => {
               />
             ))}
         </ul>
+      </div>
+      <div className="cartAllDelete">
+        <button
+          className="cartAllDeleteBtn"
+          onClick={deleteAllCartItemsInServerHandler}
+        >
+          전체삭제
+        </button>
       </div>
       <div className="cartSummary">
         <div className="cartSummaryMsg">

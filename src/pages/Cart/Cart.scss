@@ -55,6 +55,23 @@
     }
   }
 
+  .cartAllDelete {
+    padding: 10px 0 0 0;
+    .cartAllDeleteBtn {
+      position: absolute;
+      right: 45px;
+
+      background-color: transparent;
+      border: none;
+      color: rgb(188, 187, 180, 0.5);
+      transition: all 0.3s;
+    }
+
+    .cartAllDeleteBtn:hover {
+      color: rgb(188, 187, 180, 1);
+    }
+  }
+
   .cartSummary {
     padding: 15px 0 40px 0;
 

@@ -7,13 +7,13 @@ import NAV_CATEGORY_LIST from './navCategoryData';
 import './Nav.scss';
 
 const Nav = () => {
-  const [loginedUserInfo, setLoginedUserInfo] = useState({});
+  // const [loginedUserInfo, setLoginedUserInfo] = useState({});
   // TODO: 임시 홍길동 지우기
-  // const [loginedUserInfo, setLoginedUserInfo] = useState({
-  //   email: 'Test',
-  //   lastName: '홍',
-  //   firstName: '길동',
-  // });
+  const [loginedUserInfo, setLoginedUserInfo] = useState({
+    email: 'Test',
+    lastName: '홍',
+    firstName: '길동',
+  });
   const [showingLoginModal, setShowingLoginModal] = useState(false);
   const [showingCartModal, setShowingCartModal] = useState(false);
 
