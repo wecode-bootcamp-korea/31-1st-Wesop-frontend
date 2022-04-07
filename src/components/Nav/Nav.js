@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavMenu from './Menu/NavMenu';
 import Search from './Search/Search';
 import Login from '../../pages/Login/Login';
@@ -23,6 +23,15 @@ const Nav = () => {
       firstName: '',
       lastName: '',
     });
+  };
+
+  const alertRecommendLogin = () => {
+    alert('카트기능을 이용하시려면 로그인 해주세요.');
+  };
+
+  const showMessageCantOpenModal = () => {
+    openLoginModalHandler();
+    alertRecommendLogin();
   };
 
   const logoutHandler = () => {
@@ -58,6 +67,16 @@ const Nav = () => {
     setMenu('');
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      setIsLogined(true);
+    } else if (!token) {
+      setIsLogined(false);
+    }
+  }, [loginedUserInfo]);
+
   return (
     <div className="Nav">
       <div className="navWrapper">
@@ -75,8 +94,9 @@ const Nav = () => {
             </span>
           )}
         </div>
+
         <div className="navUserCategory">
-          {loginedUserInfo.email ? (
+          {isLogined ? (
             <span className="loginedUserName">
               {loginedUserInfo.lastName}
               {loginedUserInfo.firstName}
@@ -90,21 +110,26 @@ const Nav = () => {
               로그인
             </button>
           )}
-          {loginedUserInfo.email ? (
-            <button className="openCartModalBtn" type="button">
+
+          {isLogined ? (
+            <button
+              className="openCartModalBtn"
+              type="button"
+              onClick={openCartModalHandler}
+            >
               카트
             </button>
           ) : (
             <button
               className="openCartModalBtn"
               type="button"
-              onClick={openLoginModalHandler}
+              onClick={showMessageCantOpenModal}
             >
               카트
             </button>
           )}
 
-          {loginedUserInfo.email ? (
+          {isLogined ? (
             <button className="logOutBtn" onClick={logoutHandler}>
               로그아웃
             </button>
@@ -112,6 +137,19 @@ const Nav = () => {
             ''
           )}
         </div>
+        {showingCartModal ? (
+          <Cart onCloseCartModal={closeCartModalHandler} />
+        ) : (
+          ''
+        )}
+        {showingCartModal ? (
+          <ModalOverLay
+            onCloseCartModal={closeCartModalHandler}
+            onCloseLoginModal={closeLoginModalHandler}
+          />
+        ) : (
+          ''
+        )}
       </div>
 
       {menu === '스킨 케어' && <NavMenu menuHandler={menuHandler} />}
