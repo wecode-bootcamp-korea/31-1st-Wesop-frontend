@@ -14,7 +14,7 @@ const Main = () => {
   return (
     <div className="main">
       <MainVideo />
-      <MainCarousel />
+      <MainCarousel category="토너" />
       <BaseInfo
         subtitle={subtitle}
         title={title}
