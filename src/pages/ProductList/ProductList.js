@@ -27,7 +27,7 @@ const ProductList = () => {
   }, [location.search]);
 
   const categoryUrl =
-    location.search === '' ? '' : `${location.search.slice(13)}`;
+    location.search === '' ? '' : `/${location.search.slice(13)}`;
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);
@@ -57,7 +57,6 @@ const ProductList = () => {
               모든 스킨
             </button>
           </li>
-
           {CATEGORY_LIST.map(({ categoryId, categoryName }) => {
             return (
               <li key={categoryId} className="filterSubNavList">
@@ -93,21 +92,22 @@ const ProductList = () => {
       {isFilterOpen && <FilterOpen />}
       {location.search === '' ? (
         <main className="mainContent">
-          {categoryInfo.map(
-            ({ categoryId, categoryName, categoryDescription }) => {
-              return (
-                <Category
-                  key={categoryId}
-                  category={{
-                    categoryId,
-                    categoryName,
-                    categoryDescription,
-                  }}
-                  products={products(categoryId)}
-                />
-              );
-            }
-          )}
+          {categoryInfo &&
+            categoryInfo.map(
+              ({ categoryId, categoryName, categoryDescription }) => {
+                return (
+                  <Category
+                    key={categoryId}
+                    category={{
+                      categoryId,
+                      categoryName,
+                      categoryDescription,
+                    }}
+                    products={products(categoryId)}
+                  />
+                );
+              }
+            )}
         </main>
       ) : (
         <CategoryList categoryInfo={categoryInfo} productList={productList} />
