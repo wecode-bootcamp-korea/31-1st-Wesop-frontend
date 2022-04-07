@@ -9,6 +9,7 @@ const MenuCategory = ({ menuHandler }) => {
 
   const categoryHandler = () => {
     navigate('/product-list');
+    menuHandler('');
   };
 
   return (
@@ -16,14 +17,7 @@ const MenuCategory = ({ menuHandler }) => {
       <ul className="categoryList">
         <li className="categoryTitle">카테고리</li>
         {CATEGORY_LIST.map(({ name }) => (
-          <li
-            key={name}
-            className="listItem"
-            onClick={() => {
-              categoryHandler();
-              menuHandler('');
-            }}
-          >
+          <li key={name} className="listItem" onClick={categoryHandler}>
             {name}
           </li>
         ))}

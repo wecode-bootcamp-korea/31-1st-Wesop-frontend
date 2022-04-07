@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SearchList from './SearchList';
+import API from '../../../config/config';
 import './Search.scss';
 
 const Search = () => {
@@ -14,7 +15,7 @@ const Search = () => {
   const decodeLocation = decodeURI(location.search);
 
   useEffect(() => {
-    fetch(`http://10.58.4.167:8000/products${decodeLocation}`)
+    fetch(API.allProducts`${decodeLocation}`)
       .then(res => res.json())
       .then(data => setSearchData(data));
   }, [decodeLocation]);
@@ -23,13 +24,10 @@ const Search = () => {
     setSearchInput(e.target.value);
   };
 
-  const queryHandler = () => {
+  const onButtonClick = boolean => {
     const queryString = decodeURI(`?search=${searchInput}`);
-    navigate(`/${queryString}`);
-  };
-
-  const listHandler = boolean => {
     setShowList(boolean);
+    navigate(`/${queryString}`);
   };
 
   return (
@@ -43,14 +41,7 @@ const Search = () => {
             type="text"
             onChange={inputHandler}
           />
-          <button
-            className="searchBtn"
-            type="button"
-            onClick={() => {
-              listHandler(true);
-              queryHandler();
-            }}
-          >
+          <button className="searchBtn" type="button" onClick={onButtonClick}>
             →
           </button>
         </div>

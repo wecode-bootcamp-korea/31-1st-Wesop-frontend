@@ -10,7 +10,8 @@ const SearchList = ({ searchData }) => {
     setListHover(boolean);
   };
 
-  const imageHandler = value => {
+  const mouseOverHandler = value => {
+    setListHover(true);
     setProductURL(value);
   };
 
@@ -24,10 +25,7 @@ const SearchList = ({ searchData }) => {
               <li
                 key={id}
                 className="searchItem"
-                onMouseOver={() => {
-                  hoverHandler(true);
-                  imageHandler(url[0]);
-                }}
+                onMouseOver={() => mouseOverHandler(url[0])}
               >
                 {productName}
               </li>

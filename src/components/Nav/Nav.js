@@ -42,6 +42,10 @@ const Nav = () => {
     setMenu(value);
   };
 
+  const closeMenu = () => {
+    setMenu('');
+  };
+
   return (
     <div className="Nav">
       <div className="navWrapper">
@@ -54,12 +58,7 @@ const Nav = () => {
             />
           ))}
           {!!menu && (
-            <span
-              className="closeMenu"
-              onClick={() => {
-                menuHandler('');
-              }}
-            >
+            <span className="closeMenu" onClick={closeMenu}>
               닫기 ✕
             </span>
           )}
@@ -79,8 +78,6 @@ const Nav = () => {
               로그인
             </button>
           )}
-
-          {/* TODO: Cart 컴포넌트 제작할때 true일때 버튼에는 onClick이벤트로 카트 모달이 열리게 설정해야 합니다.   */}
           {loginedUserInfo.email ? (
             <button className="openCartModalBtn" type="button">
               카트
