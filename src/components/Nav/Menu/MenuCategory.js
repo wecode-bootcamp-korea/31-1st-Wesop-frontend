@@ -4,7 +4,7 @@ import CATEGORY_LIST from './CATEGORY_LIST';
 import SKIN_TYPE_LIST from './SKIN_TYPE_LIST';
 import './MenuCategory.scss';
 
-const MenuCategory = () => {
+const MenuCategory = ({ menuHandler }) => {
   const navigate = useNavigate();
 
   const categoryHandler = () => {
@@ -16,7 +16,14 @@ const MenuCategory = () => {
       <ul className="categoryList">
         <li className="categoryTitle">카테고리</li>
         {CATEGORY_LIST.map(({ name }) => (
-          <li key={name} className="listItem" onClick={categoryHandler}>
+          <li
+            key={name}
+            className="listItem"
+            onClick={() => {
+              categoryHandler();
+              menuHandler('');
+            }}
+          >
             {name}
           </li>
         ))}

@@ -14,7 +14,7 @@ const Search = () => {
   const decodeLocation = decodeURI(location.search);
 
   useEffect(() => {
-    fetch(`http://10.58.1.236:8000/products${decodeLocation}`)
+    fetch(`http://10.58.4.167:8000/products${decodeLocation}`)
       .then(res => res.json())
       .then(data => setSearchData(data));
   }, [decodeLocation]);

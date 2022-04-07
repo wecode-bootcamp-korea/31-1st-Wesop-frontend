@@ -12,7 +12,7 @@ const SKIN_TYPE_LIST = [
     name: '복합성',
   },
   {
-    name: ' ',
+    name: '  ',
   },
   {
     name: '레인지',

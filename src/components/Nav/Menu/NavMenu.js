@@ -2,13 +2,13 @@ import React from 'react';
 import MenuCategory from './MenuCategory';
 import './NavMenu.scss';
 
-const NavMenu = () => {
+const NavMenu = ({ menuHandler }) => {
   return (
     <div className="NavMenu">
       <div className="menuLogo">
         <img className="logoImage" src="/images/common/Wesop.png" alt="로고" />
       </div>
-      <MenuCategory />
+      <MenuCategory menuHandler={menuHandler} />
       <div className="imageContainer">
         <img
           className="menuImage"

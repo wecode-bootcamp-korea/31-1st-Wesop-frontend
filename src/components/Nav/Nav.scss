@@ -7,41 +7,47 @@
 }
 
 .Nav {
-  display: flex;
-  justify-content: space-between;
-  height: 80px;
-  background-color: $color-dark-gray;
-  color: $color-beige;
-  font-size: $font-small;
+  .navWrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    background-color: $color-dark-gray;
+    color: $color-beige;
+    font-size: $font-small;
 
-  .navMainCategory {
-    @include center($justify-content: space-between);
-    margin-left: 20px;
+    .navMainCategory {
+      @include center($justify-content: space-between);
+      margin-left: 20px;
 
-    .fa-magnifying-glass {
-      margin-left: 13px;
-      font-size: 17px;
+      .fa-magnifying-glass {
+        margin-left: 13px;
+        font-size: 17px;
+      }
+
+      .closeMenu {
+        margin-left: 20px;
+      }
     }
-  }
-  .navUserCategory {
-    @include center;
-    margin-right: 20px;
+    .navUserCategory {
+      @include center;
+      margin-right: 20px;
 
-    .loginedUserName {
-      margin: 0 1vw 0 0;
-      color: $color-beige;
-    }
+      .loginedUserName {
+        margin: 0 1vw 0 0;
+        color: $color-beige;
+      }
 
-    .oepnLoginModalBtn {
-      @include navRightBtnStyle;
-    }
+      .oepnLoginModalBtn {
+        @include navRightBtnStyle;
+      }
 
-    .openCartModalBtn {
-      @include navRightBtnStyle;
-    }
+      .openCartModalBtn {
+        @include navRightBtnStyle;
+      }
 
-    .logOutBtn {
-      @include navRightBtnStyle;
+      .logOutBtn {
+        @include navRightBtnStyle;
+      }
     }
   }
 }

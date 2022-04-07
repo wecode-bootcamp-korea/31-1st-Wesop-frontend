@@ -1,8 +1,12 @@
 import React from 'react';
 import './CategoryElement.scss';
 
-const CategoryElement = ({ categoryName, onOpenLoginModal }) => {
-  return <span className="CategoryElement">{categoryName}</span>;
+const CategoryElement = ({ categoryName, menuHandler }) => {
+  return (
+    <span className="CategoryElement" onClick={() => menuHandler(categoryName)}>
+      {categoryName}
+    </span>
+  );
 };
 
 export default CategoryElement;
