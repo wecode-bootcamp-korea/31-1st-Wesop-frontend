@@ -7,11 +7,11 @@ const Category = ({
   products,
 }) => {
   const [counter, setCounter] = useState(0);
-
   const leftBtnClickHandler = () => {
     setCounter(counter - 1);
   };
 
+  console.log(products);
   const rightBtnClickHandler = () => {
     setCounter(counter + 1);
   };
@@ -53,6 +53,7 @@ const Category = ({
                 <Product
                   key={id}
                   product={{ badge, productName, size, price, url }}
+                  id={id}
                 />
               );
             })}

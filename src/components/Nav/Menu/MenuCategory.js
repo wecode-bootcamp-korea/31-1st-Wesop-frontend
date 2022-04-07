@@ -8,7 +8,7 @@ const MenuCategory = ({ menuHandler }) => {
   const navigate = useNavigate();
 
   const categoryHandler = () => {
-    navigate('/product-list');
+    navigate('/productlist');
     menuHandler('');
   };
 

@@ -14,7 +14,6 @@ const ProductDetail = () => {
   const [bottmScrollDescription, setBottmScrollDescription] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const params = useParams();
 
   const slideRef = useRef(null);

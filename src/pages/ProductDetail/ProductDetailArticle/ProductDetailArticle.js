@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProductDetailArticle.scss';
 function ProductDetailArticle({ subDescription }) {
+  console.log(subDescription);
   return (
     <div className="productDetailArticle">
       <div className="detailArticleImg">

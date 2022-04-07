@@ -1,4 +1,4 @@
-const BASE_URL = 'http://10.58.4.238:8000';
+const BASE_URL = 'http://10.58.4.196:8000';
 const API = {
   loginMainAddress: `${BASE_URL}/users/check`,
   loginSignInAddress: `${BASE_URL}/users/login`,
