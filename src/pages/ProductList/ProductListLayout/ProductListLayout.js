@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BaseInfo from '../../../components/BaseInfo/BaseInfo';
-import Footer from '../../../components/Footer/Footer';
 import './ProductListLayout.scss';
 
 const ProductListLayout = ({ children, productList }) => {
