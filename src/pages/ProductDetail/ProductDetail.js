@@ -5,6 +5,7 @@ import ProductDetailService from './ProductDetailService/ProductDetailService';
 import ProductDetailArticle from './ProductDetailArticle/ProductDetailArticle';
 import ProductDetailAside from './ProductDetailAside/ProductDetailAside';
 import ProductDetailModal from './ProductDetailModal/ProductDetailModal';
+import { DETAIL_SERVER_ADDRESS } from '../../config/config';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
@@ -48,7 +49,7 @@ const ProductDetail = () => {
   });
 
   useEffect(() => {
-    fetch(`http://10.58.4.196:8000/products/${params.id}`)
+    fetch(`${DETAIL_SERVER_ADDRESS.mainDescription}${params.id}`)
       .then(res => res.json())
       .then(data => {
         setMainDescription(data.result[0]);
@@ -57,7 +58,7 @@ const ProductDetail = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://10.58.4.196:8000/products/recommend/${params.id}`)
+    fetch(`${DETAIL_SERVER_ADDRESS.bottomDescription}${params.id}`)
       .then(res => res.json())
       .then(data => {
         setBottmScrollDescription(data.result);

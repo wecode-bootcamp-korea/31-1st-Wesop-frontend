@@ -6,9 +6,9 @@ export const LOGIN_SERVER_ADDRESS = {
   loginSignUpAddress: `${loginServerRootAddress}/users/signup`,
 };
 
-const DetailServerRootAddress = 'http://10.58.5.254:8000';
+const DetailServerRootAddress = 'http://10.58.4.196:8000';
 
 export const DETAIL_SERVER_ADDRESS = {
-  mainDescription: `${DetailServerRootAddress}/products/detail/1`,
-  bottomDescription: `${DetailServerRootAddress}/products/recommend/1`,
+  mainDescription: `${DetailServerRootAddress}/products/`,
+  bottomDescription: `${DetailServerRootAddress}/products/recommend/`,
 };
