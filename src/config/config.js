@@ -1,4 +1,3 @@
-// TODO : 차후에 백앤드 서버 하나로 통합되면 그에 맞춰서 하나로 통일해야합니다.
 const loginServerRootAddress = 'http://10.58.4.238:8000';
 
 export const LOGIN_SERVER_ADDRESS = {
@@ -10,7 +9,7 @@ export const LOGIN_SERVER_ADDRESS = {
 const cartServerRootAddress = 'http://10.58.4.238:8000';
 
 export const CART_SERVER_ADDRESS = {
-  cartMainAddress: `${cartServerRootAddress}/carts`,
+  cartMainAddress: `${cartServerRootAddress}/carts/cart`,
 };
 
 const DetailServerRootAddress = 'http://10.58.5.254:8000';

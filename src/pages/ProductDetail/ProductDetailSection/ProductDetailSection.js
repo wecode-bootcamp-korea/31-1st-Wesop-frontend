@@ -9,8 +9,6 @@ function ProductDetailSection({ mainDescription, changeModalHandler }) {
 
   const { cartMainAddress } = CART_SERVER_ADDRESS;
 
-  // TODO: 이 페이지에 productId가 수현님한테서 받아서 넣을수 있는 상태가 되면 이 밑에 인자로 넣고
-  // 안에 있는 product_id: 안에 value값으로 그 값을 주면 됩니다.
   const postItemToCartInServer = () => {
     fetch(cartMainAddress, {
       method: 'POST',
