@@ -22,20 +22,6 @@ input[type='number']::-webkit-inner-spin-button {
 
     .productName {
       width: 40vw;
-
-      a {
-        text-decoration: none;
-      }
-
-      a:visited {
-        color: $color-light-gray;
-        text-decoration: none;
-      }
-
-      a:link {
-        color: $color-light-gray;
-        text-decoration: none;
-      }
     }
 
     .productVolume {

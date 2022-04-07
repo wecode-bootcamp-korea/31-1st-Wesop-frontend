@@ -84,6 +84,7 @@ const ProductDetail = () => {
         <ProductDetailSection
           mainDescription={mainDescription}
           changeModalHandler={changeModalHandler}
+          params={params}
         />
 
         <ProductDetailService />

@@ -25,6 +25,8 @@ const Nav = () => {
     });
   };
 
+  console.log(loginedUserInfo);
+
   const alertRecommendLogin = () => {
     alert('카트기능을 이용하시려면 로그인 해주세요.');
   };

@@ -57,11 +57,7 @@ const LoginForm = ({
     setLoginError('');
   };
 
-  // const { loginMainAddress, loginSignInAddress, loginSignUpAddress } =
-  //   LOGIN_SERVER_ADDRESS;
-
   const mainEmailInfoSubmit = () => {
-    // fetch(loginMainAddress, {
     fetch(API.loginMainAddress, {
       method: 'POST',
       body: JSON.stringify({
@@ -100,16 +96,15 @@ const LoginForm = ({
     })
       .then(res => res.json())
       .then(res => {
-        const { token, email, userId, firstName, lastName, message } = res;
-
+        const { token, email, user_id, first_Name, last_Name, message } = res;
         const resCondition = {
           SUCCESS: function () {
             localStorage.setItem('token', token);
             onSetLoginedUserInfo({
               email: email,
-              userId: userId,
-              firstName: firstName,
-              lastName: lastName,
+              userId: user_id,
+              firstName: first_Name,
+              lastName: last_Name,
             });
             setLoginError('');
             onClearUserInfo();
@@ -119,7 +114,6 @@ const LoginForm = ({
             setLoginError('wrongPassword');
           },
         };
-
         resCondition[message]();
       });
   };
@@ -137,15 +131,15 @@ const LoginForm = ({
       })
         .then(res => res.json())
         .then(res => {
-          const { token, email, userId, firstName, lastName, message } = res;
+          const { token, email, user_id, first_Name, last_Name, message } = res;
           const resCondition = {
             SUCCESS: function () {
               localStorage.setItem('token', token);
               onSetLoginedUserInfo({
                 email: email,
-                userId: userId,
-                firstName: firstName,
-                lastName: lastName,
+                userId: user_id,
+                firstName: first_Name,
+                lastName: last_Name,
               });
               setLoginError('');
               onClearUserInfo();

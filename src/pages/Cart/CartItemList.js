@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './CartItemList.scss';
-import { CART_SERVER_ADDRESS } from '../../config/config';
-import { DETAIL_SERVER_ADDRESS } from '../../config/config';
+import API from '../../config/config';
 
 const CartItemList = ({
   cartList,
@@ -15,7 +14,7 @@ const CartItemList = ({
 
   const editItemQuantityInCart = modifiedQuantity => {
     const cartIdInFunc = cartId;
-    fetch(`${CART_SERVER_ADDRESS.cartMainAddress}/cart/${cartIdInFunc}`, {
+    fetch(`${API.cartMainAddress}/cart/${cartIdInFunc}`, {
       method: 'PATCH',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -46,9 +45,7 @@ const CartItemList = ({
     <li className="cartProductListItems">
       <div className="carProductItemInner">
         <div className="productName">
-          <a href={`${DETAIL_SERVER_ADDRESS.mainDescription}${productId}`}>
-            {productName}
-          </a>
+          <a href={API.mainDescription`${productId}`}>{productName}</a>
         </div>
         <div className="productVolume">
           <span>{productSize}</span>
