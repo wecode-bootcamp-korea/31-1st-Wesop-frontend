@@ -1,0 +1,21 @@
+.mainPopupSlide {
+  max-height: 100vw;
+}
+
+.mainPopupSlide .mainShampoo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+  width: 100%;
+}
+
+.mainPopupSlide .shampooPopup {
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
+/*# sourceMappingURL=MainPopupSlide.css.map */

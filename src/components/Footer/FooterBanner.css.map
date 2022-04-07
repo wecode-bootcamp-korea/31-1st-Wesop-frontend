@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,aAAa,CAAC;EACZ,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,MAAM;EACf,UAAU,EAAE,GAAG,CAAC,KAAK,CCRT,OAAO;EDSnB,KAAK,ECTO,OAAO;CDmBpB;;AAjBD,AASE,aATW,CASX,wBAAwB,CAAC;EACvB,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;CAKpB;;AAhBH,AAaI,aAbS,CASX,wBAAwB,CAItB,iBAAiB,CAAC;EAChB,SAAS,ECNA,IAAI;CDOd",
+    "sources": [
+        "FooterBanner.scss",
+        "../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "FooterBanner.css"
+}

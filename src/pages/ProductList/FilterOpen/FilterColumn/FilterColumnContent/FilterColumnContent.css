@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.filterColumnContent {
+  padding-bottom: 15px;
+}
+
+.filterColumnContent input[type='checkbox'] {
+  display: none;
+}
+
+.filterColumnContent input[type='checkbox'] + label:before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 15px;
+  border: 1px solid #c9c8be;
+  cursor: pointer;
+}
+
+.filterColumnContent input[type='checkbox']:checked + label::before {
+  content: '✓';
+  width: 14px;
+  height: 14px;
+  margin-right: 15px;
+  border: 1px solid #c9c8be;
+  cursor: pointer;
+}
+/*# sourceMappingURL=FilterColumnContent.css.map */

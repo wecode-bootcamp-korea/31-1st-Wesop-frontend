@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,eAAe,CAAC;EACd,UAAU,EAAE,KAAK;CAYlB;;AAbD,AAGE,eAHa,CAGb,YAAY,CAAC;EACX,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,IAAI;CACZ;;AARH,AAUE,eAVa,CAUb,aAAa,CAAC;EACZ,UAAU,EAAE,qBAAqB;CAClC",
+    "sources": [
+        "MainPopupSlide.scss",
+        "../../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "MainPopupSlide.css"
+}

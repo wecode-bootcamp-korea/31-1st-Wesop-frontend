@@ -1,0 +1,74 @@
+.mainStoreLocator {
+  padding: 150px 0;
+  background-color: #fffef2;
+  overflow-x: hidden;
+}
+
+.mainStoreLocator .twoColumnModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainStoreLocator .twoColumnModule .copy {
+  padding-left: 80px;
+  width: 475px;
+  height: 472px;
+  color: #333333;
+}
+
+.mainStoreLocator .twoColumnModule .copy .title {
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.mainStoreLocator .twoColumnModule .copy .description {
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.mainStoreLocator .twoColumnModule .copy .btnHoverDark {
+  padding: 21px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #fffef2;
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+}
+
+.mainStoreLocator .twoColumnModule .copy .btnHoverDark:hover {
+  background-color: #333333;
+}
+
+.mainStoreLocator .twoColumnModule .copy .btnHoverDark:hover .btnText,
+.mainStoreLocator .twoColumnModule .copy .btnHoverDark:hover .btnIcon {
+  color: #fffef2;
+}
+
+.mainStoreLocator .twoColumnModule .copy .btnHoverDark .btnText,
+.mainStoreLocator .twoColumnModule .copy .btnHoverDark .btnIcon {
+  margin: 0 14px;
+  color: #666666;
+  font-size: 14px;
+}
+
+.mainStoreLocator .twoColumnModule .copy .btnHoverDark .btnText {
+  margin-right: 135px;
+}
+
+.mainStoreLocator .twoColumnModule .imgWrapper {
+  width: 830px;
+  height: 470px;
+  overflow: hidden;
+}
+
+.mainStoreLocator .twoColumnModule .imgWrapper img {
+  width: 100%;
+}
+/*# sourceMappingURL=MainStoreLocator.css.map */

@@ -1,0 +1,70 @@
+.Nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 80px;
+  background-color: #333333;
+  color: #fffef2;
+  font-size: 14px;
+}
+
+.Nav .navMainCategory {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 20px;
+}
+
+.Nav .navMainCategory .fa-magnifying-glass {
+  margin-left: 13px;
+  font-size: 17px;
+}
+
+.Nav .navUserCategory {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+.Nav .navUserCategory .loginedUserName {
+  margin: 0 1vw 0 0;
+  color: #fffef2;
+}
+
+.Nav .navUserCategory .oepnLoginModalBtn {
+  margin: 0 1vw 0 0;
+  border: 0;
+  color: #fffef2;
+  background-color: transparent;
+}
+
+.Nav .navUserCategory .openCartModalBtn {
+  margin: 0 1vw 0 0;
+  border: 0;
+  color: #fffef2;
+  background-color: transparent;
+}
+
+.Nav .navUserCategory .logOutBtn {
+  margin: 0 1vw 0 0;
+  border: 0;
+  color: #fffef2;
+  background-color: transparent;
+}
+/*# sourceMappingURL=Nav.css.map */

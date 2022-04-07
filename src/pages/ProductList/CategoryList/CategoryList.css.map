@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,aAAa,CAAC;EACZ,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;CAmBhB;;AArBD,AAIE,aAJW,CAIX,qBAAqB,CAAC;EACpB,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,SAAS;CAcnB;;AApBH,AAQI,aARS,CAIX,qBAAqB,CAInB,EAAE,CAAC;EACD,MAAM,EAAE,MAAM;EACd,WAAW,EAAE,IAAI;EACjB,SAAS,ECLF,IAAI;EDMX,KAAK,ECTC,OAAO;EDUb,cAAc,EAAE,KAAK;CACtB;;AAdL,AAgBI,aAhBS,CAIX,qBAAqB,CAYnB,CAAC,CAAC;EACA,WAAW,EAAE,GAAG;EAChB,SAAS,ECVA,IAAI;CDWd",
+    "sources": [
+        "CategoryList.scss",
+        "../../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "CategoryList.css"
+}

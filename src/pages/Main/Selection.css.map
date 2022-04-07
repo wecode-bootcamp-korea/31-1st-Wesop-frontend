@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,UAAU,CAAC;EACT,aAAa,EAAE,KAAK;CAQrB;;AATD,AAGE,UAHQ,CAGR,cAAc,CAAC;EACb,OAAO,EAAE,KAAK;EACd,SAAS,ECCA,IAAI;EDAb,KAAK,ECLS,OAAO;EDMrB,SAAS,EAAE,gBAAgB;CAC5B",
+    "sources": [
+        "Selection.scss",
+        "../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "Selection.css"
+}

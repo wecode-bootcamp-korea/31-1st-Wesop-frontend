@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,YAAY,CAAC;EACX,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CAQvB;;AAVD,AAIE,YAJU,CAIV,iBAAiB,CAAC;EAChB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,aAAa,EAAE,GAAG,CAAC,KAAK,CCTd,OAAO;EDUjB,SAAS,ECAE,IAAI;CDChB",
+    "sources": [
+        "FooterBlock.scss",
+        "../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "FooterBlock.css"
+}

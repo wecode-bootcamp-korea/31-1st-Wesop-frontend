@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,qBAAqB,CAAC;EACpB,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,OAAO;EAC9B,cAAc,EAAE,KAAK;CAkBtB;;AArBD,AAKE,qBALmB,CAKnB,4BAA4B,CAAC;EAC3B,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;EACnB,YAAY,EAAE,IAAI;EAClB,aAAa,EAAE,IAAI;EACnB,KAAK,EAAE,OAAO;EACd,YAAY,EAAE,iBAAiB;EAC/B,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,GAAG;CAKjB;;AApBH,AAiBI,qBAjBiB,CAKnB,4BAA4B,CAY1B,YAAY,CAAC;EACX,KAAK,ECjBO,OAAO;CDkBpB",
+    "sources": [
+        "ProductDetailService.scss",
+        "../../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "ProductDetailService.css"
+}

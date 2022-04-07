@@ -1,0 +1,85 @@
+@charset "UTF-8";
+.FooterGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  grid-column-gap: 35px;
+  grid-row-gap: 35px;
+  width: 100%;
+  height: 700px;
+  padding: 40px 34px;
+  color: #fffef2;
+}
+
+.FooterGrid .footerEmail {
+  position: relative;
+}
+
+.FooterGrid .footerEmail .footerEmailInputWrapper .footerEmailInput {
+  width: 100%;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  border: 1px solid #fffef2;
+  border-radius: 2px;
+  background-color: #252525;
+  caret-color: #fffef2;
+  color: #fffef2;
+  font-size: 28px;
+}
+
+.FooterGrid .footerEmail .footerEmailInputWrapper .fa-arrow-right {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.FooterGrid .footerEmail .footerEmailInputWrapper ::-webkit-input-placeholder {
+  color: #fffef2;
+  font-size: 20px;
+}
+
+.FooterGrid .footerEmail .footerEmailPhrase {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.FooterGrid .footerEmail .footerCheckboxWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.FooterGrid .footerEmail .footerCheckboxWrapper input[type='checkbox'] {
+  display: none;
+}
+
+.FooterGrid .footerEmail .footerCheckboxWrapper input[type='checkbox'] + label:before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #fffef2;
+  cursor: pointer;
+}
+
+.FooterGrid .footerEmail .footerCheckboxWrapper input[type='checkbox']:checked + label:before {
+  content: '✓';
+  width: 14px;
+  height: 14px;
+  border: 1px solid #fffef2;
+  cursor: pointer;
+}
+
+.FooterGrid .footerEmail .footerCheckboxWrapper .footerCheckboxPhrase {
+  margin-left: 10px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+/*# sourceMappingURL=FooterGrid.css.map */

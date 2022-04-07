@@ -1,0 +1,126 @@
+.productDetailSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.productDetailSection .productDetailImg {
+  position: relative;
+  left: 200px;
+  top: 40px;
+  width: 220px;
+  height: 440px;
+}
+
+.productDetailSection .productDetailSectionContainer {
+  position: relative;
+  left: 300px;
+  width: 360px;
+  color: #333333;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.productDetailSection .productDetailSectionContainer .productDetailCategory {
+  padding-bottom: 20px;
+}
+
+.productDetailSection .productDetailSectionContainer .productDetailCategory .categoryTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.productDetailSection .productDetailSectionContainer .productDetailCategory .categoryTag .categoryLink {
+  padding-right: 13px;
+}
+
+.productDetailSection .productDetailSectionContainer .productDetailCategory .categoryTag .categoryLink,
+.productDetailSection .productDetailSectionContainer .productDetailCategory .categoryTag .subCategoryLink {
+  color: #333333;
+  text-decoration: none;
+}
+
+.productDetailSection .productDetailSectionContainer .productDetailCategory .categoryTag .categoryLink::after,
+.productDetailSection .productDetailSectionContainer .productDetailCategory .categoryTag .subCategoryLink::after {
+  content: '';
+  display: block;
+  border-bottom: solid 1px black;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.productDetailSection .productDetailSectionContainer .productDetailCategory .categoryTag .categoryLink:hover::after,
+.productDetailSection .productDetailSectionContainer .productDetailCategory .categoryTag .subCategoryLink:hover::after {
+  border-bottom: solid 1px black;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.productDetailSection .productDetailSectionContainer .productDetailCategory .categoryTag .categoryLink::after,
+.productDetailSection .productDetailSectionContainer .productDetailCategory .categoryTag .subCategoryLink::after {
+  -webkit-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+}
+
+.productDetailSection .productDetailSectionContainer .productDetailName {
+  font-size: 2em;
+  font-weight: 350;
+  margin-bottom: 15px;
+}
+
+.productDetailSection .productDetailSectionContainer .productDescription {
+  padding-bottom: 13px;
+  border-bottom: 2px solid black;
+}
+
+.productDetailSection .productDetailSectionContainer .productInformation {
+  padding-top: 15px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #d4d4c9;
+}
+
+.productDetailSection .productDetailSectionContainer .fa-square-plus {
+  position: relative;
+  bottom: 60px;
+  left: 340px;
+  font-size: 20px;
+}
+
+.productDetailSection .productDetailSectionContainer .fa-square-plus:hover {
+  color: white;
+  background-color: black;
+}
+
+.productDetailSection .productModule {
+  position: relative;
+  bottom: 24px;
+}
+
+.productDetailSection .productModule .productSize {
+  padding-top: 15px;
+  padding-bottom: 13px;
+}
+
+.productDetailSection .shoppingCartButton {
+  width: 360px;
+  height: 58px;
+  padding: 20px 15px 20px 15px;
+  color: #fffef2;
+  background-color: #333333;
+  border: none;
+}
+
+.productDetailSection .shoppingCartButton:hover {
+  background-color: black;
+}
+/*# sourceMappingURL=ProductDetailSection.css.map */

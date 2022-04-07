@@ -1,0 +1,59 @@
+.shampooSlide {
+  position: relative;
+  height: 90vh;
+  width: 90vw;
+  background-color: #ebeade;
+  -webkit-transform: translate(0, -130%);
+          transform: translate(0, -130%);
+}
+
+.shampooSlide .popupImage {
+  width: 20vw;
+  height: auto;
+  margin: 4vw;
+}
+
+.shampooSlide .popupBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+}
+
+.shampooSlide .popupBlock .popupTitle {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.shampooSlide .popupBlock .popupHeader {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.shampooSlide .popupBlock .popupDescription {
+  margin-bottom: 20px;
+  font-size: 14px;
+  width: 50vw;
+  line-height: 1.6;
+}
+
+.shampooSlide .closeBtn {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+.shampooSlide .closeBtn .leftArrow {
+  width: 100%;
+  height: auto;
+}
+/*# sourceMappingURL=ShampooSlide.css.map */

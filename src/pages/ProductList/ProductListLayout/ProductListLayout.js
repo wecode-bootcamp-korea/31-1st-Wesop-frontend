@@ -20,7 +20,6 @@ const ProductListLayout = ({ children, productList }) => {
         btnText={btnText}
         imgSrc={imgSrc}
       />
-      <Footer />
     </div>
   );
 };

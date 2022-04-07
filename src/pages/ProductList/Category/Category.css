@@ -1,0 +1,101 @@
+.category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 530px;
+}
+
+.category .productTitleWrapper {
+  width: 22.2%;
+  padding: 40px 20px 71px 40px;
+  word-wrap: break-word;
+  color: #252525;
+}
+
+.category .productTitleWrapper .descriptionBox {
+  margin-top: 200px;
+  padding-bottom: 50px;
+  color: #252525;
+}
+
+.category .productTitleWrapper .descriptionBox .descriptionTitleBtn {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.category .productTitleWrapper .descriptionBox .descriptionText {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.category .productTitleWrapper .subCategoryIntro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.category .productTitleWrapper .subCategoryIntro span {
+  margin-right: 20px;
+}
+
+.category .productBodyScrollable {
+  position: relative;
+  width: 78.8%;
+  height: 100vh;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.category .productBodyScrollable .products {
+  height: 530px;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+.category .productBodyScrollable .carouselLeft,
+.category .productBodyScrollable .carouselRight {
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  background-color: transparent;
+}
+
+.category .productBodyScrollable .carouselLeftBtn,
+.category .productBodyScrollable .carouselRightBtn {
+  width: 80px;
+  height: 80px;
+  background-color: #333333;
+  color: #fffef2;
+  -webkit-transform: translateY(230px);
+          transform: translateY(230px);
+  display: none;
+}
+
+.category .productBodyScrollable .carouselRight {
+  right: 0;
+}
+
+.category .productBodyScrollable .carouselRight:hover .carouselRightBtn {
+  display: block;
+}
+
+.category .productBodyScrollable .carouselLeft:hover .carouselLeftBtn {
+  display: block;
+}
+
+.lightBeige {
+  background-color: #fffef2;
+}
+
+.darkBeige {
+  background-color: #ebeade;
+}
+/*# sourceMappingURL=Category.css.map */

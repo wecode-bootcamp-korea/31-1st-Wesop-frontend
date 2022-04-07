@@ -1,0 +1,12 @@
+.selection {
+  margin-bottom: 200px;
+}
+
+.selection .selectionWord {
+  padding: 0 6vw;
+  font-size: 30px;
+  color: #333333;
+  -webkit-transform: translateY(30vh);
+          transform: translateY(30vh);
+}
+/*# sourceMappingURL=Selection.css.map */

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,gBAAgB,CAAC;EACf,UAAU,EAAE,IAAI;EAChB,WAAW,EAAE,GAAG;EAChB,SAAS,ECME,IAAI;CDLhB",
+    "sources": [
+        "FooterBlockList.scss",
+        "../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "FooterBlockList.css"
+}

@@ -47,9 +47,7 @@ const ProductList = () => {
   return (
     <ProductListLayout productList={productList}>
       <h1 className="mainCategory">
-        {location.search === ''
-          ? '스킨'
-          : categoryInfo[location.search.slice()].categoryName}
+        {location.search === '' ? '스킨' : categoryInfo.categoryName}
       </h1>
       <div className="filter">
         <ul className="filterSubNavContainer">

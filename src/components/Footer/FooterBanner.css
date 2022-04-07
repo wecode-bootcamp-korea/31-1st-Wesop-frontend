@@ -1,0 +1,27 @@
+.FooterBanner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 72px;
+  padding: 0 34px;
+  border-top: 3px solid #fffef2;
+  color: #fffef2;
+}
+
+.FooterBanner .FooterBannerLogoWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.FooterBanner .FooterBannerLogoWrapper .FooterBannerLogo {
+  font-size: 16px;
+}
+/*# sourceMappingURL=FooterBanner.css.map */

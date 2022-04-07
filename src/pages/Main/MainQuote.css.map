@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,UAAU,CAAC;ECYT,OAAO,EADe,IAAI;EAE1B,eAAe,EAF+B,MAAM;EAGpD,WAAW,EAHyD,MAAM;EDT1E,cAAc,EAAE,MAAM;EACtB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;CAWd;;AAfD,AAOI,UAPM,CAMR,iBAAiB,CACf,gBAAgB,CAAC;EACf,aAAa,EAAE,IAAI;EACnB,SAAS,ECHF,IAAI;CDIZ;;AAVL,AAWI,UAXM,CAMR,iBAAiB,CAKf,gBAAgB,CAAC;ECCnB,OAAO,EADe,IAAI;EAE1B,eAAe,EAF+B,MAAM;EAGpD,WAAW,EAHyD,MAAM;CDEvE",
+    "sources": [
+        "MainQuote.scss",
+        "../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "MainQuote.css"
+}

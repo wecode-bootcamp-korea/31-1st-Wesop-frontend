@@ -1,0 +1,17 @@
+.filterColumn {
+  margin-right: 20px;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  color: #666666;
+  font-size: 14px;
+}
+
+.filterColumn h5 {
+  padding: 8px 0;
+  border-bottom: 1px solid #c9c8be;
+}
+
+.filterColumn .filterColumnContents {
+  margin: 30px 0;
+}
+/*# sourceMappingURL=FilterColumn.css.map */

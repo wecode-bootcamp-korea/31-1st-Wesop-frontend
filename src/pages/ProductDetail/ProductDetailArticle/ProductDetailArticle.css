@@ -1,0 +1,60 @@
+.productDetailArticle {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  height: 666px;
+  background-color: #f5f5e8;
+}
+
+.productDetailArticle .detailArticleImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.productDetailArticle .detailArticleImg .productDetailArticleImg {
+  width: 300px;
+  height: 300px;
+}
+
+.productDetailArticle .productDetailArticleContainer {
+  height: 626px;
+  margin-left: 120px;
+  margin-right: 120px;
+  padding-top: 115px;
+  padding-bottom: 115px;
+  color: #666666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.productDetailArticle .productDetailArticleContainer .howUseUnderline {
+  padding-bottom: 15px;
+  border-bottom: 2px solid black;
+}
+
+.productDetailArticle .productDetailArticleContainer .howUseUnderline .subDetailFontColor {
+  color: #333333;
+}
+
+.productDetailArticle .productDetailArticleContainer .howUseUnderline .howUseFontColor {
+  color: #333333;
+  font-size: 30px;
+}
+
+.productDetailArticle .productDetailArticleContainer .howUseFontColord {
+  padding-top: 14px;
+}
+
+.productDetailArticle .productDetailArticleContainer .subDetailUnderline {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #d4d4c9;
+}
+/*# sourceMappingURL=ProductDetailArticle.css.map */

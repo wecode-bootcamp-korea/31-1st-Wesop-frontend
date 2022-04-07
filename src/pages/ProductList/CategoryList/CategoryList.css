@@ -1,0 +1,26 @@
+.categoryList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.categoryList .categoryTitleWrapper {
+  width: 33.3%;
+  padding: 80px 40px;
+}
+
+.categoryList .categoryTitleWrapper h2 {
+  margin: 20px 0;
+  line-height: 1.33;
+  font-size: 30px;
+  color: #252525;
+  letter-spacing: 1.8px;
+}
+
+.categoryList .categoryTitleWrapper p {
+  line-height: 1.6;
+  font-size: 16px;
+}
+/*# sourceMappingURL=CategoryList.css.map */

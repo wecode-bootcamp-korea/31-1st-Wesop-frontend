@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,sBAAsB,CAAC;EACrB,UAAU,EAAE,MAAM;CAcnB;;AAfD,AAGE,sBAHoB,CAGpB,aAAa,CAAC;EACZ,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,WAAW,EAAE,IAAI;CAQlB;;AAdH,AAQI,sBARkB,CAGpB,aAAa,CAKX,iBAAiB,CAAC;EAChB,KAAK,ECRO,OAAO;EDSnB,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,GAAG;CACjB",
+    "sources": [
+        "ProductDetailAside.scss",
+        "../../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "ProductDetailAside.css"
+}

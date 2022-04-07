@@ -1,0 +1,90 @@
+.productDetailBackground {
+  height: 100%;
+  background-color: #fffef2;
+}
+
+.productDetailBackground .productDetailLogo {
+  position: relative;
+  top: 105px;
+  left: 30px;
+  width: 120px;
+  height: 40px;
+}
+
+.productDetailBackground .productDetailAside {
+  height: 852px;
+  padding-top: 70px;
+  padding-bottom: 150px;
+}
+
+.productDetailBackground .productDetailAside .productDetailButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.productDetailBackground .productDetailAside .productDetailButton .prev,
+.productDetailBackground .productDetailAside .productDetailButton .next {
+  position: relative;
+  top: 275px;
+  width: 80px;
+  height: 80px;
+  background-color: #333333;
+  border: none;
+}
+
+.productDetailBackground .productDetailAside .productDetailButton .prev .fa-angle-left,
+.productDetailBackground .productDetailAside .productDetailButton .prev .fa-angle-right,
+.productDetailBackground .productDetailAside .productDetailButton .next .fa-angle-left,
+.productDetailBackground .productDetailAside .productDetailButton .next .fa-angle-right {
+  color: white;
+  font-size: 20px;
+}
+
+.productDetailBackground .productDetailAside .subProductDetailAside {
+  height: 462px;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-bottom: 48px;
+  overflow: hidden;
+}
+
+.productDetailBackground .productDetailAside .subProductDetailAside .goodProductUseTogether {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 2989px;
+  height: 462px;
+}
+
+.productDetailBackground .productDetailAside .subProductDetailAside .goodProductUseTogether .greatUseTogether {
+  font-size: 30px;
+}
+
+.productDetailBackground .productDetailAside .indicatorContainor {
+  margin-right: 20px;
+  margin-left: 20px;
+  overflow: hidden;
+}
+
+.productDetailBackground .productDetailAside .indicatorContainor .indicatorLine {
+  position: relative;
+  width: 100vw;
+  height: 2px;
+  background-color: #cbcbc0;
+}
+
+.productDetailBackground .productDetailAside .indicatorContainor .indicatorLine .indicatorBlock {
+  position: absolute;
+  width: 20vw;
+  height: 2px;
+  background-color: #333333;
+}
+/*# sourceMappingURL=ProductDetail.css.map */

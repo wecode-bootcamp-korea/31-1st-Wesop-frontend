@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAC;EACZ,QAAQ,EAAE,KAAK;EACf,GAAG,EAAE,CAAC;EACN,IAAI,EAAE,CAAC;EACP,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,kBAAkB;EAC9B,OAAO,EAAE,GAAG;CACb",
+    "sources": [
+        "ModalOverLay.scss"
+    ],
+    "names": [],
+    "file": "ModalOverLay.css"
+}

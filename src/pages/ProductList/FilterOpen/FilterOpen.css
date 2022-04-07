@@ -1,0 +1,13 @@
+.filterOpen {
+  background-color: #ebeade;
+  padding: 20px 40px 15px 40px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.filterOpen .filterColumns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=FilterOpen.css.map */

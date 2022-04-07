@@ -1,0 +1,14 @@
+.productSizePrice {
+  font-size: 14px;
+}
+
+.productSizePrice .productSizePriceName {
+  margin-bottom: 10px;
+  color: #252525;
+}
+
+.productSizePrice .productSizePriceInfo span {
+  color: #666666;
+  padding-right: 5px;
+}
+/*# sourceMappingURL=ProductSizePrice.css.map */

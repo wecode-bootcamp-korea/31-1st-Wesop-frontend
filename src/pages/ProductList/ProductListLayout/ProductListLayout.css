@@ -1,0 +1,22 @@
+.ProductList {
+  padding-top: 40px;
+  background-color: #fffef2;
+}
+
+.ProductList button {
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.ProductList header {
+  margin: 100px 0 20px;
+}
+
+.ProductList header .logo {
+  width: 130px;
+  margin-left: 25px;
+}
+/*# sourceMappingURL=ProductListLayout.css.map */

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,iBAAiB,CAAC;EAChB,SAAS,ECSE,IAAI;CDIhB;;AAdD,AAGE,iBAHe,CAGf,qBAAqB,CAAC;EACpB,aAAa,EAAE,IAAI;EACnB,KAAK,ECDG,OAAO;CDEhB;;AANH,AASI,iBATa,CAQf,qBAAqB,CACnB,IAAI,CAAC;EACH,KAAK,ECLO,OAAO;EDMnB,aAAa,EAAE,GAAG;CACnB",
+    "sources": [
+        "ProductSizePrice.scss",
+        "../../../../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "ProductSizePrice.css"
+}
