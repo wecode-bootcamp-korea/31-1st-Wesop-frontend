@@ -5,7 +5,7 @@ import LoginInput from '../../components/Login/LoginInput';
 import LoginCloseMiniBtn from '../../components/Login/LoginCloseMiniBtn';
 import LoginBackMiniBtn from '../../components/Login/LoginBackMiniBtn';
 import LoginCloseMainBtn from '../../components/Login/LoginCloseMainBtn';
-import { LOGIN_SERVER_ADDRESS } from '../../config/config';
+import API from '../../config/config';
 import './LoginForm.scss';
 
 const LoginForm = ({
@@ -57,11 +57,12 @@ const LoginForm = ({
     setLoginError('');
   };
 
-  const { loginMainAddress, loginSignInAddress, loginSignUpAddress } =
-    LOGIN_SERVER_ADDRESS;
+  // const { loginMainAddress, loginSignInAddress, loginSignUpAddress } =
+  //   LOGIN_SERVER_ADDRESS;
 
   const mainEmailInfoSubmit = () => {
-    fetch(loginMainAddress, {
+    // fetch(loginMainAddress, {
+    fetch(API.loginMainAddress, {
       method: 'POST',
       body: JSON.stringify({
         email: userInfo.email,
@@ -90,7 +91,7 @@ const LoginForm = ({
   };
 
   const signInInfoSubmit = () => {
-    fetch(loginSignInAddress, {
+    fetch(API.loginSignInAddress, {
       method: 'POST',
       body: JSON.stringify({
         email: userInfo.email,
@@ -125,7 +126,7 @@ const LoginForm = ({
 
   const signUpInfoSubmit = () => {
     if (isInputAllValid && loginMode === 'signUp') {
-      fetch(loginSignUpAddress, {
+      fetch(API.loginSignUpAddress, {
         method: 'POST',
         body: JSON.stringify({
           email: userInfo.email,
