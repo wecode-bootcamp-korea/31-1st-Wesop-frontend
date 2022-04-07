@@ -42,8 +42,6 @@ const Nav = () => {
     setMenu(value);
   };
 
-  console.log(menu);
-
   return (
     <div className="Nav">
       <div className="navWrapper">
@@ -55,7 +53,6 @@ const Nav = () => {
               menuHandler={menuHandler}
             />
           ))}
-          {/* <i className="fa-solid fa-magnifying-glass" /> */}
           {!!menu && (
             <span
               className="closeMenu"
