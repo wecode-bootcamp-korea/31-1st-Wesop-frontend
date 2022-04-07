@@ -39,7 +39,6 @@ const CartItemList = ({
 
   useEffect(() => {
     onAddToTotalPrice(totalPrice);
-    console.log('test');
   }, [cartList]);
 
   const deleteItemInList = () => {
