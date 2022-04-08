@@ -47,9 +47,15 @@
         font-size: $font-small;
         line-height: 1.6;
 
-        .mainCarouselImage {
+        .imageContainer {
+          @include center;
           width: 17vw;
-          height: auto;
+          height: 70vh;
+
+          .mainCarouselImage {
+            width: 17vw;
+            height: auto;
+          }
         }
 
         .mainCarouselProductName {

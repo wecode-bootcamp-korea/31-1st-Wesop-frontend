@@ -17,13 +17,13 @@ const ProductList = () => {
     location.search === '' ? '' : `/${location.search.split('=')[1]}`;
 
   useEffect(() => {
-    fetch(`http://10.58.4.196:8000/products/categories${categoryUrl}`)
+    fetch(`http://10.58.6.255:8000/products/categories${categoryUrl}`)
       .then(res => res.json())
       .then(data => setCategoryInfo(data.result));
   }, [categoryUrl]);
 
   useEffect(() => {
-    fetch(`http://10.58.4.196:8000/products${location.search}`)
+    fetch(`http://10.58.6.255:8000/products${location.search}`)
       .then(res => res.json())
       .then(data => setProductList(data.result));
   }, [location.search]);

@@ -19,6 +19,8 @@ const CategoryProduct = ({
         Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({ product_id: id }),
+    }).then(() => {
+      alert('카트에 아이템이 추가되었습니다.');
     });
   };
 

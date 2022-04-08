@@ -13,6 +13,8 @@ function ProductDetailSection({ mainDescription, changeModalHandler, params }) {
         Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({ product_id: params.id }),
+    }).then(() => {
+      alert('장바구니에 아이템이 추가되었습니다.');
     });
   };
 

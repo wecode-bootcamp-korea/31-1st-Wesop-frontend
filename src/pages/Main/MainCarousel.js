@@ -62,7 +62,13 @@ const MainCarousel = ({ category }) => {
         <div ref={slideRef} className="carouselContainer">
           {slideData.map(({ id, url, productName, skin_type }) => (
             <div key={id} className="mainCarouselContainer">
-              <img className="mainCarouselImage" src={url} alt={productName} />
+              <div className="imageContainer">
+                <img
+                  className="mainCarouselImage"
+                  src={url}
+                  alt={productName}
+                />
+              </div>
               <div className="mainCarouselProductName">{productName}</div>
               <div className="mainCarouselProductDescription">{skin_type}</div>
             </div>
