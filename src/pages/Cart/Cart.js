@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CartItemList from './CartItemList';
-import { CART_SERVER_ADDRESS } from '../../config/config';
+import API from '../../config/config';
 import './Cart.scss';
 
 const Cart = ({ onCloseCartModal }) => {
@@ -8,7 +8,7 @@ const Cart = ({ onCloseCartModal }) => {
   const [cartListTotalPrice, setCartListTotalPrice] = useState(0);
 
   const getRemoteCartList = () => {
-    fetch(CART_SERVER_ADDRESS.cartMainAddress, {
+    fetch(API.cartMainAddress, {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -22,15 +22,12 @@ const Cart = ({ onCloseCartModal }) => {
   };
 
   const deletedCartItemToServer = deleteProductId => {
-    fetch(
-      `${CART_SERVER_ADDRESS.cartMainAddress}?cart_ids=${deleteProductId}`,
-      {
-        method: 'DELETE',
-        headers: {
-          Authorization: localStorage.getItem('token'),
-        },
-      }
-    ).then(setTimeout(() => getRemoteCartList(), 300));
+    fetch(`${API.cartMainAddress}?cart_ids=${deleteProductId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+    }).then(setTimeout(() => getRemoteCartList(), 300));
   };
 
   const addPriceToCartListTotalPriceHandler = price => {
@@ -78,7 +75,9 @@ const Cart = ({ onCloseCartModal }) => {
         </div>
         <div className="cartSummaryPrice">
           <span className="cartSummaryPriceDescription">소계 (세금 포함)</span>
-          <span className="cartSummaryPriceTotal">{`₩ ${cartListTotalPrice}`}</span>
+          <span className="cartSummaryPriceTotal">{`₩ ${Number(
+            cartListTotalPrice
+          ).toLocaleString()}`}</span>
         </div>
         <div className="cartSummarySubmitBtn">
           <button type="button">결제하기</button>

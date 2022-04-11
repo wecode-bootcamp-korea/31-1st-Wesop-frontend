@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './CartItemList.scss';
-import { CART_SERVER_ADDRESS } from '../../config/config';
-import { DETAIL_SERVER_ADDRESS } from '../../config/config';
+import API from '../../config/config';
+import { useNavigate } from 'react-router-dom';
 
 const CartItemList = ({
   cartList,
@@ -12,10 +12,11 @@ const CartItemList = ({
 }) => {
   const { productId, cartId, productName, productSize, quantity, totalPrice } =
     cartItem;
+  const navigate = useNavigate();
 
   const editItemQuantityInCart = modifiedQuantity => {
     const cartIdInFunc = cartId;
-    fetch(`${CART_SERVER_ADDRESS.cartMainAddress}/cart/${cartIdInFunc}`, {
+    fetch(`${API.cartMainAddress}/cart/${cartIdInFunc}`, {
       method: 'PATCH',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -42,13 +43,15 @@ const CartItemList = ({
     deletedCartItemToServer(cartId);
   };
 
+  const goToDetail = () => {
+    navigate(`products/${productId}`);
+  };
+
   return (
     <li className="cartProductListItems">
       <div className="carProductItemInner">
         <div className="productName">
-          <a href={`${DETAIL_SERVER_ADDRESS.mainDescription}${productId}`}>
-            {productName}
-          </a>
+          <span onClick={goToDetail}>{productName}</span>
         </div>
         <div className="productVolume">
           <span>{productSize}</span>

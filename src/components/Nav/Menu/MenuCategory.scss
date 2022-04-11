@@ -4,6 +4,8 @@
   display: flex;
 
   .categoryList {
+    display: flex;
+    flex-direction: column;
     width: 13vw;
     margin: 0 30px;
 

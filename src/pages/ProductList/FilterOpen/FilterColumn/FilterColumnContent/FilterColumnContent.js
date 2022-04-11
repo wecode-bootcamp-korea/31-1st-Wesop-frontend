@@ -5,7 +5,7 @@ const FilterColumnContent = ({ listitem }) => {
   return (
     <li className="filterColumnContent">
       <input type="checkbox" id={listitem} name={listitem} value={listitem} />
-      <label for={listitem}>{listitem}</label>
+      <label htmlfor={listitem}>{listitem}</label>
     </li>
   );
 };

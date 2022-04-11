@@ -1,5 +1,23 @@
 @import '../../styles/variables.scss';
 
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .mainCarousel {
   position: relative;
 
@@ -24,15 +42,20 @@
       .mainCarouselContainer {
         @include center;
         flex-direction: column;
-        width: 400px;
-        margin: 30px;
+        width: 33.33vw;
+        margin: 1vh 7.8vw;
         font-size: $font-small;
         line-height: 1.6;
 
-        .mainCarouselImage {
-          width: auto;
-          height: 65%;
-          margin: 80px;
+        .imageContainer {
+          @include center;
+          width: 17vw;
+          height: 70vh;
+
+          .mainCarouselImage {
+            width: 17vw;
+            height: auto;
+          }
         }
 
         .mainCarouselProductName {
@@ -51,6 +74,7 @@
     height: 6vw;
     background-color: $color-dark-gray;
     cursor: pointer;
+    animation: 0.3s ease-out slideFromLeft;
 
     .leftArrow {
       width: 15%;
@@ -68,6 +92,7 @@
     height: 6vw;
     background-color: $color-dark-gray;
     cursor: pointer;
+    animation: 0.3s ease-out slideFromRight;
 
     .rightArrow {
       width: 15%;

@@ -1,21 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductDetailSection.scss';
-import { CART_SERVER_ADDRESS } from '../../../config/config';
+import API from '../../../config/config';
 
-function ProductDetailSection({ mainDescription, changeModalHandler }) {
+function ProductDetailSection({ mainDescription, changeModalHandler, params }) {
   const { category, name, description, size, price, product_imges } =
     mainDescription;
-
-  const { cartMainAddress } = CART_SERVER_ADDRESS;
-
   const postItemToCartInServer = () => {
-    fetch(cartMainAddress, {
+    fetch(API.cartMainAddress, {
       method: 'POST',
       headers: {
         Authorization: localStorage.getItem('token'),
       },
-      body: JSON.stringify({ product_id: 20 }),
+      body: JSON.stringify({ product_id: params.id }),
+    }).then(() => {
+      alert('장바구니에 아이템이 추가되었습니다.');
     });
   };
 

@@ -19,7 +19,7 @@ const MainVideo = () => {
             비타민 C 유도체, 비타민 E를 풍부하게 함유한 가벼운 제품으로 스킨케어
             플러스 레인지에서 새롭게 선보이는 강력한 하이드레이터입니다.
           </div>
-          <a className="mainVideoParagraphLink" href="/product-list">
+          <a className="mainVideoParagraphLink" href="/productlist">
             <span>이그절티드 아이 세럼 보기</span>
             <i className="fa-solid fa-arrow-right" />
           </a>

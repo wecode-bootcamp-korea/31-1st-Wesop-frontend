@@ -5,7 +5,6 @@ import FilterOpen from './FilterOpen/FilterOpen';
 import Category from './Category/Category';
 import CategoryList from './CategoryList/CategoryList';
 import './ProductList.scss';
-import API from '../../config/config';
 
 const ProductList = () => {
   const location = useLocation();
@@ -18,23 +17,23 @@ const ProductList = () => {
     location.search === '' ? '' : `/${location.search.split('=')[1]}`;
 
   useEffect(() => {
-    fetch(API.allProducts`${location.search}`)
-      .then(res => res.json())
-      .then(data => setProductList(data.result));
-  }, [location.search]);
-
-  useEffect(() => {
-    fetch(API.category`${categoryUrl}`)
+    fetch(`http://10.58.6.255:8000/products/categories${categoryUrl}`)
       .then(res => res.json())
       .then(data => setCategoryInfo(data.result));
   }, [categoryUrl]);
+
+  useEffect(() => {
+    fetch(`http://10.58.6.255:8000/products${location.search}`)
+      .then(res => res.json())
+      .then(data => setProductList(data.result));
+  }, [location.search]);
 
   const filterClickHandler = () => {
     setIsFilterOpen(!isFilterOpen);
   };
 
   const goToAllSkin = () => {
-    navigate('/product-list');
+    navigate('/productlist');
   };
 
   const updateUrl = id => {
