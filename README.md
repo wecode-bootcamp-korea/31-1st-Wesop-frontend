@@ -26,5 +26,19 @@
 - 단일/다중 필터 기능(백엔드)
 - 게시판 기능(백엔드)
 
-
+<br/>
+👇 메인페이지
+<img src="https://user-images.githubusercontent.com/90900882/162651349-63516c82-9c5f-4dae-99e7-9d80a9a87bc5.gif" width="400" height="300" />
+<br/>
+👇 로그인, 회원가입
+<img src="https://user-images.githubusercontent.com/90900882/162650973-0424b633-f9cb-4673-b10c-69bc8f8fca79.gif" width="400" height="300" />
+<br/>
+👇 전체 상품 리스트, 카테고리별 리스트
+<img src="https://user-images.githubusercontent.com/90900882/162651206-938e0d4b-f714-4767-9712-f6e5497cc8a1.gif" width="400" height="300" />
+<br/>
+👇 제품 상세 페이지
+<img src="https://user-images.githubusercontent.com/90900882/162651472-69340fc4-b2db-4875-8117-9ff8c85f481d.gif" width="400" height="300" />
+<br/>
+👇 장바구니, 검색기능
+<img src="https://user-images.githubusercontent.com/90900882/162651550-ce6a8208-b0b7-43ad-8a86-40cbf22251af.gif" width="400" height="300" />
 
